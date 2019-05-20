@@ -8,12 +8,12 @@ Project Spring MVC kỳ cuối
   * sau khi clone xong, cd vào thư mục project4, show all branch mới clone về gõ : "git branch -a" 
   * chuyển qua branch develop, gõ : "git checkout develop". Thực hiện code trên branch này
   * Muốn up ngược lại github sau khi code xong gõ: "git pull" để update project, gõ tiếp "git push" để push lên github.
-  (Nếu chưa biết làm thì click download file zip về để code)
+  (Nếu chưa biết làm thì click download file zip về để code)<br>
   Link template: https://drive.google.com/open?id=193_-VRvYvACYfRknqaBNvthhZotGbFPRTYlHBLjkqLk
 
 
 2. How to run this project: 
-    * Import database vào SQL server hoặc My SQL trong xampp
+    * Import database vào SQL server hoặc My SQL trong xampp <br>
   Từ menu bar của Spring Tool Suite 4
     * Project  --> clean 
     * Project --> Maven --> update project
