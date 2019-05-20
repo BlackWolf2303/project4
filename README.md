@@ -24,7 +24,7 @@ Project Spring MVC kỳ cuối
     * Tạo 1 controller tương ứng với 1 page, tất cả các điều hướng trong page nào thì viết @RequestMapping trong controller tương ứng.
     * 
 
-4. Link page đã immigrate:
+4. Link page đã immigrate: <br>
       /             : Trang chủ <br>
       /categories   : Danh mục sản phẩm <br>
       /blog         : Khám phá <br>
