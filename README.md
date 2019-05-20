@@ -14,7 +14,7 @@ Project Spring MVC kỳ cuối
 
 2. How to run this project: 
     * Import database vào SQL server hoặc My SQL trong xampp <br>
-  Từ menu bar của Spring Tool Suite 4
+  Từ menu bar của Spring Tool Suite 4:
     * Project  --> clean 
     * Project --> Maven --> update project
     * Run as --> Spring Boot App
