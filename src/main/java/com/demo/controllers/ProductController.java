@@ -52,5 +52,11 @@ public class ProductController {
 		productService.save(product);
 		return "redirect:/product";
 	}
+
+	@RequestMapping(value = "delete", method = RequestMethod.POST)
+	public String delete(@ModelAttribute("product") Product product) {
+		productService.save(product);
+		return "redirect:/product";
+	}
 	
 }
