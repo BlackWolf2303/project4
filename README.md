@@ -25,11 +25,11 @@ Project Spring MVC kỳ cuối
     * 
 
 4. Link page đã immigrate:
-      /             : Trang chủ
-      /categories   : Danh mục sản phẩm
-      /blog         : Khám phá
-      /about        : Về chúng tôi
-      /contact      : Liên hệ
-      /product      : Chi tiết sp
+      /             : Trang chủ <br>
+      /categories   : Danh mục sản phẩm <br>
+      /blog         : Khám phá <br>
+      /about        : Về chúng tôi <br>
+      /contact      : Liên hệ <br>
+      /product      : Chi tiết sp <br>
 
 5. 
