@@ -58,5 +58,11 @@ public class ProductController {
 		productService.save(product);
 		return "redirect:/product";
 	}
+
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public String update(@ModelAttribute("product") Product product) {
+		productService.save(product);
+		return "redirect:/product";
+	}
 	
 }
