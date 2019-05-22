@@ -9,7 +9,7 @@ Project Spring MVC kỳ cuối
   * chuyển qua branch develop, gõ : "git checkout develop". Thực hiện code trên branch này
   * Muốn up ngược lại github sau khi code xong gõ: "git pull" để update project, gõ tiếp "git push" để push lên github.
   (Nếu chưa biết làm thì click download file zip về để code)<br>
-  Link template: https://drive.google.com/open?id=193_-VRvYvACYfRknqaBNvthhZotGbFPRTYlHBLjkqLk
+  Link template: https://drive.google.com/open?id=1X7T7ge6cIQhDcQ9i71Vr3Em54RdVgtyS
 
 
 2. How to run this project: 
@@ -32,4 +32,4 @@ Project Spring MVC kỳ cuối
       /contact      : Liên hệ <br>
       /product      : Chi tiết sp <br>
 
-5. 
+5 
