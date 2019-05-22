@@ -21,7 +21,7 @@
 		<c:forEach var="p" items="${products }">
 			<tr>
 				<td>${p.id }</td>
-				<td>${p.name }</td>
+				<td>${p.username }</td>
 				<td>${p.price }</td>
 				<td>${p.quantity }</td>
 				<td>${p.status }</td>

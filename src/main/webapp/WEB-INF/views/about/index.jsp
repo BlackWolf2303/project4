@@ -126,7 +126,7 @@
 												<span class="pull-right text-italic">70%</span>
 											</div>
 											<div class="progress">
-												<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%"></div>
+												<div class="progress-bar" roles="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%"></div>
 											</div>
 										</div>
 										<div class="item-progress">
@@ -135,7 +135,7 @@
 												<span class="pull-right text-italic">25%</span>
 											</div>
 											<div class="progress">
-												<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:25%"></div>
+												<div class="progress-bar" roles="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:25%"></div>
 											</div>
 										</div>
 										<div class="item-progress">
@@ -144,7 +144,7 @@
 												<span class="pull-right text-italic">40%</span>
 											</div>
 											<div class="progress">
-												<div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:40%"></div>
+												<div class="progress-bar" roles="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:40%"></div>
 											</div>
 										</div>
 									</div>

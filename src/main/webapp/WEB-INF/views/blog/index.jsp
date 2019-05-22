@@ -53,7 +53,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/blog/Drink-Food/dink-food-blog-01.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-center">
-									<h3 class="title18 post-name font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
+									<h3 class="title18 post-username font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>
@@ -67,7 +67,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/blog/05.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-center">
-									<h3 class="title18 post-name font-bold"><a href="#" class="link-hover">An Amazing responsive and Retinaready theme.</a></h3>
+									<h3 class="title18 post-username font-bold"><a href="#" class="link-hover">An Amazing responsive and Retinaready theme.</a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>
@@ -81,7 +81,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/blog/Drink-Food/dink-food-blog-02.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-center">
-									<h3 class="title18 post-name font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
+									<h3 class="title18 post-username font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>
@@ -95,7 +95,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/blog/Drink-Food/dink-food-blog-03.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-center">
-									<h3 class="title18 post-name font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
+									<h3 class="title18 post-username font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>
@@ -109,7 +109,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/blog/11.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-center">
-									<h3 class="title18 post-name font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
+									<h3 class="title18 post-username font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>
@@ -123,7 +123,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/blog/Drink-Food/dink-food-blog-05.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-center">
-									<h3 class="title18 post-name font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
+									<h3 class="title18 post-username font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>
@@ -137,7 +137,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/banner/7uptheme_verycheap_02.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-center">
-									<h3 class="title18 post-name font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
+									<h3 class="title18 post-username font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>
@@ -151,7 +151,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/banner/7uptheme_verycheap_16.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-center">
-									<h3 class="title18 post-name font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
+									<h3 class="title18 post-username font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>
@@ -165,7 +165,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/banner/7uptheme_verycheap_15.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-center">
-									<h3 class="title18 post-name font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
+									<h3 class="title18 post-username font-bold"><a href="#" class="link-hover">Slide image Post format</a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>

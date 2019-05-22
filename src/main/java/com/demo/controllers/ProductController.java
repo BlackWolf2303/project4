@@ -64,5 +64,5 @@ public class ProductController {
 		productService.save(product);
 		return "redirect:/product";
 	}
-	
+
 }

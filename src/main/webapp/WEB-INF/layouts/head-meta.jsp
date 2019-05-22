@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta name="description" content="Retailer Car is new Html theme that we have designed to help you transform your store into a beautiful online showroom. This is a fully responsive Html theme, with multiple versions for homepage and multiple templates for sub pages as well" />
-	<meta name="keywords" content="Retailer Car,7uptheme" />
-	<meta name="robots" content="noodp,index,follow" />
-	<meta name='revisit-after' content='1 days' />
+	<meta username="viewport" content="width=device-width, initial-scale=1"/>
+	<meta username="description" content="Retailer Car is new Html theme that we have designed to help you transform your store into a beautiful online showroom. This is a fully responsive Html theme, with multiple versions for homepage and multiple templates for sub pages as well" />
+	<meta username="keywords" content="Retailer Car,7uptheme" />
+	<meta username="robots" content="noodp,index,follow" />
+	<meta username='revisit-after' content='1 days' />
 	<title>Fashion shop</title>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">

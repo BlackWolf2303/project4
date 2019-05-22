@@ -92,10 +92,10 @@
 												<div class="choose-detail choose-detail2 choose-color">
 													<span>Color: Yellow</span>
 													<ul class="list-inline-block list-color">
-														<li><a href="#" class="name-color active color-yellow"></a></li>
-														<li><a href="#" class="name-color color-gray"></a></li>
-														<li><a href="#" class="name-color color-white border"></a></li>
-														<li><a href="#" class="name-color color-black"></a></li>
+														<li><a href="#" class="username-color active color-yellow"></a></li>
+														<li><a href="#" class="username-color color-gray"></a></li>
+														<li><a href="#" class="username-color color-white border"></a></li>
+														<li><a href="#" class="username-color color-black"></a></li>
 													</ul>
 												</div>
 												<div class="choose-detail choose-detail2 choose-size">
@@ -194,7 +194,7 @@ The globe and the map are the small model of our world. Nowadays maps are very u
 														<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/photos/ava-post/02.png" alt="" /></a>
 													</div>
 													<div class="content-box">
-														<div class="name-author clearfix">
+														<div class="username-author clearfix">
 															<h3 class="title14 text-uppercase font-bold pull-left">Mr Amson says:</h3>
 															<a href="#" class="link-hover link-rep font-semi-bold text-uppercase pull-right">reply</a>
 														</div>
@@ -208,7 +208,7 @@ The globe and the map are the small model of our world. Nowadays maps are very u
 														<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/photos/ava-post/03.png" alt="" /></a>
 													</div>
 													<div class="content-box">
-														<div class="name-author clearfix">
+														<div class="username-author clearfix">
 															<h3 class="title14 text-uppercase font-bold pull-left">Mr Kenlly says:</h3>
 														</div>
 														<p class="desc">Hi, this is a review.</p>
@@ -222,7 +222,7 @@ The globe and the map are the small model of our world. Nowadays maps are very u
 												<p class="desc">Your email address will not be published. Required fields are marked *</p>
 												<form class="rep-comment-form clearfix">
 													<div class="input-text input-user">
-														<input type="text" value="User name*" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue">
+														<input type="text" value="User username*" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue">
 													</div>
 													<div class="input-text input-email">
 														<input type="text" value="Email*" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue">

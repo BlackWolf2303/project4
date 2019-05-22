@@ -162,15 +162,15 @@
 						<h2 class="title30 text-uppercase rale-font"><span>the shop</span></h2>
 						<h3 class="title14 text-uppercase font-bold">MOST-COVETED CLOTHING</h3>
 					</div>
-					<ul class="nav nav-tabs list-inline-block" role="tablist">
-						<li role="presentation" class="active"><h3><a href="#tab1" class="text-uppercase title12 shop-button" data-toggle="tab">new arrivals</a></h3></li>
-						<li role="presentation"><h3><a href="#tab2" class="text-uppercase title12 shop-button" data-toggle="tab">latest products</a></h3></li>
-						<li role="presentation"><h3><a href="#tab3" class="text-uppercase title12 shop-button" data-toggle="tab">best sellers</a></h3></li>
-						<li role="presentation"><h3><a href="#tab4" class="text-uppercase title12 shop-button" data-toggle="tab">on sale</a></h3></li>
+					<ul class="nav nav-tabs list-inline-block" roles="tablist">
+						<li roles="presentation" class="active"><h3><a href="#tab1" class="text-uppercase title12 shop-button" data-toggle="tab">new arrivals</a></h3></li>
+						<li roles="presentation"><h3><a href="#tab2" class="text-uppercase title12 shop-button" data-toggle="tab">latest products</a></h3></li>
+						<li roles="presentation"><h3><a href="#tab3" class="text-uppercase title12 shop-button" data-toggle="tab">best sellers</a></h3></li>
+						<li roles="presentation"><h3><a href="#tab4" class="text-uppercase title12 shop-button" data-toggle="tab">on sale</a></h3></li>
 					</ul>
 					<div class="content-box">
 						<div class="tab-content">
-							<div id="tab1" class="tab-pane fade in active wrap-product" role="tabpanel">
+							<div id="tab1" class="tab-pane fade in active wrap-product" roles="tabpanel">
 								<div class="wrap-item" data-pagination="false" data-autoplay="false" data-transition="fade" data-navigation="true" data-itemscustom="[[0,1],[480,2],[768,3],[1024,3],[1200,4]]">
 									<div class="item-product item-product1">
 										<span class="sale-item">sale</span>
@@ -314,7 +314,7 @@
 									</div>
 								</div>
 							</div>
-							<div id="tab2" class="tab-pane fade in wrap-product" role="tabpanel">
+							<div id="tab2" class="tab-pane fade in wrap-product" roles="tabpanel">
 								<div class="wrap-item" data-pagination="false" data-autoplay="false" data-transition="fade" data-navigation="true" data-itemscustom="[[0,1],[480,2],[768,3],[1024,3],[1200,4]]">
 									<div class="item-product item-product1">
 										<div class="product-thumb mid">
@@ -456,7 +456,7 @@
 									</div>
 								</div>
 							</div>
-							<div id="tab3" class="tab-pane fade in wrap-product" role="tabpanel">
+							<div id="tab3" class="tab-pane fade in wrap-product" roles="tabpanel">
 								<div class="wrap-item" data-pagination="false" data-autoplay="false" data-transition="fade" data-navigation="true" data-itemscustom="[[0,1],[480,2],[768,3],[1024,3],[1200,4]]">
 									<div class="item-product item-product1">
 										<div class="product-thumb mid">
@@ -598,7 +598,7 @@
 									</div>
 								</div>
 							</div>
-							<div id="tab4" class="tab-pane fade in wrap-product" role="tabpanel">
+							<div id="tab4" class="tab-pane fade in wrap-product" roles="tabpanel">
 								<div class="wrap-item" data-pagination="false" data-autoplay="false" data-transition="fade" data-navigation="true" data-itemscustom="[[0,1],[480,2],[768,3],[1024,3],[1200,4]]">
 									<div class="item-product item-product1">
 										<div class="product-thumb mid">
@@ -872,7 +872,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/blog/01.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-left">
-									<h3 class="title18 post-name font-bold border-bottom"><a href="#" class="link-hover">The annual international trade show </a></h3>
+									<h3 class="title18 post-username font-bold border-bottom"><a href="#" class="link-hover">The annual international trade show </a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold title12">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>
@@ -894,7 +894,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/blog/03.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-left">
-									<h3 class="title18 post-name font-bold border-bottom"><a href="#" class="link-hover">The hottest shoes of the year</a></h3>
+									<h3 class="title18 post-username font-bold border-bottom"><a href="#" class="link-hover">The hottest shoes of the year</a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold title12">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>
@@ -916,7 +916,7 @@
 									<a href="#" class="advs-thumb-link"><img src="${pageContext.request.contextPath}/resources/assets/photos/blog/10.jpg" alt="" /></a>
 								</div>
 								<div class="post-info text-left"> 
-									<h3 class="title18 post-name font-bold border-bottom"><a href="#" class="link-hover">Turner Prize Shortlist for 2017</a></h3>
+									<h3 class="title18 post-username font-bold border-bottom"><a href="#" class="link-hover">Turner Prize Shortlist for 2017</a></h3>
 									<ul class="list-inline-block post-date">
 										<li><span class="font-bold title12">Aug 26, 2017</span></li>
 										<li><a href="#" class="font-bold"><i class="far fa-comment"></i>5</a></li>

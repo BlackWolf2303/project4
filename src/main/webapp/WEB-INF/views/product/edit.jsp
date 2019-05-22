@@ -14,7 +14,7 @@
 		<table>
 			<tr>
 				<td>Name</td>
-				<td><s:input path="name" /></td>
+				<td><s:input path="username" /></td>
 			</tr>
 			<tr>
 				<td>Price</td>
