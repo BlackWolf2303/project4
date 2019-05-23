@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/demo1")
-public class Demo1RestController {
+@RequestMapping("welcome")
+public class WelcomeController {
 
-    @RequestMapping(value = "hello", method = RequestMethod.GET)
-    public ResponseEntity<String> hello(){
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<String> welcome(){
         try {
-            return new ResponseEntity<String>("Hello Demo 1", HttpStatus.OK);
+            return new ResponseEntity<String>("❤❤❤ Hello Giang ❤❤❤", HttpStatus.OK);
         } catch (Exception e){
             return new ResponseEntity<String>(HttpStatus.BAD_GATEWAY);
         }

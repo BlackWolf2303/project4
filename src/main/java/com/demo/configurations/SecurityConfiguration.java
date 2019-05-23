@@ -1,6 +1,7 @@
 package com.demo.configurations;
 
 import com.demo.services.AccountService;
+import com.demo.services.AccountServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,20 +22,20 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
 
-        httpSecurity
-                .httpBasic()
-                .and()
-                .authorizeRequests()
-                    .antMatchers(HttpMethod.GET, "/api/demo1/**").access("hasRole('ROLE_SUPER_ADMIN')")
-                    .antMatchers(HttpMethod.GET, "/api/demo2/**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN')")
-                    .antMatchers(HttpMethod.GET, "/api/demo3/**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN') or hasRole('ROLE_EMPLOYEE')")
-                    .antMatchers(HttpMethod.GET, "/login*").permitAll()
+        httpSecurity.authorizeRequests()
+                    .antMatchers(HttpMethod.GET, "/welcome").access("hasRole('ROLE_SUPER_ADMIN')")
+                    //.antMatchers(HttpMethod.GET, "/api/demo2/**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN')")
+                    //.antMatchers(HttpMethod.GET, "/api/demo3/**").access("hasRole('ROLE_SUPER_ADMIN') or hasRole('ROLE_ADMIN') or hasRole('ROLE_EMPLOYEE')")
+                    .antMatchers("/login*").permitAll()
+                    .antMatchers("/resources/**").permitAll()
                     .anyRequest().authenticated()
-                    .and()
-                .csrf().disable()
-                .formLogin().loginPage("/login")
-                .and().logout()
-                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+                .and()
+                    .formLogin().loginPage("/login").passwordParameter("password").usernameParameter("username")
+                    .loginProcessingUrl("/loginProcessing")
+                    .defaultSuccessUrl("/welcome")
+                    //.failureUrl("/loginFailed")
+                .and().logout().logoutUrl("/doLogout").logoutSuccessUrl("/logout")
+                .and().csrf().disable();
 
     }
 

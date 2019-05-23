@@ -3,10 +3,11 @@ package com.demo.entities;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "account")
+@Table(name = "role")
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +19,7 @@ public class Role {
                     CascadeType.MERGE
             },
             mappedBy = "roles")
-    private List<Account> accounts;
+    private List<Account> accounts = new ArrayList<Account>();
 
     public int getId() {
         return id;

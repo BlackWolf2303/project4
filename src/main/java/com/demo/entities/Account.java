@@ -3,6 +3,7 @@ package com.demo.entities;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +22,7 @@ public class Account {
     @JoinTable(name = "accounts_roles",
             joinColumns = { @JoinColumn(name = "account_id") },
             inverseJoinColumns = { @JoinColumn(name = "role_id") })
-    private List<Role> roles;
+    private List<Role> roles = new ArrayList<Role>();
 
     public String getUsername() {
         return username;

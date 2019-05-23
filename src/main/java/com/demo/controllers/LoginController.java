@@ -9,7 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("login")
 public class LoginController {
     @RequestMapping(method = RequestMethod.GET)
-    public String LoginView() {
+    public String login() {
         return "login/index";
     }
+
+//    @RequestMapping(method = RequestMethod.POST)
+//    public String login(String username, String password) {
+//        return "login/index";
+//    }
 }
