@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 22, 2019 at 08:42 PM
+-- Generation Time: May 23, 2019 at 10:09 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -30,20 +30,36 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account` (
   `id` int(11) NOT NULL,
-  `name` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(250) COLLATE utf8_unicode_ci NOT NULL
+  `username` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`id`, `username`, `password`) VALUES
+(1, 'lythihagiang', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `account_roles`
+-- Table structure for table `accounts_roles`
 --
 
-CREATE TABLE `account_roles` (
-  `account_id` int(11) NOT NULL,
-  `role_id` int(11) NOT NULL
+CREATE TABLE `accounts_roles` (
+  `account_id` int(255) NOT NULL,
+  `role_id` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `accounts_roles`
+--
+
+INSERT INTO `accounts_roles` (`account_id`, `role_id`) VALUES
+(1, 1),
+(1, 2),
+(1, 3);
 
 -- --------------------------------------------------------
 
@@ -136,6 +152,15 @@ CREATE TABLE `role` (
   `name` varchar(250) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `role`
+--
+
+INSERT INTO `role` (`id`, `name`) VALUES
+(1, 'ROLE_SUPER_ADMIN'),
+(2, 'ROLE_ADMIN'),
+(3, 'ROLE_EMPLOYEE');
+
 -- --------------------------------------------------------
 
 --
@@ -146,12 +171,18 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` int(250) NOT NULL,
-  `gender` int(11) NOT NULL,
+  `fullname` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `gender` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
   `age` int(11) NOT NULL,
-  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `role` int(11) NOT NULL
+  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `fullname`, `gender`, `age`, `phone`) VALUES
+(1, 'lythihagiang', '$2y$12$eMkABh68f.7efUuF9Zmx3uWX9Lq/wLmWdwqQnqM2zlhmZfWaDrsMO', 'Lý Thị Hà Giang', 'Nữ', 24, '0987654321');
 
 --
 -- Indexes for dumped tables
@@ -164,9 +195,9 @@ ALTER TABLE `account`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `account_roles`
+-- Indexes for table `accounts_roles`
 --
-ALTER TABLE `account_roles`
+ALTER TABLE `accounts_roles`
   ADD PRIMARY KEY (`account_id`,`role_id`),
   ADD KEY `fk_accounts_roles_role` (`role_id`);
 
@@ -217,7 +248,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -241,22 +272,22 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `account_roles`
+-- Constraints for table `accounts_roles`
 --
-ALTER TABLE `account_roles`
+ALTER TABLE `accounts_roles`
   ADD CONSTRAINT `fk_accounts_roles_account` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`),
   ADD CONSTRAINT `fk_accounts_roles_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
 
