@@ -13,7 +13,7 @@ public class WelcomeController {
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<String> welcome(){
         try {
-            return new ResponseEntity<String>("❤❤❤ Hello Giang ❤❤❤", HttpStatus.OK);
+            return new ResponseEntity<String>("❤❤❤ Hello Giang❤❤❤", HttpStatus.OK);
         } catch (Exception e){
             return new ResponseEntity<String>(HttpStatus.BAD_GATEWAY);
         }

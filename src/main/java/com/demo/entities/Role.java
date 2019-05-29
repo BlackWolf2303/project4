@@ -1,7 +1,5 @@
 package com.demo.entities;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;

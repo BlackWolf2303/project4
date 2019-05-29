@@ -1,4 +1,5 @@
 <%@ page pageEncoding="utf-8" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <body class="bg-white">
 <div class="wrap wrap-index">
 	<header id="header">
@@ -32,7 +33,7 @@
 									</div>
 								</li>
 								<li>
-									<a href="#" class="text-uppercase title12 link-hover"><i class="fas fa-user"></i> my account</a>
+									<a href="<c:url value="/logout"/>" class="text-uppercase title12 link-hover"><i class="fas fa-user"></i> my account</a>
 								</li>
 								<li>
 									<div class="mini-cart-box aside-box style-mini-cart">
