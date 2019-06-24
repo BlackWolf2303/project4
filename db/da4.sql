@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2019 at 10:09 PM
+-- Generation Time: Jun 24, 2019 at 04:33 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -39,7 +39,8 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id`, `username`, `password`) VALUES
-(1, 'lythihagiang', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC');
+(1, 'lythihagiang', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC'),
+(3, 'admin', '$2a$10$rrHs7RgIf2pvYVeTMAPQ3u.U7xqGDohjOrqSdj0ueT5BrP7iMLZRO');
 
 -- --------------------------------------------------------
 
@@ -170,19 +171,15 @@ INSERT INTO `role` (`id`, `name`) VALUES
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `gender` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `age` int(11) NOT NULL,
-  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `password` varchar(250) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `fullname`, `gender`, `age`, `phone`) VALUES
-(1, 'lythihagiang', '$2y$12$eMkABh68f.7efUuF9Zmx3uWX9Lq/wLmWdwqQnqM2zlhmZfWaDrsMO', 'Lý Thị Hà Giang', 'Nữ', 24, '0987654321');
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'lythihagiang', '$2y$12$eMkABh68f.7efUuF9Zmx3uWX9Lq/wLmWdwqQnqM2zlhmZfWaDrsMO');
 
 --
 -- Indexes for dumped tables
@@ -248,7 +245,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `category`
