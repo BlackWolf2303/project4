@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/layouts/head-meta.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/layouts/header.jsp"></jsp:include>
-	
+
 	<section id="content">
 		<div class="content-page"> 
 			<div class="container">
@@ -56,17 +56,15 @@
 											<div class="detail-gallery detail-gallery3">
 												<div class="thumb-product mid">
 													<span class="sale-item">sale</span>
-													<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1.jpg" alt=""/></a>
+													<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/images/product/giay.jpg" alt=""/></a>
 												</div>
 												<div class="gallery-control gallery-control3">
 													<div class="carousel" data-vertical="false">
 														<ul class="list-none">
-															<li><a href="#" class="active"><img src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1.jpg" alt=""/></a></li>
-															<li><a href="#"><img src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1-1.jpg" alt=""/></a></li>
-															<li><a href="#"><img src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1-1-1.jpg" alt=""/></a></li>
-															<li><a href="#"><img src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-31.jpg" alt=""/></a></li>
-															<li><a href="#"><img src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-30.jpg" alt=""/></a></li>
-															<li><a href="#"><img src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-32.jpg" alt=""/></a></li>
+														<c:forEach var="image" items="${product.images }">
+														<li><a href="#" class="active"><img src="${pageContext.request.contextPath}/resources/assets${image.name}" alt=""/></a></li>
+														</c:forEach>
+															
 														</ul>
 													</div>
 													<div class="control-button-gallery control-button-gallery3 text-center">
@@ -79,9 +77,9 @@
 										<div class="col-md-6 col-sm-6 col-xs-12">
 											<div class="detail-info detail-info2 detail-info3 product-info">
 												<span class="title10 text-uppercase">accessories</span>
-												<h3 class="title30 font-bold"><a href="#" class="link-hover">Fashion store clothing</a></h3>
+												<h3 class="title30 font-bold"><a href="#" class="link-hover">${product.name}</a></h3>
 												<div class="product-price">
-													<del>$97.00</del>
+													<del>${product.price}</del>
 													<ins class="font-bold color">$48.50</ins>
 												</div>
 												<div class="product-rate">
@@ -90,23 +88,27 @@
 													</div>
 												</div>
 												<div class="choose-detail choose-detail2 choose-color">
-													<span>Color: Yellow</span>
+													<span>Color:</span>
 													<ul class="list-inline-block list-color">
-														<li><a href="#" class="username-color active color-yellow"></a></li>
-														<li><a href="#" class="username-color color-gray"></a></li>
-														<li><a href="#" class="username-color color-white border"></a></li>
-														<li><a href="#" class="username-color color-black"></a></li>
+													<c:forEach var="color" items="${product.colors }">
+														<li><a href="#" class="name-color active color-${color.name }">${color.name }</a></li>
+													</c:forEach>
 													</ul>
 												</div>
 												<div class="choose-detail choose-detail2 choose-size">
-													<span>Size: S</span>
-													<ul class="list-inline-block">
-														<li><a href="#" class="active border bg-white">S</a></li>
-														<li><a href="#" class="border bg-white link-hover">M</a></li>
-														<li><a href="#" class="border bg-white link-hover">L</a></li>
-														<li><a href="#" class="border bg-white link-hover">XL</a></li>
-														<li><a href="#" class="border bg-white link-hover">ONE SIZE</a></li>
-													</ul>
+													<span>Size:</span>
+													<c:if test="${!product.freeSize }">
+														<ul class="list-inline-block">
+														<c:forEach var="size" items="${product.sizes }">
+															<li><a href="#" class="active border bg-white">${size.name }</a></li>
+														</c:forEach>
+														</ul>
+													</c:if>
+													<c:if test="${product.freeSize }">
+														<ul class="list-inline-block">
+															<li><a href="#" class="active border bg-white">Oversize</a></li>
+														</ul>
+													</c:if>
 													<span class="text-uppercase title10 bg-gray size-guide size-guide2">sizes guide</span>
 												</div>
 											</div>
@@ -132,9 +134,10 @@
 												</ul>
 												<ul class="list-inline-block">
 													<li><span>Categories:</span></li>
-													<li><a href="#" class="title12 list-tag-cate bg-white border hover-btn">Electronic</a></li>
-													<li><a href="#" class="title12 list-tag-cate bg-white border hover-btn">Beauty</a></li>
-													<li><a href="#" class="title12 list-tag-cate bg-white border hover-btn">Sale</a></li>
+													<c:forEach var="category" items="${product.categories }">
+														<li><a href="#" class="title12 list-tag-cate bg-white border hover-btn">${ category.name}</a></li>
+													</c:forEach>
+													
 												</ul>
 												<ul class="list-inline-block social-box">
 													<li><a href="#" class="wobble-bottom"><i class="fab fa-facebook-f"></i></a></li>
@@ -194,7 +197,7 @@ The globe and the map are the small model of our world. Nowadays maps are very u
 														<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/photos/ava-post/02.png" alt="" /></a>
 													</div>
 													<div class="content-box">
-														<div class="username-author clearfix">
+														<div class="name-author clearfix">
 															<h3 class="title14 text-uppercase font-bold pull-left">Mr Amson says:</h3>
 															<a href="#" class="link-hover link-rep font-semi-bold text-uppercase pull-right">reply</a>
 														</div>
@@ -208,7 +211,7 @@ The globe and the map are the small model of our world. Nowadays maps are very u
 														<a href="#"><img src="${pageContext.request.contextPath}/resources/assets/photos/ava-post/03.png" alt="" /></a>
 													</div>
 													<div class="content-box">
-														<div class="username-author clearfix">
+														<div class="name-author clearfix">
 															<h3 class="title14 text-uppercase font-bold pull-left">Mr Kenlly says:</h3>
 														</div>
 														<p class="desc">Hi, this is a review.</p>
@@ -222,7 +225,7 @@ The globe and the map are the small model of our world. Nowadays maps are very u
 												<p class="desc">Your email address will not be published. Required fields are marked *</p>
 												<form class="rep-comment-form clearfix">
 													<div class="input-text input-user">
-														<input type="text" value="User username*" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue">
+														<input type="text" value="User name*" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue">
 													</div>
 													<div class="input-text input-email">
 														<input type="text" value="Email*" onfocus="if (this.value==this.defaultValue) this.value = ''" onblur="if (this.value=='') this.value = this.defaultValue">

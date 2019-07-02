@@ -6,35 +6,40 @@ import java.util.List;
 @Entity
 @Table(name = "category")
 public class Category {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    private String name;
 
-	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-	private List<Product> product;
+    @ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                    CascadeType.PERSIST,
+                    CascadeType.MERGE
+            },
+            mappedBy = "categories")
+    private List<Product> products;
 
-	public List<Product> getProduct() {
-		return product;
-	}
+    public List<Product> getProducts() {
+        return products;
+    }
 
-	public void setProduct(List<Product> product) {
-		this.product = product;
-	}
+    public void setProducts(List<Product> product) {
+        this.products = product;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 }
