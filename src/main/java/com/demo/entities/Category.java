@@ -10,16 +10,36 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "categories")
+	private List<Product> products;
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "parentid")
+	private Category category;
+	@OneToMany(mappedBy = "category")
+	private List<Category> categories;
 
-	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-	private List<Product> product;
-
-	public List<Product> getProduct() {
-		return product;
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setProduct(List<Product> product) {
-		this.product = product;
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public List<Category> getCategories() {
+		return categories;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> product) {
+		this.products = product;
 	}
 
 	public String getName() {
