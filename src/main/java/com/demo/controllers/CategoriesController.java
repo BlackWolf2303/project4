@@ -1,7 +1,5 @@
 package com.demo.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,10 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.demo.entities.Category;
-import com.demo.entities.Color;
-import com.demo.entities.Image;
 import com.demo.entities.Product;
-import com.demo.entities.Size;
 import com.demo.services.ProductService;
 
 @Controller
