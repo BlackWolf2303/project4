@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,11 +20,29 @@ import java.util.List;
 @Transactional
 public class AccountServiceImpl implements AccountService {
 
-    @Autowired
-    private AccountRepository accountRepository;
+	@Autowired
+	private AccountRepository accountRepository;
+	
+//    @Autowired
+//    private RoleRepository roleRepository;
+	
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	@Override
+	public void save(Account account) {
+		account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
+		//account.setRoles(new ArrayList<>(accountRepository.findAll()));
+		accountRepository.save(account);
+	}
+
+	@Override
+	public Account findByUsername(String username) {
+		return accountRepository.findByUsername(username);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 //        generate bcrypt pass
 //        String password = "123";
 //        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -31,14 +50,15 @@ public class AccountServiceImpl implements AccountService {
 //
 //        System.out.println(hashedPassword);
 
-        Account account = accountRepository.findByUsername(username);
-        if (account == null) {
-            throw new UsernameNotFoundException("Username not found for " + username);
-        }
-        List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
-        for (Role role : account.getRoles()) {
-            grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
-        }
-        return new User(account.getUsername(), account.getPassword(), grantedAuthorities);
-    }
+		Account account = accountRepository.findByUsername(username);
+		if (account == null) {
+			throw new UsernameNotFoundException("Username not found for " + username);
+		}
+		List<GrantedAuthority> grantedAuthorities = new ArrayList<GrantedAuthority>();
+		for (Role role : account.getRoles()) {
+			grantedAuthorities.add(new SimpleGrantedAuthority(role.getName()));
+		}
+		return new User(account.getUsername(), account.getPassword(), grantedAuthorities);
+	}
+
 }
