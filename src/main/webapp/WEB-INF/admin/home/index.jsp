@@ -10,6 +10,6 @@
 
 	<h1>Dashboard</h1>
 	<h2>Welcome</h2>
-	<a href="/admin_logout">Logout</a>
+	<a href="/admin/logout">Logout</a>
 </body>
 </html>

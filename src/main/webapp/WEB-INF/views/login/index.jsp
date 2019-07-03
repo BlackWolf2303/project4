@@ -32,12 +32,12 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form class="login100-form validate-form" method="post">
+				<form class="login100-form validate-form" action="/login" method="post">
 					<span class="login100-form-title p-b-70">
 						Welcome
 					</span>
 					<span class="login100-form-avatar">
-						<img src="https://scontent.fsgn2-2.fna.fbcdn.net/v/t1.0-1/60652197_134936240946909_3328220563406585856_n.jpg?_nc_cat=103&_nc_oc=AQklZXY5vvNShqm_yTfGqVJH_BM75sXuyHqXPcFxshOoYKlpcLqGuiKwdN-uDMH6NZQ&_nc_ht=scontent.fsgn2-2.fna&oh=3ad31d261af073e2012dd436bad9ec40&oe=5D9C41F9" alt="AVATAR">
+						<img src="https://scontent-hkg3-2.xx.fbcdn.net/v/t1.0-9/61127079_136054257501774_7070886246603554816_n.jpg?_nc_cat=109&_nc_oc=AQkSZjN77RUmBVYdor1y0FUljpZmJkeALu8BzjikFASu_yDsxZbhmL-dxMXztBu7LSw&_nc_ht=scontent-hkg3-2.xx&oh=ad5ec35c19bbf65b2ef139d4d0f45b0f&oe=5D81A421" alt="AVATAR">
 					</span>
 
 					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
