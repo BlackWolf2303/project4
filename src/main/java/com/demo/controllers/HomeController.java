@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.request.RequestContextHolder;
 
 import com.demo.entities.Account;
 import com.demo.services.AccountService;
@@ -37,6 +38,9 @@ public class HomeController {
 //            errorMessge = "You have been successfully logged out !!";
 //        }
         model.addAttribute("errorMessge", errorMessge);
+        if (!RequestContextHolder.currentRequestAttributes().getSessionId().isEmpty()) {
+        	return "redirect:/";
+        }
 		return "login/index";
 	}
 	
