@@ -16,7 +16,7 @@ import org.springframework.security.web.servletapi.SecurityContextHolderAwareReq
 
 @EnableWebSecurity
 @Configuration
-@Order(1)
+@Order(2)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     private AccountService accountService;
@@ -49,7 +49,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		  	.and()
 		  	.exceptionHandling()
 		  	.accessDeniedPage("/403")
-		   
+		  	
 		  	.and()
 		  	.csrf().disable();
 
