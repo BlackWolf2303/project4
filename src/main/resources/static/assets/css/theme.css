@@ -7465,6 +7465,12 @@ div.table .product-info .product-title {
 .color-black {
   background-color: #000;
 }
+.color-red {
+  background-color: #FF0000;
+}
+.color-blue {
+  background-color: #0000FF;
+}
 .choose-color .name-color {
   display: inline-block;
   width: 20px;
