@@ -32,6 +32,9 @@
 										</form>
 									</div>
 								</li>
+								
+								<c:out value="${pageContext.session.id}"/>
+								
 								<li>
 									<a href="<c:url value="/logout"/>" class="text-uppercase title12 link-hover"><i class="fas fa-user"></i> my account</a>
 								</li>

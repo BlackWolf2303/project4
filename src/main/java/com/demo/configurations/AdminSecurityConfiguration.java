@@ -12,7 +12,7 @@ import com.demo.services.AccountService;
 
 @EnableWebSecurity
 @Configuration
-@Order(2)
+@Order(1)
 public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
  
 	@Autowired
