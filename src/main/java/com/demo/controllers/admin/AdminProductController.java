@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,4 +32,33 @@ public class AdminProductController {
 		return "../admin/products/details";
 	}
 	
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	public String add(@ModelAttribute("product") Product product) {
+		productService.save(product);
+		return "redirect:/admin/products";
+	}
+
+	
+	@RequestMapping(value = "add", method = RequestMethod.GET)
+	public String add() {
+		return "../admin/products/add";
+	}
+	
+	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+	public String delete(@PathVariable("id") int id) {
+		productService.delete(id);
+		return "redirect:/admin/products";
+	}
+	
+	@RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
+	public String edit(@PathVariable("id") int id, ModelMap modelMap) {
+		modelMap.put("product", productService.find(id));
+		return "../admin/products/edit";
+	}
+	
+	@RequestMapping(value = "edit/{id}", method = RequestMethod.POST)
+	public String edit(@ModelAttribute("product") Product product) {
+		productService.save(product);
+		return "redirect:/admin/products";
+	}
 }
