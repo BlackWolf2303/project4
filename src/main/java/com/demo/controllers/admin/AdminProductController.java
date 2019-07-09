@@ -1,7 +1,5 @@
 package com.demo.controllers.admin;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.demo.entities.Product;
+import com.demo.services.ColorService;
 import com.demo.services.ProductService;
+import com.demo.services.SizeService;
 
 @Controller
 @RequestMapping("admin/products")
@@ -19,6 +19,10 @@ public class AdminProductController {
 	
 	@Autowired
 	private ProductService productService;
+	@Autowired
+	private ColorService colorService;
+	@Autowired
+	private SizeService sizeService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
@@ -53,6 +57,8 @@ public class AdminProductController {
 	@RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
 	public String edit(@PathVariable("id") int id, ModelMap modelMap) {
 		modelMap.put("product", productService.find(id));
+		modelMap.put("sizes", sizeService.findAll());
+		modelMap.put("colors", colorService.findAll());
 		return "../admin/products/edit";
 	}
 	
