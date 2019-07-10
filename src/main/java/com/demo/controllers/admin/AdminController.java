@@ -1,6 +1,8 @@
 package com.demo.controllers.admin;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,6 +40,12 @@ public class AdminController {
 //        if(logout != null) {
 //            errorMessge = "You have been successfully logged out !!";
 //        }
+		if (SecurityContextHolder.getContext().getAuthentication() != null
+				&& SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
+				// when Anonymous Authentication is enabled
+				!(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken) ) {
+       	return "redirect:/admin";
+       }
         model.addAttribute("errorMessge", errorMessge);
 		return "../admin/login";
 	}

@@ -13,7 +13,7 @@ public class Account {
 	private String username;
 	private String password;
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "accounts_roles", 
+	@JoinTable(name = "account_role", 
 			joinColumns = { @JoinColumn(name = "account_id") }, 
 			inverseJoinColumns = { @JoinColumn(name = "role_id") })
 	private List<Role> roles = new ArrayList<Role>();
