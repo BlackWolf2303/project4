@@ -41,6 +41,7 @@ public class HttpSecurityConfig {
 			http.antMatcher("/admin**/**")
 					.authorizeRequests()//.antMatchers("/admin/register/**").permitAll()
 					.antMatchers("/resources/**").permitAll()
+					.antMatchers("/admin/register/**").permitAll()
 					.anyRequest().hasAuthority(roleService.find(1).getName())
 					//.access("hasAnyRole('"
 //							+ roleService.find(1).getName() + "','"

@@ -38,7 +38,8 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public Account findByUsername(String username) {
-		return accountRepository.findByUsername(username);
+		Account account = accountRepository.findByUsername(username);
+		return account;
 	}
 
 	@Override
@@ -61,4 +62,6 @@ public class AccountServiceImpl implements AccountService {
 		return new User(account.getUsername(), account.getPassword(), grantedAuthorities);
 	}
 
+	
+	
 }
