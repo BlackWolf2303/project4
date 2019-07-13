@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,7 +32,7 @@ public class AdminController {
 
 	@Autowired
 	private AccountValidator accountValidator;
-	
+
 	@Autowired
 	private AccountService accountService;
 
@@ -45,8 +47,8 @@ public class AdminController {
 		return "../admin/home/index";
 	}
 
-	@GetMapping("login")
-	public String loginFailed(@RequestParam(value = "error", required = false) String error, Model model) {
+	@RequestMapping(value = "login", method = RequestMethod.GET)
+	public String login(@RequestParam(value = "error", required = false) String error, Model model) {
 		String errorMessge = null;
 		if (error != null) {
 			errorMessge = "Username or Password is incorrect !!";
@@ -64,43 +66,35 @@ public class AdminController {
 		return "../admin/login";
 	}
 
-	@GetMapping("register")
+	@RequestMapping(value = "register", method = RequestMethod.GET)
 	public String register(ModelMap modelMap) {
-		try {
-			modelMap.put("accountConfirm", new AccountConfirm());
-			modelMap.put("roless", roleService.findAll());
-		} catch (Exception e) {
-			System.out.println("Register GET");
-		}
+		modelMap.put("account", new AccountConfirm());
 		return "../admin/register";
 	}
 
-	@PostMapping("register")
-	public String register(@ModelAttribute("accountConfirm") @Valid AccountConfirm accountConfirm,
-			BindingResult bindingResult) {
-		// try {
-		accountValidator.validate(accountConfirm, bindingResult);
+	@GetMapping("editaccount/{username}")
+	public String editAccount(@PathVariable("username") String username, ModelMap modelMap) {
+		modelMap.put("account", accountService.findByUsername(username));
+		modelMap.put("rolesss", roleService.findAll());
+		return "../admin/editAccount";
+	}
+
+	@RequestMapping(value = "register", method = RequestMethod.POST)
+	public String register(@ModelAttribute("account") @Valid AccountConfirm account, BindingResult bindingResult) {
+		accountValidator.validate(account, bindingResult);
+		for (ObjectError err : bindingResult.getAllErrors()) {
+			System.out.println(err.getCode());
+		}
 		if (!bindingResult.hasErrors()) {
-			// System.out.println(account.getUsername() + "|" + account.getPassword() + "|"
-			// + passwordConfirm);
-			System.out.println("Valid");
-			if (accountConfirm.getPassword().equalsIgnoreCase(accountConfirm.getPasswordConfirm())) {
-				Account account = new Account();
-				account.setUsername(accountConfirm.getUsername());
-				account.setPassword(accountConfirm.getPassword());
-				account.setRoles(accountConfirm.getRoles());
-				accountService.save(account);
-				System.out.println("save");
-				securityService.autoLogin(account.getUsername(), account.getPassword());
-				System.out.println("autoLogin");
-				return "redirect:/admin";
-			}
-			return "redirect:/admin/register";
+			Account acc = new Account();
+			acc.setUsername(account.getUsername());
+			acc.setPassword(account.getPassword());
+			acc.getRoles().add(roleService.find(3));
+			accountService.save(acc);
+			securityService.autoLogin(acc.getUsername(), acc.getPassword());
+			return "redirect:/admin";
 		} else {
-			// } catch (Exception e) {
-			// System.out.println(e.getMessage() + "a");
-			// }
-			return "redirect:/admin/register";
+			return "../admin/register";
 		}
 	}
 }

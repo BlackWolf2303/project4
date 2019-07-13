@@ -1,7 +1,11 @@
 package com.demo.controllers;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,23 +30,40 @@ public class HomeController {
 	private SecurityService securityService;
 
 	@RequestMapping()
-	public String HomeView() {
-		return "home/index";
+	public String HomeView(ModelMap model) {
+		try {
+			boolean isLogin = SecurityContextHolder.getContext().getAuthentication() != null &&
+					 SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
+					 //when Anonymous Authentication is enabled
+					 !(SecurityContextHolder.getContext().getAuthentication() 
+					          instanceof AnonymousAuthenticationToken);
+			model.put("isLogin", isLogin);
+			return "home/index";
+		} catch (Exception e) {
+			System.out.println("null authen");
+			return "home/index";
+		}
 	}
 
 	@GetMapping("login")
 	public String LoginFailed(@RequestParam(value = "error", required = false) String error, ModelMap model) {
-		String errorMessge = null;
-		if (error != null) {
-			errorMessge = "Username or Password is incorrect !!";
+		try {
+			String errorMessge = null;
+			if (error != null) {
+				errorMessge = "Username or Password is incorrect !!";
+			}
+			model.addAttribute("errorMessge", errorMessge);
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			String isLogin = authentication.getName();
+//			boolean isLogin = SecurityContextHolder.getContext().getAuthentication() != null
+//					&& SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
+//					// when Anonymous Authentication is enabled
+//					!(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken);
+//			model.put("isLogin", isLogin);
+			return "login/index";
+		} catch (Exception e) {
+			return "redirect:/";
 		}
-		model.addAttribute("errorMessge", errorMessge);
-		boolean isLogin = SecurityContextHolder.getContext().getAuthentication() != null
-				&& SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
-				// when Anonymous Authentication is enabled
-				!(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken);
-		model.put("isLogin", isLogin);
-		return isLogin ? "redirect:/" : "login/index";
 	}
 
 	@GetMapping("register")

@@ -9,5 +9,7 @@ public interface AccountService extends UserDetailsService {
 	void save(Account account);
 
 	Account findByUsername(String username);
+	
+	//Account findById()
 
 }

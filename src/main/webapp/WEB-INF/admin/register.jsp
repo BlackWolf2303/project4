@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<s:form modelAttribute="accountConfirm" action="/admin/register" method="POST">
+	<s:form action="/admin/register" method="POST" modelAttribute="account" >
 		<table>
 			<tr>
 				<td>UserName:</td>
@@ -28,13 +28,9 @@
 				<td><s:errors path="passwordConfirm"></s:errors></td>
 			</tr>
 			<tr>
-              <td>Role:</td>
-              <td>
-                  <s:checkboxes path="roles" items="${roless}"/><br>
-              </td>
           </tr>
 			<tr>
-				<td colspan='2'><input name="submit" type="submit"
+				<td colspan='2'><input type="submit"
 					value="submit" /></td>
 			</tr>
 		</table>

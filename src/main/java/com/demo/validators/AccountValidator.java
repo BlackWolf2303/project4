@@ -8,7 +8,6 @@ import org.springframework.validation.Validator;
 import com.demo.entities.Account;
 import com.demo.entities.AccountConfirm;
 import com.demo.services.AccountService;
-import com.demo.services.AccountServiceImpl;
 
 @Component("accountValicator")
 public class AccountValidator implements Validator {
@@ -23,10 +22,12 @@ public class AccountValidator implements Validator {
 
 	@Override
 	public void validate(Object object, Errors errors) {
-		accountService = new AccountServiceImpl();
-		AccountConfirm accountConfirm = (AccountConfirm) object;
-		if (accountService.findByUsername(accountConfirm.getUsername()) != null) {
-			//errors.rejectValue("username", "account.username.exists");
+		AccountConfirm account = (AccountConfirm) object;
+		if (accountService.findByUsername(account.getUsername()) != null) {
+			errors.rejectValue("username", "account.username.exists");
+		}
+		if (!account.getPassword().equalsIgnoreCase(account.getPasswordConfirm())) {
+			errors.rejectValue("passwordConfirm", "account.password.nomatch");
 		}
 	}
 

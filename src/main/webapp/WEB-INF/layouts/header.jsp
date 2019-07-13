@@ -39,12 +39,12 @@
 											</form>
 										</div>
 									</li>
-									<c:if test="${isLogin}">
+									<c:if test="${!isLogin}">
 										<li><a href="<c:url value="/login"/>"
 											class="text-uppercase title12 link-hover"><i
 												class="fas fa-user"></i> login</a>
 									</c:if>
-									<c:if test="${!isLogin}">
+									<c:if test="${isLogin}">
 										<li><a href="<c:url value="/logout"/>"
 											class="text-uppercase title12 link-hover"><i
 												class="fas fa-user"></i> logout</a></li>

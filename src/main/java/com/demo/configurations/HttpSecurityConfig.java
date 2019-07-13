@@ -77,7 +77,7 @@ public class HttpSecurityConfig {
 			http.antMatcher("/**")
 					.authorizeRequests()
 					.antMatchers("/resources/**").permitAll()
-					.anyRequest().hasAuthority(roleService.find(3).getName())
+					.anyRequest().permitAll()
 
 					.and().formLogin().loginPage("/login").permitAll()
 					// .loginProcessingUrl("/login")

@@ -20,9 +20,6 @@ public class AccountConfirm {
 	@NotEmpty
 	@Pattern(regexp = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})")
 	private String passwordConfirm;
-	
-	@NotEmpty
-	private List<Role> roles = new ArrayList<Role>();
 
 	public String getUsername() {
 		return username;
@@ -46,13 +43,5 @@ public class AccountConfirm {
 
 	public void setPasswordConfirm(String passwordConfirm) {
 		this.passwordConfirm = passwordConfirm;
-	}
-
-	public List<Role> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
 	}
 }
