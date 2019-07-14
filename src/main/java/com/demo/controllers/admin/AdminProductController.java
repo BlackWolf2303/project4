@@ -1,8 +1,7 @@
 package com.demo.controllers.admin;
 
+import java.nio.file.Paths;
 import java.util.stream.Collectors;
-
-import javax.mail.Multipart;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
@@ -90,6 +89,7 @@ public class AdminProductController {
 	
 	@RequestMapping(value = "upload", method = RequestMethod.GET)
 	public String editView(ModelMap model) {
+		storageService.init(Paths.get("UploadedImage"));
 		model.put("files", storageService.loadAll().map(
                 path -> MvcUriComponentsBuilder.fromMethodName(AdminProductController.class,
                         "serveFile", path.getFileName().toString()).build().toString())
@@ -99,6 +99,7 @@ public class AdminProductController {
 
 	@RequestMapping(value = "upload", method = RequestMethod.POST)
 	public String editPrcess(@ModelAttribute("files") MultipartFile files, RedirectAttributes redirectAttributes) {
+		storageService.init(Paths.get("UploadedImage"));
 		storageService.store(files);
         return "redirect:/admin/products/upload";
 	}

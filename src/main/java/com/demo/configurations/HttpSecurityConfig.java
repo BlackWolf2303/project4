@@ -42,11 +42,13 @@ public class HttpSecurityConfig {
 					.authorizeRequests()//.antMatchers("/admin/register/**").permitAll()
 					.antMatchers("/resources/**").permitAll()
 					.antMatchers("/admin/register/**").permitAll()
-					.anyRequest().hasAuthority(roleService.find(1).getName())
-					//.access("hasAnyRole('"
-//							+ roleService.find(1).getName() + "','"
-//							+ roleService.find(2).getName() + "')")//+ roleService.find(1).getName() + "'"
-
+					//.antMatchers("/admin/**").hasAnyRole(roleService.find(1).getName())
+					//.anyRequest().hasAuthority(roleService.find(1).getName())
+					.anyRequest().access("hasAnyRole('"
+							+ roleService.find(1).getName() + "','"
+							+ roleService.find(2).getName() + "')")//+ roleService.find(1).getName() + "'"
+					//.anyRequest().authenticated()
+					
 					.and().formLogin().loginPage("/admin/login").permitAll()
 					// .loginProcessingUrl("/admin/login")
 					.failureUrl("/admin/login?error=true")

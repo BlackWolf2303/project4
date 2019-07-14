@@ -1,11 +1,13 @@
 package com.demo.controllers;
 
 import java.security.Principal;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,12 +34,21 @@ public class HomeController {
 	@RequestMapping()
 	public String HomeView(ModelMap model) {
 		try {
-			boolean isLogin = SecurityContextHolder.getContext().getAuthentication() != null &&
-					 SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
-					 //when Anonymous Authentication is enabled
-					 !(SecurityContextHolder.getContext().getAuthentication() 
-					          instanceof AnonymousAuthenticationToken);
+
+			boolean isLogin = false;
+			//Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+			SimpleGrantedAuthority clientUser = new SimpleGrantedAuthority("EMPLOYEE");
+			if (authorities.contains(clientUser)) {
+				isLogin = true;
+			}
 			model.put("isLogin", isLogin);
+//			boolean isLogin = SecurityContextHolder.getContext().getAuthentication() != null &&
+//					 SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
+//					 //when Anonymous Authentication is enabled
+//					 !(SecurityContextHolder.getContext().getAuthentication() 
+//					          instanceof AnonymousAuthenticationToken);
+//			model.put("isLogin", isLogin);
 			return "home/index";
 		} catch (Exception e) {
 			System.out.println("null authen");

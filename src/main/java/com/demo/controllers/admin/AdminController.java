@@ -1,9 +1,14 @@
 package com.demo.controllers.admin;
 
+import java.security.Principal;
+import java.util.Collection;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,6 +49,17 @@ public class AdminController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String home() {
+		boolean isLogin;
+		//Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+		SimpleGrantedAuthority superRole = new SimpleGrantedAuthority("SUPER_ADMIN");
+		SimpleGrantedAuthority adminRole = new SimpleGrantedAuthority("NORMAL_ADMIN");
+		if (authorities.contains(superRole)||authorities.contains(adminRole)) {
+			isLogin = false;
+		}
+		for (SimpleGrantedAuthority simpleGrantedAuthority : authorities) {
+			System.out.println(simpleGrantedAuthority);
+		}
 		return "../admin/home/index";
 	}
 

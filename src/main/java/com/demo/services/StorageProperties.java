@@ -1,7 +1,5 @@
 package com.demo.services;
 
-import javax.persistence.Entity;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties("storage")

@@ -20,12 +20,12 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class FileSystemStorageService implements StorageService {
 
-    private final Path rootLocation;
+    private Path rootLocation;
 
-    @Autowired
-    public FileSystemStorageService(StorageProperties properties) {
-        this.rootLocation = Paths.get(properties.getLocation());
-    }
+//    @Autowired
+//    public FileSystemStorageService(StorageProperties properties) {
+//        this.rootLocation = Paths.get(properties.getLocation());
+//    }
 
     @Override
     public void store(MultipartFile file) {
@@ -100,8 +100,9 @@ public class FileSystemStorageService implements StorageService {
     }
 
     @Override
-    public void init() {
+    public void init(Path path) {
         try {
+        	rootLocation = path;
             Files.createDirectories(rootLocation);
         }
         catch (IOException e) {
