@@ -3,6 +3,7 @@ package com.demo.entities;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "product")
@@ -11,7 +12,11 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
+    @NotNull
     private String name;
+    
+    @NotNull
     private double price;
     private int quantity;
     

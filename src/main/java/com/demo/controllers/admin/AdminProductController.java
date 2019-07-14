@@ -3,12 +3,15 @@ package com.demo.controllers.admin;
 import java.nio.file.Paths;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +23,7 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.demo.entities.Product;
+import com.demo.entities.ProductConfirm;
 import com.demo.services.ColorService;
 import com.demo.services.ProductService;
 import com.demo.services.SizeService;
@@ -56,14 +60,24 @@ public class AdminProductController {
 	}
 	
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String add(@ModelAttribute("product") Product product) {
-		productService.save(product);
-		return "redirect:/admin/products";
+	public String add(@ModelAttribute("product") @Valid ProductConfirm product, BindingResult bindingResult) {
+		
+		if(bindingResult.hasErrors()) {
+			return "../admin/products/add";
+		} else {
+			Product pro = new Product();
+			pro.setName(product.getName());
+			pro.setPrice(product.getPrice());
+			pro.setQuantity(product.getQuantity());
+			productService.save(pro);
+			return "redirect:/admin/products";
+		}
 	}
 
 	
 	@RequestMapping(value = "add", method = RequestMethod.GET)
-	public String add() {
+	public String add(ModelMap modelMap) {
+		modelMap.put("product", new ProductConfirm());
 		return "../admin/products/add";
 	}
 	

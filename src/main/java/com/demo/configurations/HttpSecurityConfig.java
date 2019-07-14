@@ -37,16 +37,17 @@ public class HttpSecurityConfig {
 	@Order(1)
 	public class AdminConfiguration extends WebSecurityConfigurerAdapter {
 		protected void configure(HttpSecurity http) throws Exception {
-			http.antMatcher("/admin**/**")
+			http.antMatcher("/admin/**")
 					.authorizeRequests()//.antMatchers("/admin/register/**").permitAll()
 					.antMatchers("/resources/**").permitAll()
 					.antMatchers("/admin/register/**").permitAll()
 					//.antMatchers("/admin/**").hasAnyRole(roleService.find(1).getName())
 					//.anyRequest().hasAuthority(roleService.find(1).getName())
-					.anyRequest().access("hasAnyRole('"
-							+ roleService.find(1).getName() + "','"
-							+ roleService.find(2).getName() + "')")//+ roleService.find(1).getName() + "'"
+					//.anyRequest().access("hasAnyRole('"
+//							+ roleService.find(1).getName() + "','"
+//							+ roleService.find(2).getName() + "')")//+ roleService.find(1).getName() + "'"
 					//.anyRequest().authenticated()
+					.anyRequest().permitAll()
 					
 					.and().formLogin().loginPage("/admin/login").permitAll()
 					// .loginProcessingUrl("/admin/login")
