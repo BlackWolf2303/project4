@@ -40,11 +40,14 @@ public class HttpSecurityConfig {
 			http.antMatcher("/admin**/**")
 					.authorizeRequests()//.antMatchers("/admin/register/**").permitAll()
 					.antMatchers("/resources/**").permitAll()
-					.anyRequest().hasAuthority(roleService.find(1).getName())
-					//.access("hasAnyRole('"
-//							+ roleService.find(1).getName() + "','"
-//							+ roleService.find(2).getName() + "')")//+ roleService.find(1).getName() + "'"
-
+					.antMatchers("/admin/register/**").permitAll()
+					//.antMatchers("/admin/**").hasAnyRole(roleService.find(1).getName())
+					//.anyRequest().hasAuthority(roleService.find(1).getName())
+					.anyRequest().access("hasAnyRole('"
+							+ roleService.find(1).getName() + "','"
+							+ roleService.find(2).getName() + "')")//+ roleService.find(1).getName() + "'"
+					//.anyRequest().authenticated()
+					
 					.and().formLogin().loginPage("/admin/login").permitAll()
 					// .loginProcessingUrl("/admin/login")
 					.failureUrl("/admin/login?error=true")
@@ -75,7 +78,7 @@ public class HttpSecurityConfig {
 			http.antMatcher("/**")
 					.authorizeRequests()
 					.antMatchers("/resources/**").permitAll()
-					.anyRequest().hasAuthority(roleService.find(3).getName())
+					.anyRequest().permitAll()
 
 					.and().formLogin().loginPage("/login").permitAll()
 					// .loginProcessingUrl("/login")
