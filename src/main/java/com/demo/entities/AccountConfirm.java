@@ -18,7 +18,6 @@ public class AccountConfirm {
 	private String password;
 
 	@NotEmpty
-	@Pattern(regexp = "((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20})")
 	private String passwordConfirm;
 
 	public String getUsername() {

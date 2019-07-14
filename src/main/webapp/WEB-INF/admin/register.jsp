@@ -28,8 +28,6 @@
 				<td><s:errors path="passwordConfirm"></s:errors></td>
 			</tr>
 			<tr>
-          </tr>
-			<tr>
 				<td colspan='2'><input type="submit"
 					value="submit" /></td>
 			</tr>

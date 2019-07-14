@@ -82,9 +82,6 @@ public class AdminController {
 	@RequestMapping(value = "register", method = RequestMethod.POST)
 	public String register(@ModelAttribute("account") @Valid AccountConfirm account, BindingResult bindingResult) {
 		accountValidator.validate(account, bindingResult);
-		for (ObjectError err : bindingResult.getAllErrors()) {
-			System.out.println(err.getCode());
-		}
 		if (!bindingResult.hasErrors()) {
 			Account acc = new Account();
 			acc.setUsername(account.getUsername());
