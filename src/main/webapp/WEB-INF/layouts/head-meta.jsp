@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta name="description" content="Retailer Car is new Html theme that we have designed to help you transform your store into a beautiful online showroom. This is a fully responsive Html theme, with multiple versions for homepage and multiple templates for sub pages as well" />
-	<meta name="keywords" content="Retailer Car,7uptheme" />
-	<meta name="robots" content="noodp,index,follow" />
-	<meta name='revisit-after' content='1 days' />
+	<meta username="viewport" content="width=device-width, initial-scale=1"/>
+	<meta username="description" content="Retailer Car is new Html theme that we have designed to help you transform your store into a beautiful online showroom. This is a fully responsive Html theme, with multiple versions for homepage and multiple templates for sub pages as well" />
+	<meta username="keywords" content="Retailer Car,7uptheme" />
+	<meta username="robots" content="noodp,index,follow" />
+	<meta username='revisit-after' content='1 days' />
 	<title>Fashion shop</title>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
@@ -29,4 +29,13 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/css/theme.css" media="all"/>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/css/responsive.css" media="all"/>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/css/style.css" media="all"/>
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/css/util.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/css/main.css">
 </head>

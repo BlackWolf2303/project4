@@ -6,35 +6,55 @@ import java.util.List;
 @Entity
 @Table(name = "category")
 public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private String name;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String name;
+	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE }, mappedBy = "categories")
+	private List<Product> products;
+	@ManyToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name = "parentid")
+	private Category category;
+	@OneToMany(mappedBy = "category")
+	private List<Category> categories;
 
-    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
-    private List<Product> product;
+	public Category getCategory() {
+		return category;
+	}
 
-    public List<Product> getProduct() {
-        return product;
-    }
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 
-    public void setProduct(List<Product> product) {
-        this.product = product;
-    }
+	public List<Category> getCategories() {
+		return categories;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public List<Product> getProducts() {
+		return products;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setProducts(List<Product> product) {
+		this.products = product;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 }
