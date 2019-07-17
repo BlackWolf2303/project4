@@ -1,11 +1,6 @@
 package com.demo.entities;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-
-import org.hibernate.validator.constraints.Length;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,11 +15,23 @@ public class Account {
 	private String username;
 
 	private String password;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
+	private List<Order> orders;
+	
 	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	@JoinTable(name = "account_role", 
 			joinColumns = { @JoinColumn(name = "account_id") }, 
 			inverseJoinColumns = { @JoinColumn(name = "role_id") })
 	private List<Role> roles = new ArrayList<Role>();
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
 
 	public String getUsername() {
 		return username;

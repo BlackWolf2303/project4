@@ -1,8 +1,5 @@
 package com.demo.entities;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 

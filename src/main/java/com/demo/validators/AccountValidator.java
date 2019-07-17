@@ -29,6 +29,9 @@ public class AccountValidator implements Validator {
 		if (!account.getPassword().equalsIgnoreCase(account.getPasswordConfirm())) {
 			errors.rejectValue("passwordConfirm", "account.password.nomatch");
 		}
+//		if (accountService.findByUsername(account.getUsername()).getRoles().contains()) {
+//			errors.rejectValue("passwordConfirm", "account.password.nomatch");
+//		}
 	}
 
 }
