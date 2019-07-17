@@ -1,34 +1,8 @@
-<%@ page pageEncoding="utf-8" isELIgnored="false"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-	<meta charset="UTF-8">
-	<meta username="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="${pageContext.request.contextPath}/resources/assets/photos/favicon.ico"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/ssets/vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/css/util.css">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/css/main.css">
-<!--===============================================================================================-->
-</head>
-<body>
+<%-- <%@ page pageEncoding="utf-8" isELIgnored="false"%> --%>
+<%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
+<jsp:include page="/WEB-INF/layouts/head-meta.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/layouts/header.jsp"></jsp:include>
+	<section id=content>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
@@ -56,7 +30,7 @@
 						</button>
 					</div>
 
-					<ul class="login-more p-t-190">
+					<ul class="login-more p-t-100">
 						<li class="m-b-8">
 							<span class="txt1">
 								Forgot
@@ -81,26 +55,9 @@
 			</div>
 		</div>
 	</div>
+		<div id="dropDownSelect1"></div>
+	</section>
 
+<!-- End Content -->
 
-	<div id="dropDownSelect1"></div>
-
-<!--===============================================================================================-->
-	<script src="${pageContext.request.contextPath}/resources/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-	<script src="${pageContext.request.contextPath}/resources/assets/vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-	<script src="${pageContext.request.contextPath}/resources/assets/vendor/bootstrap/js/popper.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets/endor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-	<script src="${pageContext.request.contextPath}/resources/assets/vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-	<script src="${pageContext.request.contextPath}/resources/assets/vendor/daterangepicker/moment.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/assets/vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-	<script src="${pageContext.request.contextPath}/resources/assets/vendor/countdowntime/countdowntime.js"></script>
-<!--===============================================================================================-->
-	<script src="${pageContext.request.contextPath}/resources/assets/js/main.js"></script>
-
-</body>
-</html>
+<jsp:include page="/WEB-INF/layouts/footer.jsp"></jsp:include>
