@@ -71,11 +71,8 @@ public class CartController {
 	private String order() {
 		Order order = new Order();
 		order.setId(id);
-		order.setUserid(userid);
-		order.setQuantity(quantity);
-		order.setProductid(productid);
-		order.setPrice(price);
 		return "cart/success";
 	}
+	
 
 }
