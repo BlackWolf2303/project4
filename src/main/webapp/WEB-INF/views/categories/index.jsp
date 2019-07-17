@@ -183,7 +183,7 @@
 														class="quickview-link fancybox fancybox.iframe"><i
 														class="fas fa-eye"></i></a>
 													<div class="product-extra-link clearfix">
-														<a href="${pageContext.request.contextPath}/categories/${product.id}" class="addcart-link pull-left"><span>Add
+														<a href="${pageContext.request.contextPath}/cart/buy/${product.id}" class="addcart-link pull-left"><span>Add
 																to cart</span></a> <a href="${pageContext.request.contextPath}/categories/${product.id}" class="compare-link pull-right"><i
 															class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories/${product.id}"
 															class="wishlist-link pull-right"><i
