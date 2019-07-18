@@ -1,8 +1,10 @@
 package com.demo.controllers;
 
+import org.hibernate.validator.constraints.SafeHtml.Attribute;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,6 +33,12 @@ public class CategoriesController {
 //			System.out.println(image.getCategory().getName());
 //		}
 		return "product/index";
+	}
+	
+	@RequestMapping(value = "search/{name}", method = RequestMethod.GET)
+	public String Search(@ModelAttribute("keyword") String name, ModelMap modelMap) {
+		modelMap.put("product", productService.findByName(name));
+		return "categories/index";
 	}
 }
 

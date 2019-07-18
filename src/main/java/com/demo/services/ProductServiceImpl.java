@@ -3,6 +3,7 @@ package com.demo.services;
 import com.demo.entities.Product;
 import com.demo.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,6 +32,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public void delete(int id) {
 		productRepository.deleteById(id);
+	}
+
+	@Override
+	public Product findByName(String name) {
+		return productRepository.findByName(name);
 	}
 
 }

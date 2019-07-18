@@ -17,6 +17,7 @@ public class Order {
 	private String shipaddress;
 	private int createdate;
 
+	
 	private List<OrderDetail> orderDetais;
 
 	public List<OrderDetail> getOrderDetais() {

@@ -70,7 +70,7 @@ public class CartController {
 	@RequestMapping(value = "order", method = RequestMethod.POST)
 	private String order() {
 		Order order = new Order();
-		order.setId(id);
+		//order.setId(id);
 		return "cart/success";
 	}
 	
