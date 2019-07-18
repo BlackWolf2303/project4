@@ -1,23 +1,36 @@
 package com.demo.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity
-public class OrderDetail {
+@Entity //@IdClass(OrderDetailID.class)
+@Table(name = "order_detail")
+public class OrderDetail implements Serializable {
 
 	private String quantity;
 	private Double price;
+	
+	@Id
 	@ManyToOne
-	@JoinColumn(name = "productid", nullable = false)
+	@JoinColumn(name = "product_id", nullable = false)
 	private Product product;
+	@Id
 	@ManyToOne
-	@JoinColumn(name = "accountid", nullable = false)
-	private Account account;
+	@JoinColumn(name = "ordert_id", nullable = false)
+	private Order order;
+
+	public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
 
 	public Product getProduct() {
 		return product;
@@ -25,14 +38,6 @@ public class OrderDetail {
 
 	public void setProduct(Product product) {
 		this.product = product;
-	}
-
-	public Account getAccount() {
-		return account;
-	}
-
-	public void setAccount(Account account) {
-		this.account = account;
 	}
 
 	public String getQuantity() {

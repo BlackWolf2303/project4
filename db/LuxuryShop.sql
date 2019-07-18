@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2019 at 10:29 PM
+-- Generation Time: Jul 17, 2019 at 07:31 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -43,7 +43,8 @@ CREATE TABLE `account` (
 INSERT INTO `account` (`id`, `username`, `password`) VALUES
 (1, 'lythihagiang', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC'),
 (2, 'duc', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC'),
-(3, 'hai', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC');
+(3, 'hai', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC'),
+(12, 'admin', '$2a$10$a.YQVg6JLV7Y.BVw/HZuX.bl0p4lgBUehjyOyAOAA5OkBeFfY6aie');
 
 -- --------------------------------------------------------
 
@@ -63,9 +64,9 @@ CREATE TABLE `account_role` (
 INSERT INTO `account_role` (`account_id`, `role_id`) VALUES
 (1, 1),
 (1, 2),
-(1, 3),
 (2, 3),
-(3, 3);
+(3, 3),
+(12, 3);
 
 -- --------------------------------------------------------
 
@@ -177,12 +178,20 @@ INSERT INTO `images` (`id`, `name`, `productId`) VALUES
 
 CREATE TABLE `order` (
   `id` int(11) NOT NULL,
-  `productid` int(11) NOT NULL,
-  `customerid` int(11) NOT NULL,
-  `userid` int(11) NOT NULL,
-  `shipaddress` int(11) NOT NULL,
-  `createdate` int(11) NOT NULL,
-  `modifydate` int(11) NOT NULL
+  `accountId` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_detail`
+--
+
+CREATE TABLE `order_detail` (
+  `product_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `qty` int(11) NOT NULL,
+  `price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -373,9 +382,15 @@ ALTER TABLE `images`
 -- Indexes for table `order`
 --
 ALTER TABLE `order`
-  ADD KEY `fk_customer_order` (`customerid`),
-  ADD KEY `fk_product_order` (`productid`),
-  ADD KEY `fk_user_order` (`userid`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_order_account` (`accountId`);
+
+--
+-- Indexes for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD PRIMARY KEY (`product_id`,`order_id`),
+  ADD KEY `fk_orderdetail_order` (`order_id`);
 
 --
 -- Indexes for table `product`
@@ -423,7 +438,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -448,6 +463,12 @@ ALTER TABLE `customer`
 --
 ALTER TABLE `images`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -501,9 +522,14 @@ ALTER TABLE `images`
 -- Constraints for table `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `fk_customer_order` FOREIGN KEY (`customerid`) REFERENCES `customer` (`id`),
-  ADD CONSTRAINT `fk_product_order` FOREIGN KEY (`productid`) REFERENCES `product` (`id`),
-  ADD CONSTRAINT `fk_user_order` FOREIGN KEY (`userid`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `fk_order_account` FOREIGN KEY (`accountId`) REFERENCES `account` (`id`);
+
+--
+-- Constraints for table `order_detail`
+--
+ALTER TABLE `order_detail`
+  ADD CONSTRAINT `fk_orderdetail_order` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
+  ADD CONSTRAINT `fk_orderdetail_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
 -- Constraints for table `product_color`
@@ -1155,7 +1181,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"accounts_roles\"},{\"db\":\"da4\",\"table\":\"user\"},{\"db\":\"da4\",\"table\":\"product_size\"},{\"db\":\"mydemo6\",\"table\":\"users\"},{\"db\":\"mydemo6\",\"table\":\"user_role\"},{\"db\":\"da4\",\"table\":\"account_roles\"},{\"db\":\"da4\",\"table\":\"product\"}]');
+('root', '[{\"db\":\"da4\",\"table\":\"order_detail\"},{\"db\":\"da4\",\"table\":\"product\"},{\"db\":\"da4\",\"table\":\"order\"},{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"images\"},{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"test\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"accounts_roles\"},{\"db\":\"da4\",\"table\":\"user\"}]');
 
 -- --------------------------------------------------------
 
@@ -1262,7 +1288,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2019-07-10 20:29:10', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
+('root', '2019-07-17 17:31:29', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
 
 -- --------------------------------------------------------
 
@@ -1489,6 +1515,45 @@ ALTER TABLE `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Database: `test`
+--
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `test`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account`
+--
+
+CREATE TABLE `account` (
+  `username` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `age` int(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `website` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`username`, `password`, `age`, `email`, `website`) VALUES
+('ducnt31132', 'thichOnha@1	', 25, 'duc@email.com', 'www.duc.com'),
+('ducnt38', 'thichOnha@1', 25, 'duc@email.com', 'www.duc.com'),
+('ducnt3811', 'thichOnha@1	', 25, 'duc@email.com', 'www.duc.com'),
+('ducnt38113', 'thichOnha@1	', 25, 'duc@email.com', 'www.duc.com');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
