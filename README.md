@@ -40,7 +40,7 @@ Project Spring MVC kỳ cuối
  * gõ `git checkout <branch cần làm việc>` (thường là develop). 
  Xong! 
  
- 6. Ví dụ có 3 file A, B, C. Nếu đã lỡ gõ `git add .`. 
+ 6. Ví dụ có 3 file A, B, C. Nếu đã lỡ gõ `git add .` 
   * Muốn gỡ tất cả các file ra khỏi vùng add , gõ `git reset . `
   * Muốn gỡ 1 file cụ thể , ví dụ file B. Gõ `git reset B`
   * Nếu vẫn ko được, gõ `git status` để hiển thị các file (dạng link màu xanh lá) đã add. Copy nguyên link màu xanh của file nào cần gỡ và gõ : `git reset <paste link file vừa copy vô>` 
