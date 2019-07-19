@@ -48,7 +48,7 @@
 	</s:form>
 	
 	<br>
-	<a href="${pageContext.request.contextPath }/categories">Continue
+	<a href="/categories">Continue
 		Shopping</a>
 	<br>
 	

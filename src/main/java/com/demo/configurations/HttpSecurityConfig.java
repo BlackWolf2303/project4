@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.firewall.HttpFirewall;
+import org.springframework.security.web.firewall.StrictHttpFirewall;
 
 import com.demo.services.AccountService;
 import com.demo.services.RoleService;
@@ -32,7 +34,12 @@ public class HttpSecurityConfig {
 	public BCryptPasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
 	}
-
+	@Bean
+	public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
+	    StrictHttpFirewall firewall = new StrictHttpFirewall();
+	    firewall.setAllowUrlEncodedSlash(true);    
+	    return firewall;
+	}
 	@Configuration
 	@Order(1)
 	public class AdminConfiguration extends WebSecurityConfigurerAdapter {
@@ -84,7 +91,7 @@ public class HttpSecurityConfig {
 					.and().formLogin().loginPage("/login").permitAll()
 					// .loginProcessingUrl("/login")
 					.failureUrl("/login?error=true")
-					.defaultSuccessUrl("/")
+					//.defaultSuccessUrl("/")
 
 					.and().logout().logoutSuccessUrl("/login").deleteCookies("JSESSIONID")
 

@@ -25,5 +25,6 @@
 	</tr>
 	</c:forEach>
 	</table>
+	<a href="/">Back to Cart</a>
 </body>
 </html>

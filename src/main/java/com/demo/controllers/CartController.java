@@ -70,7 +70,7 @@ public class CartController {
 		int index = this.exists(id, cart);
 		cart.remove(index);
 		session.setAttribute("cart", cart);
-		return "redirect:/cart/index";
+		return "redirect:/cart";
 	}
 
 	
@@ -100,6 +100,7 @@ public class CartController {
 			orderDetails.add(orderDetailService.save(orderDetail));
 		}
 		modelMap.put("orderdetails", orderDetails);
+		session.setAttribute("cart", new ArrayList<Item>());
 		return "cart/success";
 	}
 	
