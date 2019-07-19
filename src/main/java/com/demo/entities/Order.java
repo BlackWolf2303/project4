@@ -10,8 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "ordertbl")
 public class Order {
 
 	@Id
@@ -19,9 +21,9 @@ public class Order {
 	private int id;
 
 	@ManyToOne
-	@JoinColumn(name = "accountid", nullable = false)
+	@JoinColumn(name = "account_id", nullable = false)
 	private Account account;
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id.order")
 	private List<OrderDetail> orderDetais;
 
 	public Account getAccount() {

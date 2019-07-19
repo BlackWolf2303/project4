@@ -45,7 +45,7 @@ public class Product {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
 	private List<Image> images;
 	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id.product")
 	private List<OrderDetail> orderdetails;
 
 	public List<OrderDetail> getOrderdetails() {
