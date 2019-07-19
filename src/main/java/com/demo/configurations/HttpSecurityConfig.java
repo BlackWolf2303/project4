@@ -86,7 +86,7 @@ public class HttpSecurityConfig {
 			http.antMatcher("/**")
 					.authorizeRequests()
 					.antMatchers("/resources/**").permitAll()
-					.anyRequest().permitAll()
+					.anyRequest().authenticated()
 
 					.and().formLogin().loginPage("/login").permitAll()
 					// .loginProcessingUrl("/login")

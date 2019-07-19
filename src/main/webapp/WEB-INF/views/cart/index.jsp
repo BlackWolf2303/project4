@@ -32,7 +32,7 @@
 					onclick="return confirm('Are you sure?')">Remove</a></td>
 				<td>${item.product.id }</td>
 				<td>${item.product.name }</td>
-				<td><img src="${pageContext.request.contextPath }/resources/http://learningprogramming.net/wp-content/uploads/java/spring_mvc/"
+				<td><img src="${pageContext.request.contextPath }/resources/"
 					width="50"></td>
 				<td>${item.product.price }</td>
 				<td>${item.quantity }</td>
@@ -48,7 +48,7 @@
 	</s:form>
 	
 	<br>
-	<a href="/categories">Continue
+	<a href="${pageContext.request.contextPath}/categories">Continue
 		Shopping</a>
 	<br>
 	
