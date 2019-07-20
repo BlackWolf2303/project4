@@ -39,8 +39,12 @@ public class CartController {
 	private OrderService orderService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String index(ModelMap modelMap) {
+	public String index(ModelMap modelMap, HttpSession session) {
 		modelMap.put("items", new ArrayList<Item>());
+		if (session.getAttribute("cart") == null) {
+			List<Item> cart = new ArrayList<Item>();
+			session.setAttribute("cart", cart);
+		}
 		return "cart/index";
 	}
 	
@@ -85,8 +89,10 @@ public class CartController {
 	
 	@RequestMapping(value = "order", method = RequestMethod.POST)
 	private String order(HttpSession session, ModelMap modelMap) {
+		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		List<Item> cart = (List<Item>)session.getAttribute("cart");
+		
 		if(authentication.isAuthenticated() && cart.size()!=0) {
 			Account account = accountService.findByUsername(authentication.getName());
 			Order order = new Order();
@@ -94,7 +100,6 @@ public class CartController {
 			Order order2 = orderService.save(order);
 			List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
 			for (Item item : (List<Item>)session.getAttribute("cart")) {
-				item.getProduct();
 				OrderDetail orderDetail = new OrderDetail();
 				orderDetail.setId(new OrderDetailID(order2, item.getProduct()));
 				orderDetail.setPrice(item.getProduct().getPrice());
@@ -105,7 +110,7 @@ public class CartController {
 			session.setAttribute("cart", new ArrayList<Item>());
 			return "cart/success";
 		} else {
-			return "redirect:/cart";
+			return "redirect:/cart?";
 		}
 	}
 	

@@ -86,12 +86,12 @@ public class HttpSecurityConfig {
 			http.antMatcher("/**")
 					.authorizeRequests()
 					.antMatchers("/resources/**").permitAll()
-					.anyRequest().authenticated()
+					.anyRequest().permitAll()
 
 					.and().formLogin().loginPage("/login").permitAll()
 					// .loginProcessingUrl("/login")
 					.failureUrl("/login?error=true")
-					//.defaultSuccessUrl("/")
+					.defaultSuccessUrl("/")
 
 					.and().logout().logoutSuccessUrl("/login").deleteCookies("JSESSIONID")
 

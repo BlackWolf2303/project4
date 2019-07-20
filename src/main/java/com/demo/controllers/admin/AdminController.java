@@ -57,9 +57,6 @@ public class AdminController {
 		if (authorities.contains(superRole)||authorities.contains(adminRole)) {
 			isLogin = false;
 		}
-		for (SimpleGrantedAuthority simpleGrantedAuthority : authorities) {
-			System.out.println(simpleGrantedAuthority);
-		}
 		return "../admin/home/index";
 	}
 
@@ -74,7 +71,6 @@ public class AdminController {
 //        }
 		if (SecurityContextHolder.getContext().getAuthentication() != null
 				&& SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
-				// when Anonymous Authentication is enabled
 				!(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken)) {
 			return "redirect:/admin";
 		}
