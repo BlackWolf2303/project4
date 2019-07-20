@@ -1,8 +1,7 @@
-<%@ page contentType="text/html" pageEncoding="UTF-8"
-	isELIgnored="false"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="security"
-	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+
 <body class="bg-white">
 	<div class="wrap wrap-index">
 		<header id="header">
@@ -43,13 +42,13 @@
 											</form>
 										</div>
 									</li>
-									<security:authorize access="!isAuthenticated()">
-									  <li><a href="<c:url value="/login"/>"
+									<security:authorize access="!hasRole('ROLE_CUSTOMER')">
+										<li><a href="<c:url value="/login"/>"
 											class="text-uppercase title12 link-hover"><i
 												class="fas fa-user"></i> login</a></li>
 									</security:authorize>
-									<security:authorize access="isAuthenticated()">
-									  <li><a href="<c:url value="/logout"/>"
+									<security:authorize access="hasRole('ROLE_CUSTOMER')">
+										<li><a href="<c:url value="/logout"/>"
 											class="text-uppercase title12 link-hover"><i
 												class="fas fa-user"></i> logout</a></li>
 										<li><a href="<c:url value="/myaccount"/>"

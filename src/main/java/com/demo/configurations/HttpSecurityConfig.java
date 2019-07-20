@@ -34,6 +34,7 @@ public class HttpSecurityConfig {
 	public BCryptPasswordEncoder encoder() {
 		return new BCryptPasswordEncoder();
 	}
+	
 	@Bean
 	public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
 	    StrictHttpFirewall firewall = new StrictHttpFirewall();
@@ -45,16 +46,9 @@ public class HttpSecurityConfig {
 	public class AdminConfiguration extends WebSecurityConfigurerAdapter {
 		protected void configure(HttpSecurity http) throws Exception {
 			http.antMatcher("/admin/**")
-					.authorizeRequests()//.antMatchers("/admin/register/**").permitAll()
+					.authorizeRequests()
 					.antMatchers("/resources/**").permitAll()
-					.antMatchers("/admin/register/**").permitAll()
-					//.antMatchers("/admin/**").hasAnyRole(roleService.find(1).getName())
-					//.anyRequest().hasAuthority(roleService.find(1).getName())
-					//.anyRequest().access("hasAnyRole('"
-//							+ roleService.find(1).getName() + "','"
-//							+ roleService.find(2).getName() + "')")//+ roleService.find(1).getName() + "'"
-					//.anyRequest().authenticated()
-					.anyRequest().permitAll()
+					.anyRequest().access("hasRole('ROLE_NORMAL_ADMIN') or hasRole('ROLE_SUPER_ADMIN')")
 					
 					.and().formLogin().loginPage("/admin/login").permitAll()
 					// .loginProcessingUrl("/admin/login")
@@ -66,7 +60,7 @@ public class HttpSecurityConfig {
 
 					.and().rememberMe().key("corgi")
 
-					.and().exceptionHandling().accessDeniedPage("/403")
+					.and().exceptionHandling().accessDeniedPage("/admin/403")
 
 					.and().csrf().disable();
 		}
@@ -91,7 +85,8 @@ public class HttpSecurityConfig {
 					.and().formLogin().loginPage("/login").permitAll()
 					// .loginProcessingUrl("/login")
 					.failureUrl("/login?error=true")
-					.defaultSuccessUrl("/")
+					.successForwardUrl("/successLogin")
+					//.defaultSuccessUrl("/", true)
 
 					.and().logout().logoutSuccessUrl("/login").deleteCookies("JSESSIONID")
 

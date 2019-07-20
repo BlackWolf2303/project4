@@ -49,15 +49,12 @@ public class AdminController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String home() {
-		boolean isLogin;
-		//Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
-		SimpleGrantedAuthority superRole = new SimpleGrantedAuthority("SUPER_ADMIN");
-		SimpleGrantedAuthority adminRole = new SimpleGrantedAuthority("NORMAL_ADMIN");
-		if (authorities.contains(superRole)||authorities.contains(adminRole)) {
-			isLogin = false;
-		}
 		return "../admin/home/index";
+	}
+
+	@RequestMapping(value = "403",method = RequestMethod.GET)
+	public String ErrorPage() {
+		return "../admin/home/error";
 	}
 
 	@RequestMapping(value = "login", method = RequestMethod.GET)
@@ -75,20 +72,20 @@ public class AdminController {
 			return "redirect:/admin";
 		}
 		model.addAttribute("errorMessge", errorMessge);
-		return "../admin/login";
+		return "../admin/home/login";
 	}
 
 	@RequestMapping(value = "register", method = RequestMethod.GET)
 	public String register(ModelMap modelMap) {
 		modelMap.put("account", new AccountConfirm());
-		return "../admin/register";
+		return "../admin/home/register";
 	}
 
 	@GetMapping("editaccount/{username}")
 	public String editAccount(@PathVariable("username") String username, ModelMap modelMap) {
 		modelMap.put("account", accountService.findByUsername(username));
 		modelMap.put("rolesss", roleService.findAll());
-		return "../admin/editAccount";
+		return "../admin/home/editAccount";
 	}
 
 	@RequestMapping(value = "register", method = RequestMethod.POST)
@@ -103,7 +100,7 @@ public class AdminController {
 			securityService.autoLogin(acc.getUsername(), acc.getPassword());
 			return "redirect:/admin";
 		} else {
-			return "../admin/register";
+			return "../admin/home/register";
 		}
 	}
 }
