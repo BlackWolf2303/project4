@@ -72,6 +72,18 @@ public class AccountServiceImpl implements AccountService {
 		return (List<Account>) accountRepository.findAll();
 	}
 
+	@Override
+	public Account findById(int id) {
+		try {
+			return accountRepository.findById(id).get();
+		} catch (Exception e) {
+			return null;
+		}
+	}
 	
+	@Override
+	public void delete(int id) {
+		 accountRepository.deleteById(id);
+	}
 	
 }
