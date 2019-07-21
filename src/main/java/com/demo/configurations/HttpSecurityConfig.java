@@ -48,7 +48,8 @@ public class HttpSecurityConfig {
 			http.antMatcher("/admin/**")
 					.authorizeRequests()
 					.antMatchers("/resources/**").permitAll()
-					.anyRequest().access("hasRole('ROLE_NORMAL_ADMIN') or hasRole('ROLE_SUPER_ADMIN')")
+					//.anyRequest().access("hasRole('ROLE_NORMAL_ADMIN') or hasRole('ROLE_SUPER_ADMIN')")
+					.anyRequest().hasAuthority("ROLE_NORMAL_ADMIN")
 					
 					.and().formLogin().loginPage("/admin/login").permitAll()
 					// .loginProcessingUrl("/admin/login")

@@ -1,7 +1,11 @@
 package com.demo.controllers;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
@@ -21,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.entities.Account;
+import com.demo.entities.Item;
 import com.demo.services.AccountService;
 import com.demo.services.SecurityService;
 
@@ -39,7 +44,11 @@ public class HomeController {
 	}
 
 	@RequestMapping("home")
-	public String HomeView() {
+	public String HomeView(HttpSession session) {
+		if (session.getAttribute("cart") == null) {
+			List<Item> cart = new ArrayList<Item>();
+			session.setAttribute("cart", cart);
+		}
 		return "home/index";
 	}
 

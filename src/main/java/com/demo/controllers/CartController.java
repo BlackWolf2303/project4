@@ -113,7 +113,7 @@ public class CartController {
 			session.setAttribute("cart", new ArrayList<Item>());
 			return "cart/success";
 		} else {
-			return "redirect:/cart?";
+			return "redirect:/cart";
 		}
 	}
 	

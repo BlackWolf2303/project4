@@ -62,6 +62,11 @@ public class AccountServiceImpl implements AccountService {
 		return new User(account.getUsername(), account.getPassword(), grantedAuthorities);
 	}
 
+	@Override
+	public List<Account> findAllCustomer() {
+		return accountRepository.findAllCustomer();
+	}
+
 	
 	
 }

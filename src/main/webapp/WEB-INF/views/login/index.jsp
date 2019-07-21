@@ -13,7 +13,10 @@
 					<span class="login100-form-avatar">
 						<img src="https://scontent-hkg3-2.xx.fbcdn.net/v/t1.0-9/61127079_136054257501774_7070886246603554816_n.jpg?_nc_cat=109&_nc_oc=AQkSZjN77RUmBVYdor1y0FUljpZmJkeALu8BzjikFASu_yDsxZbhmL-dxMXztBu7LSw&_nc_ht=scontent-hkg3-2.xx&oh=ad5ec35c19bbf65b2ef139d4d0f45b0f&oe=5D81A421" alt="AVATAR">
 					</span>
-
+					<div class="m-t-85 m-b-35" data-validate = "Enter username">
+					<h4><c:if test="${not empty errorMessge}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMessge}</div></c:if></h4>
+					</div>
+					
 					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
 						<input class="input100" type="text" name="username" autofocus>
 						<span class="focus-input100" data-placeholder="Username"></span>

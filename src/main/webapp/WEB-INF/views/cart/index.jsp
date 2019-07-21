@@ -50,7 +50,7 @@
 			</tr>
 		</table>
 		<security:authorize access="hasRole('ROLE_CUSTOMER')">
-			<button>ORDER</button>
+			<button>Checkout</button>
 		</security:authorize>
 
 	</s:form>
