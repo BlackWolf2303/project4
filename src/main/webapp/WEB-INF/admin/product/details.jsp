@@ -1,13 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>DETAIL</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
+<jsp:include page="/WEB-INF/admin-layouts/head-meta.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
+
 	<h3>ADD PRODUCT</h3>
 	<form>
 		Name <input type="text" name="name" value= " ${product.name }"> <br>
@@ -22,5 +19,4 @@
 		</c:if> <br>
 		Picture <c:forEach items="${product.images }" var="picture"><img src="${pageContext.request.contextPath}/resources/assets/images/product/${picture.name }" width="50px"></c:forEach>
 	</form>
-</body>
-</html>
+<jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>

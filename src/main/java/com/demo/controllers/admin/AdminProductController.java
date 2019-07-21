@@ -30,7 +30,7 @@ import com.demo.services.SizeService;
 import com.demo.services.StorageService;
 
 @Controller
-@RequestMapping("admin/products")
+@RequestMapping("admin/product")
 public class AdminProductController {
 	
 	@Autowired
@@ -50,27 +50,27 @@ public class AdminProductController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
 		modelMap.put("products", productService.findAll());
-		return "../admin/products/index";
+		return "../admin/product/index";
 	}
 	
 	@RequestMapping(value = "{id}" , method = RequestMethod.GET)
 	public String detail(@PathVariable("id") int id, ModelMap modelMap) {
 		modelMap.put("product", productService.find(id));
-		return "../admin/products/details";
+		return "../admin/product/details";
 	}
 	
 	@RequestMapping(value = "add", method = RequestMethod.POST)
 	public String add(@ModelAttribute("product") @Valid ProductConfirm product, BindingResult bindingResult) {
 		
 		if(bindingResult.hasErrors()) {
-			return "../admin/products/add";
+			return "../admin/product/add";
 		} else {
 			Product pro = new Product();
 			pro.setName(product.getName());
 			pro.setPrice(product.getPrice());
 			pro.setQuantity(product.getQuantity());
 			productService.save(pro);
-			return "redirect:/admin/products";
+			return "redirect:/admin/product";
 		}
 	}
 
@@ -78,13 +78,13 @@ public class AdminProductController {
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String add(ModelMap modelMap) {
 		modelMap.put("product", new ProductConfirm());
-		return "../admin/products/add";
+		return "../admin/product/add";
 	}
 	
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
 	public String delete(@PathVariable("id") int id) {
 		productService.delete(id);
-		return "redirect:/admin/products";
+		return "redirect:/admin/product";
 	}
 	
 	@RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
@@ -92,7 +92,7 @@ public class AdminProductController {
 		modelMap.put("product", productService.find(id));
 		modelMap.put("sizes", sizeService.findAll());
 		modelMap.put("colors", colorService.findAll());
-		return "../admin/products/edit";
+		return "../admin/product/edit";
 	}
 	
 	@RequestMapping(value = "edit/{id}", method = RequestMethod.POST)
