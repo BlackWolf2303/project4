@@ -20,7 +20,7 @@
             <li><a href="index.html"> <i class="icon-home"></i>Home                             </a></li>
             <li><a href="/admin/customer"> <i class="icon-form"></i>Customer                             </a></li>
             <li><a href="/admin/product"> <i class="fa fa-bar-chart"></i>Product                             </a></li>
-            <li><a href="tables.html"> <i class="icon-grid"></i>Tables                             </a></li>
+            <li><a href="/admin/invoice"> <i class="icon-grid"></i>Invoice                             </a></li>
             <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
               <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                 <li><a href="#">Page</a></li>
