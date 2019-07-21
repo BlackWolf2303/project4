@@ -1,16 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
+<jsp:include page="/WEB-INF/admin-layouts/head-meta.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
 
-	<s:form action="/admin/register" method="POST" modelAttribute="account" >
+	<s:form action="/admin/customer/add" method="POST" modelAttribute="account" >
 		<table>
 			<tr>
 				<td>UserName:</td>
@@ -35,5 +30,4 @@
 		<%--         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
 	</s:form>
 
-</body>
-</html>
+<jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>

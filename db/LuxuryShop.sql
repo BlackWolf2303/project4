@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2019 at 07:31 PM
+-- Generation Time: Jul 21, 2019 at 07:16 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -42,7 +42,7 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`id`, `username`, `password`) VALUES
 (1, 'lythihagiang', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC'),
-(2, 'duc', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC'),
+(2, 'ducnt', '$2a$10$/oa.uciP5VL9TtW85CnRQevoSi72NOLez7bgtv.bOyngSVuZdkHnO'),
 (3, 'hai', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC'),
 (12, 'admin', '$2a$10$a.YQVg6JLV7Y.BVw/HZuX.bl0p4lgBUehjyOyAOAA5OkBeFfY6aie');
 
@@ -165,21 +165,39 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `name`, `productId`) VALUES
-(1, '/images/product/giay.jpg', 9),
-(2, '/images/product/giay2.jpg', 9),
-(3, '/images/product/giay3.jpg', 9),
-(4, '/images/product/giay4.jpg', 9);
+(1, 'images/product/giay.jpg', 9),
+(2, 'images/product/giay2.jpg', 9),
+(3, 'images/product/giay3.jpg', 9),
+(4, 'images/product/giay4.jpg', 9);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Table structure for table `ordertbl`
 --
 
-CREATE TABLE `order` (
+CREATE TABLE `ordertbl` (
   `id` int(11) NOT NULL,
-  `accountId` int(11) NOT NULL
+  `account_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ordertbl`
+--
+
+INSERT INTO `ordertbl` (`id`, `account_id`) VALUES
+(17, 2),
+(18, 2),
+(19, 2),
+(20, 2),
+(21, 2),
+(22, 2),
+(23, 2),
+(24, 2),
+(25, 2),
+(26, 2),
+(27, 2),
+(28, 2);
 
 -- --------------------------------------------------------
 
@@ -193,6 +211,23 @@ CREATE TABLE `order_detail` (
   `qty` int(11) NOT NULL,
   `price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`product_id`, `order_id`, `qty`, `price`) VALUES
+(9, 17, 2, 120),
+(9, 18, 1, 120),
+(9, 19, 1, 120),
+(9, 20, 2, 120),
+(9, 21, 1, 120),
+(9, 22, 1, 120),
+(9, 24, 2, 120),
+(9, 25, 1, 120),
+(9, 27, 1, 120),
+(9, 28, 1, 120),
+(10, 17, 1, 220);
 
 -- --------------------------------------------------------
 
@@ -218,8 +253,7 @@ INSERT INTO `product` (`id`, `name`, `price`, `quantity`, `status`, `free_size`)
 (10, 'sp 2', 220, 7, 1, 0),
 (11, 'sp 3', 160, 10, 1, 0),
 (12, 'sp 4', 150, 5, 1, 0),
-(13, 'Ao 1', 0, 0, 0, 0),
-(14, 'Ao 2', 18, 1, 1, 0);
+(13, 'Ao 1', 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -278,9 +312,9 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`id`, `name`) VALUES
-(1, 'SUPER_ADMIN'),
-(2, 'NORMAL_ADMIN'),
-(3, 'EMPLOYEE');
+(1, 'ROLE_SUPER_ADMIN'),
+(2, 'ROLE_NORMAL_ADMIN'),
+(3, 'ROLE_CUSTOMER');
 
 -- --------------------------------------------------------
 
@@ -379,11 +413,11 @@ ALTER TABLE `images`
   ADD KEY `fk_product_image` (`productId`);
 
 --
--- Indexes for table `order`
+-- Indexes for table `ordertbl`
 --
-ALTER TABLE `order`
+ALTER TABLE `ordertbl`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_order_account` (`accountId`);
+  ADD KEY `fk_order_account` (`account_id`);
 
 --
 -- Indexes for table `order_detail`
@@ -465,10 +499,10 @@ ALTER TABLE `images`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `order`
+-- AUTO_INCREMENT for table `ordertbl`
 --
-ALTER TABLE `order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `ordertbl`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -519,16 +553,16 @@ ALTER TABLE `images`
   ADD CONSTRAINT `fk_product_image` FOREIGN KEY (`productId`) REFERENCES `product` (`id`);
 
 --
--- Constraints for table `order`
+-- Constraints for table `ordertbl`
 --
-ALTER TABLE `order`
-  ADD CONSTRAINT `fk_order_account` FOREIGN KEY (`accountId`) REFERENCES `account` (`id`);
+ALTER TABLE `ordertbl`
+  ADD CONSTRAINT `fk_order_account` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`);
 
 --
 -- Constraints for table `order_detail`
 --
 ALTER TABLE `order_detail`
-  ADD CONSTRAINT `fk_orderdetail_order` FOREIGN KEY (`order_id`) REFERENCES `order` (`id`),
+  ADD CONSTRAINT `fk_orderdetail_order` FOREIGN KEY (`order_id`) REFERENCES `ordertbl` (`id`),
   ADD CONSTRAINT `fk_orderdetail_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
@@ -1181,7 +1215,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"da4\",\"table\":\"order_detail\"},{\"db\":\"da4\",\"table\":\"product\"},{\"db\":\"da4\",\"table\":\"order\"},{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"images\"},{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"test\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"accounts_roles\"},{\"db\":\"da4\",\"table\":\"user\"}]');
+('root', '[{\"db\":\"da4\",\"table\":\"order_detail\"},{\"db\":\"da4\",\"table\":\"images\"},{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"ordertbl\"},{\"db\":\"da4\",\"table\":\"order\"},{\"db\":\"da4\",\"table\":\"product\"},{\"db\":\"test\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"accounts_roles\"}]');
 
 -- --------------------------------------------------------
 
@@ -1288,7 +1322,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2019-07-17 17:31:29', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
+('root', '2019-07-21 17:15:45', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
 
 -- --------------------------------------------------------
 

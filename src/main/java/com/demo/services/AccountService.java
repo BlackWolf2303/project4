@@ -12,6 +12,11 @@ public interface AccountService extends UserDetailsService {
 
 	Account findByUsername(String username);
 	
-	List<Account> findAllCustomer();
+	List<Account> findAllCustomer(String rolename);
 
+	List<Account> findAll();
+	
+	Account findById(int id);
+	
+	void delete(int id);
 }

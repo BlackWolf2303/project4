@@ -1,17 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" isELIgnored="false" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>DETAIL</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
+<jsp:include page="/WEB-INF/admin-layouts/head-meta.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
+
 	<h3>ADD PRODUCT</h3>
 	
-	<s:form modelAttribute="product" method="post" action="/admin/products/add">
+	<s:form modelAttribute="product" method="post" action="/admin/product/add">
 		<s:input path="name" />
 		<s:errors path="name" /><br>
 		<s:input path="price" type="number"/>
@@ -20,7 +16,7 @@
 		<s:errors path="quantity" /><br>
 		<input value="Submit" type="submit">
 	</s:form>
-<!-- 	<form name="product" action="/admin/products/add" method="post"> -->
+<!-- 	<form name="product" action="/admin/product/add" method="post"> -->
 <%-- 		Name <input type="text" name="name" value= " ${product.name }"> <br> --%>
 <%-- 		Price <input type="text" name="price" value = " ${product.price }"><br> --%>
 <%-- 		Quantity <input type="text" name="quantity" value = " ${product.quantity }"><br> --%>
@@ -35,5 +31,4 @@
 <!-- 	<input value="Submit" type="submit"> -->
 <!-- 	</form> -->
 	
-</body>
-</html>
+<jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>

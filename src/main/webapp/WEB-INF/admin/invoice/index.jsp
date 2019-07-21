@@ -6,20 +6,21 @@
 
 <section>
 
-	<h1>Customer Management</h1>
-	<a href="/admin/customer/add">Add</a>
+	<h1>Invoice Management</h1>
 	<table border="1">
 		<thead>
 			<tr>
+				<td>ID</td>
 				<td>Name</td>
 				<td>Action</td>
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach var="customer" items="${customers}">
+		<c:forEach var="order" items="${orders}">
 			<tr>
-				<td>${customer.username}</td>
-				<td><a href="/admin/customer/delete/${customer.id}">Delete</a>|<a href="/admin/customer/edit/${customer.id}">Edit</a></td>
+				<td>${order.id}</td>
+				<td>${order.account.username}</td>
+				<td><a href="/admin/invoice/detail/${order.id}">Details</a>|<a href="/admin/invoice/edit/${order.id}">Edit</a></td>
 			</tr>
 		</c:forEach>
 		</tbody>

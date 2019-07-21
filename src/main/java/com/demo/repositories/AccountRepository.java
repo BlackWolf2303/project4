@@ -16,6 +16,6 @@ public interface AccountRepository extends CrudRepository<Account, Integer> {
 	Account findByUsername(@Param("username") String username);
 
 	@Query("SELECT a "
-			+ "FROM Account a INNER JOIN Role r WHERE r.name = 'ROLE_CUSTOMER'")
-	List<Account> findAllCustomer();
+			+ "FROM Account a INNER JOIN Role r WHERE r.name = :rolename")
+	List<Account> findAllCustomer(@Param("rolename") String rolename);
 }
