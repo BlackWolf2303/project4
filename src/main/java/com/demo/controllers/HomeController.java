@@ -1,12 +1,18 @@
 package com.demo.controllers;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -15,65 +21,50 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.entities.Account;
+import com.demo.entities.Item;
 import com.demo.services.AccountService;
 import com.demo.services.SecurityService;
 
 @Controller
-@RequestMapping()
 public class HomeController {
+	
 	@Autowired
 	private AccountService accountService;
 
 	@Autowired
 	private SecurityService securityService;
 
-	@RequestMapping()
-	public String HomeView(ModelMap model) {
-		try {
+	@RequestMapping("/")
+	public String IndexView() {
+		return "redirect:home";
+	}
 
-			boolean isLogin = false;
-			//Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-			Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>) SecurityContextHolder.getContext().getAuthentication().getAuthorities();
-			SimpleGrantedAuthority clientUser = new SimpleGrantedAuthority("EMPLOYEE");
-			if (authorities.contains(clientUser)) {
-				isLogin = true;
-			}
-			model.put("isLogin", isLogin);
-//			boolean isLogin = SecurityContextHolder.getContext().getAuthentication() != null &&
-//					 SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
-//					 //when Anonymous Authentication is enabled
-//					 !(SecurityContextHolder.getContext().getAuthentication() 
-//					          instanceof AnonymousAuthenticationToken);
-//			model.put("isLogin", isLogin);
-			return "home/index";
-		} catch (Exception e) {
-			System.out.println("null authen");
-			return "home/index";
+	@RequestMapping("home")
+	public String HomeView(HttpSession session) {
+		if (session.getAttribute("cart") == null) {
+			List<Item> cart = new ArrayList<Item>();
+			session.setAttribute("cart", cart);
 		}
+		return "home/index";
+	}
+
+	@RequestMapping("403")
+	public String ErrorPage() {
+		return "home/error";
 	}
 
 	@GetMapping("login")
 	public String LoginFailed(@RequestParam(value = "error", required = false) String error, ModelMap model) {
-		try {
-			String errorMessge = null;
-			if (error != null) {
-				errorMessge = "Username or Password is incorrect !!";
-			}
-			model.addAttribute("errorMessge", errorMessge);
-			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-			String isLogin = authentication.getName();
-//			boolean isLogin = SecurityContextHolder.getContext().getAuthentication() != null
-//					&& SecurityContextHolder.getContext().getAuthentication().isAuthenticated() &&
-//					// when Anonymous Authentication is enabled
-//					!(SecurityContextHolder.getContext().getAuthentication() instanceof AnonymousAuthenticationToken);
-//			model.put("isLogin", isLogin);
-			return "login/index";
-		} catch (Exception e) {
-			return "redirect:/";
+		String errorMessge = null;
+		if (error != null) {
+			errorMessge = "Username or Password is incorrect !!";
 		}
+		model.addAttribute("errorMessge", errorMessge);
+		return "login/index";
 	}
 
 	@GetMapping("register")
@@ -84,10 +75,22 @@ public class HomeController {
 	@PostMapping("register")
 	public String Register(@ModelAttribute("account") Account account,
 			@RequestParam("passwordConfirm") String passwordConfirm) {
-		// System.out.println(account.getUsername() + "|" + account.getPassword() + "|"
-		// + passwordConfirm);
 		accountService.save(account);
 		securityService.autoLogin(account.getUsername(), passwordConfirm);
 		return "redirect:/";
 	}
+	
+	@RequestMapping(value = "/successLogin", method = RequestMethod.POST)
+	private String OrderSuccess() {
+        UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+        Collection<? extends GrantedAuthority> authorities
+        = authentication.getAuthorities();
+        for (GrantedAuthority grantedAuthority : authorities) {
+        	if (grantedAuthority.getAuthority().equals("ROLE_CUSTOMER")) {
+                return "redirect:/home";
+            }
+		}        
+        return "redirect:/login?error=true";
+	}
+	
 }

@@ -1,5 +1,7 @@
 package com.demo.services;
 
+import java.util.List;
+
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import com.demo.entities.Account;
@@ -10,6 +12,6 @@ public interface AccountService extends UserDetailsService {
 
 	Account findByUsername(String username);
 	
-	//Account findById()
+	List<Account> findAllCustomer();
 
 }

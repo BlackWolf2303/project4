@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 //@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "order")
 public class OrderDetailID implements Serializable {
 	private static final long serialVersionUID = 476151177562655457L;
-	
+
 	@ManyToOne(optional = false, fetch = FetchType.LAZY)
 	@JoinColumn(name = "order_id")
 	private Order order;
@@ -38,7 +38,16 @@ public class OrderDetailID implements Serializable {
 	public void setProduct(Product product) {
 		this.product = product;
 	}
+	public OrderDetailID() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
+	public OrderDetailID(Order order, Product product) {
+		super();
+		this.order = order;
+		this.product = product;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

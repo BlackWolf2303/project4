@@ -19,7 +19,7 @@ public class CategoriesController {
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
 		modelMap.put("products", productService.findAll());
 		return "categories/index";

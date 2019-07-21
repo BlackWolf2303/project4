@@ -1,5 +1,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+
 <body class="bg-white">
 	<div class="wrap wrap-index">
 		<header id="header">
@@ -29,8 +31,14 @@
 										<div class="search-box">
 											<a href="#" class="text-uppercase title12 link-hover"><i
 												class="fas fa-search"></i>search</a>
+<<<<<<< HEAD
 											<form class="search-form clearfix" action="categories/search" method="get">
 												<input type="text" value="keyword"
+=======
+											<form class="search-form clearfix"
+												action="/categories/search" method="get">
+												<input type="text" value="Search" name="keyword"
+>>>>>>> 503f63dc1d60a4ab73cfc22034b2f2589373083a
 													onfocus="if (this.value==this.defaultValue) this.value = ''"
 													onblur="if (this.value=='') this.value = this.defaultValue">
 												<div class="submit bg-color text-center">
@@ -39,24 +47,28 @@
 											</form>
 										</div>
 									</li>
-									<c:if test="${!isLogin}">
+									<security:authorize access="!hasRole('ROLE_CUSTOMER')">
 										<li><a href="<c:url value="/login"/>"
 											class="text-uppercase title12 link-hover"><i
-												class="fas fa-user"></i> login</a>
-									</c:if>
-									<c:if test="${isLogin}">
+												class="fas fa-user"></i> login</a></li>
+									</security:authorize>
+									<security:authorize access="hasRole('ROLE_CUSTOMER')">
 										<li><a href="<c:url value="/logout"/>"
 											class="text-uppercase title12 link-hover"><i
 												class="fas fa-user"></i> logout</a></li>
 										<li><a href="<c:url value="/myaccount"/>"
 											class="text-uppercase title12 link-hover"><i
 												class="fas fa-user"></i> my account</a></li>
-									</c:if>
+									</security:authorize>
+									<li><a href="<c:url value="/cart"/>"
+										class="text-uppercase title12 link-hover"><i
+											class="fas fa-user"></i> my cart</a></li>
 									<li>
 										<div class="mini-cart-box aside-box style-mini-cart">
 											<div class="mini-cart-link">
 												<a class="link-hover text-uppercase title12 mini-cart-icon"
-													href="#"><i class="fas fa-shopping-bag"></i>my cart</a>
+													href="<c:url value="/cart"/>"><i
+													class="fas fa-shopping-bag"></i>my cart</a>
 											</div>
 											<div class="mini-cart-content text-left">
 												<h2 class="title18 font-bold">(2) ITEMS IN MY CART</h2>

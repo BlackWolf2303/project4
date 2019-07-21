@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "order")
+@Table(name = "ordertbl")
 public class Order {
 
 	@Id
@@ -21,7 +21,7 @@ public class Order {
 	private int id;
 
 	@ManyToOne
-	@JoinColumn(name = "accountid", nullable = false)
+	@JoinColumn(name = "account_id", nullable = false)
 	private Account account;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id.order")
 	private List<OrderDetail> orderDetais;
