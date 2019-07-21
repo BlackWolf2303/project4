@@ -63,8 +63,13 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public List<Account> findAllCustomer() {
-		return accountRepository.findAllCustomer();
+	public List<Account> findAllCustomer(String rolename) {
+		return accountRepository.findAllCustomer(rolename);
+	}
+
+	@Override
+	public List<Account> findAll() {
+		return (List<Account>) accountRepository.findAll();
 	}
 
 	
