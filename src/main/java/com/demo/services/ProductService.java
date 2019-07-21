@@ -1,7 +1,5 @@
 package com.demo.services;
 
-import java.util.List;
-
 import com.demo.entities.Product;
 
 public interface ProductService {
@@ -14,6 +12,6 @@ public interface ProductService {
 
 	public void delete(int id);
 	
-	public List<Product> findByName(String name);
+	public Product findByName(String name);
 
 }

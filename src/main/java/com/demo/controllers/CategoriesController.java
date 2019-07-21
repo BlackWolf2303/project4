@@ -35,11 +35,9 @@ public class CategoriesController {
 		return "product/index";
 	}
 	
-	@RequestMapping(value = "search", method = RequestMethod.GET)
+	@RequestMapping(value = "search/{name}", method = RequestMethod.GET)
 	public String Search(@ModelAttribute("keyword") String name, ModelMap modelMap) {
-		System.out.println(name);
-		System.out.println(productService.findByName("sp 1"));
-		modelMap.put("products", productService.findByName(name));
+		modelMap.put("product", productService.findByName(name));
 		return "categories/index";
 	}
 }

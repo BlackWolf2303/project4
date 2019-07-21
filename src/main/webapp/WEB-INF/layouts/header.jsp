@@ -29,8 +29,8 @@
 										<div class="search-box">
 											<a href="#" class="text-uppercase title12 link-hover"><i
 												class="fas fa-search"></i>search</a>
-											<form class="search-form clearfix" action="/categories/search" method="get">
-												<input type="text" value="Search" name="keyword"
+											<form class="search-form clearfix" action="categories/search" method="get">
+												<input type="text" value="keyword"
 													onfocus="if (this.value==this.defaultValue) this.value = ''"
 													onblur="if (this.value=='') this.value = this.defaultValue">
 												<div class="submit bg-color text-center">
