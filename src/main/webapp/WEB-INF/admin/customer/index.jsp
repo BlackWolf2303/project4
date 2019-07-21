@@ -7,6 +7,7 @@
 <section>
 
 	<h1>Customer Management</h1>
+	<a href="/admin/customer/add">Add</a>
 	<table border="1">
 		<thead>
 			<tr>
