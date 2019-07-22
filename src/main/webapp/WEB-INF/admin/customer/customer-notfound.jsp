@@ -8,6 +8,7 @@
 <section>
 
 	<h1>Customer not found</h1>
+	<a href=""></a>
 </section>
 
 <jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>
