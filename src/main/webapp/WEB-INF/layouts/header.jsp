@@ -31,14 +31,9 @@
 										<div class="search-box">
 											<a href="#" class="text-uppercase title12 link-hover"><i
 												class="fas fa-search"></i>search</a>
-<<<<<<< HEAD
-											<form class="search-form clearfix" action="categories/search" method="get">
-												<input type="text" value="keyword"
-=======
 											<form class="search-form clearfix"
 												action="/categories/search" method="get">
 												<input type="text" value="Search" name="keyword"
->>>>>>> 503f63dc1d60a4ab73cfc22034b2f2589373083a
 													onfocus="if (this.value==this.defaultValue) this.value = ''"
 													onblur="if (this.value=='') this.value = this.defaultValue">
 												<div class="submit bg-color text-center">
@@ -60,9 +55,9 @@
 											class="text-uppercase title12 link-hover"><i
 												class="fas fa-user"></i> my account</a></li>
 									</security:authorize>
-									<li><a href="<c:url value="/cart"/>"
-										class="text-uppercase title12 link-hover"><i
-											class="fas fa-user"></i> my cart</a></li>
+<%-- 									<li><a href="<c:url value="/cart"/>" --%>
+<!-- 										class="text-uppercase title12 link-hover"><i -->
+<!-- 											class="fas fa-user"></i> my cart</a></li> -->
 									<li>
 										<div class="mini-cart-box aside-box style-mini-cart">
 											<div class="mini-cart-link">
@@ -73,85 +68,41 @@
 											<div class="mini-cart-content text-left">
 												<h2 class="title18 font-bold">(2) ITEMS IN MY CART</h2>
 												<div class="list-mini-cart-item">
-													<div class="product-mini-cart table">
-														<div class="product-thumb">
-															<a href="detail.html" class="product-thumb-link"><img
-																alt="" src="photos/products/Bags/bags-01.jpg"></a>
-														</div>
-														<div class="product-info">
-															<h3 class="title14 product-title">
-																<a href="#" class="link-hover">Verycheap Bags</a>
-															</h3>
-															<div class="mini-cart-qty">
-																<span>1 x $40.00</span>
+												
+													<s:form modelAttribute="items" action="${pageContext.request.contextPath }/cart/order">
+														<c:set var="total" value="0"></c:set>
+														
+														<c:forEach var="item" items="${sessionScope.cart }">
+															<c:set var="total" value="${total + item.product.price * item.quantity }"></c:set>
+															<div class="product-mini-cart table">
+																<div class="product-thumb">
+																	<a href="detail.html" class="product-thumb-link"><img
+																		alt="" src="photos/products/Bags/bags-01.jpg"></a>
+																</div>
+																<div class="product-info">
+																	<h3 class="title14 product-title">
+																		<a href="#" class="link-hover">${item.product.name}</a>
+																	</h3>
+																	<div class="mini-cart-qty">
+																		<span>${item.quantity} x ${item.product.price}</span>
+																	</div>
+																</div>
+																<div class="product-delete text-right">
+																	<a href="${pageContext.request.contextPath }/cart/remove/${item.product.id}" class="remove-product link-hover" onclick="return confirm('Are you sure?')"><i
+																		class="fa fa-trash"></i></a>
+																</div>
 															</div>
-														</div>
-														<div class="product-delete text-right">
-															<a href="#" class="remove-product link-hover"><i
-																class="fa fa-trash"></i></a>
-														</div>
-													</div>
-													<div class="product-mini-cart table">
-														<div class="product-thumb">
-															<a href="detail.html" class="product-thumb-link"><img
-																alt="" src="photos/products/food/verycheap_food-01.jpg"></a>
-														</div>
-														<div class="product-info">
-															<h3 class="title14 product-title">
-																<a href="#" class="link-hover">Verycheap Food</a>
-															</h3>
-															<div class="mini-cart-qty">
-																<span>1 x $40.00</span>
-															</div>
-														</div>
-														<div class="product-delete text-right">
-															<a href="#" class="remove-product link-hover"><i
-																class="fa fa-trash"></i></a>
-														</div>
-													</div>
-													<div class="product-mini-cart table">
-														<div class="product-thumb">
-															<a href="detail.html" class="product-thumb-link"><img
-																alt="" src="photos/products/Drink/drink-06.jpg"></a>
-														</div>
-														<div class="product-info">
-															<h3 class="title14 product-title">
-																<a href="#" class="link-hover">Verycheap Drink</a>
-															</h3>
-															<div class="mini-cart-qty">
-																<span>1 x $40.00</span>
-															</div>
-														</div>
-														<div class="product-delete text-right">
-															<a href="#" class="remove-product link-hover"><i
-																class="fa fa-trash"></i></a>
-														</div>
-													</div>
-													<div class="product-mini-cart table">
-														<div class="product-thumb">
-															<a href="detail.html" class="product-thumb-link"><img
-																alt="" src="photos/products/Glasses/glasses_01.jpg"></a>
-														</div>
-														<div class="product-info">
-															<h3 class="title14 product-title">
-																<a href="#" class="link-hover">Verycheap Glasses</a>
-															</h3>
-															<div class="mini-cart-qty">
-																<span>1 x $40.00</span>
-															</div>
-														</div>
-														<div class="product-delete text-right">
-															<a href="#" class="remove-product link-hover"><i
-																class="fa fa-trash"></i></a>
-														</div>
-													</div>
+														</c:forEach>
+														
+													</s:form>
+												
 												</div>
 												<div class="mini-cart-total text-uppercase title18 clearfix">
 													<span class="pull-left">TOTAL</span> <strong
-														class="pull-right color mini-cart-total-price">$80.00</strong>
+														class="pull-right color mini-cart-total-price">${total}</strong>
 												</div>
 												<div class="mini-cart-button">
-													<a class="mini-cart-view shop-button white" href="#">View
+													<a class="mini-cart-view shop-button white" href="<c:url value="/cart"/>">View
 														cart </a> <a
 														class="mini-cart-checkout shop-button white bg-color"
 														href="#">Checkout</a>

@@ -1,3 +1,9 @@
 .footer-index {
 	margin-bottom: 0;
 }
+.checkout-page  {
+	display: flex; 
+     flex-direction: column; 
+     justify-content: center; 
+     align-items: center; 
+}

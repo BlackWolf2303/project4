@@ -14,18 +14,18 @@
       </footer>
     </div>
     <!-- JavaScript files-->
-    <script src="${pageContext.request.contextPath}/resources/admin-assets/vendor/jquery/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/admin-assets/vendor/popper.js/umd/popper.min.js"> </script>
-    <script src="${pageContext.request.contextPath}/resources/admin-assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/admin-assets/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/admin-assets/vendor/jquery.cookie/jquery.cookie.js"> </script>
-    <script src="${pageContext.request.contextPath}/resources/admin-assets/vendor/chart.js/Chart.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/admin-assets/vendor/jquery-validation/jquery.validate.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/admin-assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/admin-assets/js/charts-home.js"></script>
-        <script src="${pageContext.request.contextPath}/resources/admin-assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/admin-assets/vendor/jquery/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/admin-assets/vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="${pageContext.request.contextPath}/resources/assets/admin-assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/admin-assets/js/grasp_mobile_progress_circle-1.0.0.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/admin-assets/vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="${pageContext.request.contextPath}/resources/assets/admin-assets/vendor/chart.js/Chart.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/admin-assets/vendor/jquery-validation/jquery.validate.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/admin-assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/admin-assets/js/charts-home.js"></script>
+        <script src="${pageContext.request.contextPath}/resources/assets/admin-assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <!-- Main File-->
-    <script src="${pageContext.request.contextPath}/resources/admin-assets/js/front.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/assets/admin-assets/js/front.js"></script>
   </body>
 </html>
 
