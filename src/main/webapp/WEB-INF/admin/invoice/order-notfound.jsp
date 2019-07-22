@@ -6,7 +6,7 @@
 <jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
 
 <section>
-	<h1>Customer not found</h1>
+	<h1>Order not found</h1>
 	<a href="/admin/customer">Back to Customer</a>
 </section>
 

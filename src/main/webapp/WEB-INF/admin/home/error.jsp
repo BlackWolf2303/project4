@@ -2,4 +2,4 @@
     pageEncoding="ISO-8859-1"%>
       
 <h3>You don't have permission to access this page.</h3>
-<a href="/admin/logout">Logout</a>
+<a href="/admin/logout">Logout</a> and try another account.

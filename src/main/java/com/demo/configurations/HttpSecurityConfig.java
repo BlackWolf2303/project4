@@ -86,7 +86,7 @@ public class HttpSecurityConfig {
 					.and().formLogin().loginPage("/login").permitAll()
 					// .loginProcessingUrl("/login")
 					.failureUrl("/login?error=true")
-					.successForwardUrl("/successLogin")
+					//.successForwardUrl("/successLogin")
 					//.defaultSuccessUrl("/", true)
 
 					.and().logout().logoutSuccessUrl("/login").deleteCookies("JSESSIONID")

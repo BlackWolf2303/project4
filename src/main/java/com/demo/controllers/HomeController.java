@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -91,6 +92,21 @@ public class HomeController {
             }
 		}        
         return "redirect:/login?error=true";
+	}
+	
+	@GetMapping("myaccount")
+	public String myAccount(ModelMap modelMap) {
+		UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+		Account account = accountService.findByUsername(authentication.getName());
+		modelMap.put("account", account);
+		return "home/myaccount";
+	}
+	
+	@PostMapping("myaccount")
+	public String myAccount(@ModelAttribute()Account account, ModelMap modelMap) {
+		UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+		modelMap.put("account", accountService.findByUsername(authentication.getName()));
+		return "redirect:/myaccount";
 	}
 	
 }
