@@ -102,10 +102,9 @@
 														class="pull-right color mini-cart-total-price">${total}</strong>
 												</div>
 												<div class="mini-cart-button">
-													<a class="mini-cart-view shop-button white" href="<c:url value="/cart"/>">View
-														cart </a> <a
-														class="mini-cart-checkout shop-button white bg-color"
-														href="#">Checkout</a>
+<%-- 													<a class="mini-cart-view shop-button white" href="<c:url value="/cart"/>">View cart </a> --%>
+														<a class="mini-cart-checkout shop-button white bg-color"
+														href="<c:url value="/cart"/>">Checkout</a>
 												</div>
 											</div>
 										</div>
