@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service("accountService")
-@Transactional
 public class AccountServiceImpl implements AccountService {
 
 	@Autowired
