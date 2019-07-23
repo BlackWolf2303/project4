@@ -48,7 +48,7 @@
 												class="fas fa-user"></i> login</a></li>
 									</security:authorize>
 									<security:authorize access="hasRole('ROLE_CUSTOMER')">
-										<li><a href="<c:url value="/logout"/>"
+										<li><a href="<c:url value="/logout_url"/>"
 											class="text-uppercase title12 link-hover"><i
 												class="fas fa-user"></i> logout</a></li>
 										<li><a href="<c:url value="/myaccount"/>"

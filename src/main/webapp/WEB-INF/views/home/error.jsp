@@ -5,6 +5,6 @@
 <jsp:include page="/WEB-INF/layouts/header.jsp"></jsp:include>
 
       
-      <h3>You don't have permission to access this page.</h3>
+      <h3>You need <a href="/login">Login</a> to access this page.</h3>
       
 <jsp:include page="/WEB-INF/layouts/footer.jsp"></jsp:include>

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,16 +83,34 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/successLogin", method = RequestMethod.POST)
-	private String OrderSuccess() {
+	private String OrderSuccess(HttpServletRequest httpServletRequest) {
         UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
         Collection<? extends GrantedAuthority> authorities
         = authentication.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
         	if (grantedAuthority.getAuthority().equals("ROLE_CUSTOMER")) {
                 return "redirect:/home";
+            } else {
+            	securityService.autoLogout();
+            	return "redirect:/login?error";
             }
 		}        
-        return "redirect:/login?error=true";
+        return "redirect:/logout_url";
+	}
+	
+	@GetMapping("myaccount")
+	public String myAccount(ModelMap modelMap) {
+		UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+		Account account = accountService.findByUsername(authentication.getName());
+		modelMap.put("account", account);
+		return "login/myaccount";
+	}
+
+	@PostMapping("myaccount")
+	public String myAccount(@ModelAttribute()Account account, ModelMap modelMap) {
+		UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+		modelMap.put("account", accountService.findByUsername(authentication.getName()));
+		return "redirect:/myaccount";
 	}
 	
 }

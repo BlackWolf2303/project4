@@ -9,8 +9,8 @@
           <div class="form-inner">
             <div class="logo text-uppercase"><span>Project4 &nbsp;</span><strong class="text-primary">Amin</strong></div>
             <p>Đăng nhập và quản lý tài khoản, điều chỉnh thông tin, tra cứu và quản lý hàng hóa và doanh số bán hàng </p>
-            
-            <form action="/admin/login" method="POST" class="text-left form-validate">
+            <h4><c:if test="${not empty errorMessge}"><div style="color:red; font-weight: bold; margin: 30px 0px;">${errorMessge}</div></c:if></h4>
+            <form action="/admin/login_url" method="POST" class="text-left form-validate">
               <div class="form-group-material">
                 <input id="login-username" type="text" name="username" required data-msg="Please enter your username" class="input-material">
                 <label for="login-username" class="label-material">Username</label>

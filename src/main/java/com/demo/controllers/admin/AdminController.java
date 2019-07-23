@@ -3,11 +3,14 @@ package com.demo.controllers.admin;
 import java.security.Principal;
 import java.util.Collection;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -102,5 +105,19 @@ public class AdminController {
 		} else {
 			return "../admin/home/register";
 		}
+	}
+	
+	@RequestMapping(value = "successLogin", method = RequestMethod.POST)
+	private String successLogin(HttpServletRequest httpServletRequest) {
+        UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+        Collection<? extends GrantedAuthority> authorities
+        = authentication.getAuthorities();
+        for (GrantedAuthority grantedAuthority : authorities) {
+        	if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
+                return "redirect:/admin";
+            }
+		}
+    	securityService.autoLogout();
+    	return "redirect:/admin/login?error";
 	}
 }

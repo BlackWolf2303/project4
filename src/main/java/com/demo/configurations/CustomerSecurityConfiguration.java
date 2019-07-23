@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.context.SecurityContextPersistenceFilter;
 import org.springframework.security.web.firewall.HttpFirewall;
 import org.springframework.security.web.firewall.StrictHttpFirewall;
@@ -36,18 +37,27 @@ public class CustomerSecurityConfiguration extends WebSecurityConfigurerAdapter 
 		
 		httpSecurity.antMatcher("/**")
 					.authorizeRequests()
+					.antMatchers("/resources/**").permitAll()
 					.antMatchers("/myaccount/**").access("hasRole('ROLE_CUSTOMER')")
 					.antMatchers("/order/**").access("hasRole('ROLE_CUSTOMER')")
 					.anyRequest().permitAll()
 					.and()
 					.formLogin().loginPage("/login")
-					.defaultSuccessUrl("/home")
-					.failureUrl("/login?error=true")
-					.and().logout().logoutSuccessUrl("/login").deleteCookies("JSESSIONID")
+					.loginProcessingUrl("/login_url")
+					.successForwardUrl("/successLogin")
+					//.defaultSuccessUrl("/home")
+					//.successHandler(myAuthenticationSuccessHandler())
+					.failureUrl("/login?error=true").permitAll()
+					.and().logout().logoutUrl("/logout_url").logoutSuccessUrl("/login").deleteCookies("JSESSIONID")
 					.and().rememberMe().key("corgi")
 					.and().exceptionHandling().accessDeniedPage("/403");
 		
 	}
+	 
+//    @Bean
+//    public AuthenticationSuccessHandler myAuthenticationSuccessHandler(){
+//        return new MySimpleUrlAuthenticationSuccessHandler();
+//    }
 	
 	@Bean
 	public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
