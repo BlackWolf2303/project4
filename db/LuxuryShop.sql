@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2019 at 07:16 PM
+-- Generation Time: Jul 23, 2019 at 09:14 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -33,18 +33,24 @@ USE `da4`;
 CREATE TABLE `account` (
   `id` int(11) NOT NULL,
   `username` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL
+  `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `fullname` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `birthday` date NOT NULL,
+  `gender` int(11) NOT NULL,
+  `address` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `avatar` varchar(250) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`id`, `username`, `password`) VALUES
-(1, 'lythihagiang', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC'),
-(2, 'ducnt', '$2a$10$/oa.uciP5VL9TtW85CnRQevoSi72NOLez7bgtv.bOyngSVuZdkHnO'),
-(3, 'hai', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC'),
-(12, 'admin', '$2a$10$a.YQVg6JLV7Y.BVw/HZuX.bl0p4lgBUehjyOyAOAA5OkBeFfY6aie');
+INSERT INTO `account` (`id`, `username`, `password`, `fullname`, `birthday`, `gender`, `address`, `phone`, `avatar`) VALUES
+(1, 'lythihagiang', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC', '', '2019-07-09', 0, '', '', ''),
+(2, 'ducnt', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC', '', '2019-07-09', 0, '', '', ''),
+(3, 'hai', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC', 'HaiHT', '2019-07-03', 0, '', '', ''),
+(12, 'admin', '$2a$10$a.YQVg6JLV7Y.BVw/HZuX.bl0p4lgBUehjyOyAOAA5OkBeFfY6aie', '', '2019-07-01', 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -64,7 +70,6 @@ CREATE TABLE `account_role` (
 INSERT INTO `account_role` (`account_id`, `role_id`) VALUES
 (1, 1),
 (1, 2),
-(2, 3),
 (3, 3),
 (12, 3);
 
@@ -197,7 +202,8 @@ INSERT INTO `ordertbl` (`id`, `account_id`) VALUES
 (25, 2),
 (26, 2),
 (27, 2),
-(28, 2);
+(28, 2),
+(29, 3);
 
 -- --------------------------------------------------------
 
@@ -227,6 +233,7 @@ INSERT INTO `order_detail` (`product_id`, `order_id`, `qty`, `price`) VALUES
 (9, 25, 1, 120),
 (9, 27, 1, 120),
 (9, 28, 1, 120),
+(9, 29, 1, 120),
 (10, 17, 1, 220);
 
 -- --------------------------------------------------------
@@ -313,7 +320,7 @@ CREATE TABLE `role` (
 
 INSERT INTO `role` (`id`, `name`) VALUES
 (1, 'ROLE_SUPER_ADMIN'),
-(2, 'ROLE_NORMAL_ADMIN'),
+(2, 'ROLE_ADMIN'),
 (3, 'ROLE_CUSTOMER');
 
 -- --------------------------------------------------------
@@ -502,13 +509,13 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `ordertbl`
 --
 ALTER TABLE `ordertbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -578,6 +585,130 @@ ALTER TABLE `product_color`
 ALTER TABLE `product_size`
   ADD CONSTRAINT `fk_product_productsize` FOREIGN KEY (`productid`) REFERENCES `product` (`id`),
   ADD CONSTRAINT `fk_size_productsize` FOREIGN KEY (`sizeid`) REFERENCES `size` (`id`);
+--
+-- Database: `demo6`
+--
+CREATE DATABASE IF NOT EXISTS `demo6` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `demo6`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL,
+  `name` varchar(250) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`) VALUES
+(1, 'ROLE_SUPER_ADMIN'),
+(2, 'ROLE_ADMIN'),
+(3, 'ROLE_EMPLOYEE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(300) NOT NULL,
+  `enabled` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `enabled`) VALUES
+(1, 'acc1', '$2a$04$YnS.4Ak1DPOV2YDjzPSl.ugIVk4/gXGPAHtSd/8g3fj2vJOuV49AG', 1),
+(2, 'acc2', '$2a$04$YnS.4Ak1DPOV2YDjzPSl.ugIVk4/gXGPAHtSd/8g3fj2vJOuV49AG', 1),
+(3, 'acc3', '$2a$04$YnS.4Ak1DPOV2YDjzPSl.ugIVk4/gXGPAHtSd/8g3fj2vJOuV49AG', 1),
+(6, 'abc', '$2a$04$YnS.4Ak1DPOV2YDjzPSl.ugIVk4/gXGPAHtSd/8g3fj2vJOuV49AG', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_role`
+--
+
+CREATE TABLE `user_role` (
+  `userid` int(11) NOT NULL,
+  `roleid` int(11) NOT NULL,
+  `enable` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_role`
+--
+
+INSERT INTO `user_role` (`userid`, `roleid`, `enable`) VALUES
+(1, 1, 1),
+(1, 2, 1),
+(1, 3, 1),
+(2, 2, 1),
+(2, 3, 1),
+(3, 3, 1),
+(6, 2, 1),
+(6, 3, 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_role`
+--
+ALTER TABLE `user_role`
+  ADD PRIMARY KEY (`userid`,`roleid`),
+  ADD KEY `roleid` (`roleid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `user_role`
+--
+ALTER TABLE `user_role`
+  ADD CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `user_role_ibfk_2` FOREIGN KEY (`roleid`) REFERENCES `roles` (`id`);
 --
 -- Database: `demo_buoi_10`
 --
@@ -1215,7 +1346,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"da4\",\"table\":\"order_detail\"},{\"db\":\"da4\",\"table\":\"images\"},{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"ordertbl\"},{\"db\":\"da4\",\"table\":\"order\"},{\"db\":\"da4\",\"table\":\"product\"},{\"db\":\"test\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"accounts_roles\"}]');
+('root', '[{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"demo6\",\"table\":\"users\"},{\"db\":\"da4\",\"table\":\"order_detail\"},{\"db\":\"da4\",\"table\":\"images\"},{\"db\":\"da4\",\"table\":\"ordertbl\"},{\"db\":\"da4\",\"table\":\"order\"},{\"db\":\"da4\",\"table\":\"product\"},{\"db\":\"test\",\"table\":\"account\"}]');
 
 -- --------------------------------------------------------
 
@@ -1286,6 +1417,13 @@ CREATE TABLE `pma__table_uiprefs` (
   `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
 
+--
+-- Dumping data for table `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'da4', 'account', '{\"sorted_col\":\"`account`.`gender` ASC\"}', '2019-07-23 12:21:13');
+
 -- --------------------------------------------------------
 
 --
@@ -1322,7 +1460,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2019-07-21 17:15:45', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
+('root', '2019-07-23 17:03:30', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
 
 -- --------------------------------------------------------
 
