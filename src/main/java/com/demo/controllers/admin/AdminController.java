@@ -78,11 +78,11 @@ public class AdminController {
 		return "../admin/home/login";
 	}
 
-	@RequestMapping(value = "register", method = RequestMethod.GET)
-	public String register(ModelMap modelMap) {
-		modelMap.put("account", new AccountConfirm());
-		return "../admin/home/register";
-	}
+//	@RequestMapping(value = "register", method = RequestMethod.GET)
+//	public String register(ModelMap modelMap) {
+//		modelMap.put("account", new AccountConfirm());
+//		return "../admin/home/register";
+//	}
 
 	@GetMapping("editaccount/{username}")
 	public String editAccount(@PathVariable("username") String username, ModelMap modelMap) {
@@ -91,21 +91,21 @@ public class AdminController {
 		return "../admin/home/editAccount";
 	}
 
-	@RequestMapping(value = "register", method = RequestMethod.POST)
-	public String register(@ModelAttribute("account") @Valid AccountConfirm account, BindingResult bindingResult) {
-		accountValidator.validate(account, bindingResult);
-		if (!bindingResult.hasErrors()) {
-			Account acc = new Account();
-			acc.setUsername(account.getUsername());
-			acc.setPassword(account.getPassword());
-			acc.getRoles().add(roleService.find(3));
-			accountService.save(acc);
-			securityService.autoLogin(acc.getUsername(), acc.getPassword());
-			return "redirect:/admin";
-		} else {
-			return "../admin/home/register";
-		}
-	}
+//	@RequestMapping(value = "register", method = RequestMethod.POST)
+//	public String register(@ModelAttribute("account") @Valid AccountConfirm account, BindingResult bindingResult) {
+//		accountValidator.validate(account, bindingResult);
+//		if (!bindingResult.hasErrors()) {
+//			Account acc = new Account();
+//			acc.setUsername(account.getUsername());
+//			acc.setPassword(account.getPassword());
+//			acc.getRoles().add(roleService.find(3));
+//			accountService.save(acc);
+//			securityService.autoLogin(acc.getUsername(), acc.getPassword());
+//			return "redirect:/admin";
+//		} else {
+//			return "../admin/home/register";
+//		}
+//	}
 	
 	@RequestMapping(value = "successLogin", method = RequestMethod.POST)
 	private String successLogin(HttpServletRequest httpServletRequest) {

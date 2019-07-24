@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
@@ -19,20 +20,31 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.entities.Account;
+import com.demo.entities.AccountConfirm;
 import com.demo.entities.Item;
 import com.demo.services.AccountService;
+import com.demo.services.RoleService;
 import com.demo.services.SecurityService;
+import com.demo.validators.AccountValidator;
 
 @Controller
 public class HomeController {
+
+	@Autowired
+	private RoleService roleService;
+
+	@Autowired
+	private AccountValidator accountValidator;
 	
 	@Autowired
 	private AccountService accountService;
@@ -70,16 +82,25 @@ public class HomeController {
 	}
 
 	@GetMapping("register")
-	public String Register() {
+	public String Register(ModelMap map) {
+		map.put("accountConfirm", new AccountConfirm());
 		return "login/register";
 	}
 
 	@PostMapping("register")
-	public String Register(@ModelAttribute("account") Account account,
-			@RequestParam("passwordConfirm") String passwordConfirm) {
-		accountService.save(account);
-		securityService.autoLogin(account.getUsername(), passwordConfirm);
-		return "redirect:/";
+	public String Register(@ModelAttribute("accountConfirm") @Valid AccountConfirm accountConfirm, BindingResult bindingResult) {		
+		accountValidator.validate(accountConfirm, bindingResult);
+		if (!bindingResult.hasErrors()) {
+			Account account = new Account();
+			account.setUsername(accountConfirm.getUsername());
+			account.setPassword(accountConfirm.getPassword());
+			account.getRoles().add(roleService.find(3));
+			accountService.save(account);
+			securityService.autoLogin(account.getUsername(), account.getPassword());
+			return "redirect:/home";
+		} else {
+			return "/login/register";
+		}
 	}
 	
 	@RequestMapping(value = "/successLogin", method = RequestMethod.POST)

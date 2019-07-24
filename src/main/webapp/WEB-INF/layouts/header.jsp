@@ -1,6 +1,8 @@
-<%@ page contentType="text/html" pageEncoding="UTF-8" isELIgnored="false"%>
+<%@ page contentType="text/html" pageEncoding="UTF-8"
+	isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
 
 <body class="bg-white">
 	<div class="wrap wrap-index">
@@ -46,6 +48,9 @@
 										<li><a href="<c:url value="/login"/>"
 											class="text-uppercase title12 link-hover"><i
 												class="fas fa-user"></i> login</a></li>
+										<li><a href="<c:url value="/register"/>"
+											class="text-uppercase title12 link-hover"><i
+												class="fas fa-user"></i> register</a></li>
 									</security:authorize>
 									<security:authorize access="hasRole('ROLE_CUSTOMER')">
 										<li><a href="<c:url value="/logout_url"/>"
@@ -55,9 +60,9 @@
 											class="text-uppercase title12 link-hover"><i
 												class="fas fa-user"></i> my account</a></li>
 									</security:authorize>
-<%-- 									<li><a href="<c:url value="/cart"/>" --%>
-<!-- 										class="text-uppercase title12 link-hover"><i -->
-<!-- 											class="fas fa-user"></i> my cart</a></li> -->
+									<%-- 									<li><a href="<c:url value="/cart"/>" --%>
+									<!-- 										class="text-uppercase title12 link-hover"><i -->
+									<!-- 											class="fas fa-user"></i> my cart</a></li> -->
 									<li>
 										<div class="mini-cart-box aside-box style-mini-cart">
 											<div class="mini-cart-link">
@@ -68,12 +73,14 @@
 											<div class="mini-cart-content text-left">
 												<h2 class="title18 font-bold">(2) ITEMS IN MY CART</h2>
 												<div class="list-mini-cart-item">
-												
-													<s:form modelAttribute="items" action="${pageContext.request.contextPath }/cart/order">
+
+													<s:form modelAttribute="items"
+														action="${pageContext.request.contextPath }/cart/order">
 														<c:set var="total" value="0"></c:set>
-														
+
 														<c:forEach var="item" items="${sessionScope.cart }">
-															<c:set var="total" value="${total + item.product.price * item.quantity }"></c:set>
+															<c:set var="total"
+																value="${total + item.product.price * item.quantity }"></c:set>
 															<div class="product-mini-cart table">
 																<div class="product-thumb">
 																	<a href="detail.html" class="product-thumb-link"><img
@@ -88,22 +95,25 @@
 																	</div>
 																</div>
 																<div class="product-delete text-right">
-																	<a href="${pageContext.request.contextPath }/cart/remove/${item.product.id}" class="remove-product link-hover" onclick="return confirm('Are you sure?')"><i
+																	<a
+																		href="${pageContext.request.contextPath }/cart/remove/${item.product.id}"
+																		class="remove-product link-hover"
+																		onclick="return confirm('Are you sure?')"><i
 																		class="fa fa-trash"></i></a>
 																</div>
 															</div>
 														</c:forEach>
-														
+
 													</s:form>
-												
+
 												</div>
 												<div class="mini-cart-total text-uppercase title18 clearfix">
 													<span class="pull-left">TOTAL</span> <strong
 														class="pull-right color mini-cart-total-price">${total}</strong>
 												</div>
 												<div class="mini-cart-button">
-<%-- 													<a class="mini-cart-view shop-button white" href="<c:url value="/cart"/>">View cart </a> --%>
-														<a class="mini-cart-checkout shop-button white bg-color"
+													<%-- 													<a class="mini-cart-view shop-button white" href="<c:url value="/cart"/>">View cart </a> --%>
+													<a class="mini-cart-checkout shop-button white bg-color"
 														href="<c:url value="/cart"/>">Checkout</a>
 												</div>
 											</div>

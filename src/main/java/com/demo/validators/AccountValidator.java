@@ -22,11 +22,11 @@ public class AccountValidator implements Validator {
 
 	@Override
 	public void validate(Object object, Errors errors) {
-		AccountConfirm account = (AccountConfirm) object;
-		if (accountService.findByUsername(account.getUsername()) != null) {
+		AccountConfirm accountConfirm = (AccountConfirm) object;
+		if (accountService.findByUsername(accountConfirm.getUsername()) != null) {
 			errors.rejectValue("username", "account.username.exists");
 		}
-		if (!account.getPassword().equalsIgnoreCase(account.getPasswordConfirm())) {
+		if (!accountConfirm.getPassword().equalsIgnoreCase(accountConfirm.getPasswordConfirm())) {
 			errors.rejectValue("passwordConfirm", "account.password.nomatch");
 		}
 //		if (accountService.findByUsername(account.getUsername()).getRoles().contains()) {
