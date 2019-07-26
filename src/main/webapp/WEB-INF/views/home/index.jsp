@@ -4,7 +4,7 @@
 <jsp:include page="/WEB-INF/layouts/head-meta.jsp"></jsp:include>
 <!-- PAGE CLASSNAME - NO CHANGE ORTHER OF THESE -->
 <body class="bg-white">
-	<div class="wrap wrap-index user-login-page">
+	<div class="wrap wrap-index home-page">
 <!-- END PAGE CLASSNAME -->
 <jsp:include page="/WEB-INF/layouts/header.jsp"></jsp:include>
 

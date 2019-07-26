@@ -10,12 +10,12 @@
 <jsp:include page="/WEB-INF/layouts/head-meta.jsp"></jsp:include>
 <!-- PAGE CLASSNAME - NO CHANGE ORTHER OF THESE -->
 <body class="bg-white">
-	<div class="wrap wrap-index">
+	<div class="wrap wrap-index checkout-page">
 <!-- END PAGE CLASSNAME -->
 <jsp:include page="/WEB-INF/layouts/header.jsp"></jsp:include>
 
 
-<section id="content" class="checkout-page">
+<section id="content" >
 
 	<h3>Cart Page</h3>
 	<s:form modelAttribute="items"
