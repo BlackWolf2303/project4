@@ -29,10 +29,10 @@ public class AccountServiceImpl implements AccountService {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Override
-	public void save(Account account) {
+	public Account save(Account account) {
 		account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
 		//account.setRoles(new ArrayList<>(accountRepository.findAll()));
-		accountRepository.save(account);
+		return accountRepository.save(account);
 	}
 
 	@Override

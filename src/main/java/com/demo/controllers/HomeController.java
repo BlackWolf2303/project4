@@ -30,12 +30,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.entities.Account;
-import com.demo.entities.AccountConfirm;
 import com.demo.entities.Item;
+import com.demo.model.RegisterModel;
 import com.demo.services.AccountService;
 import com.demo.services.RoleService;
 import com.demo.services.SecurityService;
-import com.demo.validators.AccountValidator;
+import com.demo.validators.RegisterValidator;
 
 @Controller
 public class HomeController {
@@ -44,7 +44,7 @@ public class HomeController {
 	private RoleService roleService;
 
 	@Autowired
-	private AccountValidator accountValidator;
+	private RegisterValidator accountValidator;
 	
 	@Autowired
 	private AccountService accountService;
@@ -83,17 +83,17 @@ public class HomeController {
 
 	@GetMapping("register")
 	public String Register(ModelMap map) {
-		map.put("accountConfirm", new AccountConfirm());
+		map.put("accountConfirm", new RegisterModel());
 		return "login/register";
 	}
 
 	@PostMapping("register")
-	public String Register(@ModelAttribute("accountConfirm") @Valid AccountConfirm accountConfirm, BindingResult bindingResult) {		
-		accountValidator.validate(accountConfirm, bindingResult);
+	public String Register(@ModelAttribute("accountConfirm") @Valid RegisterModel registerModel, BindingResult bindingResult) {		
+		accountValidator.validate(registerModel, bindingResult);
 		if (!bindingResult.hasErrors()) {
 			Account account = new Account();
-			account.setUsername(accountConfirm.getUsername());
-			account.setPassword(accountConfirm.getPassword());
+			account.setUsername(registerModel.getUsername());
+			account.setPassword(registerModel.getPassword());
 			account.getRoles().add(roleService.find(3));
 			accountService.save(account);
 			securityService.autoLogin(account.getUsername(), account.getPassword());

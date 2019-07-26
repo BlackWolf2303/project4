@@ -17,7 +17,7 @@
         <div class="main-menu">
           <h5 class="sidenav-heading">Main</h5>
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li><a href="index.html"> <i class="icon-home"></i>Home                             </a></li>
+            <li><a href="/admin/dashboard"> <i class="icon-home"></i>Home                             </a></li>
             <li><a href="/admin/customer"> <i class="icon-form"></i>Customer                             </a></li>
             <li><a href="/admin/product"> <i class="fa fa-bar-chart"></i>Product                             </a></li>
             <li><a href="/admin/invoice"> <i class="icon-grid"></i>Invoice                             </a></li>

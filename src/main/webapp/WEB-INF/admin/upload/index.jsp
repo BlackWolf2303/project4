@@ -18,7 +18,7 @@
 	<div>
 		<ul>
 			<c:forEach var="file" items="${files }">
-			<li>${file }</li>
+			<li><img src="${file }"/></li>
 			</c:forEach>
 		</ul>
 	</div>

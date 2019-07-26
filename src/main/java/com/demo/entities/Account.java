@@ -1,6 +1,9 @@
 package com.demo.entities;
 
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +18,9 @@ public class Account {
 	private String username;
 	private String password;
 	private String fullname;
+	private String email;
 	private int gender;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
 	private String phone;
 	private String address;
@@ -30,6 +35,14 @@ public class Account {
 			inverseJoinColumns = { @JoinColumn(name = "role_id") })
 	private List<Role> roles = new ArrayList<Role>();
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getFullname() {
 		return fullname;
 	}
