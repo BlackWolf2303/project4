@@ -4,8 +4,6 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 
-<body class="bg-white">
-	<div class="wrap wrap-index">
 		<header id="header">
 			<div class="header">
 				<div

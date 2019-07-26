@@ -6,8 +6,14 @@
 <%@ taglib prefix="security"
 	uri="http://www.springframework.org/security/tags"%>
 
+
 <jsp:include page="/WEB-INF/layouts/head-meta.jsp"></jsp:include>
+<!-- PAGE CLASSNAME - NO CHANGE ORTHER OF THESE -->
+<body class="bg-white">
+	<div class="wrap wrap-index">
+<!-- END PAGE CLASSNAME -->
 <jsp:include page="/WEB-INF/layouts/header.jsp"></jsp:include>
+
 
 <section id="content" class="checkout-page">
 

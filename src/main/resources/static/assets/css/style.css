@@ -10,3 +10,6 @@
 .mini-cart-box.aside-box .list-mini-cart-item {
 	right: 2rem;
 }
+.user-login-page .box-instagram, .user-login-page .logo-brands {
+	display:none;	
+}
