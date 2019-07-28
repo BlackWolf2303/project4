@@ -1,5 +1,7 @@
 package com.demo.controllers;
 
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -183,12 +186,6 @@ public class HomeController {
 		}
 	}
 
-	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
-	public String delete(@PathVariable("id") int id) {
-		accountService.delete(id);
-		return "redirect:/admin/customer";
-	}
-
 //	@RequestMapping(value = "upload/{id}", method = RequestMethod.POST)
 	public String editPrcess(@PathVariable int id, @ModelAttribute("file") MultipartFile file) {
 		String filename = id + "ava" + ".jpg";
@@ -197,5 +194,21 @@ public class HomeController {
 		account.setAvatar(filename);
 		accountService.save(account);
 		return "redirect:/admin/customer/upload/" + id;
+	}
+	
+	@RequestMapping(value = "/profile/avatar/remove", method = RequestMethod.GET)
+	public String removeAvatar(ModelMap model) throws IOException {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		Account account = accountService.findByUsername(authentication.getName());
+		if (!account.getAvatar().equalsIgnoreCase("defaultAva.jpg")) {
+			FileUtils.forceDelete(new File("src/main/resources/static/upload/customer/" + account.getAvatar()));
+			account.setAvatar("defaultAva.jpg");
+			accountService.save(account);
+		}
+		String avatarPath = MvcUriComponentsBuilder
+				.fromMethodName(FileController.class, "serveFile", account.getAvatar()).build().toString();
+		model.put("file", avatarPath);
+
+		return "redirect:/profile?success=true";
 	}
 }

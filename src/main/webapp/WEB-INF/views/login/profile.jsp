@@ -16,7 +16,7 @@
 		<tr>
 			<td>Avatar:</td>
 			<td><img src="${avatar}" width=50>
-			<s:input path="file" type="file" /> | <a href="/admin/customer/remove/avatar/${id}">Remove</a></td>
+			<s:input path="file" type="file" /> | <a href="/profile/avatar/remove">Remove</a></td>
 			<td><s:errors path="file"></s:errors></td>
 		</tr>
 		<tr>
