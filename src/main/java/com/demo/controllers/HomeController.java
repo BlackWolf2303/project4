@@ -15,7 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -80,28 +79,6 @@ public class HomeController {
 		return "login/index";
 	}
 
-//	@GetMapping("register")
-//	public String Register(ModelMap map) {
-//		map.put("accountConfirm", new RegisterModel());
-//		return "login/register";
-//	}
-//
-//	@PostMapping("register")
-//	public String Register(@ModelAttribute("accountConfirm") @Valid RegisterModel registerModel, BindingResult bindingResult) {		
-//		accountValidator.validate(registerModel, bindingResult);
-//		if (!bindingResult.hasErrors()) {
-//			Account account = new Account();
-//			account.setUsername(registerModel.getUsername());
-//			account.setPassword(registerModel.getPassword());
-//			account.getRoles().add(roleService.find(3));
-//			accountService.save(account);
-//			securityService.autoLogin(account.getUsername(), account.getPassword());
-//			return "redirect:/home";
-//		} else {
-//			return "/login/register";
-//		}
-//	}
-	
 	@RequestMapping(value = "/successLogin", method = RequestMethod.POST)
 	private String loginSuccess() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
