@@ -50,12 +50,6 @@
 			<td><s:errors path="address"></s:errors></td>
 		</tr>
 		<tr>
-			<td>Role:</td>
-			<td><s:checkboxes path="roles" items="${roless}"
-					itemLabel="name" itemValue="id" /></td>
-			<td><s:errors path="roles"></s:errors></td>
-		</tr>
-		<tr>
 			<td colspan='2'><input type="submit" value="submit" /></td>
 			<s:hidden path="id" />
 		</tr>

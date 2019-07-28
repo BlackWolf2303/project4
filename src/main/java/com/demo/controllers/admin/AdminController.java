@@ -27,19 +27,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.entities.Account;
-import com.demo.entities.AccountConfirm;
 import com.demo.entities.Role;
+import com.demo.model.RegisterModel;
 import com.demo.services.AccountService;
 import com.demo.services.RoleService;
 import com.demo.services.SecurityService;
-import com.demo.validators.AccountValidator;
+import com.demo.validators.RegisterValidator;
 
 @Controller
 @RequestMapping("admin")
 public class AdminController {
 
 	@Autowired
-	private AccountValidator accountValidator;
+	private RegisterValidator accountValidator;
 
 	@Autowired
 	private AccountService accountService;
@@ -49,9 +49,14 @@ public class AdminController {
 
 	@Autowired
 	private SecurityService securityService;
-
+	
 	@RequestMapping(method = RequestMethod.GET)
-	public String home() {
+	public String index() {
+		return "redirect:/admin/dashboard";
+	}
+
+	@RequestMapping(value = "dashboard", method = RequestMethod.GET)
+	public String dashboard() {
 		return "../admin/home/index";
 	}
 
@@ -84,12 +89,19 @@ public class AdminController {
 //		return "../admin/home/register";
 //	}
 
-	@GetMapping("editaccount/{username}")
-	public String editAccount(@PathVariable("username") String username, ModelMap modelMap) {
-		modelMap.put("account", accountService.findByUsername(username));
-		modelMap.put("rolesss", roleService.findAll());
-		return "../admin/home/editAccount";
-	}
+//	@GetMapping("customer/account/{username}")
+//	public String account(@PathVariable("username") String username, ModelMap modelMap) {
+//		modelMap.put("account", accountService.findByUsername(username));
+//		modelMap.put("rolesss", roleService.findAll());
+//		return "../admin/home/editAccount";
+//	}
+//	
+//	@PostMapping("customer/account")
+//	public String editAccount(@PathVariable("username") String username, ModelMap modelMap) {
+//		modelMap.put("account", accountService.findByUsername(username));
+//		modelMap.put("rolesss", roleService.findAll());
+//		return "../admin/home/editAccount";
+//	}
 
 //	@RequestMapping(value = "register", method = RequestMethod.POST)
 //	public String register(@ModelAttribute("account") @Valid AccountConfirm account, BindingResult bindingResult) {

@@ -1,22 +1,13 @@
 package com.demo.controllers;
 
-import java.security.Principal;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,18 +15,18 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.demo.entities.Account;
-import com.demo.entities.AccountConfirm;
 import com.demo.entities.Item;
+import com.demo.entities.Role;
+import com.demo.model.RegisterModel;
 import com.demo.services.AccountService;
 import com.demo.services.RoleService;
 import com.demo.services.SecurityService;
-import com.demo.validators.AccountValidator;
+import com.demo.validators.RegisterValidator;
 
 @Controller
 public class HomeController {
@@ -44,7 +35,7 @@ public class HomeController {
 	private RoleService roleService;
 
 	@Autowired
-	private AccountValidator accountValidator;
+	private RegisterValidator accountValidator;
 	
 	@Autowired
 	private AccountService accountService;
@@ -58,7 +49,7 @@ public class HomeController {
 	}
 
 	@RequestMapping("home")
-	public String HomeView(HttpSession session) {
+	public String HomeView(HttpSession session) { 
 		if (session.getAttribute("cart") == null) {
 			List<Item> cart = new ArrayList<Item>();
 			session.setAttribute("cart", cart);
@@ -83,17 +74,17 @@ public class HomeController {
 
 	@GetMapping("register")
 	public String Register(ModelMap map) {
-		map.put("accountConfirm", new AccountConfirm());
+		map.put("accountConfirm", new RegisterModel());
 		return "login/register";
 	}
 
 	@PostMapping("register")
-	public String Register(@ModelAttribute("accountConfirm") @Valid AccountConfirm accountConfirm, BindingResult bindingResult) {		
-		accountValidator.validate(accountConfirm, bindingResult);
+	public String Register(@ModelAttribute("accountConfirm") @Valid RegisterModel registerModel, BindingResult bindingResult) {		
+		accountValidator.validate(registerModel, bindingResult);
 		if (!bindingResult.hasErrors()) {
 			Account account = new Account();
-			account.setUsername(accountConfirm.getUsername());
-			account.setPassword(accountConfirm.getPassword());
+			account.setUsername(registerModel.getUsername());
+			account.setPassword(registerModel.getPassword());
 			account.getRoles().add(roleService.find(3));
 			accountService.save(account);
 			securityService.autoLogin(account.getUsername(), account.getPassword());
@@ -104,34 +95,16 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/successLogin", method = RequestMethod.POST)
-	private String OrderSuccess(HttpServletRequest httpServletRequest) {
-        UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-        Collection<? extends GrantedAuthority> authorities
-        = authentication.getAuthorities();
-        for (GrantedAuthority grantedAuthority : authorities) {
-        	if (grantedAuthority.getAuthority().equals("ROLE_CUSTOMER")) {
-                return "redirect:/home";
-            } else {
-            	securityService.autoLogout();
-            	return "redirect:/login?error";
-            }
-		}        
-        return "redirect:/logout_url";
-	}
-	
-	@GetMapping("myaccount")
-	public String myAccount(ModelMap modelMap) {
-		UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-		Account account = accountService.findByUsername(authentication.getName());
-		modelMap.put("account", account);
-		return "login/myaccount";
-	}
+	private String loginSuccess() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-	@PostMapping("myaccount")
-	public String myAccount(@ModelAttribute()Account account, ModelMap modelMap) {
-		UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-		modelMap.put("account", accountService.findByUsername(authentication.getName()));
-		return "redirect:/myaccount";
+        for (Role role : accountService.findByUsername(authentication.getName()).getRoles()) {
+        	System.out.println(role.getName());
+        	if (role.getName().equalsIgnoreCase("ROLE_CUSTOMER")) {
+                return "redirect:/home";
+            }
+		}   
+    	securityService.autoLogout();
+    	return "redirect:/login?error";
 	}
-	
 }

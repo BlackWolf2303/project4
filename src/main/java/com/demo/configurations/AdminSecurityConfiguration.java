@@ -1,6 +1,7 @@
 package com.demo.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -11,9 +12,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.context.SecurityContextPersistenceFilter;
-import org.springframework.security.web.firewall.HttpFirewall;
-import org.springframework.security.web.firewall.StrictHttpFirewall;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 import com.demo.services.AccountService;
 import com.demo.services.RoleService;
@@ -40,7 +40,8 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 					.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
 					.and().formLogin().loginPage("/admin/login")
 					.loginProcessingUrl("/admin/login_url")
-					.successForwardUrl("/admin/successLogin")
+//					.successForwardUrl("/admin/successLogin")
+//					.defaultSuccessUrl("/admin", true)
 					.failureUrl("/admin/login?error").permitAll()
 					.and().logout().logoutUrl("/admin/logout_url")
 					.logoutSuccessUrl("/admin/login").deleteCookies("JSESSIONID")
@@ -59,12 +60,12 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 	
-	@Bean
-	public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
-	    StrictHttpFirewall firewall = new StrictHttpFirewall();
-	    firewall.setAllowUrlEncodedSlash(true);    
-	    return firewall;
-	}
+//	@Bean
+//	public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
+//	    StrictHttpFirewall firewall = new StrictHttpFirewall();
+//	    firewall.setAllowUrlEncodedSlash(true);    
+//	    return firewall;
+//	}
 	
 	@Bean
 	public SecurityContextHolderAwareRequestFilter awareRequestFilter() {

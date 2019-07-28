@@ -23,7 +23,7 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.demo.entities.Product;
-import com.demo.entities.ProductConfirm;
+import com.demo.model.ProductConfirm;
 import com.demo.services.ColorService;
 import com.demo.services.ProductService;
 import com.demo.services.SizeService;
@@ -95,7 +95,7 @@ public class AdminProductController {
 		return "../admin/product/edit";
 	}
 	
-	@RequestMapping(value = "edit/{id}", method = RequestMethod.POST)
+	@RequestMapping(value = "edit", method = RequestMethod.POST)
 	public String edit(@ModelAttribute("product") Product product) {
 		productService.save(product);
 		return "redirect:/admin/products";
@@ -114,7 +114,7 @@ public class AdminProductController {
 	@RequestMapping(value = "upload", method = RequestMethod.POST)
 	public String editPrcess(@ModelAttribute("files") MultipartFile files, RedirectAttributes redirectAttributes) {
 		storageService.init(Paths.get("UploadedImage"));
-		storageService.store(files);
+		storageService.store(files, files.getOriginalFilename());
         return "redirect:/admin/products/upload";
 	}
 	

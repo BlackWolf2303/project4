@@ -1,13 +1,13 @@
 package com.demo;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 import com.demo.services.StorageProperties;
-import com.demo.services.StorageService;
 
 @SpringBootApplication
 @EnableConfigurationProperties(StorageProperties.class)
@@ -25,4 +25,14 @@ public class Prj4Application {
 //        };
 //    }
 
+	
+	@Bean
+	public FilterRegistrationBean filterRegistrationBean() {
+	    FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+	    CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
+	    characterEncodingFilter.setForceEncoding(true);
+	    characterEncodingFilter.setEncoding("UTF-8");
+	    registrationBean.setFilter(characterEncodingFilter);
+	    return registrationBean;
+	}
 }

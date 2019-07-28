@@ -19,7 +19,15 @@
 		<c:forEach var="customer" items="${customers}">
 			<tr>
 				<td>${customer.username}</td>
-				<td><a href="/admin/customer/delete/${customer.id}">Delete</a>|<a href="/admin/customer/edit/${customer.id}">Edit</a></td>
+				<td><a href="/admin/customer/delete/${customer.id}">Delete</a> | 
+					<a href="/admin/customer/profile/${customer.id}">Profile</a> 
+<!-- 					|  -->
+<%-- 					<a href="/admin/customer/changerole/${customer.id}">Change Role</a> --%>
+					</td>
+					
+					
+<%-- 					<a href="/admin/customer/changepassword/${customer.id}">Change Password</a> |  --%>
+<%-- 					<a href="/admin/customer/changeavatar/${customer.id}">Change Avatar</a> |  --%>
 			</tr>
 		</c:forEach>
 		</tbody>

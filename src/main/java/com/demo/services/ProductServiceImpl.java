@@ -2,6 +2,9 @@ package com.demo.services;
 
 import com.demo.entities.Product;
 import com.demo.repositories.ProductRepository;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Service;
@@ -35,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Product findByName(String name) {
+	public List<Product> findByName(String name) {
 		return productRepository.findByName(name);
 	}
 

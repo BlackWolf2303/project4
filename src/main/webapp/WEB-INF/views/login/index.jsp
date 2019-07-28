@@ -1,8 +1,16 @@
 <%-- <%@ page pageEncoding="utf-8" isELIgnored="false"%> --%>
 <%-- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
+
+
 <jsp:include page="/WEB-INF/layouts/head-meta.jsp"></jsp:include>
+<!-- PAGE CLASSNAME - NO CHANGE ORTHER OF THESE -->
+<body class="bg-white">
+	<div class="wrap wrap-index user-login-page">
+<!-- END PAGE CLASSNAME -->
 <jsp:include page="/WEB-INF/layouts/header.jsp"></jsp:include>
-	<section id=content>
+
+
+<section id=content>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">

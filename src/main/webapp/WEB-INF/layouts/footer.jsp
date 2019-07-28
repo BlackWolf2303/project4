@@ -1,4 +1,5 @@
-<%@ page pageEncoding="utf-8" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" isELIgnored="false"%>
 
 	<footer id="footer">
 		<div class="footer footer-index">
@@ -166,20 +167,6 @@
 				</div>
 			</div>
 		</div>
-<!-- 		<div class="map-box">
-			<div id="map"
-				class="sv-ggmaps map-custom" 
-				data-lat="30.266747" 
-				data-lon="-97.751053" 
-				data-market="" 
-				data-zoom="16" 
-				data-style="satellite" 
-				data-control="false" 
-				data-scrollwheel="false" 
-				data-disable_ui="false" 
-				data-draggable="false">
-			</div>
-		</div> -->
 	</footer>
 	<!-- End Footer -->
 	<a href="#" class="scroll-top bg-color"><i class="fa fa-angle-up"></i></a>

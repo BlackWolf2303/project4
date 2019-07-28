@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,18 +20,12 @@ public class AccountServiceImpl implements AccountService {
 
 	@Autowired
 	private AccountRepository accountRepository;
-	
-//    @Autowired
-//    private RoleRepository roleRepository;
-	
-	@Autowired
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Override
-	public void save(Account account) {
-		account.setPassword(bCryptPasswordEncoder.encode(account.getPassword()));
-		//account.setRoles(new ArrayList<>(accountRepository.findAll()));
-		accountRepository.save(account);
+	public Account save(Account account) {
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		account.setPassword(passwordEncoder.encode(account.getPassword()));
+		return accountRepository.save(account);
 	}
 
 	@Override
@@ -43,12 +36,6 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//        generate bcrypt pass
-//        String password = "123";
-//        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-//        String hashedPassword = passwordEncoder.encode(password);
-//
-//        System.out.println(hashedPassword);
 
 		Account account = accountRepository.findByUsername(username);
 		if (account == null) {

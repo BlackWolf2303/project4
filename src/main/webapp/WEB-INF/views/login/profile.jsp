@@ -1,18 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
-<jsp:include page="/WEB-INF/admin-layouts/head-meta.jsp"></jsp:include>
-<jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/layouts/head-meta.jsp"></jsp:include>
+<!-- PAGE CLASSNAME - NO CHANGE ORTHER OF THESE -->
+<body class="bg-white">
+	<div class="wrap wrap-index home-page">
+<!-- END PAGE CLASSNAME -->
+<jsp:include page="/WEB-INF/layouts/header.jsp"></jsp:include>
 
-<s:form action="/admin/customer/profile" method="POST"
+<s:form action="/profile" method="POST"
 	modelAttribute="account" enctype="multipart/form-data">
 	<table>
-		<c:if test="${param.success}">Your profile is updated.</c:if>
+		<c:if test="${!param.success}">Your profile has been updated successfully!</c:if>
+		<c:if test="${param.success}">Update failed!</c:if>
 		<tr>
 			<td>Avatar:</td>
 			<td><img src="${avatar}" width=50>
-			<s:input path="file" type="file" /> | <a href="/admin/customer/remove/avatar/${id}">Remove</a></td>
+			<s:input path="file" type="file" /> | <a href="/profile/avatar/remove">Remove</a></td>
 			<td><s:errors path="file"></s:errors></td>
 		</tr>
 		<tr>
@@ -50,17 +55,10 @@
 			<td><s:errors path="address"></s:errors></td>
 		</tr>
 		<tr>
-			<td>Role:</td>
-			<td><s:checkboxes path="roles" items="${roless}"
-					itemLabel="name" itemValue="id" /></td>
-			<td><s:errors path="roles"></s:errors></td>
-		</tr>
-		<tr>
 			<td colspan='2'><input type="submit" value="submit" /></td>
 			<s:hidden path="id" />
 		</tr>
 	</table>
-<%-- 	        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
 </s:form>
 
-<jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/layouts/footer.jsp"></jsp:include>
