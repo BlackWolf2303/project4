@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 23, 2019 at 09:14 PM
+-- Generation Time: Jul 28, 2019 at 12:57 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -34,23 +34,24 @@ CREATE TABLE `account` (
   `id` int(11) NOT NULL,
   `username` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
   `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `birthday` date NOT NULL,
-  `gender` int(11) NOT NULL,
-  `address` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `phone` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
-  `avatar` varchar(250) COLLATE utf8_unicode_ci NOT NULL
+  `email` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fullname` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `birthday` datetime DEFAULT NULL,
+  `gender` int(11) DEFAULT NULL,
+  `address` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `phone` varchar(11) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `avatar` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `account`
 --
 
-INSERT INTO `account` (`id`, `username`, `password`, `fullname`, `birthday`, `gender`, `address`, `phone`, `avatar`) VALUES
-(1, 'lythihagiang', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC', '', '2019-07-09', 0, '', '', ''),
-(2, 'ducnt', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC', '', '2019-07-09', 0, '', '', ''),
-(3, 'hai', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC', 'HaiHT', '2019-07-03', 0, '', '', ''),
-(12, 'admin', '$2a$10$a.YQVg6JLV7Y.BVw/HZuX.bl0p4lgBUehjyOyAOAA5OkBeFfY6aie', '', '2019-07-01', 0, '', '', '');
+INSERT INTO `account` (`id`, `username`, `password`, `email`, `fullname`, `birthday`, `gender`, `address`, `phone`, `avatar`) VALUES
+(1, 'lythihagiang', '$2a$10$1O1nzsXWngr3m4A1/UsjfuWkC9jA2k7ab3N2R/04adylDJVk21mYG', '', '?', '2019-07-09 00:00:00', 0, '', '', '1ava.jpg'),
+(2, 'ducnt', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC', '', '', '2019-07-09 00:00:00', 0, '', '', 'defaultAva.jpg'),
+(3, 'hai', '$2a$10$8XHw1P7527Ouv1cCY4WiKO.2y3S1AhUUzfmdm46G/wG8HDAo9BAYi', 'abc@outlook', 'HaiHT', '2000-12-12 00:00:00', 1, '1111', '34289347984', 'defaultAva.jpg'),
+(16, 'ducnt1', '$2a$10$Qr1OsUb8tz565p1NyoMq9uaTs8vdSvzH0H827Bc2uxImkx1Mb7ZQu', '', '', NULL, 0, '', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -68,10 +69,9 @@ CREATE TABLE `account_role` (
 --
 
 INSERT INTO `account_role` (`account_id`, `role_id`) VALUES
-(1, 1),
-(1, 2),
+(2, 3),
 (3, 3),
-(12, 3);
+(16, 3);
 
 -- --------------------------------------------------------
 
@@ -479,7 +479,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -1346,7 +1346,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"demo6\",\"table\":\"users\"},{\"db\":\"da4\",\"table\":\"order_detail\"},{\"db\":\"da4\",\"table\":\"images\"},{\"db\":\"da4\",\"table\":\"ordertbl\"},{\"db\":\"da4\",\"table\":\"order\"},{\"db\":\"da4\",\"table\":\"product\"},{\"db\":\"test\",\"table\":\"account\"}]');
+('root', '[{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"ordertbl\"},{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"da4\",\"table\":\"user\"},{\"db\":\"demo6\",\"table\":\"users\"},{\"db\":\"da4\",\"table\":\"order_detail\"},{\"db\":\"da4\",\"table\":\"images\"},{\"db\":\"da4\",\"table\":\"order\"},{\"db\":\"da4\",\"table\":\"product\"}]');
 
 -- --------------------------------------------------------
 
@@ -1422,7 +1422,7 @@ CREATE TABLE `pma__table_uiprefs` (
 --
 
 INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
-('root', 'da4', 'account', '{\"sorted_col\":\"`account`.`gender` ASC\"}', '2019-07-23 12:21:13');
+('root', 'da4', 'account', '[]', '2019-07-24 17:51:31');
 
 -- --------------------------------------------------------
 
@@ -1460,7 +1460,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2019-07-23 17:03:30', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
+('root', '2019-07-28 10:39:58', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
 
 -- --------------------------------------------------------
 

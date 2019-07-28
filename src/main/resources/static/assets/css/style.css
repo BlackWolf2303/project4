@@ -13,3 +13,20 @@
 .user-login-page .box-instagram, .user-login-page .logo-brands {
 	display:none;	
 }
+
+.contact-form input[type=text],
+.contact-form input[type=date],
+ .contact-form select {
+    height: 40px;
+    display: block;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    color: #999;
+    padding: 0 20px;
+    margin-bottom: 10px;
+}
+
+.profile-page table tr td{
+	padding: 5px 10px;
+}
