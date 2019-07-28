@@ -12,7 +12,8 @@
 <s:form action="/profile" method="POST"
 	modelAttribute="account" enctype="multipart/form-data">
 	<table>
-		<c:if test="${param.success}">Your profile is updated.</c:if>
+		<c:if test="${!param.success}">${statusMsg}</c:if>
+		<c:if test="${param.success}">${statusMsg}</c:if>
 		<tr>
 			<td>Avatar:</td>
 			<td><img src="${avatar}" width=50>
