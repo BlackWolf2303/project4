@@ -54,9 +54,9 @@
 										<li><a href="<c:url value="/logout_url"/>"
 											class="text-uppercase title12 link-hover"><i
 												class="fas fa-user"></i> logout</a></li>
-										<li><a href="<c:url value="/myaccount"/>"
+										<li><a href="<c:url value="/profile"/>"
 											class="text-uppercase title12 link-hover"><i
-												class="fas fa-user"></i> my account</a></li>
+												class="fas fa-user"></i> profile</a></li>
 									</security:authorize>
 									<%-- 									<li><a href="<c:url value="/cart"/>" --%>
 									<!-- 										class="text-uppercase title12 link-hover"><i -->

@@ -157,7 +157,6 @@ public class CustomerController {
 			acc.setUsername(account.getUsername());
 			acc.setPassword(account.getPassword());
 			acc.setAddress(account.getAddress());
-			acc.setAvatar(account.getAvatar());
 			acc.setEmail(account.getEmail());
 			acc.setFullname(account.getFullname());
 			acc.setPhone(account.getPhone());
@@ -165,7 +164,11 @@ public class CustomerController {
 			acc.setGender(account.getGender());
 			acc.setRoles(account.getRoles());
 			acc = accountService.save(acc);
-			editPrcess(acc.getId(), account.getFile());
+			if (!account.getFile().isEmpty()) {
+				acc.setAvatar(acc.getId()+"ava.jpg");
+				accountService.save(acc);
+				editPrcess(acc.getId(), account.getFile());
+			}
 			return "redirect:/admin/customer";
 		} else {
 			modelMap.put("roless", roleService.findAll());

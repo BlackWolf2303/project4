@@ -37,16 +37,16 @@ public class CustomerSecurityConfiguration extends WebSecurityConfigurerAdapter 
 		
 		httpSecurity.antMatcher("/**")
 					.authorizeRequests()
-					.antMatchers("/resources/**").permitAll()
-					.antMatchers("/file/**").permitAll()
+//					.antMatchers("/resources/**").permitAll()
+//					.antMatchers("/file/**").permitAll()
 					.antMatchers("/profile/**").access("hasRole('ROLE_CUSTOMER')")
 					.antMatchers("/order/**").access("hasRole('ROLE_CUSTOMER')")
 					.anyRequest().permitAll()
 					.and()
 					.formLogin().loginPage("/login")
 					.loginProcessingUrl("/login_url")
-					.successForwardUrl("/successLogin")
-					//.defaultSuccessUrl("/home")
+//					.successForwardUrl("/successLogin")
+//					.defaultSuccessUrl("/home")
 					//.successHandler(myAuthenticationSuccessHandler())
 					.failureUrl("/login?error=true").permitAll()
 					.and().logout().logoutUrl("/logout_url").logoutSuccessUrl("/login").deleteCookies("JSESSIONID")
@@ -60,12 +60,12 @@ public class CustomerSecurityConfiguration extends WebSecurityConfigurerAdapter 
 //        return new MySimpleUrlAuthenticationSuccessHandler();
 //    }
 	
-	@Bean
-	public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
-	    StrictHttpFirewall firewall = new StrictHttpFirewall();
-	    firewall.setAllowUrlEncodedSlash(true);    
-	    return firewall;
-	}
+//	@Bean
+//	public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
+//	    StrictHttpFirewall firewall = new StrictHttpFirewall();
+//	    firewall.setAllowUrlEncodedSlash(true);    
+//	    return firewall;
+//	}
 
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception {

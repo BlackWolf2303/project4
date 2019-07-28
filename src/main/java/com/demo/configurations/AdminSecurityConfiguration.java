@@ -40,7 +40,8 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 					.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
 					.and().formLogin().loginPage("/admin/login")
 					.loginProcessingUrl("/admin/login_url")
-					.successForwardUrl("/admin/successLogin")
+//					.successForwardUrl("/admin/successLogin")
+//					.defaultSuccessUrl("/admin", true)
 					.failureUrl("/admin/login?error").permitAll()
 					.and().logout().logoutUrl("/admin/logout_url")
 					.logoutSuccessUrl("/admin/login").deleteCookies("JSESSIONID")
@@ -59,12 +60,12 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 	
-	@Bean
-	public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
-	    StrictHttpFirewall firewall = new StrictHttpFirewall();
-	    firewall.setAllowUrlEncodedSlash(true);    
-	    return firewall;
-	}
+//	@Bean
+//	public HttpFirewall allowUrlEncodedSlashHttpFirewall() {
+//	    StrictHttpFirewall firewall = new StrictHttpFirewall();
+//	    firewall.setAllowUrlEncodedSlash(true);    
+//	    return firewall;
+//	}
 	
 	@Bean
 	public SecurityContextHolderAwareRequestFilter awareRequestFilter() {

@@ -1,40 +1,39 @@
 package com.demo.controllers;
 
-import java.security.Principal;
+import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
+import com.demo.controllers.admin.FileController;
 import com.demo.entities.Account;
 import com.demo.entities.Item;
+import com.demo.entities.Role;
+import com.demo.model.EditProfileModel;
 import com.demo.model.RegisterModel;
 import com.demo.services.AccountService;
 import com.demo.services.RoleService;
 import com.demo.services.SecurityService;
+import com.demo.services.StorageService;
+import com.demo.validators.EditProfileValidator;
 import com.demo.validators.RegisterValidator;
 
 @Controller
@@ -52,13 +51,25 @@ public class HomeController {
 	@Autowired
 	private SecurityService securityService;
 
+	@Autowired
+	private EditProfileValidator editProfileValidator;
+
+	@Autowired
+	private StorageService storageService;
+
+	@Autowired
+	public HomeController(StorageService storageService) {
+		storageService.init(Paths.get("src/main/resources/static/upload/customer"));
+		this.storageService = storageService;
+	}
+
 	@RequestMapping("/")
 	public String IndexView() {
 		return "redirect:home";
 	}
 
 	@RequestMapping("home")
-	public String HomeView(HttpSession session) {
+	public String HomeView(HttpSession session) { 
 		if (session.getAttribute("cart") == null) {
 			List<Item> cart = new ArrayList<Item>();
 			session.setAttribute("cart", cart);
@@ -104,34 +115,87 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/successLogin", method = RequestMethod.POST)
-	private String OrderSuccess(HttpServletRequest httpServletRequest) {
-        UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-        Collection<? extends GrantedAuthority> authorities
-        = authentication.getAuthorities();
-        for (GrantedAuthority grantedAuthority : authorities) {
-        	if (grantedAuthority.getAuthority().equals("ROLE_CUSTOMER")) {
+	private String loginSuccess() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+    	System.out.println("login success");
+        for (Role role : accountService.findByUsername(authentication.getName()).getRoles()) {
+        	System.out.println(role.getName());
+        	if (role.getName().equalsIgnoreCase("ROLE_CUSTOMER")) {
                 return "redirect:/home";
-            } else {
-            	securityService.autoLogout();
-            	return "redirect:/login?error";
             }
-		}        
-        return "redirect:/logout_url";
+		}   
+    	securityService.autoLogout();
+    	return "redirect:/login?error";
 	}
 	
-	@GetMapping("myaccount")
-	public String myAccount(ModelMap modelMap) {
-		UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
+	@GetMapping("profile")
+	public String profile(ModelMap modelMap) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Account account = accountService.findByUsername(authentication.getName());
-		modelMap.put("account", account);
-		return "login/myaccount";
+		if (account == null) {
+			return "/login/customer-notfound";
+		} else {
+			EditProfileModel editProfileModel = new EditProfileModel();
+			editProfileModel.setId(account.getId());
+			editProfileModel.setFullname(account.getFullname());
+			editProfileModel.setBirthday(account.getBirthday());
+			editProfileModel.setGender(account.getGender());
+			editProfileModel.setEmail(account.getEmail());
+			editProfileModel.setPhone(account.getPhone());
+			editProfileModel.setAddress(account.getAddress());
+			editProfileModel.setAvatar(account.getAvatar());
+			editProfileModel.setRoles(account.getRoles());
+			modelMap.put("avatar", MvcUriComponentsBuilder
+			.fromMethodName(FileController.class, "serveFile", editProfileModel.getAvatar()).build().toString());
+			modelMap.put("account", editProfileModel);
+			modelMap.put("roless", roleService.findAll());
+			return "/login/profile";
+		}
+	}
+	
+	@PostMapping("profile")
+	public String edit(@ModelAttribute("account") @Valid EditProfileModel customer, ModelMap modelMap,
+			BindingResult bindingResult) {
+		editProfileValidator.validate(customer, bindingResult);
+		if (!bindingResult.hasErrors()) {
+			Account customerToDB = accountService.findById(customer.getId());
+			customerToDB.setFullname(customer.getFullname());
+			customerToDB.setGender(customer.getGender());
+			customerToDB.setBirthday(customer.getBirthday());
+			customerToDB.setEmail(customer.getEmail());
+			customerToDB.setPhone(customer.getPhone());
+			customerToDB.setAddress(customer.getAddress());
+			if (!customer.getFile().isEmpty()) {
+				customerToDB.setAvatar(customer.getId()+"ava.jpg");
+			}
+			customerToDB.setRoles(customer.getRoles());
+			customerToDB = accountService.save(customerToDB);
+			if (!customer.getFile().isEmpty()) {
+				editPrcess(customerToDB.getId(), customer.getFile());
+			}
+//			modelMap.put("success", true);
+			return "redirect:/profile?success=true";
+		} else {
+			modelMap.put("avatar", MvcUriComponentsBuilder
+					.fromMethodName(FileController.class, "serveFile", "defaultAva.jpg").build().toString());
+			return "login/profile";
+		}
 	}
 
-	@PostMapping("myaccount")
-	public String myAccount(@ModelAttribute()Account account, ModelMap modelMap) {
-		UsernamePasswordAuthenticationToken authentication = (UsernamePasswordAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
-		modelMap.put("account", accountService.findByUsername(authentication.getName()));
-		return "redirect:/myaccount";
+	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+	public String delete(@PathVariable("id") int id) {
+		accountService.delete(id);
+		return "redirect:/admin/customer";
 	}
-	
+
+//	@RequestMapping(value = "upload/{id}", method = RequestMethod.POST)
+	public String editPrcess(@PathVariable int id, @ModelAttribute("file") MultipartFile file) {
+		String filename = id + "ava" + ".jpg";
+		storageService.store(file, filename);
+		Account account = accountService.findById(id);
+		account.setAvatar(filename);
+		accountService.save(account);
+		return "redirect:/admin/customer/upload/" + id;
+	}
 }
