@@ -14,11 +14,15 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
+import com.demo.controllers.admin.FileController;
 import com.demo.entities.Account;
 import com.demo.entities.Item;
 import com.demo.entities.Role;
@@ -26,6 +30,7 @@ import com.demo.model.RegisterModel;
 import com.demo.services.AccountService;
 import com.demo.services.RoleService;
 import com.demo.services.SecurityService;
+import com.demo.services.StorageService;
 import com.demo.validators.RegisterValidator;
 
 @Controller
@@ -42,6 +47,9 @@ public class HomeController {
 
 	@Autowired
 	private SecurityService securityService;
+
+	@Autowired
+	private StorageService storageService;
 
 	@RequestMapping("/")
 	public String IndexView() {
@@ -72,27 +80,27 @@ public class HomeController {
 		return "login/index";
 	}
 
-	@GetMapping("register")
-	public String Register(ModelMap map) {
-		map.put("accountConfirm", new RegisterModel());
-		return "login/register";
-	}
-
-	@PostMapping("register")
-	public String Register(@ModelAttribute("accountConfirm") @Valid RegisterModel registerModel, BindingResult bindingResult) {		
-		accountValidator.validate(registerModel, bindingResult);
-		if (!bindingResult.hasErrors()) {
-			Account account = new Account();
-			account.setUsername(registerModel.getUsername());
-			account.setPassword(registerModel.getPassword());
-			account.getRoles().add(roleService.find(3));
-			accountService.save(account);
-			securityService.autoLogin(account.getUsername(), account.getPassword());
-			return "redirect:/home";
-		} else {
-			return "/login/register";
-		}
-	}
+//	@GetMapping("register")
+//	public String Register(ModelMap map) {
+//		map.put("accountConfirm", new RegisterModel());
+//		return "login/register";
+//	}
+//
+//	@PostMapping("register")
+//	public String Register(@ModelAttribute("accountConfirm") @Valid RegisterModel registerModel, BindingResult bindingResult) {		
+//		accountValidator.validate(registerModel, bindingResult);
+//		if (!bindingResult.hasErrors()) {
+//			Account account = new Account();
+//			account.setUsername(registerModel.getUsername());
+//			account.setPassword(registerModel.getPassword());
+//			account.getRoles().add(roleService.find(3));
+//			accountService.save(account);
+//			securityService.autoLogin(account.getUsername(), account.getPassword());
+//			return "redirect:/home";
+//		} else {
+//			return "/login/register";
+//		}
+//	}
 	
 	@RequestMapping(value = "/successLogin", method = RequestMethod.POST)
 	private String loginSuccess() {
@@ -103,8 +111,53 @@ public class HomeController {
         	if (role.getName().equalsIgnoreCase("ROLE_CUSTOMER")) {
                 return "redirect:/home";
             }
-		}   
+		}
     	securityService.autoLogout();
     	return "redirect:/login?error";
+	}
+	
+	@RequestMapping(value = "register", method = RequestMethod.GET)
+	public String register(ModelMap modelMap) {
+		modelMap.put("avatar", MvcUriComponentsBuilder
+				.fromMethodName(FileController.class, "serveFile", "defaultAva.jpg").build().toString());
+		modelMap.put("account", new RegisterModel());
+		return "login/register";
+	}
+
+	@RequestMapping(value = "register", method = RequestMethod.POST)
+	public String register(@ModelAttribute("account") @Valid RegisterModel account, BindingResult bindingResult, ModelMap modelMap) {
+		accountValidator.validate(account, bindingResult);
+		if (!bindingResult.hasErrors()) {
+			Account acc = new Account();
+			acc.setUsername(account.getUsername());
+			acc.setPassword(account.getPassword());
+			acc.setAddress(account.getAddress());
+			acc.setEmail(account.getEmail());
+			acc.setFullname(account.getFullname());
+			acc.setPhone(account.getPhone());
+			acc.setBirthday(account.getBirthday());
+			acc.setGender(account.getGender());
+			acc.getRoles().add(roleService.find(3));
+			acc = accountService.save(acc);
+			if (!account.getFile().isEmpty()) {
+				acc.setAvatar(acc.getId()+"ava.jpg");
+				accountService.save(acc);
+				editPrcess(acc.getId(), account.getFile());
+			}
+			securityService.autoLogin(account.getUsername(), account.getPassword());
+			return "redirect:/home";
+		} else {
+			modelMap.put("avatar", MvcUriComponentsBuilder
+					.fromMethodName(FileController.class, "serveFile", "defaultAva.jpg").build().toString());
+			return "/login/register";
+		}
+	}
+	
+	public void editPrcess(@PathVariable int id, @ModelAttribute("file") MultipartFile file) {
+		String filename = id + "ava" + ".jpg";
+		storageService.store(file, filename);
+		Account account = accountService.findById(id);
+		account.setAvatar(filename);
+		accountService.save(account);
 	}
 }
