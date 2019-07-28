@@ -12,8 +12,7 @@
 <s:form action="/profile" method="POST"
 	modelAttribute="account" enctype="multipart/form-data">
 	<table>
-		<c:if test="${!param.success}">Your profile has been updated successfully!</c:if>
-		<c:if test="${param.success}">Update failed!</c:if>
+		<c:if test="${not empty param.success}">Your profile has been updated successfully!</c:if>
 		<tr>
 			<td>Avatar:</td>
 			<td><img src="${avatar}" width=50>
