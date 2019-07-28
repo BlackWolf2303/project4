@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" isELIgnored="false"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <jsp:include page="/WEB-INF/layouts/head-meta.jsp"></jsp:include>
@@ -12,8 +12,8 @@
 <s:form action="/profile" method="POST"
 	modelAttribute="account" enctype="multipart/form-data">
 	<table>
-		<c:if test="${!param.success}">${statusMsg}</c:if>
-		<c:if test="${param.success}">${statusMsg}</c:if>
+		<c:if test="${!param.success}">Your profile has been updated successfully!</c:if>
+		<c:if test="${param.success}">Update failed!</c:if>
 		<tr>
 			<td>Avatar:</td>
 			<td><img src="${avatar}" width=50>
@@ -59,7 +59,6 @@
 			<s:hidden path="id" />
 		</tr>
 	</table>
-<%-- 	        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> --%>
 </s:form>
 
 <jsp:include page="/WEB-INF/layouts/footer.jsp"></jsp:include>

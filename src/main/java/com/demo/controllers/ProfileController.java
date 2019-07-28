@@ -49,7 +49,7 @@ public class ProfileController {
 	}
 	
 	@GetMapping("profile")
-	public String profile(@RequestParam(value = "success") boolean isSuccess, ModelMap modelMap) {
+	public String profile(ModelMap modelMap) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		Account account = accountService.findByUsername(authentication.getName());
 		if (account == null) {
@@ -57,6 +57,7 @@ public class ProfileController {
 		} else {
 			EditProfileModel editProfileModel = new EditProfileModel();
 			editProfileModel.setId(account.getId());
+			System.out.println(account.getFullname());
 			editProfileModel.setFullname(account.getFullname());
 			editProfileModel.setBirthday(account.getBirthday());
 			editProfileModel.setGender(account.getGender());
@@ -67,14 +68,7 @@ public class ProfileController {
 			editProfileModel.setRoles(account.getRoles());
 			modelMap.put("avatar", MvcUriComponentsBuilder
 			.fromMethodName(FileController.class, "serveFile", editProfileModel.getAvatar()).build().toString());
-			modelMap.put("account", editProfileModel);
-
-			if (isSuccess) {
-				modelMap.addAttribute("statusMsg", "Your profile has been updated successfully!");
-			} else {
-				modelMap.addAttribute("statusMsg", "Update failed!");
-			}
-			
+			modelMap.put("account", editProfileModel);			
 			return "/login/profile";
 		}
 	}
