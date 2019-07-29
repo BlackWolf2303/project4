@@ -103,13 +103,13 @@ public class ProfileController {
 	}
 
 //	@RequestMapping(value = "upload/{id}", method = RequestMethod.POST)
-	public String editPrcess(@PathVariable int id, @ModelAttribute("file") MultipartFile file) {
+	public void editPrcess(@PathVariable int id, @ModelAttribute("file") MultipartFile file) {
 		String filename = id + "ava" + ".jpg";
 		storageService.store(file, filename);
 		Account account = accountService.findById(id);
 		account.setAvatar(filename);
 		accountService.save(account);
-		return "redirect:/admin/customer/upload/" + id;
+//		return "redirect:/admin/customer/upload/" + id;
 	}
 	
 	@RequestMapping(value = "/profile/avatar/remove", method = RequestMethod.GET)

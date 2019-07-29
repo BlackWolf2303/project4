@@ -22,7 +22,7 @@
 							<div class="col-md-6 col-sm-6">
 								<div class="call-us">
 									<span class="text-uppercase title12"><i
-										class="fas fa-phone-volume"></i>Call us: 020 2366 455</span>
+										class="fas fa-phone-volume"></i>Call us: 0844 12 8877</span>
 								</div>
 							</div>
 							<div class="col-md-6 col-sm-6">
@@ -130,7 +130,7 @@
 								<div class="logo">
 									<a href="${pageContext.request.contextPath}/"
 										class="color title30 text-uppercase rale-font link-hover"><span
-										class="font-bold">very</span>cheap</a>
+										class="font-bold">gm</span>shop</a>
 								</div>
 							</div>
 							<div class="col-md-9 col-sm-9">
