@@ -13,3 +13,26 @@
 .user-login-page .box-instagram, .user-login-page .logo-brands {
 	display:none;	
 }
+
+.search-form {
+	display:flex;
+}
+
+/* subcription form */
+.mce_inline_error {
+	color:#a94442;
+}
+/* #mc_embed_signup_scroll {
+	display:flex;
+} */
+.mc-field-group {
+	display:flex;
+}
+#mce-EMAIL {
+	padding: .8rem 1.5rem;
+}
+.mc-field-group #mc-embedded-subscribe {
+	margin:0;
+	padding: 1em;
+    padding-right: 3.2em;
+}
