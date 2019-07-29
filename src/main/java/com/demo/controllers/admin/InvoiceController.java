@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.demo.entities.Account;
 import com.demo.entities.Order;
 import com.demo.entities.OrderDetail;
-import com.demo.entities.Role;
 import com.demo.services.OrderDetailService;
 import com.demo.services.OrderService;
 

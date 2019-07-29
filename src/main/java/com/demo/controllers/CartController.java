@@ -1,28 +1,24 @@
 package com.demo.controllers;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.demo.entities.Account;
-import com.demo.entities.Item;
 import com.demo.entities.Order;
 import com.demo.entities.OrderDetail;
 import com.demo.entities.OrderDetailID;
+import com.demo.model.Item;
 import com.demo.services.AccountService;
 import com.demo.services.OrderDetailService;
 import com.demo.services.OrderService;

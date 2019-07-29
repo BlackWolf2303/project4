@@ -1,4 +1,6 @@
-package com.demo.entities;
+package com.demo.model;
+
+import com.demo.entities.Product;
 
 public class Item {
 

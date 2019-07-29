@@ -23,11 +23,13 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.demo.entities.Product;
-import com.demo.model.ProductConfirm;
+import com.demo.entities.TypeTemplate;
+import com.demo.model.ProductModel;
 import com.demo.services.ColorService;
 import com.demo.services.ProductService;
 import com.demo.services.SizeService;
 import com.demo.services.StorageService;
+import com.demo.services.TypeTemplateService;
 
 @Controller
 @RequestMapping("admin/product")
@@ -39,9 +41,11 @@ public class AdminProductController {
 	private ColorService colorService;
 	@Autowired
 	private SizeService sizeService;
-	 
+	@Autowired
 	private StorageService storageService;
-	
+	@Autowired
+	private TypeTemplateService typeTemplateService;
+
 	@Autowired
     public AdminProductController(StorageService storageService) {
         this.storageService = storageService;
@@ -60,24 +64,31 @@ public class AdminProductController {
 	}
 	
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String add(@ModelAttribute("product") @Valid ProductConfirm product, BindingResult bindingResult) {
+	public String add(@ModelAttribute("product") @Valid ProductModel product, BindingResult bindingResult) {
 		
-		if(bindingResult.hasErrors()) {
-			return "../admin/product/add";
-		} else {
+//		if(bindingResult.hasErrors()) {
+//			return "../admin/product/add";
+//		} else {
 			Product pro = new Product();
-			pro.setName(product.getName());
-			pro.setPrice(product.getPrice());
-			pro.setQuantity(product.getQuantity());
+//			pro.setName(product.getName());
+//			pro.setPrice(product.getPrice());
+//			pro.setQuantity(product.getQuantity());
+//			pro.setActive(product.isActive());
+			
+			pro.setName("sp1");
+			pro.setPrice(1000);
+			pro.setQuantity(2);
+			pro.setActive(true);
+			pro.setTypeTemplate1(typeTemplateService.find(1));
+			pro.setTypeTemplate2(typeTemplateService.find(2));
 			productService.save(pro);
 			return "redirect:/admin/product";
-		}
+//		}
 	}
-
 	
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String add(ModelMap modelMap) {
-		modelMap.put("product", new ProductConfirm());
+		modelMap.put("product", new ProductModel());
 		return "../admin/product/add";
 	}
 	

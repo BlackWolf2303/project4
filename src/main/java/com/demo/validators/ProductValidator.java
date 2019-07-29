@@ -5,7 +5,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import com.demo.model.EditProfileModel;
-import com.demo.model.ProductConfirm;
+import com.demo.model.ProductModel;
 import com.demo.model.RegisterModel;
 
 @Component("productValidator")
@@ -13,7 +13,7 @@ public class ProductValidator implements Validator{
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return clazz.equals(ProductConfirm.class);
+		return clazz.equals(ProductModel.class);
 	}
 
 	@Override

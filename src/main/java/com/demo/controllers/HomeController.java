@@ -23,8 +23,8 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 
 import com.demo.controllers.admin.FileController;
 import com.demo.entities.Account;
-import com.demo.entities.Item;
 import com.demo.entities.Role;
+import com.demo.model.Item;
 import com.demo.model.RegisterModel;
 import com.demo.services.AccountService;
 import com.demo.services.RoleService;
