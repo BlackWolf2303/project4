@@ -60,13 +60,13 @@
 						<div class="text-desc-about">
 							<div class="row">
 								<div class="col-sm-6">
-									<p class="desc text-left text-justify">VeryCheap has been a family-owned, designer furniture institution in Western Australia since 1997. Having established a solid reputation built on honesty and integrity, designFARM offer their customers a genuine experience. We believe in good, authentic design, in order to do what we do best – create meaningful spaces. You won’t find any replica’s here – we only source original furniture, which is made under license. Why? Because we want your furniture to last a lifetime, as well as its story.</p>
+									<p class="desc text-left text-justify">GM Shop - Chuyên Thời Trang Unisex Cá Tính là địa điểm lý tưởng dành cho bạn nào muốn phá cách, thử nghiệm những món đồ mới lạ không dễ đụng hàng. Đến đây bạn sẽ tìm thấy những món đồ Unisex thông dụng như: Jeans boyfriend, jeans rách, áo phông oversize nam nữ, áo sơ mi, yếm kaki, quần track pant, quần box pant,,...Tất cả đều có chất liệu bền đẹp với họa tiết bắt mắt, được in những dòng Slogan cực chất với tông màu tươi sáng phù hợp với các bạn tuổi teen. Shop luôn cập nhật những thiết kế Unisex mới toanh để phục vụ nhu cầu mặc đẹp mặc chất của khách hàng. </p>
 								</div>
 								<div class="col-sm-6">
 									<ul class="list-none text-right text-justify">
-										<li><i class="fas fa-circle"></i> VeryCheap has been a family-owned in Western Australia since 1997.</li>
-										<li><i class="fas fa-circle"></i> Having established a solid reputation built on honesty </li>
-										<li><i class="fas fa-circle"></i> We believe in good, authentic design</li>
+										<li><i class="fas fa-circle"></i>   “Thời trang không nhất thiết phải đến từ nhãn mác, thương hiệu."  </li>
+										<li><i class="fas fa-circle"></i> " Thời trang đến từ những thứ ẩn bên trong tâm hồn, tính cách của bạn” </li>
+										<li><i class="fas fa-circle"></i> "Hàng vải rất tốt, bao đẹp và chất" </li>
 										<li><i class="fas fa-circle"></i> You won’t find any replica’s here – we only source original furniture</li>
 										<li><i class="fas fa-circle"></i> Why? Because we want your furniture to last a lifetime, as well as its story.</li>
 									</ul>
