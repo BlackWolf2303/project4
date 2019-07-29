@@ -48,11 +48,13 @@ public class RegisterValidator implements Validator {
 			
 		}
 		//check phone number
-		if(!registerAccount.getPhone().isEmpty()) {
-			Pattern pattern = Pattern.compile("(099|059|092|056|058|088|091|094|083|084|085|081|082|089|090|093|070|079|077|076|078|086|096|097|098|032|033|034|035|036|037|038|039)+([0-9]{8})");
-			Matcher matcher = pattern.matcher(registerAccount.getPhone());
-			if(!matcher.find()) {
-				errors.rejectValue("phone", "account.phone.nomatch");
+		if(registerAccount.getPhone()!= null) {
+			if(!registerAccount.getPhone().isEmpty()) {
+				Pattern pattern = Pattern.compile("(099|059|092|056|058|088|091|094|083|084|085|081|082|089|090|093|070|079|077|076|078|086|096|097|098|032|033|034|035|036|037|038|039)+([0-9]{8})");
+				Matcher matcher = pattern.matcher(registerAccount.getPhone());
+				if(!matcher.find()) {
+					errors.rejectValue("phone", "account.phone.nomatch");
+				}
 			}
 		}
 	}
