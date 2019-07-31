@@ -18,8 +18,11 @@
   display: none;
 }
 
-.search-form {
+.search-box .search-form {
   display: flex;
+  opacity: 1;
+  visibility: visible;
+  bottom: -9px;
 }
 
 /* subcription form */

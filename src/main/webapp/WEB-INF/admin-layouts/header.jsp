@@ -21,16 +21,17 @@
             <li><a href="/admin/customer"> <i class="icon-form"></i>Customer                             </a></li>
             <li><a href="/admin/product"> <i class="fa fa-bar-chart"></i>Product                             </a></li>
             <li><a href="/admin/invoice"> <i class="icon-grid"></i>Invoice                             </a></li>
-            <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
-              <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                <li><a href="#">Page</a></li>
-                <li><a href="#">Page</a></li>
-                <li><a href="#">Page</a></li>
-              </ul>
-            </li>
-            <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page                             </a></li>
-            <li> <a href="#"> <i class="icon-mail"></i>Demo
-                <div class="badge badge-warning">6 New</div></a></li>
+            <li><a href="/admin/typetemplate"> <i class="icon-grid"></i>Type Template                             </a></li>
+<!--             <li><a href="/admin/typtemplate" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a> -->
+<!--               <ul id="exampledropdownDropdown" class="collapse list-unstyled "> -->
+<!--                 <li><a href="#">Page</a></li> -->
+<!--                 <li><a href="#">Page</a></li> -->
+<!--                 <li><a href="#">Page</a></li> -->
+<!--               </ul> -->
+<!--             </li> -->
+<!--             <li><a href="login.html"> <i class="icon-interface-windows"></i>Login page                             </a></li> -->
+<!--             <li> <a href="#"> <i class="icon-mail"></i>Demo -->
+<!--                 <div class="badge badge-warning">6 New</div></a></li> -->
           </ul>
         </div>
         <div class="admin-menu">

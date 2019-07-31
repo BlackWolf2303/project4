@@ -28,10 +28,20 @@ public class TypeTemplate {
 	private List<Product> products1;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "typeTemplate2")
 	private List<Product> products2;
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-	@JoinTable(name = "typevalue_typetemplate", joinColumns = { @JoinColumn(name = "template_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "value_id") })
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "typevalue_typetemplate", joinColumns = {
+			@JoinColumn(name = "template_id") }, inverseJoinColumns = { @JoinColumn(name = "value_id") })
 	private List<TypeValue> typeValues;
+
+	public TypeTemplate() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public TypeTemplate(int id) {
+		super();
+		this.id = id;
+	}
 
 	public List<Product> getProducts1() {
 		return products1;
@@ -71,6 +81,14 @@ public class TypeTemplate {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public List<TypeValue> getTypeValues() {
+		return typeValues;
+	}
+
+	public void setTypeValues(List<TypeValue> typeValues) {
+		this.typeValues = typeValues;
 	}
 
 }

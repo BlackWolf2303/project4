@@ -14,10 +14,17 @@
 .user-login-page .logo-brands {
   display: none;
 }
-
-.search-form {
-  display: flex;
+.search {
+  &-box {
+    .search-form {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+      bottom: -9px;
+    }
+  }
 }
+
 
 /* subcription form */
 .mce_inline_error {
