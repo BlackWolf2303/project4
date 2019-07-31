@@ -11,8 +11,14 @@
 		<tr>
 			<td>Name</td>
 			<td><s:input path="name" /></td>
+		</tr>
+		<tr>
+			<td>Caption</td>
+			<td><s:input path="caption" /></td>
+		</tr>
+		<tr>
 			<s:hidden path="id"/>
-			<td><button>Edit</button></td>
+			<td><button>Add</button></td>
 		</tr>
 	</table>
 </s:form>

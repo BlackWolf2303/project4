@@ -63,33 +63,29 @@ public class AdminProductController {
 		return "../admin/product/details";
 	}
 	
-	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String add(@ModelAttribute("product") @Valid ProductModel product, BindingResult bindingResult) {
-		
-//		if(bindingResult.hasErrors()) {
-//			return "../admin/product/add";
-//		} else {
-			Product pro = new Product();
-//			pro.setName(product.getName());
-//			pro.setPrice(product.getPrice());
-//			pro.setQuantity(product.getQuantity());
-//			pro.setActive(product.isActive());
-			
-			pro.setName("sp1");
-			pro.setPrice(1000);
-			pro.setQuantity(2);
-			pro.setActive(true);
-			pro.setTypeTemplate1(typeTemplateService.find(1));
-			pro.setTypeTemplate2(typeTemplateService.find(2));
-			productService.save(pro);
-			return "redirect:/admin/product";
-//		}
-	}
-	
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String add(ModelMap modelMap) {
 		modelMap.put("product", new ProductModel());
+		modelMap.put("typeTemplates", typeTemplateService.findAll());
 		return "../admin/product/add";
+	}
+	
+	@RequestMapping(value = "add", method = RequestMethod.POST)
+	public String add(@ModelAttribute("product") @Valid ProductModel product, BindingResult bindingResult) {
+		
+		if(bindingResult.hasErrors()) {
+			return "../admin/product/add";
+		} else {
+			Product pro = new Product();
+			pro.setName(product.getName());
+			pro.setPrice(Double.valueOf(product.getPrice()));
+			pro.setQuantity(Integer.valueOf(product.getQuantity()));
+			pro.setActive(product.isActive());
+			pro.setTypeTemplate1(product.getTypeTemplate1());
+			pro.setTypeTemplate2(product.getTypeTemplate2());
+			productService.save(pro);
+			return "redirect:/admin/product";
+		}
 	}
 	
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
@@ -101,15 +97,21 @@ public class AdminProductController {
 	@RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
 	public String edit(@PathVariable("id") int id, ModelMap modelMap) {
 		modelMap.put("product", productService.find(id));
-		modelMap.put("sizes", sizeService.findAll());
-		modelMap.put("colors", colorService.findAll());
+		modelMap.put("typeTemplates", typeTemplateService.findAll());
 		return "../admin/product/edit";
 	}
 	
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
 	public String edit(@ModelAttribute("product") Product product) {
-		productService.save(product);
-		return "redirect:/admin/products";
+		Product pro = productService.find(product.getId());
+		pro.setName(product.getName());
+		pro.setPrice(Double.valueOf(product.getPrice()));
+		pro.setQuantity(Integer.valueOf(product.getQuantity()));
+		pro.setActive(product.isActive());
+		pro.setTypeTemplate1(product.getTypeTemplate1());
+		pro.setTypeTemplate2(product.getTypeTemplate2());
+		productService.save(pro);
+		return "redirect:/admin/product";
 	}
 	
 	@RequestMapping(value = "upload", method = RequestMethod.GET)

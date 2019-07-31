@@ -88,6 +88,7 @@ public class TypeTemplateController {
 		TypeTemplate editTypeTemplate = typeTemplateService.find(typeTemplate.getId());
 		if (editTypeTemplate!=null) {
 			editTypeTemplate.setName(typeTemplate.getName());
+			editTypeTemplate.setCaption(typeTemplate.getCaption());
 			typeTemplateService.save(editTypeTemplate);
 		} else {
 			return "/admin/pagenotfound";

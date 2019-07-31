@@ -11,6 +11,12 @@
 		<tr>
 			<td>Name</td>
 			<td><s:input path="name" /></td>
+		</tr>
+		<tr>
+			<td>Caption</td>
+			<td><s:input path="caption" /></td>
+		</tr>
+		<tr>
 			<td><button>Add</button></td>
 		</tr>
 	</table>

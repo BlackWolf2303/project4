@@ -23,6 +23,7 @@ public class TypeTemplate {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	private String caption;
 	private boolean active;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "typeTemplate1")
 	private List<Product> products1;
@@ -36,6 +37,14 @@ public class TypeTemplate {
 	public TypeTemplate() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getCaption() {
+		return caption;
+	}
+
+	public void setCaption(String caption) {
+		this.caption = caption;
 	}
 
 	public TypeTemplate(int id) {

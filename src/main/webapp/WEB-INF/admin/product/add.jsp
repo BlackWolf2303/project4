@@ -17,36 +17,35 @@
 		</tr>
 		<tr>
 			<td>Quantity</td>
-			<td><s:input path="quantity" type="number" min="0" max="50"/></td>
+			<td><s:input path="quantity" /></td>
 			<td><s:errors path="quantity" /></td>
 		</tr>
 		<tr>
 			<td>Price</td>
-			<td><s:input path="price" type="number" min="0" step="10000" max="1000000" value="0"/></td>
+			<td><s:input path="price" /></td>
 			<td><s:errors path="price" /></td>
 		</tr>
 		<tr>
-			<td>Size</td>
-			<td><a href="/admin/size/add">Add</a></td>
+			<td>Type Template 1</td>
 			<td>
-<%-- 				<c:forEach var="size" items="${sizes}"><img src="${size}"/></c:forEach> --%>
+				<s:select path="typeTemplate1">
+					<s:options path="id" items="${typeTemplates}" itemLabel="name" itemValue="id"/>
+				</s:select>
 			</td>
 		</tr>
 		<tr>
-			<td>Color</td>
-			<td><a href="/admin/color/add">Add</a></td>
+			<td>Type Template 2</td>
 			<td>
-<%-- 				<s:form> --%>
-				
-<%-- 				</s:form> --%>
-<%-- 				<c:forEach var="color" items="${colors}"><input name="color" value="${color}"/></c:forEach> --%>
+				<s:select path="typeTemplate2">
+					<s:options path="id" items="${typeTemplates}" itemLabel="name" itemValue="id"/>
+				</s:select>
 			</td>
 		</tr>
 		<tr>
 			<td>Image</td>
 			<td><a href="/admin/image/add">Add</a></td>
 			<td>
-<%-- 				<c:forEach var="image" items="${images}"><img src="${image}"/></c:forEach> --%>
+				<%-- 				<c:forEach var="image" items="${images}"><img src="${image}"/></c:forEach> --%>
 			</td>
 		</tr>
 		<tr>

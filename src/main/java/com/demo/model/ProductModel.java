@@ -6,23 +6,39 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.NumberFormat;
 
+import com.demo.entities.TypeTemplate;
+
 public class ProductModel {
 
 	private int id;
-
 	@Length(min = 3, max = 250)
 	private String name;
-
 	@NotNull
 	@NumberFormat(pattern = "#,###,###.##")
 	@Range(min = 0, max = 1000000)
-	private Double price;
-
+	private String price;
 	@NotNull
 	@Range(min = 0, max = 50)
-	private int quantity;
-
+	private String quantity;
 	private boolean active;
+	private TypeTemplate typeTemplate1;
+	private TypeTemplate typeTemplate2;
+
+	public TypeTemplate getTypeTemplate1() {
+		return typeTemplate1;
+	}
+
+	public void setTypeTemplate1(TypeTemplate typeTemplate1) {
+		this.typeTemplate1 = typeTemplate1;
+	}
+
+	public TypeTemplate getTypeTemplate2() {
+		return typeTemplate2;
+	}
+
+	public void setTypeTemplate2(TypeTemplate typeTemplate2) {
+		this.typeTemplate2 = typeTemplate2;
+	}
 
 	public boolean isActive() {
 		return active;
@@ -48,19 +64,19 @@ public class ProductModel {
 		this.name = name;
 	}
 
-	public Double getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(Double price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
-	public int getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 
