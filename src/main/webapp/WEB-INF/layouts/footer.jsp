@@ -163,7 +163,7 @@
 								<ul class="list-none">
 									<li><a href="#" class="link-hover">C1611LAptech@gmail.com</a></li>
 									<li><a href="#" class="link-hover">C1611LAptech@gmail.com</a></li>
-									<li>+84.4 1678 311 160</li>
+									<li>+84 844 12 8877</li>
 									<li><p class="desc title12 text-italic silver">Support available 10am–6pm ET Monday through Friday</p></li>
 								</ul>
 							</div>
@@ -182,7 +182,7 @@
 				<!-- end logo-cart -->
 				<div class="box-design-by text-center">
 					<ul class="list-inline-block">
-						<li><a href="#">© 2018 - 7uptheme Inc. </a></li>
+						<li><a href="#">© 2019 - TEAM C1611L APTECH</a></li>
 						<li><a href="#">Privacy Policy  </a></li>
 						<li><a href="#">Interest Based Ads </a></li>
 						<li><a href="#">Your California Privacy Rights</a></li>

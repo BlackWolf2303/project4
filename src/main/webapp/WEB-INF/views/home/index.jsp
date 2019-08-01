@@ -20,28 +20,28 @@
 							src="${pageContext.request.contextPath}/resources/assets/photos/home-1/slide/01.jpg"
 							alt="" /></a>
 					</div>
-					<div class="banner-info text-right animated"
-						data-animated="zoomInLeft">
-						<div class="container">
-							<div class="wrap-banner-info text-center">
-								<h2 class="title60 rale-font font-bold text-uppercase dark">
-									THE <span class="color">BIG</span>GEST
-								</h2>
-								<h3 class="title36 text-uppercase rale-font dark">SALE OF
-									THE day</h3>
-								<div class="sale-off">
-									<span class="text-uppercase font-bold title30 dark">save
-										up to</span>
-									<h2 class="title260 poiret-font color">
-										<span class="number">4</span><span class="number">0</span> <span
-											class="title60 poiret-font color text-uppercase">% off</span>
-									</h2>
-									<a href="#" class="hover-btn shop-button bg-color white">Learn
-										More</a>
-								</div>
-							</div>
-						</div>
-					</div>
+<!-- 					<div class="banner-info text-right animated" -->
+<!-- 						data-animated="zoomInLeft"> -->
+<!-- 						<div class="container"> -->
+<!-- 							<div class="wrap-banner-info text-center"> -->
+<!-- 								<h2 class="title60 rale-font font-bold text-uppercase dark"> -->
+<!-- 									THE <span class="color">BIG</span>GEST -->
+<!-- 								</h2> -->
+<!-- 								<h3 class="title36 text-uppercase rale-font dark">SALE OF -->
+<!-- 									THE day</h3> -->
+<!-- 								<div class="sale-off"> -->
+<!-- 									<span class="text-uppercase font-bold title30 dark">save -->
+<!-- 										up to</span> -->
+<!-- 									<h2 class="title260 poiret-font color"> -->
+<!-- 										<span class="number">4</span><span class="number">0</span> <span -->
+<!-- 											class="title60 poiret-font color text-uppercase">% off</span> -->
+<!-- 									</h2> -->
+<!-- 									<a href="#" class="hover-btn shop-button bg-color white">Learn -->
+<!-- 										More</a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 				</div>
 				<div class="item-slider">
 					<div class="banner-thumb">
@@ -49,24 +49,24 @@
 							src="${pageContext.request.contextPath}/resources/assets/photos/home-1/slide/02.jpg"
 							alt="" /></a>
 					</div>
-					<div class="banner-info text-left animated" data-animated="shake">
-						<div class="container">
-							<div class="wrap-banner-info text-center">
-								<h2 class="title60 rale-font font-bold text-uppercase dark">women's</h2>
-								<h3 class="title36 text-uppercase rale-font dark">clothing</h3>
-								<div class="sale-off">
-									<span class="text-uppercase font-bold title30 dark">save
-										up to</span>
-									<h2 class="title260 poiret-font color">
-										<span class="number">7</span><span class="number">0</span> <span
-											class="title60 poiret-font color text-uppercase">% off</span>
-									</h2>
-									<a href="#" class="hover-btn shop-button bg-color white">Learn
-										More</a>
-								</div>
-							</div>
-						</div>
-					</div>
+<!-- 					<div class="banner-info text-left animated" data-animated="shake"> -->
+<!-- 						<div class="container"> -->
+<!-- 							<div class="wrap-banner-info text-center"> -->
+<!-- 								<h2 class="title60 rale-font font-bold text-uppercase dark">women's</h2> -->
+<!-- 								<h3 class="title36 text-uppercase rale-font dark">clothing</h3> -->
+<!-- 								<div class="sale-off"> -->
+<!-- 									<span class="text-uppercase font-bold title30 dark">save -->
+<!-- 										up to</span> -->
+<!-- 									<h2 class="title260 poiret-font color"> -->
+<!-- 										<span class="number">7</span><span class="number">0</span> <span -->
+<!-- 											class="title60 poiret-font color text-uppercase">% off</span> -->
+<!-- 									</h2> -->
+<!-- 									<a href="#" class="hover-btn shop-button bg-color white">Learn -->
+<!-- 										More</a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 				</div>
 				<div class="item-slider">
 					<div class="banner-thumb">
@@ -74,25 +74,25 @@
 							src="${pageContext.request.contextPath}/resources/assets/photos/home-1/slide/03.jpg"
 							alt="" /></a>
 					</div>
-					<div class="banner-info text-right animated"
-						data-animated="fadeInRight">
-						<div class="container">
-							<div class="wrap-banner-info text-center">
-								<h2 class="title60 rale-font font-bold text-uppercase dark">women's</h2>
-								<h3 class="title36 text-uppercase rale-font dark">clothing</h3>
-								<div class="sale-off">
-									<span class="text-uppercase font-bold title30 dark">save
-										up to</span>
-									<h2 class="title260 poiret-font color">
-										<span class="number">7</span><span class="number">0</span> <span
-											class="title60 poiret-font color text-uppercase">% off</span>
-									</h2>
-									<a href="#" class="hover-btn shop-button bg-color white">Learn
-										More</a>
-								</div>
-							</div>
-						</div>
-					</div>
+<!-- 					<div class="banner-info text-right animated" -->
+<!-- 						data-animated="fadeInRight"> -->
+<!-- 						<div class="container"> -->
+<!-- 							<div class="wrap-banner-info text-center"> -->
+<!-- 								<h2 class="title60 rale-font font-bold text-uppercase dark">women's</h2> -->
+<!-- 								<h3 class="title36 text-uppercase rale-font dark">clothing</h3> -->
+<!-- 								<div class="sale-off"> -->
+<!-- 									<span class="text-uppercase font-bold title30 dark">save -->
+<!-- 										up to</span> -->
+<!-- 									<h2 class="title260 poiret-font color"> -->
+<!-- 										<span class="number">7</span><span class="number">0</span> <span -->
+<!-- 											class="title60 poiret-font color text-uppercase">% off</span> -->
+<!-- 									</h2> -->
+<!-- 									<a href="#" class="hover-btn shop-button bg-color white">Learn -->
+<!-- 										More</a> -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 				</div>
 			</div>
 		</div>

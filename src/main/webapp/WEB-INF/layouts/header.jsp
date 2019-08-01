@@ -9,9 +9,8 @@
 				<div
 					class="top-header text-center white hidden-xs bg-2color-header-top">
 					<div class="container">
-						<h3 class="title14 text-uppercase font-bold rale-font">end of
-							season sale - up to 80% off</h3>
-						<a href="#" class="text-uppercase white link-hover border-left">shop
+						<h3 class="title14 text-uppercase font-bold rale-font">Hỗ trợ mua hàng FREE SHIP tại </h3>
+						<a target="_blank" rel="noopener noreferrer"  href="https://shopee.vn/gmshop826" class="text-uppercase white link-hover border-left">shop
 							now <i class="fas fa-angle-right"></i>
 						</a> <a href="#" class="btn-close pull-right"></a>
 					</div>
