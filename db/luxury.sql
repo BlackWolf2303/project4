@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 28, 2019 at 12:57 PM
+-- Generation Time: Aug 01, 2019 at 02:54 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -48,10 +48,10 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id`, `username`, `password`, `email`, `fullname`, `birthday`, `gender`, `address`, `phone`, `avatar`) VALUES
-(1, 'lythihagiang', '$2a$10$1O1nzsXWngr3m4A1/UsjfuWkC9jA2k7ab3N2R/04adylDJVk21mYG', '', '?', '2019-07-09 00:00:00', 0, '', '', '1ava.jpg'),
 (2, 'ducnt', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC', '', '', '2019-07-09 00:00:00', 0, '', '', 'defaultAva.jpg'),
 (3, 'hai', '$2a$10$8XHw1P7527Ouv1cCY4WiKO.2y3S1AhUUzfmdm46G/wG8HDAo9BAYi', 'abc@outlook', 'HaiHT', '2000-12-12 00:00:00', 1, '1111', '34289347984', 'defaultAva.jpg'),
-(16, 'ducnt1', '$2a$10$Qr1OsUb8tz565p1NyoMq9uaTs8vdSvzH0H827Bc2uxImkx1Mb7ZQu', '', '', NULL, 0, '', '', NULL);
+(17, 'lythihagiang', '$2a$10$YRlE0tGEs7koDZMLSbaO8eLrqcFFS54DYAAUdqN6nGCEYMxtf9yqS', '', '', NULL, 0, '', '', NULL),
+(18, 'abcd', '$2a$10$R2R7f7wbc1mcPDKv1C9iMOnJqvwG2RuM1b91k2VFGwMjgM8ctmRNi', 'abc@gmail.com', NULL, NULL, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -71,7 +71,10 @@ CREATE TABLE `account_role` (
 INSERT INTO `account_role` (`account_id`, `role_id`) VALUES
 (2, 3),
 (3, 3),
-(16, 3);
+(17, 1),
+(17, 2),
+(17, 3),
+(18, 3);
 
 -- --------------------------------------------------------
 
@@ -85,16 +88,6 @@ CREATE TABLE `category` (
   `parentid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `category`
---
-
-INSERT INTO `category` (`id`, `name`, `parentid`) VALUES
-(1, 'ao', 1),
-(2, 'quan', 2),
-(3, 'Áo Khoác', 1),
-(4, 'Áo Thun', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -105,14 +98,6 @@ CREATE TABLE `category_product` (
   `categoryid` int(11) NOT NULL,
   `productid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `category_product`
---
-
-INSERT INTO `category_product` (`categoryid`, `productid`) VALUES
-(1, 13),
-(2, 13);
 
 -- --------------------------------------------------------
 
@@ -138,24 +123,6 @@ INSERT INTO `color` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customer`
---
-
-CREATE TABLE `customer` (
-  `id` int(11) NOT NULL,
-  `username` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `gender` int(11) NOT NULL,
-  `age` int(11) NOT NULL,
-  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `role` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `images`
 --
 
@@ -164,16 +131,6 @@ CREATE TABLE `images` (
   `name` varchar(500) COLLATE utf8_unicode_ci NOT NULL,
   `productId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `images`
---
-
-INSERT INTO `images` (`id`, `name`, `productId`) VALUES
-(1, 'images/product/giay.jpg', 9),
-(2, 'images/product/giay2.jpg', 9),
-(3, 'images/product/giay3.jpg', 9),
-(4, 'images/product/giay4.jpg', 9);
 
 -- --------------------------------------------------------
 
@@ -185,25 +142,6 @@ CREATE TABLE `ordertbl` (
   `id` int(11) NOT NULL,
   `account_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `ordertbl`
---
-
-INSERT INTO `ordertbl` (`id`, `account_id`) VALUES
-(17, 2),
-(18, 2),
-(19, 2),
-(20, 2),
-(21, 2),
-(22, 2),
-(23, 2),
-(24, 2),
-(25, 2),
-(26, 2),
-(27, 2),
-(28, 2),
-(29, 3);
 
 -- --------------------------------------------------------
 
@@ -218,24 +156,6 @@ CREATE TABLE `order_detail` (
   `price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `order_detail`
---
-
-INSERT INTO `order_detail` (`product_id`, `order_id`, `qty`, `price`) VALUES
-(9, 17, 2, 120),
-(9, 18, 1, 120),
-(9, 19, 1, 120),
-(9, 20, 2, 120),
-(9, 21, 1, 120),
-(9, 22, 1, 120),
-(9, 24, 2, 120),
-(9, 25, 1, 120),
-(9, 27, 1, 120),
-(9, 28, 1, 120),
-(9, 29, 1, 120),
-(10, 17, 1, 220);
-
 -- --------------------------------------------------------
 
 --
@@ -247,20 +167,17 @@ CREATE TABLE `product` (
   `name` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   `price` double DEFAULT NULL,
   `quantity` int(11) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT NULL,
-  `free_size` tinyint(1) NOT NULL
+  `active` tinyint(1) DEFAULT NULL,
+  `typetemplate_id1` int(11) NOT NULL,
+  `typetemplate_id2` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `name`, `price`, `quantity`, `status`, `free_size`) VALUES
-(9, 'sp 1', 120, 5, 1, 0),
-(10, 'sp 2', 220, 7, 1, 0),
-(11, 'sp 3', 160, 10, 1, 0),
-(12, 'sp 4', 150, 5, 1, 0),
-(13, 'Ao 1', 0, 0, 0, 0);
+INSERT INTO `product` (`id`, `name`, `price`, `quantity`, `active`, `typetemplate_id1`, `typetemplate_id2`) VALUES
+(1, 'AO THUN HOME EARTH', 99.6, 10, 0, 5, 4);
 
 -- --------------------------------------------------------
 
@@ -273,16 +190,6 @@ CREATE TABLE `product_color` (
   `colorid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `product_color`
---
-
-INSERT INTO `product_color` (`productid`, `colorid`) VALUES
-(13, 1),
-(13, 2),
-(13, 3),
-(13, 4);
-
 -- --------------------------------------------------------
 
 --
@@ -294,14 +201,16 @@ CREATE TABLE `product_size` (
   `sizeid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `product_size`
+-- Table structure for table `product_typetemplate`
 --
 
-INSERT INTO `product_size` (`productid`, `sizeid`) VALUES
-(13, 1),
-(13, 2),
-(13, 3);
+CREATE TABLE `product_typetemplate` (
+  `product_id` int(11) NOT NULL,
+  `typetemplate_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -346,29 +255,67 @@ INSERT INTO `size` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `typetemplate`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `typetemplate` (
   `id` int(11) NOT NULL,
-  `username` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `password` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `fullname` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
-  `gender` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `age` int(11) NOT NULL,
-  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `caption` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `typetemplate`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `fullname`, `gender`, `age`, `phone`) VALUES
-(1, 'lythihagiang', '$2y$12$eMkABh68f.7efUuF9Zmx3uWX9Lq/wLmWdwqQnqM2zlhmZfWaDrsMO', 'Lý Thị Hà Giang', 'Nữ', 24, '0987654321'),
-(2, 'ducnt', '', '', '', 0, ''),
-(3, 'hai', '', '', '', 0, ''),
-(4, 'ducnt', '$2y$12$eMkABh68f.7efUuF9Zmx3uWX9Lq/wLmWdwqQnqM2zlhmZfWaDrsMO', '1', '1', 1, '1'),
-(5, 'hai', '$2y$12$eMkABh68f.7efUuF9Zmx3uWX9Lq/wLmWdwqQnqM2zlhmZfWaDrsMO', '1', '1', 1, '1');
+INSERT INTO `typetemplate` (`id`, `name`, `caption`, `active`) VALUES
+(4, 'Color', 'Color', 0),
+(5, 'Size', 'Size', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `typevalue`
+--
+
+CREATE TABLE `typevalue` (
+  `id` int(11) NOT NULL,
+  `name` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `typevalue`
+--
+
+INSERT INTO `typevalue` (`id`, `name`) VALUES
+(17, 'Blue'),
+(20, 'Red'),
+(21, 'M'),
+(22, 'L'),
+(23, 'XL');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `typevalue_typetemplate`
+--
+
+CREATE TABLE `typevalue_typetemplate` (
+  `value_id` int(11) NOT NULL,
+  `template_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `typevalue_typetemplate`
+--
+
+INSERT INTO `typevalue_typetemplate` (`value_id`, `template_id`) VALUES
+(17, 4),
+(20, 4),
+(21, 5),
+(22, 5),
+(23, 5);
 
 --
 -- Indexes for dumped tables
@@ -407,12 +354,6 @@ ALTER TABLE `color`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `customer`
---
-ALTER TABLE `customer`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `images`
 --
 ALTER TABLE `images`
@@ -437,7 +378,9 @@ ALTER TABLE `order_detail`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_product_typetemplate1` (`typetemplate_id1`),
+  ADD KEY `fk_product_typetemplate2` (`typetemplate_id2`);
 
 --
 -- Indexes for table `product_color`
@@ -454,6 +397,13 @@ ALTER TABLE `product_size`
   ADD KEY `fk_size_productsize` (`sizeid`);
 
 --
+-- Indexes for table `product_typetemplate`
+--
+ALTER TABLE `product_typetemplate`
+  ADD PRIMARY KEY (`product_id`,`typetemplate_id`),
+  ADD KEY `fk_typetemplate_producttypetemplate` (`typetemplate_id`);
+
+--
 -- Indexes for table `role`
 --
 ALTER TABLE `role`
@@ -466,10 +416,23 @@ ALTER TABLE `size`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `typetemplate`
 --
-ALTER TABLE `user`
+ALTER TABLE `typetemplate`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `typevalue`
+--
+ALTER TABLE `typevalue`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `typevalue_typetemplate`
+--
+ALTER TABLE `typevalue_typetemplate`
+  ADD PRIMARY KEY (`value_id`,`template_id`),
+  ADD KEY `fk_template_templatevalue` (`template_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -479,13 +442,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `color`
@@ -494,28 +457,22 @@ ALTER TABLE `color`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `customer`
---
-ALTER TABLE `customer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `ordertbl`
 --
 ALTER TABLE `ordertbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -530,10 +487,16 @@ ALTER TABLE `size`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT for table `typetemplate`
 --
-ALTER TABLE `user`
+ALTER TABLE `typetemplate`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `typevalue`
+--
+ALTER TABLE `typevalue`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables
@@ -573,10 +536,16 @@ ALTER TABLE `order_detail`
   ADD CONSTRAINT `fk_orderdetail_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `fk_product_typetemplate1` FOREIGN KEY (`typetemplate_id1`) REFERENCES `typetemplate` (`id`),
+  ADD CONSTRAINT `fk_product_typetemplate2` FOREIGN KEY (`typetemplate_id2`) REFERENCES `typetemplate` (`id`);
+
+--
 -- Constraints for table `product_color`
 --
 ALTER TABLE `product_color`
-  ADD CONSTRAINT `fk_color_product` FOREIGN KEY (`colorid`) REFERENCES `color` (`id`),
   ADD CONSTRAINT `fk_product_color` FOREIGN KEY (`productid`) REFERENCES `product` (`id`);
 
 --
@@ -585,6 +554,13 @@ ALTER TABLE `product_color`
 ALTER TABLE `product_size`
   ADD CONSTRAINT `fk_product_productsize` FOREIGN KEY (`productid`) REFERENCES `product` (`id`),
   ADD CONSTRAINT `fk_size_productsize` FOREIGN KEY (`sizeid`) REFERENCES `size` (`id`);
+
+--
+-- Constraints for table `typevalue_typetemplate`
+--
+ALTER TABLE `typevalue_typetemplate`
+  ADD CONSTRAINT `fk_template_templatevalue` FOREIGN KEY (`template_id`) REFERENCES `typetemplate` (`id`),
+  ADD CONSTRAINT `fk_value_templatevalue` FOREIGN KEY (`value_id`) REFERENCES `typevalue` (`id`);
 --
 -- Database: `demo6`
 --
@@ -610,6 +586,36 @@ INSERT INTO `roles` (`id`, `name`) VALUES
 (1, 'ROLE_SUPER_ADMIN'),
 (2, 'ROLE_ADMIN'),
 (3, 'ROLE_EMPLOYEE');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `type_1`
+--
+
+CREATE TABLE `type_1` (
+  `id` int(11) NOT NULL,
+  `value_01` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_02` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_03` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_04` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_05` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_06` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_07` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_08` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_09` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_10` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_11` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_12` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_13` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_14` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_15` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_16` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_17` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_18` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_19` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_20` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -671,6 +677,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `type_1`
+--
+ALTER TABLE `type_1`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -692,6 +704,12 @@ ALTER TABLE `user_role`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `type_1`
+--
+ALTER TABLE `type_1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -1262,7 +1280,7 @@ CREATE TABLE `pma__designer_settings` (
 --
 
 INSERT INTO `pma__designer_settings` (`username`, `settings_data`) VALUES
-('root', '{\"angular_direct\":\"direct\",\"snap_to_grid\":\"off\",\"relation_lines\":\"true\"}');
+('root', '{\"angular_direct\":\"direct\",\"snap_to_grid\":\"off\",\"relation_lines\":\"true\",\"full_screen\":\"on\"}');
 
 -- --------------------------------------------------------
 
@@ -1346,7 +1364,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"ordertbl\"},{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"da4\",\"table\":\"user\"},{\"db\":\"demo6\",\"table\":\"users\"},{\"db\":\"da4\",\"table\":\"order_detail\"},{\"db\":\"da4\",\"table\":\"images\"},{\"db\":\"da4\",\"table\":\"order\"},{\"db\":\"da4\",\"table\":\"product\"}]');
+('root', '[{\"db\":\"da4\",\"table\":\"typetemplate\"},{\"db\":\"da4\",\"table\":\"typevalue_typetemplate\"},{\"db\":\"da4\",\"table\":\"typevalue\"},{\"db\":\"da4\",\"table\":\"product\"},{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"size\"},{\"db\":\"da4\",\"table\":\"product_color\"},{\"db\":\"da4\",\"table\":\"category\"},{\"db\":\"da4\",\"table\":\"category_product\"},{\"db\":\"da4\",\"table\":\"images\"}]');
 
 -- --------------------------------------------------------
 
@@ -1402,6 +1420,14 @@ CREATE TABLE `pma__table_info` (
   `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
   `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+
+--
+-- Dumping data for table `pma__table_info`
+--
+
+INSERT INTO `pma__table_info` (`db_name`, `table_name`, `display_field`) VALUES
+('da4', 'product', 'name'),
+('da4', 'typevalue', 'name');
 
 -- --------------------------------------------------------
 
@@ -1460,7 +1486,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2019-07-28 10:39:58', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
+('root', '2019-08-01 12:54:38', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
 
 -- --------------------------------------------------------
 
