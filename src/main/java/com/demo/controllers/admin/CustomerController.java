@@ -147,24 +147,10 @@ public class CustomerController {
 			Account acc = new Account();
 			acc.setUsername(account.getUsername());
 			acc.setPassword(account.getPassword());
-			acc.setAddress(account.getAddress());
 			acc.setEmail(account.getEmail());
-			acc.setFullname(account.getFullname());
-			acc.setPhone(account.getPhone());
-			acc.setBirthday(account.getBirthday());
-			acc.setGender(account.getGender());
-			acc.setRoles(account.getRoles());
 			acc = accountService.save(acc);
-			if (!account.getFile().isEmpty()) {
-				acc.setAvatar(acc.getId()+"ava.jpg");
-				accountService.save(acc);
-				editPrcess(acc.getId(), account.getFile());
-			}
 			return "redirect:/admin/customer";
 		} else {
-			modelMap.put("roless", roleService.findAll());
-			modelMap.put("avatar", MvcUriComponentsBuilder
-					.fromMethodName(FileController.class, "serveFile", "defaultAva.jpg").build().toString());
 			return "../admin/customer/add";
 		}
 	}

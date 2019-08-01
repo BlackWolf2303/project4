@@ -19,12 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
-
-import com.demo.controllers.admin.FileController;
 import com.demo.entities.Account;
-import com.demo.entities.Item;
 import com.demo.entities.Role;
+import com.demo.model.Item;
 import com.demo.model.RegisterModel;
 import com.demo.services.AccountService;
 import com.demo.services.RoleService;
@@ -95,8 +92,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "register", method = RequestMethod.GET)
 	public String register(ModelMap modelMap) {
-		modelMap.put("avatar", MvcUriComponentsBuilder
-				.fromMethodName(FileController.class, "serveFile", "defaultAva.jpg").build().toString());
 		modelMap.put("account", new RegisterModel());
 		return "login/register";
 	}
@@ -108,24 +103,12 @@ public class HomeController {
 			Account acc = new Account();
 			acc.setUsername(account.getUsername());
 			acc.setPassword(account.getPassword());
-			acc.setAddress(account.getAddress());
 			acc.setEmail(account.getEmail());
-			acc.setFullname(account.getFullname());
-			acc.setPhone(account.getPhone());
-			acc.setBirthday(account.getBirthday());
-			acc.setGender(account.getGender());
 			acc.getRoles().add(roleService.find(3));
 			acc = accountService.save(acc);
-			if (!account.getFile().isEmpty()) {
-				acc.setAvatar(acc.getId()+"ava.jpg");
-				accountService.save(acc);
-				editPrcess(acc.getId(), account.getFile());
-			}
 			securityService.autoLogin(account.getUsername(), account.getPassword());
 			return "redirect:/home";
 		} else {
-			modelMap.put("avatar", MvcUriComponentsBuilder
-					.fromMethodName(FileController.class, "serveFile", "defaultAva.jpg").build().toString());
 			return "/login/register";
 		}
 	}

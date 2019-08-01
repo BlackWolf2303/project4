@@ -5,17 +5,60 @@
 <jsp:include page="/WEB-INF/admin-layouts/head-meta.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
 
-	<h3>ADD PRODUCT</h3>
-	
-	<s:form modelAttribute="product" method="post" action="/admin/product/add">
-		<s:input path="name" />
-		<s:errors path="name" /><br>
-		<s:input path="price" type="number"/>
-		<s:errors path="price" /><br>
-		<s:input path="quantity" type="number"/>
-		<s:errors path="quantity" /><br>
-		<input value="Submit" type="submit">
-	</s:form>
+<h3>ADD PRODUCT</h3>
+
+<s:form modelAttribute="product" method="post"
+	action="/admin/product/add">
+	<table>
+		<tr>
+			<td>Name</td>
+			<td><s:input path="name" /></td>
+			<td><s:errors path="name" /></td>
+		</tr>
+		<tr>
+			<td>Quantity</td>
+			<td><s:input path="quantity" /></td>
+			<td><s:errors path="quantity" /></td>
+		</tr>
+		<tr>
+			<td>Price</td>
+			<td><s:input path="price" /></td>
+			<td><s:errors path="price" /></td>
+		</tr>
+		<tr>
+			<td>Type Template 1</td>
+			<td>
+				<s:select path="typeTemplate1">
+					<s:options path="id" items="${typeTemplates}" itemLabel="name" itemValue="id"/>
+				</s:select>
+			</td>
+		</tr>
+		<tr>
+			<td>Type Template 2</td>
+			<td>
+				<s:select path="typeTemplate2">
+					<s:options path="id" items="${typeTemplates}" itemLabel="name" itemValue="id"/>
+				</s:select>
+			</td>
+		</tr>
+		<tr>
+			<td>Image</td>
+			<td><a href="/admin/image/add">Add</a></td>
+			<td>
+				<%-- 				<c:forEach var="image" items="${images}"><img src="${image}"/></c:forEach> --%>
+			</td>
+		</tr>
+		<tr>
+			<td>Active</td>
+			<td><s:checkbox path="active" /></td>
+			<td><s:errors path="active" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><input value="Submit" type="submit"></td>
+		</tr>
+	</table>
+</s:form>
 <!-- 	<form name="product" action="/admin/product/add" method="post"> -->
 <%-- 		Name <input type="text" name="name" value= " ${product.name }"> <br> --%>
 <%-- 		Price <input type="text" name="price" value = " ${product.price }"><br> --%>
@@ -30,5 +73,5 @@
 <%-- 		Picture <c:forEach items="${product.images }" var="picture"><img src="${pageContext.request.contextPath}/resources/assets/images/product/${picture.name }" width="50px"></c:forEach> --%>
 <!-- 	<input value="Submit" type="submit"> -->
 <!-- 	</form> -->
-	
+
 <jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>

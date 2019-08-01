@@ -11,11 +11,13 @@ Product List
   <tr>
     <th>Avatar</th>
     <th>Name</th>
+    <th>Type Template 1</th>
+    <th>Type Template 2</th>
     <th>Quantity</th>
     <th>Price</th>
     <th>Action</th>
   </tr>
-  <c:forEach items="${products }" var="product">
+  <c:forEach var="product" items="${products }">
   <tr>
     <td>
     	<a href="product/${product.id }">
@@ -26,6 +28,12 @@ Product List
 	    <a href="product/${product.id }">
 	    	${product.name }
 	    </a>
+    </td>
+    <td>
+    	${product.typeTemplate1.name }
+    </td>
+    <td>
+    	${product.typeTemplate2.name }
     </td>
     <td>
     	${product.quantity }

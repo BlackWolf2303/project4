@@ -23,11 +23,13 @@ import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBui
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.demo.entities.Product;
-import com.demo.model.ProductConfirm;
+import com.demo.entities.TypeTemplate;
+import com.demo.model.ProductModel;
 import com.demo.services.ColorService;
 import com.demo.services.ProductService;
 import com.demo.services.SizeService;
 import com.demo.services.StorageService;
+import com.demo.services.TypeTemplateService;
 
 @Controller
 @RequestMapping("admin/product")
@@ -39,9 +41,11 @@ public class AdminProductController {
 	private ColorService colorService;
 	@Autowired
 	private SizeService sizeService;
-	 
+	@Autowired
 	private StorageService storageService;
-	
+	@Autowired
+	private TypeTemplateService typeTemplateService;
+
 	@Autowired
     public AdminProductController(StorageService storageService) {
         this.storageService = storageService;
@@ -59,26 +63,29 @@ public class AdminProductController {
 		return "../admin/product/details";
 	}
 	
+	@RequestMapping(value = "add", method = RequestMethod.GET)
+	public String add(ModelMap modelMap) {
+		modelMap.put("product", new ProductModel());
+		modelMap.put("typeTemplates", typeTemplateService.findAll());
+		return "../admin/product/add";
+	}
+	
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String add(@ModelAttribute("product") @Valid ProductConfirm product, BindingResult bindingResult) {
+	public String add(@ModelAttribute("product") @Valid ProductModel product, BindingResult bindingResult) {
 		
 		if(bindingResult.hasErrors()) {
 			return "../admin/product/add";
 		} else {
 			Product pro = new Product();
 			pro.setName(product.getName());
-			pro.setPrice(product.getPrice());
-			pro.setQuantity(product.getQuantity());
+			pro.setPrice(Double.valueOf(product.getPrice()));
+			pro.setQuantity(Integer.valueOf(product.getQuantity()));
+			pro.setActive(product.isActive());
+			pro.setTypeTemplate1(product.getTypeTemplate1());
+			pro.setTypeTemplate2(product.getTypeTemplate2());
 			productService.save(pro);
 			return "redirect:/admin/product";
 		}
-	}
-
-	
-	@RequestMapping(value = "add", method = RequestMethod.GET)
-	public String add(ModelMap modelMap) {
-		modelMap.put("product", new ProductConfirm());
-		return "../admin/product/add";
 	}
 	
 	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
@@ -90,15 +97,21 @@ public class AdminProductController {
 	@RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
 	public String edit(@PathVariable("id") int id, ModelMap modelMap) {
 		modelMap.put("product", productService.find(id));
-		modelMap.put("sizes", sizeService.findAll());
-		modelMap.put("colors", colorService.findAll());
+		modelMap.put("typeTemplates", typeTemplateService.findAll());
 		return "../admin/product/edit";
 	}
 	
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
 	public String edit(@ModelAttribute("product") Product product) {
-		productService.save(product);
-		return "redirect:/admin/products";
+		Product pro = productService.find(product.getId());
+		pro.setName(product.getName());
+		pro.setPrice(Double.valueOf(product.getPrice()));
+		pro.setQuantity(Integer.valueOf(product.getQuantity()));
+		pro.setActive(product.isActive());
+		pro.setTypeTemplate1(product.getTypeTemplate1());
+		pro.setTypeTemplate2(product.getTypeTemplate2());
+		productService.save(pro);
+		return "redirect:/admin/product";
 	}
 	
 	@RequestMapping(value = "upload", method = RequestMethod.GET)

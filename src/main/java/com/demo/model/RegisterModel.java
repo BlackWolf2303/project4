@@ -19,49 +19,32 @@ public class RegisterModel {
 	@NotEmpty
 	private String password;
 	private String passwordConfirm;
-	private String fullname;
+	@NotEmpty
 	@Email
 	private String email;
-	private int gender;
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private Date birthday;
-	@NumberFormat
-	private String phone;
-	private String address;
-	private String avatar;
-	private MultipartFile file;
-	private List<Role> roles;
 
-	public List<Role> getRoles() {
-		return roles;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
+	public void setUsername(String regusername) {
+		this.username = regusername;
 	}
 
-	public MultipartFile getFile() {
-		return file;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setFile(MultipartFile file) {
-		this.file = file;
+	public void setPassword(String regpassword) {
+		this.password = regpassword;
 	}
 
-	public String getAvatar() {
-		return avatar;
+	public String getPasswordConfirm() {
+		return passwordConfirm;
 	}
 
-	public void setAvatar(String avatar) {
-		this.avatar = avatar;
-	}
-
-	public String getFullname() {
-		return fullname;
-	}
-
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setPasswordConfirm(String regpasswordConfirm) {
+		this.passwordConfirm = regpasswordConfirm;
 	}
 
 	public String getEmail() {
@@ -72,59 +55,4 @@ public class RegisterModel {
 		this.email = email;
 	}
 
-	public int getGender() {
-		return gender;
-	}
-
-	public void setGender(int gender) {
-		this.gender = gender;
-	}
-
-	public Date getBirthday() {
-		return birthday;
-	}
-
-	public void setBirthday(Date birthday) {
-		this.birthday = birthday;
-	}
-
-	public String getPhone() {
-		return phone;
-	}
-
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getPasswordConfirm() {
-		return passwordConfirm;
-	}
-
-	public void setPasswordConfirm(String passwordConfirm) {
-		this.passwordConfirm = passwordConfirm;
-	}
 }
