@@ -22,6 +22,7 @@ import com.demo.model.Item;
 import com.demo.services.AccountService;
 import com.demo.services.OrderDetailService;
 import com.demo.services.OrderService;
+import com.demo.services.PayPalService;
 import com.demo.services.ProductService;
 
 @Controller
@@ -36,6 +37,8 @@ public class CartController {
 	private OrderDetailService orderDetailService;
 	@Autowired
 	private OrderService orderService;
+	@Autowired
+	private PayPalService payPalService;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(ModelMap modelMap, HttpSession session) {
