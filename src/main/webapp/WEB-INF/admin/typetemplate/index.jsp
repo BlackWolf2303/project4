@@ -4,8 +4,10 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <jsp:include page="/WEB-INF/admin-layouts/head-meta.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
+<head>
+<h1 class="h3 display">Type Template Manager</h1>
+</head>
 
-<h1>Type Template Manager</h1>
 <a href="/admin/typetemplate/add">Add New</a>
 <form action="admin/typetemplate" method="post">
 	<table>
@@ -19,10 +21,10 @@
 			<tr>
 				<td>${typeTemplate.name}</td>
 				<td>${typeTemplate.caption}</td>
-				<td><input type="checkbox" name="active" value="${typeTemplate.active}"></td>
-				<td>
-					<a href="/admin/typetemplate/detail/${typeTemplate.id}">Detail</a> | 
-					<a href="/admin/typetemplate/edit/${typeTemplate.id}">Edit</a> |
+				<td><input type="checkbox" name="active"
+					value="${typeTemplate.active}"></td>
+				<td><a href="/admin/typetemplate/detail/${typeTemplate.id}">Detail</a>
+					| <a href="/admin/typetemplate/edit/${typeTemplate.id}">Edit</a> |
 					<a href="/admin/typetemplate/delete/${typeTemplate.id}">Delete</a>
 				</td>
 			</tr>

@@ -28,8 +28,8 @@
 								<ul class="list-inline-block pull-right box-search-cart">
 									<li>
 										<div class="search-box">
-											<a href="#" class="text-uppercase title12 link-hover"><i
-												class="fas fa-search"></i>search</a>
+<!-- 											<a href="#" class="text-uppercase title12 link-hover"><i -->
+<!-- 												class="fas fa-search"></i>search</a> -->
 											<form class="search-form clearfix"
 												action="/categories/search" method="get">
 												<input type="text" value="Search" name="keyword"
