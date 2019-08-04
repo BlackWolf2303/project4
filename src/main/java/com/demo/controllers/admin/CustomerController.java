@@ -98,10 +98,12 @@ public class CustomerController {
 		String direction = ServletRequestUtils.getStringParameter(request, "dir", "asc");
 		String property = ServletRequestUtils.getStringParameter(request, "prop", "username");
 		List<Account> accounts = null;
+		List<Role> roles = new ArrayList<Role>();
+		roles.add(new Role(3));
 		if(direction.equalsIgnoreCase("asc")) {
-			accounts = (List<Account>) accountService.findAll(Sort.by(Direction.ASC, property));
+			accounts = accountService.findbyRoles(roles, Sort.by(Direction.ASC, property));
 		} else if (direction.equalsIgnoreCase("desc")) {
-			accounts = (List<Account>) accountService.findAll(Sort.by(Direction.DESC, property));
+			accounts = accountService.findbyRoles(roles, Sort.by(Direction.DESC, property));
 		}
 		PagedListHolder<Account> pagedListHolder = new PagedListHolder<Account>(accounts);
 		pagedListHolder.setPage(page);

@@ -13,12 +13,16 @@
 
 <select id="property" onchange="setProperty()">
 	<c:forEach items="${properties }" var="property">
-		<option>${property }</option>
+		<option
+			<c:if test="${param.prop == property}"> selected </c:if>
+		>${property }</option>
 	</c:forEach>
 </select>
 <select id="direction" onchange="setDirection()">
 	<c:forEach items="${directions }" var="direction">
-		<option>${direction }</option>
+		<option
+			<c:if test="${param.dir == direction}"> selected </c:if>
+		>${direction }</option>
 	</c:forEach>
 </select>
 <br>
@@ -67,6 +71,8 @@
 	</ul>
 </c:if>
 <script type="text/javascript">
+document.getElementById("property").value = <c:out value='${param.prop}'/>;
+document.getElementById("direction").value = <c:out value='${param.dir}'/>;
 function setPageNo(pageno) {
 	var currURL = document.URL;
 	var url = new URL(currURL);

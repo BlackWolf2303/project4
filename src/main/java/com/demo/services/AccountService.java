@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -23,7 +22,7 @@ public interface AccountService extends UserDetailsService {
 
 	List<Account> findAll();
 
-	Slice<Account> findbyRoles(List<Role> roles, Pageable pageable);
+	List<Account> findbyRoles(List<Role> roles, Sort sort);
 
 	Account findById(int id);
 

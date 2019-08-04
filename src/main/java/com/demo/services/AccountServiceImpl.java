@@ -5,9 +5,7 @@ import com.demo.entities.Role;
 import com.demo.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -68,6 +66,11 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
+	public List<Account> findbyRoles(List<Role> roles, Sort sort) {
+		return accountRepository.findByRoles(roles,sort);
+	}
+
+	@Override
 	public Account findById(int id) {
 		try {
 			return accountRepository.findById(id).get();
@@ -79,11 +82,6 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public void delete(int id) {
 		 accountRepository.deleteById(id);
-	}
-
-	@Override
-	public Slice<Account> findbyRoles(List<Role> roles, Pageable pageable) {
-		return accountRepository.findByRoles(roles,pageable);
 	}
 	
 }

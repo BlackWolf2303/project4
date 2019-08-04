@@ -70,7 +70,7 @@
 				<td>${item.id}</td>
 				<td>${item.username}</td>
 				<td><a href="/admin/customer/delete/${item.id}">Delete</a> | <a
-					href="/admin/customer/profile/${customer.id}">Profile</a>
+					href="/admin/customer/profile/${item.id}">Profile</a>
 			</tr>
 		</c:forEach>
 	</table>
