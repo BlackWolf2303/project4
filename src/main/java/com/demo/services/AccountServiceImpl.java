@@ -4,6 +4,11 @@ import com.demo.entities.Account;
 import com.demo.entities.Role;
 import com.demo.repositories.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -17,7 +22,6 @@ import java.util.List;
 
 @Service("accountService")
 public class AccountServiceImpl implements AccountService {
-
 	@Autowired
 	private AccountRepository accountRepository;
 
@@ -49,13 +53,18 @@ public class AccountServiceImpl implements AccountService {
 	}
 
 	@Override
-	public List<Account> findAllCustomer(String rolename) {
-		return accountRepository.findAllCustomer(rolename);
+	public Page<Account> findAll(Pageable pageable) {
+		return accountRepository.findAll(pageable);
 	}
 
 	@Override
 	public List<Account> findAll() {
-		return (List<Account>) accountRepository.findAll();
+		return accountRepository.findAll();
+	}
+
+	@Override
+	public List<Account> findAll(Sort sort) {
+		return accountRepository.findAll(sort);
 	}
 
 	@Override
@@ -70,6 +79,11 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	public void delete(int id) {
 		 accountRepository.deleteById(id);
+	}
+
+	@Override
+	public Slice<Account> findbyRoles(List<Role> roles, Pageable pageable) {
+		return accountRepository.findByRoles(roles,pageable);
 	}
 	
 }

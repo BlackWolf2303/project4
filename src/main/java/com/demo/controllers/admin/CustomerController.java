@@ -2,29 +2,44 @@ package com.demo.controllers.admin;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.PagedListHolder;
+import org.springframework.beans.support.SortDefinition;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import com.demo.entities.Account;
 import com.demo.entities.Role;
 import com.demo.model.EditProfileModel;
+import com.demo.model.PageModel;
 import com.demo.model.RegisterModel;
 import com.demo.services.AccountService;
 import com.demo.services.RoleService;
@@ -57,17 +72,44 @@ public class CustomerController {
 		this.storageService = storageService;
 	}
 
-	@GetMapping("")
-	public String Index(ModelMap map) {
-		List<Account> customers = new ArrayList<Account>();
-		for (Account account : accountService.findAll()) {
-			for (Role role : account.getRoles()) {
-				if (role.getName().equalsIgnoreCase("ROLE_CUSTOMER")) {
-					customers.add(account);
-				}
-			}
+//	@GetMapping()
+//	public String Index(ModelMap map, 
+//			@RequestParam(defaultValue = "1") int pageNo,
+//			@RequestParam(defaultValue = "3") int pageSize, 
+//			@RequestParam(defaultValue = "id") String sortBy) {
+//		Pageable pageable = PageRequest.of(pageNo-1, pageSize, Sort.by(sortBy).ascending());
+//		List<Role> roles = new ArrayList<Role>();
+//		roles.add(new Role(3));
+//		Slice<Account> customers = accountService.findbyRoles(roles, pageable);
+//		map.put("customers", customers);
+//		return "../admin/customer/index";
+//	}
+	
+	@GetMapping
+	public String index(ModelMap modelMap, HttpServletRequest request) {
+//		Field[] abc = Account.class.getDeclaredFields();
+//		for (Field field : abc) {
+//			System.out.println(field.getName());
+//		}
+
+		String[] properties = {"id","username"};
+		String[] directions = {"asc","desc"};
+		int page = ServletRequestUtils.getIntParameter(request, "page", 0);
+		String direction = ServletRequestUtils.getStringParameter(request, "dir", "asc");
+		String property = ServletRequestUtils.getStringParameter(request, "prop", "username");
+		List<Account> accounts = null;
+		if(direction.equalsIgnoreCase("asc")) {
+			accounts = (List<Account>) accountService.findAll(Sort.by(Direction.ASC, property));
+		} else if (direction.equalsIgnoreCase("desc")) {
+			accounts = (List<Account>) accountService.findAll(Sort.by(Direction.DESC, property));
 		}
-		map.put("customers", customers);
+		PagedListHolder<Account> pagedListHolder = new PagedListHolder<Account>(accounts);
+		pagedListHolder.setPage(page);
+		pagedListHolder.setPageSize(5);
+		pagedListHolder.setMaxLinkedPages(3); 
+		modelMap.put("pagedListHolder", pagedListHolder);
+		modelMap.put("properties", properties);
+		modelMap.put("directions", directions);
 		return "../admin/customer/index";
 	}
 
@@ -87,8 +129,10 @@ public class CustomerController {
 			editProfileModel.setAddress(account.getAddress());
 			editProfileModel.setAvatar(account.getAvatar());
 			editProfileModel.setRoles(account.getRoles());
-			modelMap.put("avatar", MvcUriComponentsBuilder
-			.fromMethodName(FileController.class, "serveFile", editProfileModel.getAvatar()).build().toString());
+			modelMap.put("avatar",
+					MvcUriComponentsBuilder
+							.fromMethodName(FileController.class, "serveFile", editProfileModel.getAvatar()).build()
+							.toString());
 			modelMap.put("account", editProfileModel);
 			modelMap.put("roless", roleService.findAll());
 			return "../admin/customer/edit";
@@ -108,7 +152,7 @@ public class CustomerController {
 			customerToDB.setPhone(customer.getPhone());
 			customerToDB.setAddress(customer.getAddress());
 			if (!customer.getFile().isEmpty()) {
-				customerToDB.setAvatar(customer.getId()+"ava.jpg");
+				customerToDB.setAvatar(customer.getId() + "ava.jpg");
 			}
 			customerToDB.setRoles(customer.getRoles());
 			customerToDB = accountService.save(customerToDB);
@@ -141,7 +185,8 @@ public class CustomerController {
 	}
 
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String register(@ModelAttribute("account") @Valid RegisterModel account, BindingResult bindingResult, ModelMap modelMap) {
+	public String register(@ModelAttribute("account") @Valid RegisterModel account, BindingResult bindingResult,
+			ModelMap modelMap) {
 		accountValidator.validate(account, bindingResult);
 		if (!bindingResult.hasErrors()) {
 			Account acc = new Account();
@@ -159,8 +204,8 @@ public class CustomerController {
 	public String editView(@PathVariable int id, ModelMap model) {
 		Account account = accountService.findById(id);
 		model.put("id", id);
-		model.put("file", MvcUriComponentsBuilder
-				.fromMethodName(FileController.class, "serveFile", account.getAvatar()).build().toString());
+		model.put("file", MvcUriComponentsBuilder.fromMethodName(FileController.class, "serveFile", account.getAvatar())
+				.build().toString());
 		return "../admin/customer/upload";
 	}
 

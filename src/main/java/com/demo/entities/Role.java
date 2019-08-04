@@ -19,7 +19,17 @@ public class Role {
             mappedBy = "roles")
     private List<Account> accounts = new ArrayList<Account>();
 
-    public int getId() {
+    public Role() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Role(int id) {
+		super();
+		this.id = id;
+	}
+
+	public int getId() {
         return id;
     }
 
