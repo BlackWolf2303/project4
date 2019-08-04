@@ -5,34 +5,43 @@
 <jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
 
 <section>
+	<div class="container-fluid">
+		<header>
+			<h1 class="h3 display">Customer Management</h1>
+			<div class="row">
+				<div class="col-lg-6">
+					<div class="card">
+						<div class="card-header">
+							<a href="/admin/customer/add">Add</a>
+						</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<td>Name</td>
+									<td>Action</td>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="customer" items="${customers}">
+									<tr>
+										<td>${customer.username}</td>
+										<td><a href="/admin/customer/delete/${customer.id}">Delete</a>
+											| <a href="/admin/customer/profile/${customer.id}">Profile</a>
+											<!-- 					|  --> <%-- 					<a href="/admin/customer/changerole/${customer.id}">Change Role</a> --%>
+										</td>
 
-	<h1>Customer Management</h1>
-	<a href="/admin/customer/add">Add</a>
-	<table border="1">
-		<thead>
-			<tr>
-				<td>Name</td>
-				<td>Action</td>
-			</tr>
-		</thead>
-		<tbody>
-		<c:forEach var="customer" items="${customers}">
-			<tr>
-				<td>${customer.username}</td>
-				<td><a href="/admin/customer/delete/${customer.id}">Delete</a> | 
-					<a href="/admin/customer/profile/${customer.id}">Profile</a> 
-<!-- 					|  -->
-<%-- 					<a href="/admin/customer/changerole/${customer.id}">Change Role</a> --%>
-					</td>
-					
-					
-<%-- 					<a href="/admin/customer/changepassword/${customer.id}">Change Password</a> |  --%>
-<%-- 					<a href="/admin/customer/changeavatar/${customer.id}">Change Avatar</a> |  --%>
-			</tr>
-		</c:forEach>
-		</tbody>
-	</table>
 
+										<%-- 					<a href="/admin/customer/changepassword/${customer.id}">Change Password</a> |  --%>
+										<%-- 					<a href="/admin/customer/changeavatar/${customer.id}">Change Avatar</a> |  --%>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
 </section>
 
 <jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>
