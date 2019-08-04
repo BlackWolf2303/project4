@@ -12,4 +12,6 @@ public interface RoleService {
 
 	public void delete(int id);
 
+	public Role findByName(String roleName);
+
 }

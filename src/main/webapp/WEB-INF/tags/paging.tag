@@ -11,20 +11,6 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<select id="property" onchange="setProperty()">
-	<c:forEach items="${properties }" var="property">
-		<option
-			<c:if test="${param.prop == property}"> selected </c:if>
-		>${property }</option>
-	</c:forEach>
-</select>
-<select id="direction" onchange="setDirection()">
-	<c:forEach items="${directions }" var="direction">
-		<option
-			<c:if test="${param.dir == direction}"> selected </c:if>
-		>${direction }</option>
-	</c:forEach>
-</select>
 <br>
 <c:if test="${pagedListHolder.pageCount > 1}">
 	<ul class="pagination">
@@ -70,39 +56,4 @@
 		</c:if>
 	</ul>
 </c:if>
-<script type="text/javascript">
-document.getElementById("property").value = <c:out value='${param.prop}'/>;
-document.getElementById("direction").value = <c:out value='${param.dir}'/>;
-function setPageNo(pageno) {
-	var currURL = document.URL;
-	var url = new URL(currURL);
-	var query_string = url.search;
-	var search_params = new URLSearchParams(query_string);
-	search_params.set("page", pageno);
-	url.search = search_params.toString();
-	var new_url = url.toString();
-	window.location.replace(new_url);
-}
-function setProperty() {
-	var property = document.getElementById("property").value;
-	var currURL = document.URL;
-	var url = new URL(currURL);
-	var query_string = url.search;
-	var search_params = new URLSearchParams(query_string);
-	search_params.set("prop", property);
-	url.search = search_params.toString();
-	var new_url = url.toString();
-	window.location.replace(new_url);
-}
-function setDirection() {
-	var direction = document.getElementById("direction").value;
-	var currURL = document.URL;
-	var url = new URL(currURL);
-	var query_string = url.search;
-	var search_params = new URLSearchParams(query_string);
-	search_params.set("dir", direction);
-	url.search = search_params.toString();
-	var new_url = url.toString();
-	window.location.replace(new_url);
-}
 </script>

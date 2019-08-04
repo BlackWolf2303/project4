@@ -12,10 +12,10 @@ public class Role {
     private int id;
     private String name;
     @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            },
+//            cascade = {
+//                    CascadeType.PERSIST,
+//                    CascadeType.MERGE
+//            },
             mappedBy = "roles")
     private List<Account> accounts = new ArrayList<Account>();
 

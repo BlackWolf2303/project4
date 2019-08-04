@@ -11,7 +11,13 @@
 		<c:if test="${param.success}">Your profile is updated.</c:if>
 		<tr>
 			<td>Avatar:</td>
-			<td><img src="${avatar}" width=50>
+			<td>
+			<c:if test="${avatar!='http://localhost:9596/file/image/'}">
+		      <img src="${avatar}" width=50 alt="No Image">
+		    </c:if>
+			<c:if test="${avatar=='http://localhost:9596/file/image/'}">
+		      <img src="http://localhost:9596/file/image/defaultAva.jpg" width=50 alt="No Image">
+		    </c:if>
 			<s:input path="file" type="file" /> | <a href="/admin/customer/remove/avatar/${id}">Remove</a></td>
 			<td><s:errors path="file"></s:errors></td>
 		</tr>

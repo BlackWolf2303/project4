@@ -29,7 +29,9 @@ public class Account {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "account")
 	private List<Order> orders;
 	
-	@ManyToMany(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@ManyToMany(fetch = FetchType.LAZY
+//			, cascade = { CascadeType.PERSIST, CascadeType.MERGE }
+	)
 	@JoinTable(name = "account_role", 
 			joinColumns = { @JoinColumn(name = "account_id") }, 
 			inverseJoinColumns = { @JoinColumn(name = "role_id") })

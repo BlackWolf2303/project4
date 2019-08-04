@@ -56,7 +56,20 @@
 	</c:url>
 
 	<h1>Customer Management</h1>
-	<a class="btn btn-primary" href="/admin/customer/add">Add</a>  <br>
+	<a class="btn btn-primary" href="/admin/customer/add">Add</a> <select
+		id="roles" onchange="setRoles()">
+		<c:forEach items="${roles }" var="role">
+			<option <c:if test="${param.role == role}"> selected </c:if>>${role }</option>
+		</c:forEach>
+	</select> <select id="property" onchange="setProperty()">
+		<c:forEach items="${properties }" var="property">
+			<option <c:if test="${param.prop == property}"> selected </c:if>>${property }</option>
+		</c:forEach>
+	</select> <select id="direction" onchange="setDirection()">
+		<c:forEach items="${directions }" var="direction">
+			<option <c:if test="${param.dir == direction}"> selected </c:if>>${direction }</option>
+		</c:forEach>
+	</select><br>
 	<tg:paging pagedListHolder="${pagedListHolder}"
 		pagedLink="${pagedLink}" />
 	<table class="table table-bordered">
@@ -78,4 +91,49 @@
 		pagedLink="${pagedLink}" />
 </div>
 
+<script type="text/javascript">
+function setPageNo(pageno) {
+	var currURL = document.URL;
+	var url = new URL(currURL);
+	var query_string = url.search;
+	var search_params = new URLSearchParams(query_string);
+	search_params.set("page", pageno);
+	url.search = search_params.toString();
+	var new_url = url.toString();
+	window.location.replace(new_url);
+}
+function setProperty() {
+	var property = document.getElementById("property").value;
+	var currURL = document.URL;
+	var url = new URL(currURL);
+	var query_string = url.search;
+	var search_params = new URLSearchParams(query_string);
+	search_params.set("prop", property);
+	url.search = search_params.toString();
+	var new_url = url.toString();
+	window.location.replace(new_url);
+}
+function setDirection() {
+	var direction = document.getElementById("direction").value;
+	var currURL = document.URL;
+	var url = new URL(currURL);
+	var query_string = url.search;
+	var search_params = new URLSearchParams(query_string);
+	search_params.set("dir", direction);
+	url.search = search_params.toString();
+	var new_url = url.toString();
+	window.location.replace(new_url);
+}
+function setRoles() {
+	var role = document.getElementById("roles").value;
+	var currURL = document.URL;
+	var url = new URL(currURL);
+	var query_string = url.search;
+	var search_params = new URLSearchParams(query_string);
+	search_params.set("role", role);
+	url.search = search_params.toString();
+	var new_url = url.toString();
+	window.location.replace(new_url);
+}
+</script>
 <jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>
