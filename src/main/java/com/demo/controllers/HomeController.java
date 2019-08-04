@@ -9,6 +9,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -49,6 +50,8 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String IndexView() {
+//		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//		System.out.println(passwordEncoder.encode("Aptech@123"));
 		return "redirect:home";
 	}
 

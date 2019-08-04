@@ -47,6 +47,7 @@ public class CartController {
 			List<Item> cart = new ArrayList<Item>();
 			session.setAttribute("cart", cart);
 		}
+		modelMap.put("payPalConfig", payPalService.getPayPalConfig());
 		return "cart/index";
 	}
 	

@@ -28,12 +28,16 @@
   
   <div class="right">
     <span class="loginwith">Sign in with<br />social network</span>
-    
-    <button class="social-signin facebook">Log in with facebook</button>
+      <!-- The surrounding HTML is left untouched by FirebaseUI.
+    Your app may use that space for branding, controls and other customizations.-->
+	<div id="firebaseui-auth-container"></div>
+	<div id="loader">Loading...</div>
+   <!-- <button class="social-signin facebook">Log in with facebook</button>
     <button class="social-signin twitter">Log in with Twitter</button>
-    <button class="social-signin google">Log in with Google+</button>
+    <button class="social-signin google">Log in with Google+</button> -->
   </div>
   <div class="or">OR</div>
+
 </div>
 
 <jsp:include page="/WEB-INF/layouts/footer.jsp"></jsp:include>
