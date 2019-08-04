@@ -10,6 +10,7 @@
 	<meta name="robots" content="noodp,index,follow" />
 	<meta name='revisit-after' content='1 days' />
 	<title>Fashion shop</title>
+
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
@@ -39,4 +40,10 @@
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/vendor/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/css/util.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/css/main.css">
+	
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-auth.js"></script>
+	<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/assets/css/firebaseui.css">
 </head>

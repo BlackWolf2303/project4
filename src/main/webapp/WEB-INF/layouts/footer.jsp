@@ -214,5 +214,10 @@
 <script src="${pageContext.request.contextPath}/resources/assets/js/libs/jquery.countdown.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/libs/wow.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/assets/js/theme.js"></script>
+
+<!-- Login with fireBase -->
+<script src="${pageContext.request.contextPath}/resources/assets/js/fireBase.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/login.js"></script>
+<script src="${pageContext.request.contextPath}/resources/assets/js/main.js"></script>
 </body>
 </html>
