@@ -99,7 +99,7 @@ public class CustomerController {
 		String property = ServletRequestUtils.getStringParameter(request, "prop", "username");
 		String roleName = ServletRequestUtils.getStringParameter(request, "role", roleService.find(1).getName());
 		Role role = roleService.findByName(roleName);
-		List<Account> accounts = null;
+		List<Account> accounts = new ArrayList<Account>();
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(role);
 		if(direction.equalsIgnoreCase("asc")) {

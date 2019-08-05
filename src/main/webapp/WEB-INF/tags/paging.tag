@@ -5,7 +5,6 @@
 	type="org.springframework.beans.support.PagedListHolder"%>
 <%@ attribute name="pagedLink" required="true" type="java.lang.String"%>
 
-<br>
 <c:if test="${pagedListHolder.pageCount > 1}">
 	<nav aria-label="Page navigation example">
 		<ul class="pagination">

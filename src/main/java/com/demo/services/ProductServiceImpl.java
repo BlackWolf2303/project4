@@ -6,6 +6,7 @@ import com.demo.repositories.ProductRepository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,10 +17,20 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductRepository productRepository;
-
+	
 	@Override
 	public Iterable<Product> findAll() {
 		return productRepository.findAll();
+	}
+	
+	@Override
+	public Iterable<Product> findAll(Sort sort) {
+		return productRepository.findAll(sort);
+	}
+	
+	@Override
+	public Iterable<Product> findAllWithActive(Sort sort) {
+		return productRepository.findAllWithActive(sort);
 	}
 
 	@Override
@@ -40,6 +51,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> findByName(String name) {
 		return productRepository.findByName(name);
+	}
+
+	@Override
+	public List<Product> findByActive(boolean active) {
+		return productRepository.findByActive(active);
 	}
 
 }

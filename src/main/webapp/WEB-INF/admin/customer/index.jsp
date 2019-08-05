@@ -9,27 +9,29 @@
 
 <!-- DUC -->
 <div class="container" style="margin-top: 20px;">
+	<h1>Customer Management</h1>
+	<a class="btn btn-primary col-1" href="/admin/customer/add">Add</a> 
+	Filter: <select id="roles" onchange="setRoles()">
+		<c:forEach items="${roles }" var="role">
+			<option <c:if test="${param.role == role.name}"> selected </c:if>>${role.name }</option>
+		</c:forEach>
+		</select> 
+	Sort: <select id="property" onchange="setProperty()">
+		<c:forEach items="${properties }" var="property">
+			<option <c:if test="${param.prop == property}"> selected </c:if>>${property }</option>
+		</c:forEach>
+		</select> 
+	By: <select id="direction" onchange="setDirection()">
+		<c:forEach items="${directions }" var="direction">
+			<option <c:if test="${param.dir == direction}"> selected </c:if>>${direction }</option>
+		</c:forEach>
+		</select><br>
 	<jsp:useBean id="pagedListHolder" scope="request"
 		type="org.springframework.beans.support.PagedListHolder" />
 	<c:url value="/admin/customer" var="pagedLink">
 		<c:param name="page" value="~" />
 	</c:url>
-
-	<h1>Customer Management</h1>
-	<a class="btn btn-primary col-1" href="/admin/customer/add">Add</a> <select
-		id="roles" onchange="setRoles()">
-		<c:forEach items="${roles }" var="role">
-			<option <c:if test="${param.role == role.name}"> selected </c:if>>${role.name }</option>
-		</c:forEach>
-	</select> <select id="property" onchange="setProperty()">
-		<c:forEach items="${properties }" var="property">
-			<option <c:if test="${param.prop == property}"> selected </c:if>>${property }</option>
-		</c:forEach>
-	</select> <select id="direction" onchange="setDirection()">
-		<c:forEach items="${directions }" var="direction">
-			<option <c:if test="${param.dir == direction}"> selected </c:if>>${direction }</option>
-		</c:forEach>
-	</select><br>
+	<br>
 	<tg:paging pagedListHolder="${pagedListHolder}"
 		pagedLink="${pagedLink}" />
 	<table class="table table-bordered">
