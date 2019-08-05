@@ -30,7 +30,7 @@
 							<c:forEach var="product" items="${products }">
 								<tr>
 									<td><a href="product/edit/${product.id }"> <img
-											src="${picture0 }"
+											src="http://localhost:9596/file/image/picture0${product.id}.jpg"
 											width="50px">
 									</a></td>
 									<td><a href="product/edit/${product.id }"> ${product.name }

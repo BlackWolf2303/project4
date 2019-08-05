@@ -65,8 +65,6 @@ public class AdminProductController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String index(ModelMap modelMap) {
 		modelMap.put("products", productService.findAll());
-		modelMap.put("picture" + 0, MvcUriComponentsBuilder
-				.fromMethodName(FileController.class, "serveFile", "picture" + 0 + ".jpg").build().toString());
 		return "../admin/product/index";
 	}
 
@@ -97,6 +95,13 @@ public class AdminProductController {
 			pro.setActive(product.isActive());
 			pro.setTypeTemplate1(product.getTypeTemplate1());
 			pro.setTypeTemplate2(product.getTypeTemplate2());
+			pro = productService.save(pro);
+			List<Image> images = new ArrayList<Image>();
+			for (int j = 0; j < 8; j++) {
+				images.add(new Image("picture" + j + pro.getId() + ".jpg", pro));
+			}
+			pro.setImages(images);
+			storageService.store(product.getFile(), "picture", pro.getId());
 			productService.save(pro);
 			return "redirect:/admin/product";
 		}

@@ -13,7 +13,7 @@ import com.demo.model.ProductModel;
 import com.demo.model.RegisterModel;
 
 @Component("productValidator")
-public class ProductValidator implements Validator{
+public class ProductValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -23,10 +23,15 @@ public class ProductValidator implements Validator{
 	@Override
 	public void validate(Object target, Errors errors) {
 		ProductModel productModel = (ProductModel) target;
-		if(productModel.getFile()[0].isEmpty()) {
-			File image0 = new File("src/main/resources/static/upload/customer/picture" + 0 + productModel.getId() + ".jpg");
-			if(!image0.exists()) {
+		if (productModel.getFile()[0].isEmpty()) {
+			if (productModel.getId() == 0) {
 				errors.rejectValue("file", "product.picture.required");
+			} else {
+				File image0 = new File(
+						"src/main/resources/static/upload/customer/picture" + 0 + productModel.getId() + ".jpg");
+				if (!image0.exists()) {
+					errors.rejectValue("file", "product.picture.required");
+				}
 			}
 		}
 	}
