@@ -4,7 +4,8 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <jsp:include page="/WEB-INF/admin-layouts/head-meta.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
-
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <section>
 	<div class="container-fluid">
@@ -69,103 +70,144 @@
 								<label class="col-sm-2 form-control-label">Picture 1:</label>
 								<div class="col-sm-10">
 									<div class="row">
-										<div class="col-md-2">
-											<img src="${picture0}" width=50 alt="No Image">
+											<div class="col-md-2">
+											
+												<s:input path="file" type='file' id="imgInp" /> 
+													<img id="blah" src="http://www.clker.com/cliparts/c/W/h/n/P/W/generic-image-file-icon-hi.png" alt="No Image" />
+											
 										</div>
-										<div class="col-md-5">
-											<s:input path="file" type="file" />
-										</div>
+											<%-- 											<img src="${picture0}" width=50 alt="No Image"> --%>
+<!-- 										</div> -->
+										<!-- 										<div class="col-md-5"> -->
+										<%-- 											<s:input path="file" type="file" /> --%>
+										<!-- 										</div> -->
 									</div>
 								</div>
 								<br> <label class="col-sm-2 form-control-label">Picture
 									2:</label>
 								<div class="col-sm-10">
 									<div class="row">
-										<div class="col-md-2">
-											<img src="${picture1 }" width=50 alt="No Image">
+											<div class="col-md-4">
+												
+													<s:input path="file" type='file' id="imgInp1" /> <img id="blah1"
+														src="http://www.clker.com/cliparts/c/W/h/n/P/W/generic-image-file-icon-hi.png"
+														alt="No Image" />
+											</div>
+											<%-- 											<img src="${picture1 }" width=50 alt="No Image"> --%>
+<!-- 										</div> -->
+										<!-- 										<div class="col-md-5"> -->
+										<%-- 											<s:input path="file" type="file" /> --%>
+										<!-- 										</div> -->
+										<div class="col-md-4">
+											| <a href="/admin/product/${id}/remove/image/1">Remove</a>
 										</div>
-										<div class="col-md-5">
-											<s:input path="file" type="file" />
-										</div>
-										| <a href="/admin/product/${id}/remove/image/1">Remove</a>
 									</div>
 								</div>
 								<br> <label class="col-sm-2 form-control-label">Picture
 									3:</label>
 								<div class="col-sm-10">
 									<div class="row">
-										<div class="col-md-2">
-											<img src="${picture2 }" width=50 alt="No Image">
+										<div class="col-md-4">
+											
+												<s:input path="file" type='file' id="imgInp2" /> <img id="blah2"
+													src="http://www.clker.com/cliparts/c/W/h/n/P/W/generic-image-file-icon-hi.png"
+													alt="No Image" />
 										</div>
-										<div class="col-md-5">
-											<s:input path="file" type="file" />
+										<!-- 										<div class="col-md-5"> -->
+										<%-- 											<s:input path="file" type="file" /> --%>
+										<!-- 										</div> -->
+										<div class="col-md-4">
+											| <a href="/admin/product/${id}/remove/image/2">Remove</a>
 										</div>
-										| <a href="/admin/product/${id}/remove/image/2">Remove</a>
 									</div>
 								</div>
 								<br> <label class="col-sm-2 form-control-label">Picture
 									4:</label>
 								<div class="col-sm-10">
 									<div class="row">
-										<div class="col-md-2">
-											<img src="${picture3 }" width=50 alt="No Image">
+										<div class="col-md-4">
+											
+												<s:input path="file" type='file' id="imgInp3" /> <img id="blah3"
+													src="http://www.clker.com/cliparts/c/W/h/n/P/W/generic-image-file-icon-hi.png"
+													alt="No Image" />
 										</div>
-										<div class="col-md-5">
-											<s:input path="file" type="file" />
+										<!-- 										<div class="col-md-5"> -->
+										<%-- 											<s:input path="file" type="file" /> --%>
+										<!-- 										</div> -->
+										<div class="col-md-4">
+											| <a href="/admin/product/${id}/remove/image/3">Remove</a>
 										</div>
-										| <a href="/admin/product/${id}/remove/image/3">Remove</a>
 									</div>
 								</div>
 								<br> <label class="col-sm-2 form-control-label">Picture
 									5;</label>
 								<div class="col-sm-10">
 									<div class="row">
-										<div class="col-md-2">
-											<img src="${picture4}" width=50 alt="No Image">
+										<div class="col-md-4">
+											
+												<s:input path="file" type='file' id="imgInp4" /> <img id="blah4"
+													src="http://www.clker.com/cliparts/c/W/h/n/P/W/generic-image-file-icon-hi.png"
+													alt="No Image" />
 										</div>
-										<div class="col-md-5">
-											<s:input path="file" type="file" />
+										<!-- 										<div class="col-md-5"> -->
+										<%-- 											<s:input path="file" type="file" /> --%>
+										<!-- 										</div> -->
+										<div class="col-md-4">
+											| <a href="/admin/product/${id}/remove/image/4">Remove</a>
 										</div>
-										| <a href="/admin/product/${id}/remove/image/4">Remove</a>
 									</div>
 								</div>
 								<br> <label class="col-sm-2 form-control-label">Picture
 									6:</label>
 								<div class="col-sm-10">
 									<div class="row">
-										<div class="col-md-2">
-											<img src="${picture5}" width=50 alt="No Image">
+										<div class="col-md-4">
+											
+												<s:input path="file" type='file' id="imgInp5" /> <img id="blah5"
+													src="http://www.clker.com/cliparts/c/W/h/n/P/W/generic-image-file-icon-hi.png"
+													alt="No Image" />
 										</div>
-										<div class="col-md-5">
-											<s:input path="file" type="file" />
+										<!-- 										<div class="col-md-5"> -->
+										<%-- 											<s:input path="file" type="file" /> --%>
+										<!-- 										</div> -->
+										<div class="col-md-4">
+											| <a href="/admin/product/${id}/remove/image/5">Remove</a>
 										</div>
-										| <a href="/admin/product/${id}/remove/image/5">Remove</a>
 									</div>
 								</div>
 								<br> <label class="col-sm-2 form-control-label">Picture
 									7:</label>
 								<div class="col-sm-10">
 									<div class="row">
-										<div class="col-md-2">
-											<img src="${picture6}" width=50 alt="No Image">
+										<div class="col-md-4">
+											
+												<s:input path="file" type='file' id="imgInp6" /> <img id="blah6"
+													src="http://www.clker.com/cliparts/c/W/h/n/P/W/generic-image-file-icon-hi.png"
+													alt="No Image" />
 										</div>
-										<div class="col-md-5">
-											<s:input path="file" type="file" />
+										<!-- 										<div class="col-md-5"> -->
+										<%-- 											<s:input path="file" type="file" /> --%>
+										<!-- 										</div> -->
+										<div class="col-md-4">
+											| <a href="/admin/product/${id}/remove/image/6">Remove</a>
 										</div>
-										| <a href="/admin/product/${id}/remove/image/6">Remove</a>
 									</div>
 								</div>
 								<br> <label class="col-sm-2 form-control-label">Picture
 									8:</label>
 								<div class="col-sm-10">
 									<div class="row">
-										<div class="col-md-2">
-											<img src="${picture7}" width=50 alt="No Image">
+										<div class="col-md-4">
+												<s:input path="file" type='file' id="imgInp7" /> <img id="blah7"
+													src="http://www.clker.com/cliparts/c/W/h/n/P/W/generic-image-file-icon-hi.png"
+													alt="No Image" />
 										</div>
-										<div class="col-md-5">
-											<s:input path="file" type="file" />
+										<!-- 										<div class="col-md-5"> -->
+										<%-- 											<s:input path="file" type="file" /> --%>
+										<!-- 										</div> -->
+										<div class="col-md-4">
+											| <a href="/admin/product/${id}/remove/image/7">Remove</a>
 										</div>
-										| <a href="/admin/product/${id}/remove/image/7">Remove</a>
 									</div>
 								</div>
 								<br>
@@ -187,3 +229,19 @@
 	</div>
 </section>
 <jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>
+<script>
+	function readURL(input) {
+		var elem = $(input);
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				elem.next('img').attr('src', e.target.result);
+			}
+			reader.readAsDataURL(elem.get(0).files[0]);
+		}
+	}
+
+	$("input[type='file']").change(function() {
+		readURL(this);
+	});
+</script>
