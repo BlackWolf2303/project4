@@ -1,34 +1,26 @@
 package com.demo.model;
 
-import com.demo.entities.TypeTemplate;
-
 public class DetailModel {
-	private String quantity;
-	private TypeTemplate template1;
-	private TypeTemplate template2;
-
-	public String getQuantity() {
+	private int quantity;
+	private int typeValueId1;
+	private int typeValueId2;
+	public int getQuantity() {
 		return quantity;
 	}
-
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-
-	public TypeTemplate getTemplate1() {
-		return template1;
+	public int getTypeValueId1() {
+		return typeValueId1;
 	}
-
-	public void setTemplate1(TypeTemplate template1) {
-		this.template1 = template1;
+	public void setTypeValueId1(int typeValueId1) {
+		this.typeValueId1 = typeValueId1;
 	}
-
-	public TypeTemplate getTemplate2() {
-		return template2;
+	public int getTypeValueId2() {
+		return typeValueId2;
 	}
-
-	public void setTemplate2(TypeTemplate template2) {
-		this.template2 = template2;
+	public void setTypeValueId2(int typeValueId2) {
+		this.typeValueId2 = typeValueId2;
 	}
 
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.demo.entities.Image;
 import com.demo.entities.Product;
+import com.demo.model.DetailModel;
 import com.demo.services.ProductService;
 
 @Controller
@@ -41,6 +42,7 @@ public class CategoriesController {
 			}
 		}
 		modelMap.put("images1", images);
+		modelMap.put("detailModel", new DetailModel());
 		return "product/index";
 	}
 	

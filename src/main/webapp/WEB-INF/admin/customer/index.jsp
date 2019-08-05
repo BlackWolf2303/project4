@@ -16,7 +16,7 @@
 	</c:url>
 
 	<h1>Customer Management</h1>
-	<a class="btn btn-primary" href="/admin/customer/add">Add</a> <select
+	<a class="btn btn-primary col-1" href="/admin/customer/add">Add</a> <select
 		id="roles" onchange="setRoles()">
 		<c:forEach items="${roles }" var="role">
 			<option <c:if test="${param.role == role.name}"> selected </c:if>>${role.name }</option>
@@ -34,8 +34,8 @@
 		pagedLink="${pagedLink}" />
 	<table class="table table-bordered">
 		<tr>
-			<th width="100">ID</th>
-			<th width="100">Username</th>
+			<th width="50">ID</th>
+			<th width="150">Username</th>
 			<th>Action</th>
 		</tr>
 		<c:forEach items="${pagedListHolder.pageList}" var="item">
@@ -43,57 +43,55 @@
 				<td>${item.id}</td>
 				<td>${item.username}</td>
 				<td><a href="/admin/customer/delete/${item.id}">Delete</a> | <a
-					href="/admin/customer/profile/${item.id}">Profile</a>
+					href="/admin/customer/profile/${item.id}">Profile</a></td>
 			</tr>
 		</c:forEach>
 	</table>
-	<tg:paging pagedListHolder="${pagedListHolder}"
-		pagedLink="${pagedLink}" />
 </div>
 
 <script type="text/javascript">
-function setPageNo(pageno) {
-	var currURL = document.URL;
-	var url = new URL(currURL);
-	var query_string = url.search;
-	var search_params = new URLSearchParams(query_string);
-	search_params.set("page", pageno);
-	url.search = search_params.toString();
-	var new_url = url.toString();
-	window.location.replace(new_url);
-}
-function setProperty() {
-	var property = document.getElementById("property").value;
-	var currURL = document.URL;
-	var url = new URL(currURL);
-	var query_string = url.search;
-	var search_params = new URLSearchParams(query_string);
-	search_params.set("prop", property);
-	url.search = search_params.toString();
-	var new_url = url.toString();
-	window.location.replace(new_url);
-}
-function setDirection() {
-	var direction = document.getElementById("direction").value;
-	var currURL = document.URL;
-	var url = new URL(currURL);
-	var query_string = url.search;
-	var search_params = new URLSearchParams(query_string);
-	search_params.set("dir", direction);
-	url.search = search_params.toString();
-	var new_url = url.toString();
-	window.location.replace(new_url);
-}
-function setRoles() {
-	var role = document.getElementById("roles").value;
-	var currURL = document.URL;
-	var url = new URL(currURL);
-	var query_string = url.search;
-	var search_params = new URLSearchParams(query_string);
-	search_params.set("role", role);
-	url.search = search_params.toString();
-	var new_url = url.toString();
-	window.location.replace(new_url);
-}
+	function setPageNo(pageno) {
+		var currURL = document.URL;
+		var url = new URL(currURL);
+		var query_string = url.search;
+		var search_params = new URLSearchParams(query_string);
+		search_params.set("page", pageno);
+		url.search = search_params.toString();
+		var new_url = url.toString();
+		window.location.replace(new_url);
+	}
+	function setProperty() {
+		var property = document.getElementById("property").value;
+		var currURL = document.URL;
+		var url = new URL(currURL);
+		var query_string = url.search;
+		var search_params = new URLSearchParams(query_string);
+		search_params.set("prop", property);
+		url.search = search_params.toString();
+		var new_url = url.toString();
+		window.location.replace(new_url);
+	}
+	function setDirection() {
+		var direction = document.getElementById("direction").value;
+		var currURL = document.URL;
+		var url = new URL(currURL);
+		var query_string = url.search;
+		var search_params = new URLSearchParams(query_string);
+		search_params.set("dir", direction);
+		url.search = search_params.toString();
+		var new_url = url.toString();
+		window.location.replace(new_url);
+	}
+	function setRoles() {
+		var role = document.getElementById("roles").value;
+		var currURL = document.URL;
+		var url = new URL(currURL);
+		var query_string = url.search;
+		var search_params = new URLSearchParams(query_string);
+		search_params.set("role", role);
+		url.search = search_params.toString();
+		var new_url = url.toString();
+		window.location.replace(new_url);
+	}
 </script>
 <jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>

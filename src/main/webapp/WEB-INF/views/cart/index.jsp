@@ -31,6 +31,8 @@
 						<th scope="col">Photo</th>
 						<th scope="col">Price</th>
 						<th scope="col">Quantity</th>
+						<th scope="col">Option 1</th>
+						<th scope="col">Option 2</th>
 						<th scope="col">Sub Total</th>
 					</tr>
 					</thead>
@@ -44,12 +46,12 @@
 								onclick="return confirm('Are you sure?')">Remove</a></td>
 							<td>${item.product.id}</td>
 							<td>${item.product.name}</td>
-							<td><img
-								src="${pageContext.request.contextPath }/resources/" width="50"></td>
+							<td><img src="http://localhost:9596/file/image/picture0${item.product.id}.jpg" width="50"></td>
 							<td>${item.product.price}</td>
 							<td>${item.quantity }</td>
+							<td>${item.typeValue1.typeTemplates.get(0).name} - ${item.typeValue1.name}</td>
+							<td>${item.typeValue2.typeTemplates.get(0).name} - ${item.typeValue2.name}</td>
 							<td>${item.product.price * item.quantity }</td>
-
 
 							<input type="hidden" name="item_number_${i.index + 1 }"
 								value="${item.product.id }">
@@ -62,7 +64,7 @@
 						</tr>
 					</c:forEach>
 					<tr>
-						<td colspan="6" align="right">Sum</td>
+						<td colspan="8" align="right">Sum</td>
 						<td>${total}</td>
 					</tr>
 				</table>

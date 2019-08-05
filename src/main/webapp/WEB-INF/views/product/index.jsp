@@ -89,7 +89,7 @@
 										</div>
 									</div>
 									<div class="col-md-6 col-sm-6 col-xs-12">
-										<s:form modelAttribute="product" action="/buy/${product.id }"
+										<s:form modelAttribute="detailModel" action="/cart/buy/${product.id }"
 											method="post">
 											<div
 												class="detail-info detail-info2 detail-info3 product-info">
@@ -108,22 +108,16 @@
 												</div>
 												<div class="choose-detail choose-detail2 choose-color">
 													<span>${product.typeTemplate1.caption }:</span>
-													<ul class="list-inline-block list-color">
-														<c:forEach var="typeValue"
-															items="${product.typeTemplate1.typeValues }">
-															<li><a href="#" class="active border bg-white">${typeValue.name }</a></li>
-														</c:forEach>
-														<%-- 													<s:select path="typeTemplate1.typeValues"></s:select> --%>
-													</ul>
+													<s:select path="typeValueId1">
+														<s:options items="${product.typeTemplate1.typeValues}" itemLabel="name" itemValue="id"/>
+													</s:select>
 												</div>
+													<br>
 												<div class="choose-detail choose-detail2 choose-size">
 													<span>${product.typeTemplate2.caption }:</span>
-													<ul class="list-inline-block">
-														<c:forEach var="typeValue"
-															items="${product.typeTemplate2.typeValues }">
-															<li><a href="#" class="active border bg-white">${typeValue.name }</a></li>
-														</c:forEach>
-													</ul>
+													<s:select path="typeValueId2">
+														<s:options items="${product.typeTemplate2.typeValues}" itemLabel="name" itemValue="id"/>
+													</s:select>
 												</div>
 											</div>
 											<div class="detail-cart detail-cart2 detail-cart3">
@@ -131,10 +125,7 @@
 													<div class="product-qty pull-left">
 														<span class="font-bold">Qty:</span>
 														<div class="detail-qty bg-white info-qty border bg-white">
-															<span class="qty-val">1</span> <a href="#" class="qty-up"><i
-																class="fa fa-angle-up" aria-hidden="true"></i></a> <a
-																href="#" class="qty-down"><i
-																class="fa fa-angle-down" aria-hidden="true"></i></a>
+														<s:input path="quantity" value="1"/>
 														</div>
 													</div>
 													<button
@@ -158,9 +149,8 @@
 													<li><span>Categories:</span></li>
 													<c:forEach var="category" items="${product.categories }">
 														<li><a href="#"
-															class="title12 list-tag-cate bg-white border hover-btn">${ category.name}</a></li>
+															class="title12 list-tag-cate bg-white border hover-btn">${category.name}</a></li>
 													</c:forEach>
-
 												</ul>
 												<ul class="list-inline-block social-box">
 													<li><a href="#" class="wobble-bottom"><i
