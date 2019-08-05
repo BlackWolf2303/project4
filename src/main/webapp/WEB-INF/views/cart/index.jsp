@@ -17,21 +17,23 @@
 
 		<section id="content">
 
-			<h3>Cart Page</h3>
+			<h4 class="text-center text-success">SHOPPING CART</h4>
 			<s:form name="CartForm" modelAttribute="items"
 				action="${pageContext.request.contextPath }/cart/order">
 
 				<table cellpadding="2" cellspacing="2" border="1"
-					class="contact-page-info">
+					class="contact-page-info table  table-hover">
+					<thead class="thead-light">
 					<tr>
-						<th>Option</th>
-						<th>Id</th>
-						<th>Name</th>
-						<th>Photo</th>
-						<th>Price</th>
-						<th>Quantity</th>
-						<th>Sub Total</th>
+						<th scope="col">Option</th>
+						<th scope="col">Id</th>
+						<th scope="col">Name</th>
+						<th scope="col">Photo</th>
+						<th scope="col">Price</th>
+						<th scope="col">Quantity</th>
+						<th scope="col">Sub Total</th>
 					</tr>
+					</thead>
 					<c:set var="total" value="0"></c:set>
 					<c:forEach var="item" items="${sessionScope.cart }" varStatus="i">
 						<c:set var="total"
@@ -85,7 +87,7 @@
 
 			</s:form>
 
-			<a href="${pageContext.request.contextPath}/categories">Continue
+			<a class="btn btn-success text-uppercase" href="${pageContext.request.contextPath}/categories">Continue
 				Shopping</a> <br>
 		</section>
 		<script>

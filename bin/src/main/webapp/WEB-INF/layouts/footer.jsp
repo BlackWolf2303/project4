@@ -133,8 +133,8 @@
 							<div class="info-footer">
 								<h3 class="title14 font-bold text-uppercase">get in touch</h3>
 								<ul class="list-none">
-									<li><a href="#" class="link-hover">contact.7uptheme@gmail.com</a></li>
-									<li><a href="#" class="link-hover">thanphamngoc@gmail.com</a></li>
+									<li><a href="#" class="link-hover">C1611LAptech@gmail.com</a></li>
+									<li><a href="#" class="link-hover">C1611LAptech@gmail.com</a></li>
 									<li>+84.4 1678 311 160</li>
 									<li><p class="desc title12 text-italic silver">Support available 10am–6pm ET Monday through Friday</p></li>
 								</ul>
@@ -162,7 +162,7 @@
 						<li><a href="#">Careers  </a></li>
 						<li><a href="#">Sustainability </a></li>
 					</ul>
-					<h3 class="title14">Design by: <a href="http://7uptheme.com/" class="color">7uptheme.com</a></h3>
+					<h3 class="title14">Design by: <a href="https://aptechvietnam.com.vn/" class="color">C1611L Aptech</a></h3>
 				</div>
 			</div>
 		</div>
