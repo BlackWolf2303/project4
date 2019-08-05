@@ -183,7 +183,7 @@
 												<span class="sale-item">sale</span>
 												<div class="product-thumb mid">
 													<a href="${pageContext.request.contextPath}/categories/${product.id}"><img
-														src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-8.jpg"
+														src="http://localhost:9596/file/image/picture0${product.id}.jpg"
 														alt="" /></a> <a href="quick-view.html"
 														class="quickview-link fancybox fancybox.iframe"><i
 														class="fas fa-eye"></i></a>

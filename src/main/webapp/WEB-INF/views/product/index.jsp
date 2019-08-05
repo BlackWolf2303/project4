@@ -1,5 +1,6 @@
 <%@ page pageEncoding="utf-8" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <jsp:include page="/WEB-INF/layouts/head-meta.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/layouts/header.jsp"></jsp:include>
 
@@ -65,16 +66,16 @@
 										<div class="detail-gallery detail-gallery3">
 											<div class="thumb-product mid">
 												<span class="sale-item">sale</span> <a href="#"><img
-													src="${pageContext.request.contextPath}/resources/assets/images/product/giay.jpg"
+													src="http://localhost:9596/file/image/picture0${product.id }.jpg"
 													alt="" /></a>
 											</div>
 											<div class="gallery-control gallery-control3">
 												<div class="carousel" data-vertical="false">
 													<ul class="list-none">
-														<c:forEach var="image" items="${product.images }">
-															<li><a href="#" class="active"><img
-																	src="${pageContext.request.contextPath}/resources/assets${image.name}"
-																	alt="" /></a></li>
+														<c:forEach var="image" items="${images1 }">
+															<img
+																	src="${image }"
+																	alt="" width="50"/>
 														</c:forEach>
 
 													</ul>
@@ -88,88 +89,93 @@
 										</div>
 									</div>
 									<div class="col-md-6 col-sm-6 col-xs-12">
-										<div
-											class="detail-info detail-info2 detail-info3 product-info">
-											<span class="title10 text-uppercase">accessories</span>
-											<h3 class="title30 font-bold">
-												<a href="#" class="link-hover">${product.name}</a>
-											</h3>
-											<div class="product-price">
-												<del>${product.price}</del>
-												<ins class="font-bold color">$48.50</ins>
-											</div>
-											<div class="product-rate">
-												<div class="product-rating">
-													<div class="inner-rating"></div>
+										<s:form modelAttribute="product" action="/buy/${product.id }"
+											method="post">
+											<div
+												class="detail-info detail-info2 detail-info3 product-info">
+												<span class="title10 text-uppercase">accessories</span>
+												<h3 class="title30 font-bold">
+													<a href="#" class="link-hover">${product.name}</a>
+												</h3>
+												<div class="product-price">
+													<del>${product.price}</del>
+													<ins class="font-bold color">$48.50</ins>
 												</div>
-											</div>
-											<div class="choose-detail choose-detail2 choose-color">
-												<span>${product.typeTemplate1.caption }:</span>
-												<ul class="list-inline-block list-color">
-													<c:forEach var="typeValue"
-														items="${product.typeTemplate1.typeValues }">
-														<li><a href="#" class="active border bg-white">${typeValue.name }</a></li>
-													</c:forEach>
-												</ul>
-											</div>
-											<div class="choose-detail choose-detail2 choose-size">
-												<span>${product.typeTemplate2.caption }:</span>
-												<ul class="list-inline-block">
-													<c:forEach var="typeValue"
-														items="${product.typeTemplate2.typeValues }">
-														<li><a href="#" class="active border bg-white">${typeValue.name }</a></li>
-													</c:forEach>
-												</ul>
-											</div>
-										</div>
-										<div class="detail-cart detail-cart2 detail-cart3">
-											<div class="box-qty-cart clearfix">
-												<div class="product-qty pull-left">
-													<span class="font-bold">Qty:</span>
-													<div class="detail-qty bg-white info-qty border bg-white">
-														<span class="qty-val">1</span> <a href="#" class="qty-up"><i
-															class="fa fa-angle-up" aria-hidden="true"></i></a> <a
-															href="#" class="qty-down"><i class="fa fa-angle-down"
-															aria-hidden="true"></i></a>
+												<div class="product-rate">
+													<div class="product-rating">
+														<div class="inner-rating"></div>
 													</div>
 												</div>
-												<a href="#"
-													class="pull-left addcart-link bg-color text-uppercase font-bold white hover-btn"><span>Add
-														to cart</span></a>
+												<div class="choose-detail choose-detail2 choose-color">
+													<span>${product.typeTemplate1.caption }:</span>
+													<ul class="list-inline-block list-color">
+														<c:forEach var="typeValue"
+															items="${product.typeTemplate1.typeValues }">
+															<li><a href="#" class="active border bg-white">${typeValue.name }</a></li>
+														</c:forEach>
+														<%-- 													<s:select path="typeTemplate1.typeValues"></s:select> --%>
+													</ul>
+												</div>
+												<div class="choose-detail choose-detail2 choose-size">
+													<span>${product.typeTemplate2.caption }:</span>
+													<ul class="list-inline-block">
+														<c:forEach var="typeValue"
+															items="${product.typeTemplate2.typeValues }">
+															<li><a href="#" class="active border bg-white">${typeValue.name }</a></li>
+														</c:forEach>
+													</ul>
+												</div>
 											</div>
-											<ul class="list-inline-block">
-												<li><a href="#" class="wishlist-link link-hover"><i
-														class="far fa-heart"></i> Add to Wishlist</a></li>
-												<li><a href="#" class="compare-link link-hover"><i
-														class="fas fa-exchange-alt"></i> Add to Compare</a></li>
-											</ul>
-											<ul class="list-inline-block box-instock">
-												<li><span>Availability:</span></li>
-												<li><a href="#"
-													class="title12 in-stock bg-white border hover-btn">In
-														stock</a></li>
-											</ul>
-											<ul class="list-inline-block">
-												<li><span>Categories:</span></li>
-												<c:forEach var="category" items="${product.categories }">
+											<div class="detail-cart detail-cart2 detail-cart3">
+												<div class="box-qty-cart clearfix">
+													<div class="product-qty pull-left">
+														<span class="font-bold">Qty:</span>
+														<div class="detail-qty bg-white info-qty border bg-white">
+															<span class="qty-val">1</span> <a href="#" class="qty-up"><i
+																class="fa fa-angle-up" aria-hidden="true"></i></a> <a
+																href="#" class="qty-down"><i
+																class="fa fa-angle-down" aria-hidden="true"></i></a>
+														</div>
+													</div>
+													<button
+														class="pull-left addcart-link bg-color text-uppercase font-bold white hover-btn">
+														<span>Add to cart</span>
+													</button>
+												</div>
+												<ul class="list-inline-block">
+													<li><a href="#" class="wishlist-link link-hover"><i
+															class="far fa-heart"></i> Add to Wishlist</a></li>
+													<li><a href="#" class="compare-link link-hover"><i
+															class="fas fa-exchange-alt"></i> Add to Compare</a></li>
+												</ul>
+												<ul class="list-inline-block box-instock">
+													<li><span>Availability:</span></li>
 													<li><a href="#"
-														class="title12 list-tag-cate bg-white border hover-btn">${ category.name}</a></li>
-												</c:forEach>
+														class="title12 in-stock bg-white border hover-btn">In
+															stock</a></li>
+												</ul>
+												<ul class="list-inline-block">
+													<li><span>Categories:</span></li>
+													<c:forEach var="category" items="${product.categories }">
+														<li><a href="#"
+															class="title12 list-tag-cate bg-white border hover-btn">${ category.name}</a></li>
+													</c:forEach>
 
-											</ul>
-											<ul class="list-inline-block social-box">
-												<li><a href="#" class="wobble-bottom"><i
-														class="fab fa-facebook-f"></i></a></li>
-												<li><a href="#" class="wobble-bottom"><i
-														class="fab fa-twitter"></i></a></li>
-												<li><a href="#" class="wobble-bottom"><i
-														class="fab fa-pinterest-p"></i></a></li>
-												<li><a href="#" class="wobble-bottom"><i
-														class="fab fa-google-plus-g"></i></a></li>
-												<li><a href="#" class="wobble-bottom"><i
-														class="fas fa-envelope"></i></a></li>
-											</ul>
-										</div>
+												</ul>
+												<ul class="list-inline-block social-box">
+													<li><a href="#" class="wobble-bottom"><i
+															class="fab fa-facebook-f"></i></a></li>
+													<li><a href="#" class="wobble-bottom"><i
+															class="fab fa-twitter"></i></a></li>
+													<li><a href="#" class="wobble-bottom"><i
+															class="fab fa-pinterest-p"></i></a></li>
+													<li><a href="#" class="wobble-bottom"><i
+															class="fab fa-google-plus-g"></i></a></li>
+													<li><a href="#" class="wobble-bottom"><i
+															class="fas fa-envelope"></i></a></li>
+												</ul>
+											</div>
+										</s:form>
 									</div>
 								</div>
 								<ul class="list-inline-block box-btn box-btn2">
