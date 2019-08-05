@@ -19,6 +19,7 @@ import com.demo.entities.Account;
 import com.demo.entities.Order;
 import com.demo.entities.OrderDetail;
 import com.demo.entities.OrderDetailID;
+import com.demo.entities.TypeValue;
 import com.demo.model.DetailModel;
 import com.demo.model.Item;
 import com.demo.services.AccountService;
@@ -88,7 +89,7 @@ public class CartController {
 			session.setAttribute("cart", cart);
 		} else {
 			List<Item> cart = (List<Item>)session.getAttribute("cart");
-			int index = this.exists(id, cart, detailModel.getTypeValueId1(), detailModel.getTypeValueId2());
+			int index = this.exists(id, cart, typeValueService.find(detailModel.getTypeValueId1()), typeValueService.find(detailModel.getTypeValueId2()));
 			if (index == -1) {
 				Item item = new Item(productService.find(id), detailModel.getQuantity());
 				item.setTypeValue1(typeValueService.find(detailModel.getTypeValueId1()));
@@ -112,11 +113,11 @@ public class CartController {
 		return "redirect:/cart";
 	}
 
-	private int exists(int id, List<Item> cart, int typeValueId1, int typeValueId2) {
+	private int exists(int id, List<Item> cart, TypeValue typeValue, TypeValue typeValue2) {
 		for (int i = 0; i < cart.size(); i++) {
 			if (cart.get(i).getProduct().getId() == id &&
-					cart.get(i).getTypeValueId1()== typeValueId1 &&
-					cart.get(i).getTypeValueId2()== typeValueId2) {
+					cart.get(i).getTypeValue1().getId() == typeValue.getId() &&
+							cart.get(i).getTypeValue2().getId() == typeValue2.getId()) {
 				return i;
 			}
 		}
@@ -133,56 +134,30 @@ public class CartController {
 	}
 	
 	@RequestMapping(value = "order", method = RequestMethod.POST)
-	private String order(@ModelAttribute Item cart, ModelMap modelMap) {
-		System.out.println(cart.getQuantity());
-//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//		List<Item> cart = (List<Item>)session.getAttribute("cart");
-//		
-//		if(authentication.isAuthenticated() && cart.size()!=0) {
-//			Account account = accountService.findByUsername(authentication.getName());
-//			Order order = new Order();
-//			order.setAccount(account);
-//			Order order2 = orderService.save(order);
-//			List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
-//			for (Item item : (List<Item>)session.getAttribute("cart")) {
-//				OrderDetail orderDetail = new OrderDetail();
-//				orderDetail.setId(new OrderDetailID(order2, item.getProduct()));
-//				orderDetail.setPrice(item.getProduct().getPrice());
-//				orderDetail.setQuantity(item.getQuantity());
-//				orderDetails.add(orderDetailService.save(orderDetail));
-//			}
-//			modelMap.put("orderdetails", orderDetails);
-//			session.setAttribute("cart", new ArrayList<Item>());
-//			return "cart/success";
-//		} else {
+	private String order(HttpSession session, ModelMap modelMap) {
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		List<Item> cart = (List<Item>)session.getAttribute("cart");
+		
+		if(authentication.isAuthenticated() && cart.size()!=0) {
+			Account account = accountService.findByUsername(authentication.getName());
+			Order order = new Order();
+			order.setAccount(account);
+			Order order2 = orderService.save(order);
+			List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
+			for (Item item : (List<Item>)session.getAttribute("cart")) {
+				OrderDetail orderDetail = new OrderDetail();
+				orderDetail.setId(new OrderDetailID(order2, item.getProduct()));
+				orderDetail.setPrice(item.getProduct().getPrice());
+				orderDetail.setQuantity(item.getQuantity());
+				orderDetails.add(orderDetailService.save(orderDetail));
+			}
+			modelMap.put("orderdetails", orderDetails);
+			session.setAttribute("cart", new ArrayList<Item>());
+			return "cart/success";
+		} else {
 			return "redirect:/cart";
-//		}
+		}
 	}
 	
-//	@RequestMapping(value = "order", method = RequestMethod.POST)
-//	private String order(HttpSession session, ModelMap modelMap) {
-//		
-//		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//		List<Item> cart = (List<Item>)session.getAttribute("cart");
-//		
-//		if(authentication.isAuthenticated() && cart.size()!=0) {
-//			Account account = accountService.findByUsername(authentication.getName());
-//			Order order = new Order();
-//			order.setAccount(account);
-//			Order order2 = orderService.save(order);
-//			List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
-//			for (Item item : (List<Item>)session.getAttribute("cart")) {
-//				OrderDetail orderDetail = new OrderDetail();
-//				orderDetail.setId(new OrderDetailID(order2, item.getProduct()));
-//				orderDetail.setPrice(item.getProduct().getPrice());
-//				orderDetail.setQuantity(item.getQuantity());
-//				orderDetails.add(orderDetailService.save(orderDetail));
-//			}
-//			modelMap.put("orderdetails", orderDetails);
-//			session.setAttribute("cart", new ArrayList<Item>());
-//			return "cart/success";
-//		} else {
-//			return "redirect:/cart";
-//		}
-//	}
 }
