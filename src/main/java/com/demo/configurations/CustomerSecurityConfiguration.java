@@ -39,7 +39,7 @@ public class CustomerSecurityConfiguration extends WebSecurityConfigurerAdapter 
 		
 		httpSecurity.antMatcher("/**")
 					.authorizeRequests()
-//					.antMatchers("/resources/**").permitAll()
+					.antMatchers("/resources/**").permitAll()
 //					.antMatchers("/file/**").permitAll()
 //					.antMatchers("/profile/**").access("hasRole('ROLE_CUSTOMER')")
 					.antMatchers("/order/**").access("hasRole('ROLE_CUSTOMER')")
