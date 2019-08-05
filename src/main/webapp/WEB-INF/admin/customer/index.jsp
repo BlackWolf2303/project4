@@ -59,7 +59,7 @@
 	<a class="btn btn-primary" href="/admin/customer/add">Add</a> <select
 		id="roles" onchange="setRoles()">
 		<c:forEach items="${roles }" var="role">
-			<option <c:if test="${param.role == role}"> selected </c:if>>${role }</option>
+			<option <c:if test="${param.role == role.name}"> selected </c:if>>${role.name }</option>
 		</c:forEach>
 	</select> <select id="property" onchange="setProperty()">
 		<c:forEach items="${properties }" var="property">

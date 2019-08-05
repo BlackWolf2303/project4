@@ -84,7 +84,7 @@ public class CustomerController {
 //		map.put("customers", customers);
 //		return "../admin/customer/index";
 //	}
-
+	
 	@GetMapping
 	public String index(ModelMap modelMap, HttpServletRequest request) {
 //		Field[] abc = Account.class.getDeclaredFields();
@@ -92,26 +92,17 @@ public class CustomerController {
 //			System.out.println(field.getName());
 //		}
 
-		String[] properties = { "id", "username" };
-		String[] directions = { "asc", "desc" };
-		List<String> rolesString = new ArrayList<String>();
-		rolesString.add("All");
-		for (Role role : roleService.findAll()) {
-			rolesString.add(role.getName());
-		}
+		String[] properties = {"id","username"};
+		String[] directions = {"asc","desc"};
 		int page = ServletRequestUtils.getIntParameter(request, "page", 0);
 		String direction = ServletRequestUtils.getStringParameter(request, "dir", "asc");
 		String property = ServletRequestUtils.getStringParameter(request, "prop", "username");
 		String roleName = ServletRequestUtils.getStringParameter(request, "role", roleService.find(1).getName());
+		Role role = roleService.findByName(roleName);
 		List<Account> accounts = null;
 		List<Role> roles = new ArrayList<Role>();
-		if (roleName.equalsIgnoreCase("all")) {
-			roles = (List<Role>) roleService.findAll();
-		} else {
-			Role role = roleService.findByName(roleName);
-			roles.add(role);
-		}
-		if (direction.equalsIgnoreCase("asc")) {
+		roles.add(role);
+		if(direction.equalsIgnoreCase("asc")) {
 			accounts = accountService.findbyRoles(roles, Sort.by(Direction.ASC, property));
 		} else if (direction.equalsIgnoreCase("desc")) {
 			accounts = accountService.findbyRoles(roles, Sort.by(Direction.DESC, property));
@@ -119,11 +110,11 @@ public class CustomerController {
 		PagedListHolder<Account> pagedListHolder = new PagedListHolder<Account>(accounts);
 		pagedListHolder.setPage(page);
 		pagedListHolder.setPageSize(5);
-		pagedListHolder.setMaxLinkedPages(3);
+		pagedListHolder.setMaxLinkedPages(3); 
 		modelMap.put("pagedListHolder", pagedListHolder);
 		modelMap.put("properties", properties);
 		modelMap.put("directions", directions);
-		modelMap.put("roles", rolesString);
+		modelMap.put("roles", roleService.findAll());
 		return "../admin/customer/index";
 	}
 

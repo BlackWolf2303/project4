@@ -34,7 +34,7 @@ public class Product {
 			@JoinColumn(name = "categoryid") })
 	private List<Category> categories;
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "product", cascade = { CascadeType.PERSIST, CascadeType.MERGE })
 	private List<Image> images;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "id.product")
@@ -70,11 +70,6 @@ public class Product {
 
 	public void setOrderdetails(List<OrderDetail> orderdetails) {
 		this.orderdetails = orderdetails;
-	}
-
-	public Product() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public List<Image> getImages() {

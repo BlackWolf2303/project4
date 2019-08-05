@@ -6,7 +6,7 @@
 <jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
 
 <h3>EDIT PRODUCT</h3>
-<s:form modelAttribute="product" action="/admin/product/edit" method="post">
+<s:form modelAttribute="product" action="/admin/product/edit" method="post" enctype="multipart/form-data">
 	Name <s:input path="name" /> <br> 
 	Quantity <s:input path="quantity"/><br> 
 	Price <s:input path="price"/><br> 
@@ -20,12 +20,23 @@
 		<s:options path="id" items="${typeTemplates}" itemLabel="name"
 			itemValue="id" />
 	</s:select><br> 
-	Picture
-<%-- 	<c:forEach items="${product.images }" var="picture"> --%>
-<!-- 		<img -->
-<%-- 			src="${pageContext.request.contextPath}/resources/assets/images/product/${picture.name }" --%>
-<!-- 			width="50px"> -->
-<%-- 	</c:forEach> --%>
+	Picture:<br>
+		<img src="${product.images[0].name }" width=50 alt="No Image">
+		<s:input path="file" type="file" /> | <a href="/admin/product/remove/avatar/${id}">Remove</a><br>
+		<img src="${product.images[1] }" width=50 alt="No Image">
+		<s:input path="file" type="file" /> | <a href="/admin/product/remove/avatar/${id}">Remove</a><br>
+		<img src="${product.images[2] }" width=50 alt="No Image">
+		<s:input path="file" type="file" /> | <a href="/admin/product/remove/avatar/${id}">Remove</a><br>
+		<img src="${product.images[3] }" width=50 alt="No Image">
+		<s:input path="file" type="file" /> | <a href="/admin/product/remove/avatar/${id}">Remove</a><br>
+		<img src="${product.images[4] }" width=50 alt="No Image">
+		<s:input path="file" type="file" /> | <a href="/admin/product/remove/avatar/${id}">Remove</a><br>
+		<img src="${product.images[5] }" width=50 alt="No Image">
+		<s:input path="file" type="file" /> | <a href="/admin/product/remove/avatar/${id}">Remove</a><br>
+		<img src="${product.images[6] }" width=50 alt="No Image">
+		<s:input path="file" type="file" /> | <a href="/admin/product/remove/avatar/${id}">Remove</a><br>
+		<img src="${product.images[7].name }" width=50 alt="No Image">
+		<s:input path="file" type="file" /> | <a href="/admin/product/remove/avatar/${id}">Remove</a><br>
 	<s:hidden path="id"/><br> 
 	<input value="Submit" type="submit">
 </s:form>
