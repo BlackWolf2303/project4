@@ -10,7 +10,7 @@
 		<header>
 			<h1 class="h3 display">Product List</h1>
 			<div class="row">
-				<div class="col-lg-6">
+				<div class="col-lg-12">
 					<div class="card">
 						<div class="card-header">
 							<a href="product/add">ADD</a>
