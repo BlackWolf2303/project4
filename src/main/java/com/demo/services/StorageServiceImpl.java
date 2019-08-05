@@ -17,8 +17,8 @@ import org.springframework.util.FileSystemUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-@Service
-public class FileSystemStorageService implements StorageService {
+@Service("storageService")
+public class StorageServiceImpl implements StorageService {
 
     private Path rootLocation;
 
@@ -52,9 +52,14 @@ public class FileSystemStorageService implements StorageService {
     }
     
     @Override
-    public void store(MultipartFile[] files) {
+    public void store(MultipartFile[] files, String fileName, int id) {
+    	int i = 0;
         for (MultipartFile file : files) {
-        	store(file, file.getOriginalFilename());
+        	String name = fileName + i + id + ".jpg";
+        	if(!file.isEmpty()) {
+            	store(file, name);	
+        	}
+        	i++;
 		}
     }
 

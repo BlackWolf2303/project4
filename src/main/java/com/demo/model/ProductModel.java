@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.ISBN;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.NumberFormat;
@@ -18,7 +19,6 @@ public class ProductModel {
 	@Length(min = 3, max = 250)
 	private String name;
 	@NotNull
-	@NumberFormat(pattern = "#,###,###.##")
 	@Range(min = 0, max = 1000000)
 	private String price;
 	@NotNull

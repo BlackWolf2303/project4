@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 01, 2019 at 02:54 PM
+-- Generation Time: Aug 05, 2019 at 08:32 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -48,10 +48,19 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`id`, `username`, `password`, `email`, `fullname`, `birthday`, `gender`, `address`, `phone`, `avatar`) VALUES
-(2, 'ducnt', '$2a$10$3omot2STh01LVfkQDouN.OzQ9givWFoVA4COL78eLNVfeHhm/PXuC', '', '', '2019-07-09 00:00:00', 0, '', '', 'defaultAva.jpg'),
-(3, 'hai', '$2a$10$8XHw1P7527Ouv1cCY4WiKO.2y3S1AhUUzfmdm46G/wG8HDAo9BAYi', 'abc@outlook', 'HaiHT', '2000-12-12 00:00:00', 1, '1111', '34289347984', 'defaultAva.jpg'),
-(17, 'lythihagiang', '$2a$10$YRlE0tGEs7koDZMLSbaO8eLrqcFFS54DYAAUdqN6nGCEYMxtf9yqS', '', '', NULL, 0, '', '', NULL),
-(18, 'abcd', '$2a$10$R2R7f7wbc1mcPDKv1C9iMOnJqvwG2RuM1b91k2VFGwMjgM8ctmRNi', 'abc@gmail.com', NULL, NULL, 0, NULL, NULL, NULL);
+(2, 'user', '$2a$10$aJV2vrlEkL02mpr8qYCfOuow82SRdEjqzWn9fFGSKe5./hhB9vs.u', '', '', '2019-07-09 00:00:00', 0, '', '', 'defaultAva.jpg'),
+(3, 'admin', '$2a$10$aJV2vrlEkL02mpr8qYCfOuow82SRdEjqzWn9fFGSKe5./hhB9vs.u', 'abc@outlook', 'HaiHT', '2000-12-12 00:00:00', 1, '1111', '34289347984', 'defaultAva.jpg'),
+(17, 'lythihagiang', '$2a$10$aJV2vrlEkL02mpr8qYCfOuow82SRdEjqzWn9fFGSKe5./hhB9vs.u', '', '', NULL, 0, '', '', NULL),
+(20, 'user1', '$2a$10$802GQC6QX7E3fqrH0v9Tx.k.1nuFOFkUgE76gFZRVmPjmijZhATFu', 'abc@outlook.com', NULL, NULL, 0, NULL, NULL, NULL),
+(21, 'user2', '$2a$10$DZv84cVBxcGARaV.oU.av.cWdTOd4GNe8wK0J527UVg.7g3VTovri', 'abc@outlook.com', '', NULL, 0, '', '', 'defaultAva.jpg'),
+(22, 'user3', '$2a$10$802GQC6QX7E3fqrH0v9Tx.k.1nuFOFkUgE76gFZRVmPjmijZhATFu', 'abc@outlook.com', NULL, NULL, 0, NULL, NULL, NULL),
+(23, 'user4', '$2a$10$802GQC6QX7E3fqrH0v9Tx.k.1nuFOFkUgE76gFZRVmPjmijZhATFu', 'abc@outlook.com', NULL, NULL, 0, NULL, NULL, NULL),
+(24, 'user5', '$2a$10$802GQC6QX7E3fqrH0v9Tx.k.1nuFOFkUgE76gFZRVmPjmijZhATFu', 'abc@outlook.com', NULL, NULL, 0, NULL, NULL, NULL),
+(25, 'user6', '$2a$10$802GQC6QX7E3fqrH0v9Tx.k.1nuFOFkUgE76gFZRVmPjmijZhATFu', 'abc@outlook.com', NULL, NULL, 0, NULL, NULL, NULL),
+(26, 'user7', '$2a$10$802GQC6QX7E3fqrH0v9Tx.k.1nuFOFkUgE76gFZRVmPjmijZhATFu', 'abc@outlook.com', NULL, NULL, 0, NULL, NULL, NULL),
+(27, 'user8', '$2a$10$ZQqYtiALPUI0JpKFwoiTnO4Un43zw.Zkh.bkDNwiN21xQ28Qy6hXy', 'abc@outlook.com', '', NULL, 0, '', '', '27ava.jpg'),
+(28, 'duc001', '$2a$10$GchY7xzxNBxNBdfYjReTtOXHepmjqbX03SgCprwAqqUSLG747/I6.', 'abc@outlook.com', NULL, NULL, 0, NULL, NULL, NULL),
+(35, 'duc002', '$2a$10$6pTXvl../5VkZX3BLiysv.yABPkoDZeSh0jwU/MUsfBheupq1vRTy', 'abc@outlook.com', NULL, NULL, 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -70,11 +79,19 @@ CREATE TABLE `account_role` (
 
 INSERT INTO `account_role` (`account_id`, `role_id`) VALUES
 (2, 3),
-(3, 3),
+(3, 2),
 (17, 1),
 (17, 2),
 (17, 3),
-(18, 3);
+(20, 3),
+(21, 3),
+(22, 3),
+(23, 3),
+(24, 3),
+(25, 3),
+(26, 3),
+(27, 3),
+(35, 3);
 
 -- --------------------------------------------------------
 
@@ -132,6 +149,20 @@ CREATE TABLE `images` (
   `productId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `images`
+--
+
+INSERT INTO `images` (`id`, `name`, `productId`) VALUES
+(50, 'picture0.jpg', 1),
+(51, 'picture1.jpg', 1),
+(52, 'picture2.jpg', 1),
+(53, 'picture3.jpg', 1),
+(54, 'picture4.jpg', 1),
+(55, 'picture5.jpg', 1),
+(56, 'picture6.jpg', 1),
+(57, 'picture7.jpg', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -142,6 +173,14 @@ CREATE TABLE `ordertbl` (
   `id` int(11) NOT NULL,
   `account_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ordertbl`
+--
+
+INSERT INTO `ordertbl` (`id`, `account_id`) VALUES
+(1, 17),
+(2, 17);
 
 -- --------------------------------------------------------
 
@@ -155,6 +194,14 @@ CREATE TABLE `order_detail` (
   `qty` int(11) NOT NULL,
   `price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `order_detail`
+--
+
+INSERT INTO `order_detail` (`product_id`, `order_id`, `qty`, `price`) VALUES
+(1, 1, 1, 99.6),
+(1, 2, 1, 99.6);
 
 -- --------------------------------------------------------
 
@@ -177,7 +224,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `price`, `quantity`, `active`, `typetemplate_id1`, `typetemplate_id2`) VALUES
-(1, 'AO THUN HOME EARTH', 99.6, 10, 0, 5, 4);
+(1, 'AO THUN HOME EARTH', 99.66, 15, 0, 5, 4);
 
 -- --------------------------------------------------------
 
@@ -271,7 +318,8 @@ CREATE TABLE `typetemplate` (
 
 INSERT INTO `typetemplate` (`id`, `name`, `caption`, `active`) VALUES
 (4, 'Color', 'Color', 0),
-(5, 'Size', 'Size', 0);
+(5, 'Size', 'Size', 0),
+(6, 'Color Quan', 'Color', 0);
 
 -- --------------------------------------------------------
 
@@ -293,7 +341,9 @@ INSERT INTO `typevalue` (`id`, `name`) VALUES
 (20, 'Red'),
 (21, 'M'),
 (22, 'L'),
-(23, 'XL');
+(23, 'XL'),
+(24, 'White'),
+(25, 'Black');
 
 -- --------------------------------------------------------
 
@@ -315,7 +365,9 @@ INSERT INTO `typevalue_typetemplate` (`value_id`, `template_id`) VALUES
 (20, 4),
 (21, 5),
 (22, 5),
-(23, 5);
+(23, 5),
+(24, 6),
+(25, 6);
 
 --
 -- Indexes for dumped tables
@@ -442,7 +494,7 @@ ALTER TABLE `typevalue_typetemplate`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -460,13 +512,13 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `ordertbl`
 --
 ALTER TABLE `ordertbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -490,13 +542,13 @@ ALTER TABLE `size`
 -- AUTO_INCREMENT for table `typetemplate`
 --
 ALTER TABLE `typetemplate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `typevalue`
 --
 ALTER TABLE `typevalue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
@@ -1364,7 +1416,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"da4\",\"table\":\"typetemplate\"},{\"db\":\"da4\",\"table\":\"typevalue_typetemplate\"},{\"db\":\"da4\",\"table\":\"typevalue\"},{\"db\":\"da4\",\"table\":\"product\"},{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"size\"},{\"db\":\"da4\",\"table\":\"product_color\"},{\"db\":\"da4\",\"table\":\"category\"},{\"db\":\"da4\",\"table\":\"category_product\"},{\"db\":\"da4\",\"table\":\"images\"}]');
+('root', '[{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"da4\",\"table\":\"images\"},{\"db\":\"da4\",\"table\":\"product\"},{\"db\":\"da4\",\"table\":\"typetemplate\"},{\"db\":\"da4\",\"table\":\"typevalue_typetemplate\"},{\"db\":\"da4\",\"table\":\"typevalue\"},{\"db\":\"da4\",\"table\":\"size\"},{\"db\":\"da4\",\"table\":\"product_color\"}]');
 
 -- --------------------------------------------------------
 
@@ -1426,6 +1478,7 @@ CREATE TABLE `pma__table_info` (
 --
 
 INSERT INTO `pma__table_info` (`db_name`, `table_name`, `display_field`) VALUES
+('da4', 'images', 'name'),
 ('da4', 'product', 'name'),
 ('da4', 'typevalue', 'name');
 
@@ -1486,7 +1539,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2019-08-01 12:54:38', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
+('root', '2019-08-05 04:45:42', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
 
 -- --------------------------------------------------------
 

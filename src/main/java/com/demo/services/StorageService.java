@@ -8,18 +8,18 @@ import java.util.stream.Stream;
 
 public interface StorageService {
 
-    void init(Path path);
+    public void init(Path path);
 
-    void store(MultipartFile file, String filename);
+    public void store(MultipartFile file, String filename);
     
-    void store(MultipartFile[] files);
+    public void store(MultipartFile[] files, String fileName, int i);
 
-    Stream<Path> loadAll();
+    public Stream<Path> loadAll();
 
-    Path load(String filename);
+    public Path load(String filename);
 
-    Resource loadAsResource(String filename);
+    public Resource loadAsResource(String filename);
 
-    void deleteAll();
+    public void deleteAll();
 
 }

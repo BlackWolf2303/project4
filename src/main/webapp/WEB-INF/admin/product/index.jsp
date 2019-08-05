@@ -29,11 +29,11 @@
 							</tr>
 							<c:forEach var="product" items="${products }">
 								<tr>
-									<td><a href="product/${product.id }"> <img
-											src="${pageContext.request.contextPath}/resources/assets/${product.images[0].name }"
+									<td><a href="product/edit/${product.id }"> <img
+											src="${picture0 }"
 											width="50px">
 									</a></td>
-									<td><a href="product/${product.id }"> ${product.name }
+									<td><a href="product/edit/${product.id }"> ${product.name }
 									</a></td>
 									<td>${product.typeTemplate1.name }</td>
 									<td>${product.typeTemplate2.name }</td>

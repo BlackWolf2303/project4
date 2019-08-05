@@ -5,73 +5,51 @@
 <jsp:include page="/WEB-INF/admin-layouts/head-meta.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
 
-<h3>ADD PRODUCT</h3>
-
-<s:form modelAttribute="product" method="post"
-	action="/admin/product/add">
-	<table>
-		<tr>
-			<td>Name</td>
-			<td><s:input path="name" /></td>
-			<td><s:errors path="name" /></td>
-		</tr>
-		<tr>
-			<td>Quantity</td>
-			<td><s:input path="quantity" /></td>
-			<td><s:errors path="quantity" /></td>
-		</tr>
-		<tr>
-			<td>Price</td>
-			<td><s:input path="price" /></td>
-			<td><s:errors path="price" /></td>
-		</tr>
-		<tr>
-			<td>Type Template 1</td>
-			<td>
-				<s:select path="typeTemplate1">
-					<s:options path="id" items="${typeTemplates}" itemLabel="name" itemValue="id"/>
-				</s:select>
-			</td>
-		</tr>
-		<tr>
-			<td>Type Template 2</td>
-			<td>
-				<s:select path="typeTemplate2">
-					<s:options path="id" items="${typeTemplates}" itemLabel="name" itemValue="id"/>
-				</s:select>
-			</td>
-		</tr>
-		<tr>
-			<td>Image</td>
-			<td><a href="/admin/image/add">Add</a></td>
-			<td>
-				<%-- 				<c:forEach var="image" items="${images}"><img src="${image}"/></c:forEach> --%>
-			</td>
-		</tr>
-		<tr>
-			<td>Active</td>
-			<td><s:checkbox path="active" /></td>
-			<td><s:errors path="active" /></td>
-		</tr>
-		<tr>
-			<td></td>
-			<td><input value="Submit" type="submit"></td>
-		</tr>
-	</table>
+<h3>EDIT PRODUCT</h3>
+<s:form modelAttribute="product" action="/admin/product/add" method="post" enctype="multipart/form-data">
+	Name <s:input path="name" /> 
+	<s:errors path="name"/><br> 
+	Quantity <s:input path="quantity"/>
+	<s:errors path="quantity"/><br> 
+	Price <s:input path="price"/>
+	<s:errors path="price"/><br> 
+	Type Template 1
+	<s:select path="typeTemplate1">
+		<s:options path="id" items="${typeTemplates}" itemLabel="name"
+			itemValue="id" />
+	</s:select><br> 
+	Type Template 2
+	<s:select path="typeTemplate2">
+		<s:options path="id" items="${typeTemplates}" itemLabel="name"
+			itemValue="id" />
+	</s:select><br> 
+	<s:errors path="file"/><br>
+	Picture 1:
+		<img src="${picture0}" width=50 alt="No Image">
+		<s:input path="file" type="file" /><br> 
+	Picture 2:
+		<img src="${picture1 }" width=50 alt="No Image">
+		<s:input path="file" type="file" /><br> 
+	Picture 3:
+		<img src="${picture2 }" width=50 alt="No Image">
+		<s:input path="file" type="file" /><br> 
+	Picture 4:
+		<img src="${picture3 }" width=50 alt="No Image">
+		<s:input path="file" type="file" /><br> 
+	Picture 5;
+		<img src="${picture4}" width=50 alt="No Image">
+		<s:input path="file" type="file" /><br> 
+	Picture 6:
+		<img src="${picture5}" width=50 alt="No Image">
+		<s:input path="file" type="file" /><br> 
+	Picture 7:
+		<img src="${picture6}" width=50 alt="No Image">
+		<s:input path="file" type="file" /><br> 
+	Picture 8:
+		<img src="${picture7}" width=50 alt="No Image">
+		<s:input path="file" type="file" /><br>
+	<input value="Submit" type="submit">
+	<a href="/admin/product">Back</a>
 </s:form>
-<!-- 	<form name="product" action="/admin/product/add" method="post"> -->
-<%-- 		Name <input type="text" name="name" value= " ${product.name }"> <br> --%>
-<%-- 		Price <input type="text" name="price" value = " ${product.price }"><br> --%>
-<%-- 		Quantity <input type="text" name="quantity" value = " ${product.quantity }"><br> --%>
-<%-- 		Color <c:forEach items="${product.colors}" var="color"><input type="radio" name="color" value = " ${color.name }"></c:forEach><br> --%>
-<%-- 		Size <c:if test="${ product.freeSize }">Free Size</c:if>  --%>
-<%-- 		<c:if test="${ !product.freeSize }"> --%>
-<%-- 		<c:forEach items="${product.sizes }" var="size"> --%>
-<%-- 				<input type="radio" name="size" value=" ${ size.name }"> --%>
-<%-- 		</c:forEach> --%>
-<%-- 		</c:if> <br> --%>
-<%-- 		Picture <c:forEach items="${product.images }" var="picture"><img src="${pageContext.request.contextPath}/resources/assets/images/product/${picture.name }" width="50px"></c:forEach> --%>
-<!-- 	<input value="Submit" type="submit"> -->
-<!-- 	</form> -->
 
 <jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>

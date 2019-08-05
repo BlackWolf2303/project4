@@ -37,6 +37,7 @@ public class AdminSecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		httpSecurity.antMatcher("/admin/**")
 					.authorizeRequests()
+					.antMatchers("/file/image/picture0*.jpg").denyAll()
 					.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
 					.and().formLogin().loginPage("/admin/login")
 					.loginProcessingUrl("/admin/login_url")
