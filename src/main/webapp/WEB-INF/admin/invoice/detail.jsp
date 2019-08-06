@@ -6,6 +6,10 @@
 <jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
 
 <section>
+	<div class="container-fluid">
+		<header>
+			<h1 class="h3 display">Details</h1>
+		</header>
 
 	<h1>Details</h1>
 
