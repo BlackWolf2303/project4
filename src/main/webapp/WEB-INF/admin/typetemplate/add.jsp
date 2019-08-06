@@ -5,21 +5,35 @@
 <jsp:include page="/WEB-INF/admin-layouts/head-meta.jsp"></jsp:include>
 <jsp:include page="/WEB-INF/admin-layouts/header.jsp"></jsp:include>
 
-<h1>Add Template</h1>
-<s:form modelAttribute="typeTemplate" action="/admin/typetemplate/add" method="post">
-	<table>
-		<tr>
-			<td>Name</td>
-			<td><s:input path="name" /></td>
-		</tr>
-		<tr>
-			<td>Caption</td>
-			<td><s:input path="caption" /></td>
-		</tr>
-		<tr>
-			<td><button>Add</button></td>
-		</tr>
-	</table>
-</s:form>
-
+<section class="forms">
+	<div class="container-fluid">
+		<header>
+			<h1 class="h3 display">Add Template</h1>
+		</header>
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="card">
+					<div class="card-body">
+						<form class="form-horizontal">
+							<s:form modelAttribute="typeTemplate"
+								action="/admin/typetemplate/add" method="post">
+								<div class="form-group">
+									<label>Name</label>
+									<s:input path="name" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label>Caption</label>
+									<s:input path="caption" class="form-control" />
+								</div>
+								<div class="form-group">
+									<button class="btn btn-primary">Add</button>
+								</div>
+							</s:form>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
 <jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>
