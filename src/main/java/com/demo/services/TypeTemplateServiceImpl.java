@@ -4,6 +4,7 @@ import com.demo.entities.TypeTemplate;
 import com.demo.repositories.TypeTemplateRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,6 +33,11 @@ public class TypeTemplateServiceImpl implements TypeTemplateService {
 	@Override
 	public void delete(int id) {
 		typeTemplateRepository.deleteById(id);
+	}
+
+	@Override
+	public Iterable<TypeTemplate> findAll(Sort sort) {
+		return typeTemplateRepository.findAll(sort);
 	}
 
 }

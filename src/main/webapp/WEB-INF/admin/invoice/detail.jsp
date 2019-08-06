@@ -14,6 +14,8 @@
 		<thead>
 			<tr>
 				<td>Name</td>
+				<td>Option 1</td>
+				<td>Option 2</td>
 				<td>Quantity</td>
 				<td>Price</td>
 				<td>Total</td>
@@ -23,6 +25,8 @@
 			<c:forEach var="orderDetail" items="${orderDetails }">
 				<tr>
 					<td>${orderDetail.product.name }</td>
+					<td>${orderDetail.option1}</td>
+					<td>${orderDetail.option2}</td>
 					<td>${orderDetail.quantity }</td>
 					<td>${orderDetail.price }</td>
 					<td>${orderDetail.price * orderDetail.quantity }</td>
@@ -31,7 +35,7 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="3">Sum</td>
+				<td colspan="5">Sum</td>
 				<td>Pending "Hoi Thay"...</td>
 			</tr>
 		</tfoot>

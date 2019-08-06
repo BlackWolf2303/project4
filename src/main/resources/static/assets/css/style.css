@@ -1,3 +1,10 @@
+/* header : menu */
+.main-nav > ul > li > a {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: inherit;
+}
+
 .footer-index {
   margin-bottom: 0;
 }
@@ -29,7 +36,7 @@
   display: flex;
   opacity: 1;
   visibility: visible;
-  bottom: -9px;
+  bottom: -2.9rem;
 }
 
 /* subcription form */
@@ -200,6 +207,22 @@ display:flex;
 }
 #login-box button.social-signin.google {
   background: #DD4B39;
+}
+
+.checkout-page .group-checkout {
+  max-height: 4.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+.checkout-page .group-checkout > a {
+  line-height: calc(31/14);
+}
+.checkout-page .group-checkout .paypal-button {
+  border: 1px solid #b92c28;
+}
+.checkout-page .group-checkout .btn {
+  font-family: inherit;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=style.css.map */

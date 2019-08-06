@@ -4,9 +4,15 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.PagedListHolder;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,9 +30,29 @@ public class CategoriesController {
 	@Autowired
 	private ProductService productService;
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String index(ModelMap modelMap) {
-		modelMap.put("products", productService.findAll());
+	@RequestMapping(method = RequestMethod.GET)
+	public String index(ModelMap modelMap, HttpServletRequest request) {
+		List<Product> products = new ArrayList<Product>();
+		
+		String[] properties = {"name","quantity","price"};
+		String[] directions = {"asc","desc"};
+		int page = ServletRequestUtils.getIntParameter(request, "page", 0);
+		String direction = ServletRequestUtils.getStringParameter(request, "dir", "asc");
+		String property = ServletRequestUtils.getStringParameter(request, "prop", "name");
+
+		if(direction.equalsIgnoreCase("asc")) {
+			products = (List<Product>)productService.findAllWithActive(Sort.by(Direction.ASC, property));
+		} else if (direction.equalsIgnoreCase("desc")) {
+			products = (List<Product>)productService.findAllWithActive(Sort.by(Direction.DESC, property));
+		}
+		
+		PagedListHolder<Product> pagedListHolder = new PagedListHolder<Product>(products);
+		pagedListHolder.setPage(page);
+		pagedListHolder.setPageSize(5);
+		pagedListHolder.setMaxLinkedPages(3); 
+		modelMap.put("pagedListHolder", pagedListHolder);
+		modelMap.put("properties", properties);
+		modelMap.put("directions", directions);
 		return "categories/index";
 	}
 	

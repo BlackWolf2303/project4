@@ -8,16 +8,21 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.PagedListHolder;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -63,8 +68,28 @@ public class AdminProductController {
 	}
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String index(ModelMap modelMap) {
-		modelMap.put("products", productService.findAll());
+	public String index(ModelMap modelMap, HttpServletRequest request) {
+		List<Product> products = new ArrayList<Product>();
+		
+		String[] properties = {"name","quantity","price"};
+		String[] directions = {"asc","desc"};
+		int page = ServletRequestUtils.getIntParameter(request, "page", 0);
+		String direction = ServletRequestUtils.getStringParameter(request, "dir", "asc");
+		String property = ServletRequestUtils.getStringParameter(request, "prop", "name");
+
+		if(direction.equalsIgnoreCase("asc")) {
+			products = (List<Product>)productService.findAll(Sort.by(Direction.ASC, property));
+		} else if (direction.equalsIgnoreCase("desc")) {
+			products = (List<Product>)productService.findAll(Sort.by(Direction.DESC, property));
+		}
+		
+		PagedListHolder<Product> pagedListHolder = new PagedListHolder<Product>(products);
+		pagedListHolder.setPage(page);
+		pagedListHolder.setPageSize(5);
+		pagedListHolder.setMaxLinkedPages(3); 
+		modelMap.put("pagedListHolder", pagedListHolder);
+		modelMap.put("properties", properties);
+		modelMap.put("directions", directions);
 		return "../admin/product/index";
 	}
 
