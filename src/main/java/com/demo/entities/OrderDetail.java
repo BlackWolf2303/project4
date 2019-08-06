@@ -21,15 +21,25 @@ public class OrderDetail {
 	@Column(name = "qty")
 	private int quantity;
 	private double price;
+	private String option1;
+	private String option2;
 
-//	@Id
-//	@ManyToOne
-//	@JoinColumn(name = "product_id", nullable = false)
-//	private Product product;
-//	@Id
-//	@ManyToOne
-//	@JoinColumn(name = "ordert_id", nullable = false)
-//	private Order order;
+	public String getOption1() {
+		return option1;
+	}
+
+	public void setOption1(String option1) {
+		this.option1 = option1;
+	}
+
+	public String getOption2() {
+		return option2;
+	}
+
+	public void setOption2(String option2) {
+		this.option2 = option2;
+	}
+
 	public OrderDetail() {
 		super();
 	}

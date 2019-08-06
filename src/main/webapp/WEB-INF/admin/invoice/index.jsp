@@ -16,15 +16,21 @@
 							<thead>
 								<tr>
 									<td>ID</td>
-									<td>Name</td>
+									<td>Account</td>
+									<td>Type</td>
+									<td>Status</td>
+									<td>Ship To</td>
 									<td>Action</td>
 								</tr>
-							</thead>
+							</thead>	
 							<tbody>
 								<c:forEach var="order" items="${orders}">
 									<tr>
 										<td>${order.id}</td>
 										<td>${order.account.username}</td>
+										<td>${order.type}</td>
+										<td>${order.status}</td>
+										<td>${order.shipto}</td>
 										<td><a href="/admin/invoice/detail/${order.id}">Details</a>|<a
 											href="/admin/invoice/edit/${order.id}">Edit</a></td>
 									</tr>
