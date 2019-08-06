@@ -15,7 +15,7 @@
 		<jsp:include page="/WEB-INF/layouts/header.jsp"></jsp:include>
 
 
-		<section id="content">
+		<section id="content" class="container">
 
 			<h4 class="text-center text-success">SHOPPING CART</h4>
 			<s:form name="CartForm" modelAttribute="items"
@@ -76,9 +76,16 @@
 				<input type="hidden" name="business"
 					value="${payPalConfig.business}" />
 				<security:authorize access="hasRole('ROLE_CUSTOMER')">
-					<input type="button" value="Checkout" onclick="OnButtonCheckout();">
-					<input type="image" onclick="OnButtonPaypal();"
-						src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif">
+					<div class="group-checkout">
+						<a class="btn btn-success text-uppercase" href="${pageContext.request.contextPath}/categories">Continue
+				Shopping</a>
+						<div class="d-flex flex-row">
+							<input type="button" class="btn btn-danger text-uppercase  m-r-20" value="Checkout" onclick="OnButtonCheckout();">
+							<input type="image" class="btn border paypal-button" onclick="OnButtonPaypal();"
+								src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif">
+						</div>
+					</div>
+					
 				</security:authorize>
 				<security:authorize access="!hasRole('ROLE_CUSTOMER')">
 					<h3>
@@ -89,8 +96,7 @@
 
 			</s:form>
 
-			<a class="btn btn-success text-uppercase" href="${pageContext.request.contextPath}/categories">Continue
-				Shopping</a> <br>
+
 		</section>
 		<script>
 			function OnButtonCheckout() {

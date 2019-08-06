@@ -16,7 +16,7 @@
 				data-itemscustom="[[0,1]]">
 				<div class="item-slider">
 					<div class="banner-thumb">
-						<a href="#"><img
+						<a href="${pageContext.request.contextPath}/categories"><img
 							src="${pageContext.request.contextPath}/resources/assets/photos/home-1/slide/01.jpg"
 							alt="" /></a>
 					</div>
@@ -36,7 +36,7 @@
 <!-- 										<span class="number">4</span><span class="number">0</span> <span -->
 <!-- 											class="title60 poiret-font color text-uppercase">% off</span> -->
 <!-- 									</h2> -->
-<!-- 									<a href="#" class="hover-btn shop-button bg-color white">Learn -->
+<!-- 									<a href="${pageContext.request.contextPath}/categories" class="hover-btn shop-button bg-color white">Learn -->
 <!-- 										More</a> -->
 <!-- 								</div> -->
 <!-- 							</div> -->
@@ -45,7 +45,7 @@
 				</div>
 				<div class="item-slider">
 					<div class="banner-thumb">
-						<a href="#"><img
+						<a href="${pageContext.request.contextPath}/categories"><img
 							src="${pageContext.request.contextPath}/resources/assets/photos/home-1/slide/02.jpg"
 							alt="" /></a>
 					</div>
@@ -61,7 +61,7 @@
 <!-- 										<span class="number">7</span><span class="number">0</span> <span -->
 <!-- 											class="title60 poiret-font color text-uppercase">% off</span> -->
 <!-- 									</h2> -->
-<!-- 									<a href="#" class="hover-btn shop-button bg-color white">Learn -->
+<!-- 									<a href="${pageContext.request.contextPath}/categories" class="hover-btn shop-button bg-color white">Learn -->
 <!-- 										More</a> -->
 <!-- 								</div> -->
 <!-- 							</div> -->
@@ -70,7 +70,7 @@
 				</div>
 				<div class="item-slider">
 					<div class="banner-thumb">
-						<a href="#"><img
+						<a href="${pageContext.request.contextPath}/categories"><img
 							src="${pageContext.request.contextPath}/resources/assets/photos/home-1/slide/03.jpg"
 							alt="" /></a>
 					</div>
@@ -87,7 +87,7 @@
 <!-- 										<span class="number">7</span><span class="number">0</span> <span -->
 <!-- 											class="title60 poiret-font color text-uppercase">% off</span> -->
 <!-- 									</h2> -->
-<!-- 									<a href="#" class="hover-btn shop-button bg-color white">Learn -->
+<!-- 									<a href="${pageContext.request.contextPath}/categories" class="hover-btn shop-button bg-color white">Learn -->
 <!-- 										More</a> -->
 <!-- 								</div> -->
 <!-- 							</div> -->
@@ -105,12 +105,12 @@
 							<div class="customize-item bg-white border-right">
 								<div class="info-box">
 									<h2 class="title18 rale-font font-bold text-uppercase">
-										<a href="#" class="link-hover">Shop 1500+ Live Tees</a>
+										<a href="${pageContext.request.contextPath}/categories" class="link-hover">Shop 1500+ Live Tees</a>
 									</h2>
 									<p class="desc silver">Live dangerously. Browse every tee
 										available.</p>
 								</div>
-								<a href="#"
+								<a href="${pageContext.request.contextPath}/categories"
 									class="hover-btn round bg-color white wobble-horizontal"><i
 									class="fas fa-angle-right"></i></a>
 							</div>
@@ -119,12 +119,12 @@
 							<div class="customize-item bg-white border-right ">
 								<div class="info-box">
 									<h2 class="title18 rale-font font-bold text-uppercase">
-										<a href="#" class="link-hover">Don't Panic</a>
+										<a href="${pageContext.request.contextPath}/categories" class="link-hover">Don't Panic</a>
 									</h2>
 									<p class="desc silver">We’ve made some picks for you. Check
 										out our collections.</p>
 								</div>
-								<a href="#"
+								<a href="${pageContext.request.contextPath}/categories"
 									class="hover-btn round bg-color white wobble-horizontal"><i
 									class="fas fa-angle-right"></i></a>
 							</div>
@@ -133,12 +133,12 @@
 							<div class="customize-item bg-white">
 								<div class="info-box">
 									<h2 class="title18 rale-font font-bold text-uppercase">
-										<a href="#" class="link-hover">Shop Blank Tees</a>
+										<a href="${pageContext.request.contextPath}/categories" class="link-hover">Shop Blank Tees</a>
 									</h2>
 									<p class="desc silver">Buy more and save more when you
 										build a Blank Bundle</p>
 								</div>
-								<a href="#"
+								<a href="${pageContext.request.contextPath}/categories"
 									class="hover-btn round bg-color white wobble-horizontal"><i
 									class="fas fa-angle-right"></i></a>
 							</div>
@@ -162,11 +162,11 @@
 										</h2>
 										<h3 class="title14 text-uppercase font-bold">sale off 10%</h3>
 									</div>
-									<a href="#" class="hover-btn shop-button bg-color white">shop
+									<a href="${pageContext.request.contextPath}/categories" class="hover-btn shop-button bg-color white">shop
 										now</a>
 								</div>
 								<div class="thumb-box line-scale">
-									<a href="#" class="advs-thumb-link"><img
+									<a href="${pageContext.request.contextPath}/categories" class="advs-thumb-link"><img
 										src="${pageContext.request.contextPath}/resources/assets/photos/banner/7uptheme_verycheap_03.jpg"
 										alt="" /></a>
 								</div>
@@ -183,11 +183,11 @@
 										<h3 class="title14 text-uppercase font-bold">new
 											collection</h3>
 									</div>
-									<a href="#" class="hover-btn shop-button bg-color white">shop
+									<a href="${pageContext.request.contextPath}/categories" class="hover-btn shop-button bg-color white">shop
 										now</a>
 								</div>
 								<div class="thumb-box line-scale">
-									<a href="#" class="advs-thumb-link"><img
+									<a href="${pageContext.request.contextPath}/categories" class="advs-thumb-link"><img
 										src="${pageContext.request.contextPath}/resources/assets/photos/banner/7uptheme_verycheap_04.jpg"
 										alt="" /></a>
 								</div>
@@ -203,11 +203,11 @@
 										</h2>
 										<h3 class="title14 text-uppercase font-bold">For women’s</h3>
 									</div>
-									<a href="#" class="hover-btn shop-button bg-color white">shop
+									<a href="${pageContext.request.contextPath}/categories" class="hover-btn shop-button bg-color white">shop
 										now</a>
 								</div>
 								<div class="thumb-box line-scale">
-									<a href="#" class="advs-thumb-link"><img
+									<a href="${pageContext.request.contextPath}/categories" class="advs-thumb-link"><img
 										src="${pageContext.request.contextPath}/resources/assets/photos/banner/7uptheme_verycheap_05.jpg"
 										alt="" /></a>
 								</div>
@@ -258,22 +258,22 @@
 								<div class="item-product item-product1">
 									<span class="sale-item">sale</span>
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link clearfix">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -282,13 +282,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6-6.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6-6-6.jpg"
 															alt=""></a></li>
 												</ul>
@@ -298,22 +298,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<ins class="font-bold color">$234.00</ins>
@@ -321,13 +321,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1-1.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1-1-1.jpg"
 															alt=""></a></li>
 												</ul>
@@ -338,22 +338,22 @@
 								<div class="item-product item-product1">
 									<span class="sale-item">sale</span>
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -362,13 +362,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4-4.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4-4-4.jpg"
 															alt=""></a></li>
 												</ul>
@@ -378,22 +378,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<ins class="font-bold color">$58.9</ins>
@@ -401,13 +401,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5-5.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5-5-5.jpg"
 															alt=""></a></li>
 												</ul>
@@ -417,22 +417,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -441,13 +441,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7-7.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7-7-7.jpg"
 															alt=""></a></li>
 												</ul>
@@ -465,22 +465,22 @@
 								data-itemscustom="[[0,1],[480,2],[768,3],[1024,3],[1200,4]]">
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-2.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link clearfix">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -489,13 +489,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6-6.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6-6-6.jpg"
 															alt=""></a></li>
 												</ul>
@@ -505,22 +505,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-3.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<ins class="font-bold color">$234.00</ins>
@@ -528,13 +528,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1-1.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1-1-1.jpg"
 															alt=""></a></li>
 												</ul>
@@ -544,22 +544,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -568,13 +568,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4-4.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4-4-4.jpg"
 															alt=""></a></li>
 												</ul>
@@ -584,22 +584,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<ins class="font-bold color">$58.9</ins>
@@ -607,13 +607,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5-5.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5-5-5.jpg"
 															alt=""></a></li>
 												</ul>
@@ -623,22 +623,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-8.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -647,13 +647,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7-7.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7-7-7.jpg"
 															alt=""></a></li>
 												</ul>
@@ -671,22 +671,22 @@
 								data-itemscustom="[[0,1],[480,2],[768,3],[1024,3],[1200,4]]">
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-23.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link clearfix">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -695,13 +695,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6-6.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6-6-6.jpg"
 															alt=""></a></li>
 												</ul>
@@ -711,22 +711,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-25.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<ins class="font-bold color">$234.00</ins>
@@ -734,13 +734,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1-1.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1-1-1.jpg"
 															alt=""></a></li>
 												</ul>
@@ -750,22 +750,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-26.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -774,13 +774,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4-4.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4-4-4.jpg"
 															alt=""></a></li>
 												</ul>
@@ -790,22 +790,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<ins class="font-bold color">$58.9</ins>
@@ -813,13 +813,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5-5.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5-5-5.jpg"
 															alt=""></a></li>
 												</ul>
@@ -829,22 +829,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -853,13 +853,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7-7.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7-7-7.jpg"
 															alt=""></a></li>
 												</ul>
@@ -877,22 +877,22 @@
 								data-itemscustom="[[0,1],[480,2],[768,3],[1024,3],[1200,4]]">
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-8.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link clearfix">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -901,13 +901,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6-6.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-6-6-6.jpg"
 															alt=""></a></li>
 												</ul>
@@ -917,22 +917,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-9.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<ins class="font-bold color">$234.00</ins>
@@ -940,13 +940,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1-1.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-1-1-1.jpg"
 															alt=""></a></li>
 												</ul>
@@ -956,22 +956,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-10.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -980,13 +980,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4-4.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-4-4-4.jpg"
 															alt=""></a></li>
 												</ul>
@@ -996,22 +996,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<ins class="font-bold color">$58.9</ins>
@@ -1019,13 +1019,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5-5.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-5-5-5.jpg"
 															alt=""></a></li>
 												</ul>
@@ -1035,22 +1035,22 @@
 								</div>
 								<div class="item-product item-product1">
 									<div class="product-thumb mid">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
 											class="fas fa-eye"></i></a>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 									<div class="product-info">
 										<span class="title10 text-uppercase">Women’s</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-price">
 											<del>$97.00</del>
@@ -1059,13 +1059,13 @@
 										<div class="thumb-carousel thumb-carousel-product text-center">
 											<div class="carousel-product">
 												<ul class="list-inline">
-													<li class="active"><a href="#"><img
+													<li class="active"><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7-7.jpg"
 															alt=""></a></li>
-													<li><a href="#"><img
+													<li><a href="${pageContext.request.contextPath}/categories"><img
 															src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-7-7-7.jpg"
 															alt=""></a></li>
 												</ul>
@@ -1100,13 +1100,13 @@
 									<p class="desc">Discover fashion bags for ladies online by
 										Very Chaep. Find fashion shoes of high quality by filtering
 										according to your needs!</p>
-									<a href="#" class="shop-button bg-color white hover-btn">shop
+									<a href="${pageContext.request.contextPath}/categories" class="shop-button bg-color white hover-btn">shop
 										now</a> <span class="icon-arrow"><img
 										src="${pageContext.request.contextPath}/resources/assets/photos/icon-arrow.png"
 										alt="" /></span>
 								</div>
 								<div class="advs-thumb advs-thumb-left zoom-rotate">
-									<a href="#" class="advs-thumb-link"><img
+									<a href="${pageContext.request.contextPath}/categories" class="advs-thumb-link"><img
 										src="${pageContext.request.contextPath}/resources/assets/photos/banner/7uptheme_verycheap_02.jpg"
 										alt="" /></a>
 								</div>
@@ -1115,7 +1115,7 @@
 						<div class="col-md-6">
 							<div class="item-advs item-advs1 bg-white">
 								<div class="advs-thumb advs-thumb-right zoom-rotate">
-									<a href="#" class="advs-thumb-link"><img
+									<a href="${pageContext.request.contextPath}/categories" class="advs-thumb-link"><img
 										src="${pageContext.request.contextPath}/resources/assets/photos/banner/7uptheme_verycheap_01.jpg"
 										alt="" /></a>
 								</div>
@@ -1135,7 +1135,7 @@
 									<p class="desc">Discover fashion bags for ladies online by
 										Very Chaep. Find fashion shoes of high quality by filtering
 										according to your needs!</p>
-									<a href="#" class="shop-button bg-color white hover-btn">shop
+									<a href="${pageContext.request.contextPath}/categories" class="shop-button bg-color white hover-btn">shop
 										now</a>
 								</div>
 							</div>
@@ -1161,78 +1161,78 @@
 						data-itemscustom="[[0,1],[480,2],[768,3],[1024,4],[1200,4]]">
 						<div class="item-cate">
 							<div class="thumb-cate">
-								<a href="#"><img
+								<a href="${pageContext.request.contextPath}/categories"><img
 									src="${pageContext.request.contextPath}/resources/assets/photos/cate/01.jpg"
 									alt="" /></a>
 							</div>
 							<div class="info-cate clearfix">
 								<h3 class="title14 font-bold text-uppercase pull-left">
-									<a href="#" class="link-hover white">Shoes</a>
+									<a href="${pageContext.request.contextPath}/categories" class="link-hover white">Shoes</a>
 								</h3>
 								<span class="title12  pull-right">35 items</span>
 							</div>
 						</div>
 						<div class="item-cate">
 							<div class="thumb-cate">
-								<a href="#"><img
+								<a href="${pageContext.request.contextPath}/categories"><img
 									src="${pageContext.request.contextPath}/resources/assets/photos/cate/02.jpg"
 									alt="" /></a>
 							</div>
 							<div class="info-cate clearfix">
 								<h3 class="title14 font-bold text-uppercase pull-left">
-									<a href="#" class="link-hover white">Shoes</a>
+									<a href="${pageContext.request.contextPath}/categories" class="link-hover white">Shoes</a>
 								</h3>
 								<span class="title12  pull-right">35 items</span>
 							</div>
 						</div>
 						<div class="item-cate">
 							<div class="thumb-cate">
-								<a href="#"><img
+								<a href="${pageContext.request.contextPath}/categories"><img
 									src="${pageContext.request.contextPath}/resources/assets/photos/cate/03.jpg"
 									alt="" /></a>
 							</div>
 							<div class="info-cate clearfix">
 								<h3 class="title14 font-bold text-uppercase pull-left">
-									<a href="#" class="link-hover white">Shoes</a>
+									<a href="${pageContext.request.contextPath}/categories" class="link-hover white">Shoes</a>
 								</h3>
 								<span class="title12  pull-right">35 items</span>
 							</div>
 						</div>
 						<div class="item-cate">
 							<div class="thumb-cate">
-								<a href="#"><img
+								<a href="${pageContext.request.contextPath}/categories"><img
 									src="${pageContext.request.contextPath}/resources/assets/photos/cate/04.jpg"
 									alt="" /></a>
 							</div>
 							<div class="info-cate clearfix">
 								<h3 class="title14 font-bold text-uppercase pull-left">
-									<a href="#" class="link-hover white">Shoes</a>
+									<a href="${pageContext.request.contextPath}/categories" class="link-hover white">Shoes</a>
 								</h3>
 								<span class="title12  pull-right">35 items</span>
 							</div>
 						</div>
 						<div class="item-cate">
 							<div class="thumb-cate">
-								<a href="#"><img
+								<a href="${pageContext.request.contextPath}/categories"><img
 									src="${pageContext.request.contextPath}/resources/assets/photos/cate/05.jpg"
 									alt="" /></a>
 							</div>
 							<div class="info-cate clearfix">
 								<h3 class="title14 font-bold text-uppercase pull-left">
-									<a href="#" class="link-hover white">Shoes</a>
+									<a href="${pageContext.request.contextPath}/categories" class="link-hover white">Shoes</a>
 								</h3>
 								<span class="title12  pull-right">35 items</span>
 							</div>
 						</div>
 						<div class="item-cate">
 							<div class="thumb-cate">
-								<a href="#"><img
+								<a href="${pageContext.request.contextPath}/categories"><img
 									src="${pageContext.request.contextPath}/resources/assets/photos/cate/06.jpg"
 									alt="" /></a>
 							</div>
 							<div class="info-cate clearfix">
 								<h3 class="title14 font-bold text-uppercase pull-left">
-									<a href="#" class="link-hover white">Shoes</a>
+									<a href="${pageContext.request.contextPath}/categories" class="link-hover white">Shoes</a>
 								</h3>
 								<span class="title12  pull-right">35 items</span>
 							</div>
@@ -1256,33 +1256,33 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="post-item">
 							<div class="post-thumb zoom-rotate overlay-image">
-								<a href="#" class="advs-thumb-link"><img
+								<a href="${pageContext.request.contextPath}/categories" class="advs-thumb-link"><img
 									src="${pageContext.request.contextPath}/resources/assets/photos/blog/01.jpg"
 									alt="" /></a>
 							</div>
 							<div class="post-info text-left">
 								<h3 class="title18 post-username font-bold border-bottom">
-									<a href="#" class="link-hover">The annual international
+									<a href="${pageContext.request.contextPath}/categories" class="link-hover">The annual international
 										trade show </a>
 								</h3>
 								<ul class="list-inline-block post-date">
 									<li><span class="font-bold title12">Aug 26, 2017</span></li>
-									<li><a href="#" class="font-bold"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="font-bold"><i
 											class="far fa-comment"></i>5</a></li>
 								</ul>
 								<p class="desc">Transfer to a prepared baking dish and bake
 									for 20 to 30 minutes, or until bubbling and starting to brown.
 									If the dip is bubbling</p>
 								<ul class="list-inline-block social-box">
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="far fa-heart"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-twitter"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-pinterest-p"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-google-plus-g"></i></a></li>
 								</ul>
 							</div>
@@ -1291,33 +1291,33 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="post-item">
 							<div class="post-thumb zoom-rotate overlay-image">
-								<a href="#" class="advs-thumb-link"><img
+								<a href="${pageContext.request.contextPath}/categories" class="advs-thumb-link"><img
 									src="${pageContext.request.contextPath}/resources/assets/photos/blog/03.jpg"
 									alt="" /></a>
 							</div>
 							<div class="post-info text-left">
 								<h3 class="title18 post-username font-bold border-bottom">
-									<a href="#" class="link-hover">The hottest shoes of the
+									<a href="${pageContext.request.contextPath}/categories" class="link-hover">The hottest shoes of the
 										year</a>
 								</h3>
 								<ul class="list-inline-block post-date">
 									<li><span class="font-bold title12">Aug 26, 2017</span></li>
-									<li><a href="#" class="font-bold"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="font-bold"><i
 											class="far fa-comment"></i>5</a></li>
 								</ul>
 								<p class="desc">Transfer to a prepared baking dish and bake
 									for 20 to 30 minutes, or until bubbling and starting to brown.
 									If the dip is bubbling</p>
 								<ul class="list-inline-block social-box">
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="far fa-heart"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-twitter"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-pinterest-p"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-google-plus-g"></i></a></li>
 								</ul>
 							</div>
@@ -1326,40 +1326,40 @@
 					<div class="col-md-4 col-sm-4">
 						<div class="post-item">
 							<div class="post-thumb zoom-rotate overlay-image">
-								<a href="#" class="advs-thumb-link"><img
+								<a href="${pageContext.request.contextPath}/categories" class="advs-thumb-link"><img
 									src="${pageContext.request.contextPath}/resources/assets/photos/blog/10.jpg"
 									alt="" /></a>
 							</div>
 							<div class="post-info text-left">
 								<h3 class="title18 post-username font-bold border-bottom">
-									<a href="#" class="link-hover">Turner Prize Shortlist for
+									<a href="${pageContext.request.contextPath}/categories" class="link-hover">Turner Prize Shortlist for
 										2017</a>
 								</h3>
 								<ul class="list-inline-block post-date">
 									<li><span class="font-bold title12">Aug 26, 2017</span></li>
-									<li><a href="#" class="font-bold"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="font-bold"><i
 											class="far fa-comment"></i>5</a></li>
 								</ul>
 								<p class="desc">Transfer to a prepared baking dish and bake
 									for 20 to 30 minutes, or until bubbling and starting to brown.
 									If the dip is bubbling</p>
 								<ul class="list-inline-block social-box">
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="far fa-heart"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-twitter"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-pinterest-p"></i></a></li>
-									<li><a href="#" class="wobble-bottom"><i
+									<li><a href="${pageContext.request.contextPath}/categories" class="wobble-bottom"><i
 											class="fab fa-google-plus-g"></i></a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
-				<a href="#" class="shop-button bg-color hover-btn white">view
+				<a href="${pageContext.request.contextPath}/categories" class="shop-button bg-color hover-btn white">view
 					all blog</a>
 			</div>
 		</div>
@@ -1381,7 +1381,7 @@
 							<div class="col-md-6 col-sm-6">
 								<div class="item-product table border">
 									<div class="product-thumb text-center">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-14.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
@@ -1390,7 +1390,7 @@
 									<div class="product-info">
 										<span class="title10 text-uppercase">men's</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-rate">
 											<div class="product-rating">
@@ -1406,16 +1406,16 @@
 											data-color="#57ce74" data-bg="rgba(0,0,0,0.5)"
 											data-width="0.03" data-text='["DAY","HOU","MIN","SEC"]'></div>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 								</div>
 								<div class="item-product table border">
 									<div class="product-thumb text-center">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-25.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
@@ -1424,7 +1424,7 @@
 									<div class="product-info">
 										<span class="title10 text-uppercase">men's</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-rate">
 											<div class="product-rating">
@@ -1440,9 +1440,9 @@
 											data-color="#57ce74" data-bg="rgba(0,0,0,0.5)"
 											data-width="0.03" data-text='["DAY","HOU","MIN","SEC"]'></div>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
@@ -1451,7 +1451,7 @@
 							<div class="col-md-6 col-sm-6">
 								<div class="item-product table border">
 									<div class="product-thumb text-center">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-10.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
@@ -1460,7 +1460,7 @@
 									<div class="product-info">
 										<span class="title10 text-uppercase">men's</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-rate">
 											<div class="product-rating">
@@ -1476,16 +1476,16 @@
 											data-color="#57ce74" data-bg="rgba(0,0,0,0.5)"
 											data-width="0.03" data-text='["DAY","HOU","MIN","SEC"]'></div>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 								</div>
 								<div class="item-product table border">
 									<div class="product-thumb text-center">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-8.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
@@ -1494,7 +1494,7 @@
 									<div class="product-info">
 										<span class="title10 text-uppercase">men's</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-rate">
 											<div class="product-rating">
@@ -1510,9 +1510,9 @@
 											data-color="#57ce74" data-bg="rgba(0,0,0,0.5)"
 											data-width="0.03" data-text='["DAY","HOU","MIN","SEC"]'></div>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
@@ -1525,7 +1525,7 @@
 							<div class="col-md-6 col-sm-6">
 								<div class="item-product table border">
 									<div class="product-thumb text-center">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-14.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
@@ -1534,7 +1534,7 @@
 									<div class="product-info">
 										<span class="title10 text-uppercase">men's</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-rate">
 											<div class="product-rating">
@@ -1550,16 +1550,16 @@
 											data-color="#57ce74" data-bg="rgba(0,0,0,0.5)"
 											data-width="0.03" data-text='["DAY","HOU","MIN","SEC"]'></div>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 								</div>
 								<div class="item-product table border">
 									<div class="product-thumb text-center">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-25.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
@@ -1568,7 +1568,7 @@
 									<div class="product-info">
 										<span class="title10 text-uppercase">men's</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-rate">
 											<div class="product-rating">
@@ -1584,9 +1584,9 @@
 											data-color="#57ce74" data-bg="rgba(0,0,0,0.5)"
 											data-width="0.03" data-text='["DAY","HOU","MIN","SEC"]'></div>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
@@ -1595,7 +1595,7 @@
 							<div class="col-md-6 col-sm-6">
 								<div class="item-product table border">
 									<div class="product-thumb text-center">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-10.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
@@ -1604,7 +1604,7 @@
 									<div class="product-info">
 										<span class="title10 text-uppercase">men's</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-rate">
 											<div class="product-rating">
@@ -1620,16 +1620,16 @@
 											data-color="#57ce74" data-bg="rgba(0,0,0,0.5)"
 											data-width="0.03" data-text='["DAY","HOU","MIN","SEC"]'></div>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
 								</div>
 								<div class="item-product table border">
 									<div class="product-thumb text-center">
-										<a href="#"><img
+										<a href="${pageContext.request.contextPath}/categories"><img
 											src="${pageContext.request.contextPath}/resources/assets/photos/clothing/fashion-8.jpg"
 											alt="" /></a> <a href="quick-view.html"
 											class="quickview-link fancybox fancybox.iframe"><i
@@ -1638,7 +1638,7 @@
 									<div class="product-info">
 										<span class="title10 text-uppercase">men's</span>
 										<h3 class="title14 font-bold">
-											<a href="#" class="link-hover">Fashion store clothing</a>
+											<a href="${pageContext.request.contextPath}/categories" class="link-hover">Fashion store clothing</a>
 										</h3>
 										<div class="product-rate">
 											<div class="product-rating">
@@ -1654,9 +1654,9 @@
 											data-color="#57ce74" data-bg="rgba(0,0,0,0.5)"
 											data-width="0.03" data-text='["DAY","HOU","MIN","SEC"]'></div>
 										<div class="product-extra-link">
-											<a href="#" class="addcart-link pull-left"><span>Add
-													to cart</span></a> <a href="#" class="compare-link pull-right"><i
-												class="fas fa-exchange-alt"></i></a> <a href="#"
+											<a href="${pageContext.request.contextPath}/categories" class="addcart-link pull-left"><span>Add
+													to cart</span></a> <a href="${pageContext.request.contextPath}/categories" class="compare-link pull-right"><i
+												class="fas fa-exchange-alt"></i></a> <a href="${pageContext.request.contextPath}/categories"
 												class="wishlist-link pull-right"><i class="far fa-heart"></i></a>
 										</div>
 									</div>
@@ -1687,13 +1687,13 @@
 								indulge in this hobby furthermore!</p>
 							<div class="box-avatar table">
 								<div class="thumb-box">
-									<a href="#" class="advs-thumb-link"><img
+									<a href="${pageContext.request.contextPath}/categories" class="advs-thumb-link"><img
 										src="${pageContext.request.contextPath}/resources/assets/photos/client/02.png"
 										alt="" /></a>
 								</div>
 								<div class="info-box">
 									<h3 class="title18 font-bold">
-										<a href="#" class="link-hover">Mr. Phu Pham Viet</a>
+										<a href="${pageContext.request.contextPath}/categories" class="link-hover">Mr. Phu Pham Viet</a>
 									</h3>
 									<p class="desc silver">WordPress Developer</p>
 								</div>
@@ -1708,13 +1708,13 @@
 								all!</p>
 							<div class="box-avatar table">
 								<div class="thumb-box">
-									<a href="#" class="advs-thumb-link"><img
+									<a href="${pageContext.request.contextPath}/categories" class="advs-thumb-link"><img
 										src="${pageContext.request.contextPath}/resources/assets/photos/client/01.png"
 										alt="" /></a>
 								</div>
 								<div class="info-box">
 									<h3 class="title18 font-bold">
-										<a href="#" class="link-hover">Mrs. Khanh Linh</a>
+										<a href="${pageContext.request.contextPath}/categories" class="link-hover">Mrs. Khanh Linh</a>
 									</h3>
 									<p class="desc silver">Html & Css</p>
 								</div>

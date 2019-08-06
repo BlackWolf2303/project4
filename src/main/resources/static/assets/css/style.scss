@@ -1,3 +1,10 @@
+/* header : menu */ 
+.main-nav > ul > li > a {
+  font-size: 12px;
+  font-weight: bold;
+  font-family: inherit;
+}
+
 .footer-index {
   margin-bottom: 0;
 }
@@ -29,7 +36,7 @@
       display: flex;
       opacity: 1;
       visibility: visible;
-      bottom: -9px;
+      bottom: -2.9rem;
     }
   }
 }
@@ -217,4 +224,22 @@ display:flex;
   }
 }
 
+.checkout-page {
+  .group-checkout {
+
+    max-height: 4.5rem;
+    display: flex;
+    justify-content: space-between;
+    &>a {
+      line-height: calc(31/14);
+    }
+    .paypal-button {
+      border: 1px solid #b92c28;
+    }
+    .btn {
+      font-family: inherit;
+      font-weight: bold;
+    }
+  }
+}
 

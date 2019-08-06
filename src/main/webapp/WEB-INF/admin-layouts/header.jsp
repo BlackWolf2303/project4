@@ -34,7 +34,7 @@
 <!--                 <div class="badge badge-warning">6 New</div></a></li> -->
           </ul>
         </div>
-        <div class="admin-menu">
+        <div class="admin-menu d-none">
           <h5 class="sidenav-heading">Second menu</h5>
           <ul id="side-admin-menu" class="side-menu list-unstyled"> 
             <li> <a href="#"> <i class="icon-screen"> </i>Demo</a></li>
