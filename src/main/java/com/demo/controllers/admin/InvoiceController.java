@@ -25,66 +25,80 @@ public class InvoiceController {
 	private OrderService orderService;
 	@Autowired
 	private OrderDetailService orderDetailService;
-	
+
 	@GetMapping()
 	public String index(ModelMap map) {
-		//List<Order> orders = (List<Order>)orderService.findAll();
-		map.put("orders", orderService.findAll());	
+		// List<Order> orders = (List<Order>)orderService.findAll();
+		map.put("orders", orderService.findAll());
 		return "../admin/invoice/index";
 	}
-	
+
 	@GetMapping("edit/{id}")
 	public String edit(@PathVariable("id") int id, ModelMap modelMap) {
 		Order order = orderService.find(id);
-		if(order==null) {
+		if (order == null) {
 			return "../admin/invoice/order-notfound";
 		} else {
 			modelMap.put("order", order);
 		}
 		return "../admin/invoice/edit";
 	}
-	
+
 	@GetMapping("editshipto/{id}")
 	public String editShipto(@PathVariable("id") int id, ModelMap modelMap) {
 		Order order = orderService.find(id);
-		if(order==null) {
+		if (order == null) {
 			return "../admin/invoice/order-notfound";
 		} else {
 			modelMap.put("order", order);
 		}
 		return "../admin/invoice/editshipto";
 	}
-	
+
+	@GetMapping("editstatus/{id}")
+	public String editstatus(@PathVariable("id") int id, ModelMap modelMap) {
+		Order insertOrder = orderService.find(id);
+		if (insertOrder != null) {
+			if (insertOrder.getStatus().equalsIgnoreCase("pending")) {
+				insertOrder.setStatus("Done");
+			} else if (insertOrder.getStatus().equalsIgnoreCase("done")) {
+				insertOrder.setStatus("Pending");
+			}
+			orderService.save(insertOrder);
+		}
+		return "redirect:/admin/invoice";
+	}
+
 	@PostMapping("edit")
 	public String edit(@ModelAttribute("order") Order order) {
 		Order insertOrder = orderService.find(order.getId());
-		if (insertOrder!=null) {
+		if (insertOrder != null) {
 			insertOrder.setShipto(order.getShipto());
 			orderService.save(insertOrder);
 		}
 		return "redirect:/admin/invoice";
 	}
-	
+
 	@PostMapping("editshipto")
 	public String editShipTo(@ModelAttribute("order") Order order) {
 		Order insertOrder = orderService.find(order.getId());
-		if (insertOrder!=null) {
+		if (insertOrder != null) {
 			insertOrder.setShipto(order.getShipto());
 			orderService.save(insertOrder);
 		}
 		return "redirect:/admin/invoice";
 	}
-	
+
 	@GetMapping("detail/{id}")
 	public String detail(@PathVariable("id") int id, ModelMap modelMap) {
 		List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
 		for (OrderDetail orderDetail : orderDetailService.findAll()) {
-			if (orderDetail.getId().getOrder().getId()==id) {
+			if (orderDetail.getId().getOrder().getId() == id) {
 				orderDetails.add(orderDetail);
 			}
 		}
 		modelMap.put("orderDetails", orderDetails);
 		return "../admin/invoice/detail";
 	}
-	
+
 }

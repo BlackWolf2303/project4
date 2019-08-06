@@ -225,4 +225,22 @@ display:flex;
   font-weight: bold;
 }
 
+/* categories page */
+.categories-page .item-product .quickview-link {
+  display: none;
+}
+.categories-page .item-product .product-extra-link {
+  display: none;
+}
+.categories-page .item-product .thumb-carousel-product {
+  display: none;
+}
+.categories-page .item-product .product-thumb {
+  height: 29rem;
+}
+.categories-page .item-product img {
+  object-fit: cover;
+  height: 100%;
+}
+
 /*# sourceMappingURL=style.css.map */

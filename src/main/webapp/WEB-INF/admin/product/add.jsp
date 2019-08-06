@@ -64,6 +64,14 @@
 								</div>
 							</div>
 							<br>
+							<div class="form-group row">
+								<label class="col-sm-2 form-control-label">Active </label>
+								<div class="col-sm-10">
+									<s:checkbox class="form-control" path="active" />
+								</div>
+								<s:errors path="active" />
+							</div>
+							<br>
 							<s:errors path="file" />
 							<br>
 							<div class="form-group row">

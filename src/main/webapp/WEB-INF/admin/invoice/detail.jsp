@@ -11,45 +11,43 @@
 			<h1 class="h3 display">Details</h1>
 		</header>
 
-		<div class="row">
-			<div class="col-lg-12">
-				<div class="card">
-					<div class="card-body">
-						<table class="table">
-							<thead>
-								<tr>
-									<td>Name</td>
-									<td>Option 1</td>
-									<td>Option 2</td>
-									<td>Quantity</td>
-									<td>Price</td>
-									<td>Total</td>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach var="orderDetail" items="${orderDetails }">
-									<tr>
-										<td>${orderDetail.product.name }</td>
-										<td>${orderDetail.option1}</td>
-										<td>${orderDetail.option2}</td>
-										<td>${orderDetail.quantity }</td>
-										<td>${orderDetail.price }</td>
-										<td>${orderDetail.price * orderDetail.quantity }</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan="5">Sum</td>
-									<td>Pending "Hoi Thay"...</td>
-								</tr>
-							</tfoot>
-						</table>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<h1>Details</h1>
+
+
+	<table border="1">
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>Option 1</td>
+				<td>Option 2</td>
+				<td>Quantity</td>
+				<td>Price</td>
+				<td>Total</td>
+			</tr>
+		</thead>
+		<tbody>
+			<c:set var="total" value="0"></c:set>
+			<c:forEach var="orderDetail" items="${orderDetails }">
+				<c:set var="total"
+					value="${total + orderDetail.product.price * orderDetail.quantity }"></c:set>
+				<tr>
+					<td>${orderDetail.product.name }</td>
+					<td>${orderDetail.option1}</td>
+					<td>${orderDetail.option2}</td>
+					<td>${orderDetail.quantity }</td>
+					<td>${orderDetail.price }</td>
+					<td>${orderDetail.price * orderDetail.quantity }</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="5">Sum</td>
+				<td>${total}</td>
+			</tr>
+		</tfoot>
+	</table>
+
 </section>
 
 <jsp:include page="/WEB-INF/admin-layouts/footer.jsp"></jsp:include>

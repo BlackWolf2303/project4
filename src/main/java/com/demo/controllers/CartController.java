@@ -1,5 +1,8 @@
 package com.demo.controllers;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -151,6 +154,7 @@ public class CartController {
 			order.setAccount(account);
 			order.setStatus("Pending");
 			order.setType("Pay At Home");
+			order.setCreateat(Date.valueOf(LocalDate.now()));
 			Order order2 = orderService.save(order);
 			List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
 			for (Item item : (List<Item>) session.getAttribute("cart")) {
@@ -197,6 +201,7 @@ public class CartController {
 			order.setAccount(account);
 			order.setStatus("Pending");
 			order.setType("PayPal");
+			order.setCreateat(Date.valueOf(LocalDate.now()));
 			Order order2 = orderService.save(order);
 			List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
 			for (Item item : (List<Item>) session.getAttribute("cart")) {
