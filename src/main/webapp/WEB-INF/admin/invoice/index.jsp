@@ -32,7 +32,7 @@
 										<td>${order.status}</td>
 										<td>${order.shipto}</td>
 										<td><a href="/admin/invoice/detail/${order.id}">Details</a>|<a
-											href="/admin/invoice/edit/${order.id}">Edit</a></td>
+											href="/admin/invoice/editshipto/${order.id}">Edit Ship To</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

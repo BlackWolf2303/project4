@@ -25,7 +25,7 @@
 							<c:url value="/admin/customer" var="pagedLink">
 								<c:param name="page" value="~" />
 							</c:url>
-
+							<div class="col-lg-4 table">
 							Sort: <select id="property" onchange="setProperty()">
 								<c:forEach items="${properties }" var="property">
 									<option
@@ -37,6 +37,7 @@
 										<c:if test="${param.dir == direction}"> selected </c:if>>${direction }</option>
 								</c:forEach>
 							</select>
+							</div>
 							<table class="table">
 								<tr>
 									<th>Avatar</th>

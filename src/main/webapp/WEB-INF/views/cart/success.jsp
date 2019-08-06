@@ -7,22 +7,25 @@
 <jsp:include page="/WEB-INF/layouts/header.jsp"></jsp:include>
 <section>
 	<h3>SUCCESS</h3>
-	<table>
-	<tr>
-		<td>Order ID</td>
-		<td>Product Name</td>
-		<td>Price</td>
-		<td>Quantity</td>
-	</tr>
-	<c:forEach var="orderdetail" items="${orderdetails}">
-	<tr>
-		<td>${orderdetail.order.id}</td>
-		<td>${orderdetail.product.name}</td>
-		<td>${orderdetail.price}</td>
-		<td>${orderdetail.quantity}</td>
-	</tr>
-	</c:forEach>
-	</table>
+	<i>Your checkout successfull!</i>
+	<br>
+<!-- 	<table> -->
+<!-- 	<tr> -->
+<!-- 		<td>Order ID</td> -->
+<!-- 		<td>Product Name</td> -->
+<!-- 		<td>Price</td> -->
+<!-- 		<td>Quantity</td> -->
+<!-- 	</tr> -->
+<%-- 	<c:forEach var="orderdetail" items="${orderdetails}"> --%>
+<!-- 	<tr> -->
+<%-- 		<td>${orderdetail.order.id}</td> --%>
+<%-- 		<td>${orderdetail.product.name}</td> --%>
+<%-- 		<td>${orderdetail.price}</td> --%>
+<%-- 		<td>${orderdetail.quantity}</td> --%>
+<%-- 		<td>${orderdetail.quantity}</td> --%>
+<!-- 	</tr> -->
+<%-- 	</c:forEach> --%>
+<!-- 	</table> -->
 	<a href="/">Continue Shopping</a>
 </section>
 <!-- End Content -->

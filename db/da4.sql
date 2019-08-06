@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 05, 2019 at 06:50 PM
--- Server version: 10.1.40-MariaDB
--- PHP Version: 7.1.29
+-- Host: 127.0.0.1
+-- Generation Time: Aug 06, 2019 at 11:29 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -161,7 +161,23 @@ INSERT INTO `images` (`id`, `name`, `productId`) VALUES
 (54, 'picture4.jpg', 1),
 (55, 'picture5.jpg', 1),
 (56, 'picture6.jpg', 1),
-(57, 'picture7.jpg', 1);
+(57, 'picture7.jpg', 1),
+(58, 'picture02.jpg', 2),
+(59, 'picture12.jpg', 2),
+(60, 'picture22.jpg', 2),
+(61, 'picture32.jpg', 2),
+(62, 'picture42.jpg', 2),
+(63, 'picture52.jpg', 2),
+(64, 'picture62.jpg', 2),
+(65, 'picture72.jpg', 2),
+(66, 'picture03.jpg', 3),
+(67, 'picture13.jpg', 3),
+(68, 'picture23.jpg', 3),
+(69, 'picture33.jpg', 3),
+(70, 'picture43.jpg', 3),
+(71, 'picture53.jpg', 3),
+(72, 'picture63.jpg', 3),
+(73, 'picture73.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -171,16 +187,27 @@ INSERT INTO `images` (`id`, `name`, `productId`) VALUES
 
 CREATE TABLE `ordertbl` (
   `id` int(11) NOT NULL,
-  `account_id` int(11) NOT NULL
+  `account_id` int(11) NOT NULL,
+  `status` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `type` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `shipto` varchar(250) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `ordertbl`
 --
 
-INSERT INTO `ordertbl` (`id`, `account_id`) VALUES
-(1, 17),
-(2, 17);
+INSERT INTO `ordertbl` (`id`, `account_id`, `status`, `type`, `shipto`) VALUES
+(1, 17, '', '', ''),
+(2, 17, '', '', ''),
+(3, 17, 'Pending', 'Pay At Home', '21132323'),
+(4, 17, 'Pending', 'Pay At Home', 'wqde'),
+(5, 17, 'Pending', 'Pay At Home', 'asdf'),
+(6, 17, 'Pending', 'Pay At Home', 'asdf'),
+(7, 17, 'Pending', 'PayPal', '\Z\Zc Nguy\Zn'),
+(8, 17, 'Pending', 'PayPal', 'null, San Jose, CA, United States'),
+(9, 17, 'Pending', 'PayPal', 'null, San Jose, CA, United States'),
+(10, 17, 'Pending', 'PayPal', '1 Main St, San Jose, CA, United States');
 
 -- --------------------------------------------------------
 
@@ -192,16 +219,24 @@ CREATE TABLE `order_detail` (
   `product_id` int(11) NOT NULL,
   `order_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
-  `price` double NOT NULL
+  `price` double NOT NULL,
+  `option1` varchar(250) COLLATE utf8_unicode_ci NOT NULL,
+  `option2` varchar(250) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `order_detail`
 --
 
-INSERT INTO `order_detail` (`product_id`, `order_id`, `qty`, `price`) VALUES
-(1, 1, 1, 99.6),
-(1, 2, 1, 99.6);
+INSERT INTO `order_detail` (`product_id`, `order_id`, `qty`, `price`, `option1`, `option2`) VALUES
+(1, 1, 1, 99.6, '', ''),
+(1, 2, 1, 99.6, '', ''),
+(1, 5, 2, 199000, 'option1', 'option2'),
+(1, 6, 1, 199000, 'Size-M', 'Color-Blue'),
+(1, 7, 1, 199000, 'Size-M', 'Color-Blue'),
+(1, 8, 1, 199000, 'Size-M', 'Color-Blue'),
+(1, 9, 1, 199000, 'Size-M', 'Color-Blue'),
+(1, 10, 1, 199000, 'Size-M', 'Color-Blue');
 
 -- --------------------------------------------------------
 
@@ -224,7 +259,31 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `price`, `quantity`, `active`, `typetemplate_id1`, `typetemplate_id2`) VALUES
-(1, 'JACKET MARCUSARCUS 18', 199000, 15, 0, 5, 4);
+(1, 'JACKET MARCUSARCUS 18', 199000, 15, 1, 5, 4),
+(2, 'Red', 99.6, 22, 0, 4, 5),
+(3, 'Black', 7, 1, 0, 4, 5),
+(4, 'fasdf', 120, 2, 0, 4, 5),
+(5, 'fasdf', 120, 2, 0, 4, 5),
+(6, 'fasdf', 120, 2, 0, 4, 5),
+(7, 'fasdf', 120, 2, 0, 4, 5),
+(8, 'fasdf', 120, 2, 0, 4, 5),
+(9, 'fasdf', 120, 2, 0, 4, 5),
+(10, 'fasdf', 120, 2, 0, 4, 5),
+(11, 'fasdf', 120, 2, 0, 4, 5),
+(12, 'fasdf', 120, 2, 0, 4, 5),
+(13, 'fasdf', 120, 2, 0, 4, 5),
+(14, 'fasdf', 120, 2, 0, 4, 5),
+(15, 'fasdf', 120, 2, 0, 4, 5),
+(16, 'fasdf', 120, 2, 0, 4, 5),
+(17, 'fasdf', 120, 2, 0, 4, 5),
+(18, 'fasdf', 120, 2, 0, 4, 5),
+(19, 'fasdf', 120, 2, 0, 4, 5),
+(20, 'fasdf', 120, 2, 0, 4, 5),
+(21, 'fasdf', 120, 2, 0, 4, 5),
+(22, 'fasdf', 120, 2, 0, 4, 5),
+(23, 'fasdf', 120, 2, 0, 4, 5),
+(24, 'fasdf', 120, 2, 0, 4, 5),
+(25, 'fasdf', 120, 2, 0, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -515,19 +574,19 @@ ALTER TABLE `color`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `ordertbl`
 --
 ALTER TABLE `ordertbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -933,6 +992,36 @@ INSERT INTO `roles` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `type_1`
+--
+
+CREATE TABLE `type_1` (
+  `id` int(11) NOT NULL,
+  `value_01` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_02` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_03` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_04` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_05` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_06` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_07` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_08` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_09` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_10` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_11` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_12` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_13` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_14` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_15` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_16` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_17` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_18` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_19` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `value_20` varchar(100) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -990,6 +1079,12 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `type_1`
+--
+ALTER TABLE `type_1`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -1011,6 +1106,12 @@ ALTER TABLE `user_role`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `type_1`
+--
+ALTER TABLE `type_1`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -1581,7 +1682,7 @@ CREATE TABLE `pma__designer_settings` (
 --
 
 INSERT INTO `pma__designer_settings` (`username`, `settings_data`) VALUES
-('root', '{\"angular_direct\":\"direct\",\"relation_lines\":\"true\",\"snap_to_grid\":\"off\"}');
+('root', '{\"angular_direct\":\"direct\",\"snap_to_grid\":\"off\",\"relation_lines\":\"true\",\"full_screen\":\"on\"}');
 
 -- --------------------------------------------------------
 
@@ -1665,7 +1766,7 @@ CREATE TABLE `pma__recent` (
 --
 
 INSERT INTO `pma__recent` (`username`, `tables`) VALUES
-('root', '[{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"order_detail\"},{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"da4\",\"table\":\"category_product\"},{\"db\":\"da4\",\"table\":\"product\"},{\"db\":\"da4\",\"table\":\"customer\"},{\"db\":\"da4\",\"table\":\"order\"},{\"db\":\"da4\",\"table\":\"images\"},{\"db\":\"da4\",\"table\":\"product_size\"}]');
+('root', '[{\"db\":\"da4\",\"table\":\"product\"},{\"db\":\"da4\",\"table\":\"ordertbl\"},{\"db\":\"da4\",\"table\":\"order_detail\"},{\"db\":\"da4\",\"table\":\"account_role\"},{\"db\":\"da4\",\"table\":\"account\"},{\"db\":\"da4\",\"table\":\"role\"},{\"db\":\"da4\",\"table\":\"images\"},{\"db\":\"da4\",\"table\":\"typetemplate\"},{\"db\":\"da4\",\"table\":\"typevalue_typetemplate\"},{\"db\":\"da4\",\"table\":\"typevalue\"}]');
 
 -- --------------------------------------------------------
 
@@ -1772,7 +1873,7 @@ CREATE TABLE `pma__userconfig` (
 --
 
 INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
-('root', '2019-08-05 16:50:04', '{\"Console\\/Mode\":\"collapse\"}');
+('root', '2019-08-06 09:29:14', '{\"Console\\/Mode\":\"collapse\",\"ThemeDefault\":\"pmahomme\",\"FontSize\":\"100%\"}');
 
 -- --------------------------------------------------------
 
@@ -1961,10 +2062,83 @@ ALTER TABLE `pma__pdf_pages`
 ALTER TABLE `pma__savedsearches`
   MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
+-- Database: `productdb`
+--
+CREATE DATABASE IF NOT EXISTS `productdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `productdb`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `id` int(11) NOT NULL,
+  `name` varchar(250) NOT NULL,
+  `price` double NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- Database: `test`
 --
 CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
 USE `test`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `account`
+--
+
+CREATE TABLE `account` (
+  `username` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL,
+  `age` int(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `website` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `account`
+--
+
+INSERT INTO `account` (`username`, `password`, `age`, `email`, `website`) VALUES
+('ducnt31132', 'thichOnha@1	', 25, 'duc@email.com', 'www.duc.com'),
+('ducnt38', 'thichOnha@1', 25, 'duc@email.com', 'www.duc.com'),
+('ducnt3811', 'thichOnha@1	', 25, 'duc@email.com', 'www.duc.com'),
+('ducnt38113', 'thichOnha@1	', 25, 'duc@email.com', 'www.duc.com');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -9,7 +9,7 @@
 				<div
 					class="top-header text-center white hidden-xs bg-2color-header-top">
 					<div class="container">
-						<h3 class="title14 text-uppercase font-bold rale-font">Hỗ trợ mua hàng FREE SHIP tại </h3>
+						<h3 class="title14 text-uppercase font-bold rale-font">SHOPEE-FREESHIP-UP TO SALE 22%</h3>
 						<a target="_blank" rel="noopener noreferrer"  href="https://shopee.vn/gmshop826" class="text-uppercase white link-hover border-left">shop
 							now <i class="fas fa-angle-right"></i>
 						</a> <a href="#" class="btn-close pull-right"></a>
@@ -137,12 +137,12 @@
 									<ul class="list-inline-block">
 										<li class="menu-item-has-children"><a
 											href="${pageContext.request.contextPath}/"
-											class="text-uppercase link-hover">Trang chủ </a></li>
+											class="text-uppercase link-hover">HOME</a></li>
 										<li class="menu-item-has-children"><a href="#"
-											class="text-uppercase link-hover">Khuyến Mãi <i
+											class="text-uppercase link-hover">FEATURES<i
 												class="fas fa-chevron-down"></i></a>
 											<ul class="sub-menu">
-												<li><a href="product.html">Product full</a></li>
+												<li><a href="product.html">SHOP</a></li>
 												<li><a href="product-no-sidebar.html">Product no
 														sidebar</a></li>
 												<li><a href="product-right-sidebar.html">Product
@@ -150,21 +150,21 @@
 											</ul></li>
 										<li class="menu-item-has-children"><a
 											href="${pageContext.request.contextPath}/categories"
-											class="text-uppercase link-hover">Danh mục sản phẩm <i
+											class="text-uppercase link-hover">CATEGORY<i
 												class="fas fa-chevron-down"></i></a>
 											<ul class="sub-menu">
-												<li><a href="#">Áo khoác & Jacket</a></li>
-												<li><a href="#">Áo thun cá tính</a></li>
-												<li><a href="#">Đầm váy thiết kế</a></li>
-												<li><a href="#">Giày & Túi xách</a></li>
+												<li><a href="#">Jacket</a></li>
+												<li><a href="#">Tee</a></li>
+												<li><a href="#">Shirt</a></li>
+												<li><a href="#">Shoes</a></li>
 											</ul></li>
 										<li class="menu-item-has-children"><a
 											href="${pageContext.request.contextPath}/blog"
-											class="text-uppercase link-hover">Khám phá</a></li>
+											class="text-uppercase link-hover">BLOG</a></li>
 										<li><a href="${pageContext.request.contextPath}/about"
-											class="text-uppercase link-hover">Về chúng tôi</a></li>
+											class="text-uppercase link-hover">ABOUT</a></li>
 										<li><a href="${pageContext.request.contextPath}/contact"
-											class="text-uppercase link-hover">Liên hệ</a></li>
+											class="text-uppercase link-hover">CONTACT</a></li>
 									</ul>
 									<a href="#" class="toggle-mobile-menu"><span></span></a>
 								</nav>
