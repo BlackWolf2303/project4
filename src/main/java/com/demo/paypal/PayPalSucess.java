@@ -53,7 +53,7 @@ public class PayPalSucess {
 						payPalResult.setPayer_id(temp[1]);
 					}
 					if (temp[0].equals("address_street")) {
-						payPalResult.setAddress_city(temp[1]);
+						payPalResult.setAddress_street(temp[1]);
 					}
 					if (temp[0].equals("payment_date")) {
 						payPalResult.setPayment_date(temp[1]);

@@ -24,17 +24,17 @@
 				<table cellpadding="2" cellspacing="2" border="1"
 					class="contact-page-info table  table-hover">
 					<thead class="thead-light">
-					<tr>
-						<th scope="col">Option</th>
-						<th scope="col">Id</th>
-						<th scope="col">Name</th>
-						<th scope="col">Photo</th>
-						<th scope="col">Price</th>
-						<th scope="col">Quantity</th>
-						<th scope="col">Option 1</th>
-						<th scope="col">Option 2</th>
-						<th scope="col">Sub Total</th>
-					</tr>
+						<tr>
+							<th scope="col">Option</th>
+							<th scope="col">Id</th>
+							<th scope="col">Name</th>
+							<th scope="col">Photo</th>
+							<th scope="col">Price</th>
+							<th scope="col">Quantity</th>
+							<th scope="col">Option 1</th>
+							<th scope="col">Option 2</th>
+							<th scope="col">Sub Total</th>
+						</tr>
 					</thead>
 					<c:set var="total" value="0"></c:set>
 					<c:forEach var="item" items="${sessionScope.cart }" varStatus="i">
@@ -46,11 +46,15 @@
 								onclick="return confirm('Are you sure?')">Remove</a></td>
 							<td>${item.product.id}</td>
 							<td>${item.product.name}</td>
-							<td><img src="http://localhost:9596/file/image/picture0${item.product.id}.jpg" width="50"></td>
+							<td><img
+								src="http://localhost:9596/file/image/picture0${item.product.id}.jpg"
+								width="50"></td>
 							<td>${item.product.price}</td>
 							<td>${item.quantity }</td>
-							<td>${item.typeValue1.typeTemplates.get(0).name} - ${item.typeValue1.name}</td>
-							<td>${item.typeValue2.typeTemplates.get(0).name} - ${item.typeValue2.name}</td>
+							<td>${item.typeValue1.typeTemplates.get(0).name}-
+								${item.typeValue1.name}</td>
+							<td>${item.typeValue2.typeTemplates.get(0).name}-
+								${item.typeValue2.name}</td>
 							<td>${item.product.price * item.quantity }</td>
 
 							<input type="hidden" name="item_number_${i.index + 1 }"
@@ -77,15 +81,18 @@
 					value="${payPalConfig.business}" />
 				<security:authorize access="hasRole('ROLE_CUSTOMER')">
 					<div class="group-checkout">
-						<a class="btn btn-success text-uppercase" href="${pageContext.request.contextPath}/categories">Continue
-				Shopping</a>
+						<a class="btn btn-success text-uppercase"
+							href="${pageContext.request.contextPath}/categories">Continue
+							Shopping</a>
 						<div class="d-flex flex-row">
-							<input type="button" class="btn btn-danger text-uppercase  m-r-20" value="Checkout" onclick="OnButtonCheckout();">
-							<input type="image" class="btn border paypal-button" onclick="OnButtonPaypal();"
+							<input type="button"
+								class="btn btn-danger text-uppercase  m-r-20" value="Checkout"
+								onclick="OnButtonCheckout();"> <input type="image"
+								class="btn border paypal-button" onclick="OnButtonPaypal();"
 								src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif">
 						</div>
 					</div>
-					
+
 				</security:authorize>
 				<security:authorize access="!hasRole('ROLE_CUSTOMER')">
 					<h3>
@@ -98,11 +105,10 @@
 
 
 		</section>
+		</div>
 		<script>
 			function OnButtonCheckout() {
-				document.CartForm.action = "${pageContext.request.contextPath }/cart/order"
-				document.CartForm.submit();
-				return true;
+				document.location.replace("${pageContext.request.contextPath }/cart/checkout");
 			}
 
 			function OnButtonPaypal() {
