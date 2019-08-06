@@ -44,11 +44,32 @@ public class InvoiceController {
 		return "../admin/invoice/edit";
 	}
 	
+	@GetMapping("editshipto/{id}")
+	public String editShipto(@PathVariable("id") int id, ModelMap modelMap) {
+		Order order = orderService.find(id);
+		if(order==null) {
+			return "../admin/invoice/order-notfound";
+		} else {
+			modelMap.put("order", order);
+		}
+		return "../admin/invoice/editshipto";
+	}
+	
 	@PostMapping("edit")
 	public String edit(@ModelAttribute("order") Order order) {
 		Order insertOrder = orderService.find(order.getId());
 		if (insertOrder!=null) {
-			//insertOrder.setUsername(order.getUsername());
+			insertOrder.setShipto(order.getShipto());
+			orderService.save(insertOrder);
+		}
+		return "redirect:/admin/invoice";
+	}
+	
+	@PostMapping("editshipto")
+	public String editShipTo(@ModelAttribute("order") Order order) {
+		Order insertOrder = orderService.find(order.getId());
+		if (insertOrder!=null) {
+			insertOrder.setShipto(order.getShipto());
 			orderService.save(insertOrder);
 		}
 		return "redirect:/admin/invoice";

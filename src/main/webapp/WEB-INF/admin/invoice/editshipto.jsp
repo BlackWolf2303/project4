@@ -9,12 +9,12 @@
 
 	<h1>Edit Order</h1>
 	
-	<s:form action="/admin/invoice/edit" modelAttribute="order" method="post">
+	<s:form action="/admin/invoice/editshipto" modelAttribute="order" method="post">
 	<table border="1">
 		<tbody>
 			<tr>
-				<td>Username</td>
-				<td><s:input path="account.username"/></td>
+				<td>Ship To</td>
+				<td><s:input path="shipto"/></td>
 			</tr>
 			<tr>
 				<td></td>
