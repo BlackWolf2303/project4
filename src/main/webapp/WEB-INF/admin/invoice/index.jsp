@@ -20,6 +20,7 @@
 									<td>Type</td>
 									<td>Status</td>
 									<td>Ship To</td>
+									<td>Create At</td>
 									<td>Action</td>
 								</tr>
 							</thead>	
@@ -31,8 +32,10 @@
 										<td>${order.type}</td>
 										<td>${order.status}</td>
 										<td>${order.shipto}</td>
+										<td>${order.getCreateatString()}</td>
 										<td><a href="/admin/invoice/detail/${order.id}">Details</a>|<a
-											href="/admin/invoice/editshipto/${order.id}">Edit Ship To</a></td>
+											href="/admin/invoice/editshipto/${order.id}">Edit Ship To</a>|<a
+											href="/admin/invoice/editstatus/${order.id}">Change Status</a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

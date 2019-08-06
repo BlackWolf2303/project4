@@ -1,5 +1,7 @@
 package com.demo.entities;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -28,6 +30,7 @@ public class Order {
 	private String type;
 	@Length(max = 250)
 	private String shipto;
+	private Date createat;
 
 	@ManyToOne
 	@JoinColumn(name = "account_id", nullable = false)
@@ -41,6 +44,19 @@ public class Order {
 
 	public String getShipto() {
 		return shipto;
+	}
+
+	public Date getCreateat() {
+		return createat;
+	}
+
+	public String getCreateatString() {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		return format.format( createat);
+	}
+
+	public void setCreateat(Date createat) {
+		this.createat = createat;
 	}
 
 	public void setShipto(String shipto) {

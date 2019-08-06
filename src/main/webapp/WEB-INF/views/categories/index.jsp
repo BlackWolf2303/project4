@@ -1,6 +1,12 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="tg" tagdir="/WEB-INF/tags"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<jsp:useBean id="pagedListHolder" scope="request"
+	type="org.springframework.beans.support.PagedListHolder" />
+<c:url value="/admin/customer" var="pagedLink">
+	<c:param name="page" value="~" />
+</c:url>
 <jsp:include page="/WEB-INF/layouts/head-meta.jsp"></jsp:include>
 <!-- PAGE CLASSNAME - NO CHANGE ORTHER OF THESE -->
 <body class="bg-white">
@@ -235,14 +241,9 @@
 
 
 									</div>
-									<div class="number-page text-center">
-										<ul class="list-inline-block">
-											<li class="active"><a href="#" class="font-bold">1</a></li>
-											<li><a href="#" class="font-bold">2</a></li>
-											<li><a href="#" class="font-bold">3</a></li>
-											<li><a href="#"><i class="fas fa-angle-double-right"></i></a></li>
-										</ul>
-									</div>
+
+									<tg:paging pagedListHolder="${pagedListHolder}"
+										pagedLink="${pagedLink}" />
 								</div>
 							</div>
 
@@ -253,3 +254,38 @@
 		<!-- End Content -->
 
 		<jsp:include page="/WEB-INF/layouts/footer.jsp"></jsp:include>
+
+		<script type="text/javascript">
+			function setPageNo(pageno) {
+				var currURL = document.URL;
+				var url = new URL(currURL);
+				var query_string = url.search;
+				var search_params = new URLSearchParams(query_string);
+				search_params.set("page", pageno);
+				url.search = search_params.toString();
+				var new_url = url.toString();
+				window.location.replace(new_url);
+			}
+			function setProperty() {
+				var property = document.getElementById("property").value;
+				var currURL = document.URL;
+				var url = new URL(currURL);
+				var query_string = url.search;
+				var search_params = new URLSearchParams(query_string);
+				search_params.set("prop", property);
+				url.search = search_params.toString();
+				var new_url = url.toString();
+				window.location.replace(new_url);
+			}
+			function setDirection() {
+				var direction = document.getElementById("direction").value;
+				var currURL = document.URL;
+				var url = new URL(currURL);
+				var query_string = url.search;
+				var search_params = new URLSearchParams(query_string);
+				search_params.set("dir", direction);
+				url.search = search_params.toString();
+				var new_url = url.toString();
+				window.location.replace(new_url);
+			}
+		</script>

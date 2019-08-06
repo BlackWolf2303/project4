@@ -22,7 +22,10 @@
 			</tr>
 		</thead>
 		<tbody>
+			<c:set var="total" value="0"></c:set>
 			<c:forEach var="orderDetail" items="${orderDetails }">
+				<c:set var="total"
+					value="${total + orderDetail.product.price * orderDetail.quantity }"></c:set>
 				<tr>
 					<td>${orderDetail.product.name }</td>
 					<td>${orderDetail.option1}</td>
@@ -36,7 +39,7 @@
 		<tfoot>
 			<tr>
 				<td colspan="5">Sum</td>
-				<td>Pending "Hoi Thay"...</td>
+				<td>${total}</td>
 			</tr>
 		</tfoot>
 	</table>

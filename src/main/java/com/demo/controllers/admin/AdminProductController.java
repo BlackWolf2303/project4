@@ -52,10 +52,6 @@ public class AdminProductController {
 	@Autowired
 	private ProductService productService;
 	@Autowired
-	private ColorService colorService;
-	@Autowired
-	private SizeService sizeService;
-	@Autowired
 	private StorageService storageService;
 	@Autowired
 	private TypeTemplateService typeTemplateService;
@@ -144,6 +140,7 @@ public class AdminProductController {
 		ProductModel productModel = new ProductModel();
 		productModel.setId(product.getId());
 		productModel.setName(product.getName());
+		productModel.setActive(product.isActive());
 		productModel.setPrice(String.valueOf(product.getPrice()));
 		productModel.setQuantity(String.valueOf(product.getQuantity()));
 		productModel.setTypeTemplate1(product.getTypeTemplate1());
@@ -194,7 +191,7 @@ public class AdminProductController {
 			} 
 			storageService.store(product.getFile(), "picture", product.getId());
 			productService.save(pro);
-			return "redirect:/admin/product/edit/"+product.getId();
+			return "redirect:/admin/product/";
 		}
 	}
 

@@ -45,6 +45,7 @@
 									<th>Type Template 2</th>
 									<th>Quantity</th>
 									<th>Price</th>
+									<th>Active</th>
 									<th>Action</th>
 								</tr>
 								<c:forEach items="${pagedListHolder.pageList}" var="product">
@@ -59,6 +60,7 @@
 										<td>${product.typeTemplate2.name }</td>
 										<td>${product.quantity }</td>
 										<td>${product.price }</td>
+										<td>${product.active }</td>
 										<td><a href="product/edit/${product.id }">Edit</a> <a
 											href="product/delete/${product.id }">Delete</a></td>
 

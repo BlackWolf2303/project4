@@ -243,3 +243,26 @@ display:flex;
   }
 }
 
+/* categories page */
+.categories-page {
+  .item-product {
+    .quickview-link {
+      display: none;
+    }
+    .product-extra-link {
+      display: none;
+    }
+    .thumb-carousel {
+      &-product {
+        display: none;
+      }
+    }
+    .product-thumb {
+      height: 29rem;
+    }
+    img {
+      object-fit: cover;
+      height: 100%;
+    }
+  }
+}
