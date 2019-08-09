@@ -51,19 +51,19 @@
 								</tr>
 								<c:forEach items="${pagedListHolder.pageList}" var="product">
 									<tr>
-										<td><a href="product/edit/${product.id }"> <img
+										<td><a href="/admin/product/edit/${product.id }"> <img
 												src="http://localhost:9596/file/image/picture0${product.id}.jpg"
 												width="50px">
 										</a></td>
-										<td><a href="product/edit/${product.id }">
+										<td><a href="/admin/product/edit/${product.id }">
 												${product.name } </a></td>
 										<td>${product.typeTemplate1.name }</td>
 										<td>${product.typeTemplate2.name }</td>
 										<td>${product.quantity }</td>
 										<td>${product.price }</td>
 										<td>${product.active }</td>
-										<td><a href="product/edit/${product.id }">Edit</a> <a
-											href="product/delete/${product.id }">Delete</a></td>
+										<td><a href="/admin/product/edit/${product.id }">Edit</a> <a
+											href="/admin/product/delete/${product.id }">Delete</a></td>
 
 									</tr>
 								</c:forEach>

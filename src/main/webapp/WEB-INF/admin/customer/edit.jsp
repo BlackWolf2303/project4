@@ -24,16 +24,13 @@
 							<div class="form-group row">
 								<label class="col-sm-2 form-control-label">Avatar:</label>
 								<div class="col-sm-6">
-									<s:input path="file" type='file' id="imgInp" /> 
-									<img id="blah" src="http://localhost:9596/file/image/defaultAva.jpg" width=50 alt="No Image"/>
-<%-- 									<c:if test="${avatar!='http://localhost:9596/file/image/'}"> --%>
-<%-- 										<img src="${avatar}" width=50 alt="No Image"> --%>
-<%-- 									</c:if> --%>
-<%-- 									<c:if test="${avatar=='http://localhost:9596/file/image/'}"> --%>
-<!-- 										<img src="http://localhost:9596/file/image/defaultAva.jpg" -->
-<!-- 											width=50 alt="No Image"> -->
-<%-- <%-- 									</c:if> --%> 
-<%-- 									<s:input path="file" type="file" /> --%>
+									<s:input path="file" type="file" id="imgInp" />
+									<c:if test="${avatar!='http://localhost:9596/file/image/'}">
+										<img id="blah" src="${avatar}" width=50 alt="No Image"/>
+									</c:if>
+									<c:if test="${avatar=='http://localhost:9596/file/image/'}">
+										<img id="blah" src="http://localhost:9596/file/image/defaultAva.jpg" width=50 alt="No Image"/>
+ 									</c:if> 
 								</div>
 								<div class="col-sm-4">
 									| <a href="/admin/customer/remove/avatar/${id}">Remove</a>
