@@ -14,22 +14,20 @@
 			<div class="col-lg-6">
 				<div class="card">
 					<div class="card-body">
-						<form class="form-horizontal">
-							<s:form modelAttribute="typeTemplate"
-								action="/admin/typetemplate/add" method="post">
-								<div class="form-group">
-									<label>Name</label>
-									<s:input path="name" class="form-control" />
-								</div>
-								<div class="form-group">
-									<label>Caption</label>
-									<s:input path="caption" class="form-control" />
-								</div>
-								<div class="form-group">
-									<button class="btn btn-primary">Add</button>
-								</div>
-							</s:form>
-						</form>
+						<s:form modelAttribute="typeTemplate" class="form-horizontal"
+							action="/admin/typetemplate/add" method="post">
+							<div class="form-group">
+								<label>Name</label>
+								<s:input path="name" class="form-control" />
+							</div>
+							<div class="form-group">
+								<label>Caption</label>
+								<s:input path="caption" class="form-control" />
+							</div>
+							<div class="form-group">
+								<button class="btn btn-primary">Add</button>
+							</div>
+						</s:form>
 					</div>
 				</div>
 			</div>
